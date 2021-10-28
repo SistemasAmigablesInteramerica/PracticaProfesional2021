@@ -19,8 +19,8 @@ class CreateRolesTable extends Migration
           $table->string('Teacher');
           $table->string('Student');
           $table->timestamps();
-          $table->engine - 'innoDB';
-          
+          $table->engine = 'InnoDB';
+            
 
         });
     
