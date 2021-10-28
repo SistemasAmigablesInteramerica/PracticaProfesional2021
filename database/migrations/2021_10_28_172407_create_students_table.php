@@ -20,7 +20,7 @@ class CreateStudentsTable extends Migration
             $table->string('genre');
             $table->date('date_of_birth');
             $table->integer('age');
-            $table->string('nacionality');
+            $table->string('nationality');
             $table->string('curricular_adequacy');
             $table->boolean('receives_religious_education');
             $table->boolean('receives_sexual_education_and_affection');
