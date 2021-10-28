@@ -17,7 +17,7 @@ class CreatePermissionsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('identification_number');
-            $table->set('roles', ['student', 'teacher']);
+            $table->set('roles', ['student', 'teacher', 'cook']);
             $table->timestamps();
             $table->engine = "InnoDB"
         });
