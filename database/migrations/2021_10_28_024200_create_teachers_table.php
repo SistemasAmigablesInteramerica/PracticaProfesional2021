@@ -25,7 +25,7 @@ class CreateTeachersTable extends Migration
             $table->string('Gender');
             $table->Integer('Contact_number');
             $table->timestamps();
-            $table->engine - 'innoDB';
+            $table->engine = 'InnoDB';
         });
     }
 
