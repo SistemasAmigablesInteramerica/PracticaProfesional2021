@@ -18,6 +18,7 @@ class CreateTeachersTable extends Migration
             $table->id();
             $table->String('Names');
             $table->String('Last_Names');
+            $table->integer('Identification');
             $table->date('Birthdate');
             $table->integer('Age');
             $table->string('Specialty');
