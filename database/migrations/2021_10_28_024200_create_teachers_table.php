@@ -15,7 +15,7 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('_teachers', function (Blueprint $table) {
             
-            $table->id('Cedula');
+            $table->id();
             $table->timestamps();
             $table->String('Nombre');
             $table->String('Primer Apellido');

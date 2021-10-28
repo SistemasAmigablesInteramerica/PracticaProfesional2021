@@ -15,19 +15,22 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('primer nombre');
-            $table->string('primer apellido');
-            $table->string('segundo apellido');
-            $table->string('sexo del estudiante');
-            $table->date('fecha de nacimiento');
-            $table->integer('edad del estudiante');
-            $table->string('nacionalidad');
-            $table->string('adecuacion curricular');
-            $table->boolean('recibe educacion religiosa');
-            $table->boolean('recibe educaciion sexual y afectividad');
-            $table->string('correo electronico');
-            $table->date('fecha de registro');
+            $table->string('name');
+            $table->string('last_name');
+            $table->string('genre');
+            $table->date('date_of_birth');
+            $table->integer('age');
+            $table->string('nacionality');
+            $table->string('curricular adequacy');
+            $table->boolean('receives religious education');
+            $table->boolean('receives sexual education and affection');
+            $table->string('email');
+            $table->date('registration date');
+            $table->string('phone number');
+            $table->string('home phone');
+            $table->boolean('has a dining scholarship');
             $table->timestamps();
+            $table->engine = 'InnoDB';
         });
     }
 
