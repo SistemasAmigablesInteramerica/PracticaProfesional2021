@@ -16,6 +16,7 @@ class CreateTeachersTable extends Migration
         Schema::create('teachers', function (Blueprint $table) {
             
             $table->id();
+<<<<<<< HEAD:database/migrations/2021_10_28_024200_create__teachers_table.php
             $table->String('Names');
             $table->String('Last_Names');
             $table->date('Birthdate');
@@ -24,6 +25,8 @@ class CreateTeachersTable extends Migration
             $table->string('Email');
             $table->string('Gender');
             $table->Integer('Contact_number');
+=======
+>>>>>>> df393686e81962bfda12b713c880361cadad6708:database/migrations/2021_10_28_024200_create_teachers_table.php
             $table->timestamps();
             $table->engine - 'innoDB';
         });
