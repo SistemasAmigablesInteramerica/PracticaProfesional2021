@@ -13,20 +13,19 @@ class CreateTeachersTable extends Migration
      */
     public function up()
     {
-        Schema::create('_teachers', function (Blueprint $table) {
+        Schema::create('teachers', function (Blueprint $table) {
             
-            $table->id('Cedula');
+            $table->id();
+            $table->String('Names');
+            $table->String('Last_Names');
+            $table->date('Birthdate');
+            $table->integer('Age');
+            $table->string('Specialty');
+            $table->string('Email');
+            $table->string('Gender');
+            $table->Integer('Contact_number');
             $table->timestamps();
-            $table->String('Nombre');
-            $table->String('Primer Apellido');
-            $table->string('Segundo Apellido');
-            $table->date('Fecha de Nacimiento');
-            $table->integer('Edad');
-            $table->string('Especialidad');
-            $table->string('Correo Electronico');
-            $table->string('Sexo Del Docente');
-            $table->Integer('Numero De Contacto');
-            
+            $table->engine - 'innoDB';
         });
     }
 
