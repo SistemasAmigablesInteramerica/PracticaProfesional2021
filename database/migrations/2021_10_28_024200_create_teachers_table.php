@@ -18,7 +18,7 @@ class CreateTeachersTable extends Migration
             $table->id();
             $table->String('Names');
             $table->String('Last_Names');
-            $table->integer('Identification')
+            $table->integer('Identification');
             $table->date('Birthdate');
             $table->integer('Age');
             $table->string('Specialty');
@@ -26,7 +26,7 @@ class CreateTeachersTable extends Migration
             $table->string('Gender');
             $table->Integer('Contact_number');
             $table->timestamps();
-            $table->engine - 'innoDB';
+            $table->engine = 'InnoDB';
         });
     }
 
