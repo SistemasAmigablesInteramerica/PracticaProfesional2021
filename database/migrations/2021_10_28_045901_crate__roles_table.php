@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CrateRolesTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CrateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('students', function (Blueprint $table) {
+        Schema::create('Roles', function (Blueprint $table) {
           $table->String('administrator');
           $table->string('Teacher');
           $table->string('Student');
@@ -30,6 +30,6 @@ class CrateRolesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('Roles');
     }
 }
