@@ -14,11 +14,12 @@ class CreateRolesTable extends Migration
     public function up()
     {
         Schema::create('Roles', function (Blueprint $table) {
+          $table->id();
           $table->String('administrator');
           $table->string('Teacher');
           $table->string('Student');
+          $table->timestamps();
           $table->engine - 'innoDB';
-    
         });
     
     }
