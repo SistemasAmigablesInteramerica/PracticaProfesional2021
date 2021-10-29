@@ -14,7 +14,6 @@ class CreateAttendanceHistoryTable extends Migration
     public function up()
     {
         Schema::create('attendance_history', function (Blueprint $table) {
-            $table->id();
             $table->dateTime('date');
             $table->integer('student_id');
             $table->integer('subject_id');
@@ -26,7 +25,6 @@ class CreateAttendanceHistoryTable extends Migration
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('teacher_id')->references('identification')->on('teachers');
             $table->foreign('subject_id')->references('subject_id')->on('subjects');
-
         });
     }
 
