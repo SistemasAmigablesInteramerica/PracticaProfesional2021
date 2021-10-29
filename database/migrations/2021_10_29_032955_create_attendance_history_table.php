@@ -17,15 +17,15 @@ class CreateAttendanceHistoryTable extends Migration
             $table->id();
             $table->dateTime('date');
             $table->integer('student_id');
-            $table->string('grado_materia_maestro');
+            $table->string('grade_subject_teacher');
             $table->integer('teacher_id');
             $table->boolean('attended');
             $table->timestamps();
             $table->engine = 'InnoDB';
 
             $table->foreign('student_id')->references('id')->on('students');
-            $table->foreign('teacher_id')->references('identification')->on('teachers');
-            $table->foreign('subject_id')->references('subject_id')->on('subjects');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
+            $table->foreign('grade_subject_teacher')->references('id')->on('subjects');
         });
     }
 
