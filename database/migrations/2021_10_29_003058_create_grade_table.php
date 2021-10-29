@@ -21,7 +21,7 @@ class CreateGradeTable extends Migration
             $table->timestamps();
             $table->engine = 'InnoDB';
 
-
+            
         });
     }
 
