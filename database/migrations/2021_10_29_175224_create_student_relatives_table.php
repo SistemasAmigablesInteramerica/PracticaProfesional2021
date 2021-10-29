@@ -27,7 +27,7 @@ class CreateStudentRelativesTable extends Migration
             $table->timestamps();
             $table->engine = 'InnoDB';
 
-            $table->foreign('student_id')->references('student_id')->on('students');
+            $table->foreign('student_id')->references('id')->on('students');
         });
     }
 

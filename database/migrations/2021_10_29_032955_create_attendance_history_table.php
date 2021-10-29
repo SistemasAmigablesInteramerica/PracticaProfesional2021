@@ -17,7 +17,7 @@ class CreateAttendanceHistoryTable extends Migration
             $table->id();
             $table->dateTime('date');
             $table->integer('student_id');
-            $table->string('grade_subject_teacher');
+            $table->string('subject_teacher');
             $table->integer('teacher_id');
             $table->boolean('attended');
             $table->timestamps();
@@ -25,7 +25,7 @@ class CreateAttendanceHistoryTable extends Migration
 
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->foreign('grade_subject_teacher')->references('id')->on('grade_subject_teacher');
+            $table->foreign('subject_teacher')->references('id')->on('subject_teacher');
         });
     }
 
