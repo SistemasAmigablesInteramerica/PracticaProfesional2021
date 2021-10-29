@@ -16,9 +16,9 @@ class CreateAttendanceHistoryTable extends Migration
         Schema::create('attendance_history', function (Blueprint $table) {
             $table->id();
             $table->dateTime('date');
-            $table->biginteger('student_id')->unsigned();
+            $table->bigInteger('student_id')->unsigned();
             $table->bigInteger('grade_subject_teacher_id')->nullable()->unsigned();
-            $table->biginteger('teacher_id')->nullable()->unsigned();
+            $table->bigInteger('teacher_id')->nullable()->unsigned();
             $table->boolean('attended');
             $table->timestamps();
             $table->engine = 'InnoDB';

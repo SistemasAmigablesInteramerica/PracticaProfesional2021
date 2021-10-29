@@ -15,15 +15,15 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->String('names');
-            $table->String('last_names');
+            $table->string('names');
+            $table->string('last_names');
             $table->integer('identification');
             $table->date('birthdate');
             $table->integer('age');
             $table->string('specialty');
             $table->string('email');
             $table->string('gender');
-            $table->Integer('contact_number');
+            $table->integer('contact_number');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

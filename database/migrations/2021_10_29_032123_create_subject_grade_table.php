@@ -15,8 +15,8 @@ class CreateSubjectGradeTable extends Migration
     {
         Schema::create('subject_grade', function (Blueprint $table) {
             $table->id();
-            $table->integer('grade_id');
-            $table->integer('subject_id');
+            $table->bigInteger('grade_id');
+            $table->bigInteger('subject_id');
             $table->timestamps();
             $table->engine = 'InnoDB';
 
