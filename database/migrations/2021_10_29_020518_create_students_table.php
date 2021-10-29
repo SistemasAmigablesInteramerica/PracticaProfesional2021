@@ -19,6 +19,9 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->integer('grade');
             $table->string('nationality');
+            $table->integer('total_family_group');
+            $table->decimal('total_per_capita');
+            $table->boolean('Clasification');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
