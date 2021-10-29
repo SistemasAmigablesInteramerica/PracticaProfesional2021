@@ -17,7 +17,7 @@ class CreateAttendanceHistoryTable extends Migration
             $table->id();
             $table->dateTime('date');
             $table->dateTime('check_in');
-            $table->dateTiem('chek_out');
+            $table->dateTime('chek_out');
             $table->bigInteger('student_id')->unsigned();
             $table->bigInteger('grade_subject_teacher_id')->nullable()->unsigned();
             $table->bigInteger('teacher_id')->nullable()->unsigned();
