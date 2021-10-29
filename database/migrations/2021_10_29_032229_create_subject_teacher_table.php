@@ -14,15 +14,15 @@ class CreateSubjectTeacherTable extends Migration
     public function up()
     {
         Schema::create('subject_teacher', function (Blueprint $table) {
-            $table->integer('grade');
-            $table->string('subjects');
+            $table->id();
+            $table->integer('subject_grade');
             $table->string('teacher_id');
             $table->timestamps();
             $table->engine = 'innoDB';
 
-            $table->foreign('grade')->references('name')->on('grades');
-            $table->foreign('subjects')->references('subject_id')->on('subjects');
-            $table->foreign('teacher_id')->references('identification')->on('teachers');
+
+            $table->foreign('subject_grade')->references('id')->on('subject_grade');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
         });
     }
 

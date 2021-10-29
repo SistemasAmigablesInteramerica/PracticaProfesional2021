@@ -25,7 +25,7 @@ class CreateAttendanceHistoryTable extends Migration
 
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->foreign('grade_subject_teacher')->references('id')->on('subjects');
+            $table->foreign('grade_subject_teacher')->references('id')->on('grade_subject_teacher');
         });
     }
 
