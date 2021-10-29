@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGradeTable extends Migration
+class CreateSubjectGradeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateGradeTable extends Migration
      */
     public function up()
     {
-        Schema::create('grade', function (Blueprint $table) {
-            $table->id();
-            $table->id('grade_id');
-            $table->integer('grade');
-            $table->integer('section');
+        Schema::create('subject_grade', function (Blueprint $table) {
+            $table->integer('grade_id');
+            $table->integer('subject_id');
             $table->timestamps();
             $table->engine = 'InnoDB';
 
-            
+            $table->foreign('grade_id')->references('grade_id')->on('grade');
+            $table->foreign('subject_id')->references('subject_id')->on('subjects');
         });
     }
 
@@ -32,6 +31,6 @@ class CreateGradeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grade');
+        Schema::dropIfExists('subject_grade');
     }
 }

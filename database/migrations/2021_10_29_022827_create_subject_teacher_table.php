@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGradeSubjectTeacherTable extends Migration
+class CreateSubjectTeacherTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class CreateGradeSubjectTeacherTable extends Migration
      */
     public function up()
     {
-        Schema::create('grade_subject_teacher', function (Blueprint $table) {
-            $table->id();
+        Schema::create('subject_teacher', function (Blueprint $table) {
             $table->integer('grade');
             $table->string('subjects');
             $table->string('teacher_id');
@@ -24,8 +23,6 @@ class CreateGradeSubjectTeacherTable extends Migration
             $table->foreign('grade')->references('grade_id')->on('grade');
             $table->foreign('subjects')->references('subject_id')->on('subjects');
             $table->foreign('teacher_id')->references('identification')->on('teachers');
-
-        
         });
     }
 
@@ -36,6 +33,6 @@ class CreateGradeSubjectTeacherTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grade_subject_teacher');
+        Schema::dropIfExists('subject_teacher');
     }
 }

@@ -23,9 +23,9 @@ class CreateAttendanceHistoryTable extends Migration
             $table->timestamps();
             $table->engine = 'InnoDB';
 
-            $tables->foreign('student_id')->references('id')->on('students');
-            $tables->foreign('teacher_id')->references('identification')->on('teachers');
-            $tables->foreign('subject_id')->references('subject_id')->on('subjects');
+            $table->foreign('student_id')->references('id')->on('students');
+            $table->foreign('teacher_id')->references('identification')->on('teachers');
+            $table->foreign('subject_id')->references('subject_id')->on('subjects');
 
         });
     }
