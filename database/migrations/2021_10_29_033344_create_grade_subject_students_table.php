@@ -16,7 +16,7 @@ class CreateGradeSubjectStudentsTable extends Migration
         Schema::create('grade_subject_students', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('subject_grade_id')->unsigned();
-            $table->integer('student_id')->unsigned();
+            $table->bigInteger('student_id')->unsigned();
             $table->timestamps();
             $table->engine = 'InnoDB';
 
