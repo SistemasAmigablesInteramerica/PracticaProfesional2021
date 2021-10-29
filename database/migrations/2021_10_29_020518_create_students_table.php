@@ -25,7 +25,6 @@ class CreateStudentsTable extends Migration
             $table->string('place_residence');
             $table->string('phone_number');
             $table->set('socioeconomic_status', ['extreme_poverty', 'poverty', 'vulnerability', 'not_poor']);
-            $table->integer('total_family_group');
             $table->integer('family_member_total');
             $table->decimal('total_per_capita');
             $table->boolean('clasification');
