@@ -17,8 +17,8 @@ class CreateAttendanceHistoryTable extends Migration
             $table->id();
             $table->dateTime('date');
             $table->integer('student_id');
-            $table->string('grade_subject_teacher');
-            $table->integer('teacher_id');
+            $table->string('grade_subject_teacher')->nullable();
+            $table->integer('teacher_id')->nullable();
             $table->boolean('attended');
             $table->timestamps();
             $table->engine = 'InnoDB';
