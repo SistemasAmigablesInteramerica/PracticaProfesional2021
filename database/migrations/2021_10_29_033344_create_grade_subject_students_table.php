@@ -17,6 +17,7 @@ class CreateGradeSubjectStudentsTable extends Migration
             $table->id();
             $table->bigInteger('subject_grade_id')->unsigned();
             $table->integer('student_id')->unsigned();
+            $table->year('year');
             $table->timestamps();
             $table->engine = 'InnoDB';
 
