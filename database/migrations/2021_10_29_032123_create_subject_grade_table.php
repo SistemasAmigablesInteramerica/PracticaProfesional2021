@@ -14,12 +14,13 @@ class CreateSubjectGradeTable extends Migration
     public function up()
     {
         Schema::create('subject_grade', function (Blueprint $table) {
+            $table->id();
             $table->integer('grade_id');
             $table->integer('subject_id');
             $table->timestamps();
             $table->engine = 'InnoDB';
 
-            $table->foreign('grade_id')->references('grade_id')->on('grades');
+            $table->foreign('grade_id')->references('name')->on('grades');
             $table->foreign('subject_id')->references('subject_id')->on('subjects');
         });
     }
