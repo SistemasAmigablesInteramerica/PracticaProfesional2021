@@ -22,6 +22,7 @@ class CreateStudentRelativesTable extends Migration
             $table->string('guardian_relation');
             $table->boolean('guardian_receives_aid');
             $table->decimal('guardian_aid_total');
+            $table->string('scholarship');
             $table->decimal('guardian_salary');
             $table->timestamps();
             $table->engine = 'InnoDB';
