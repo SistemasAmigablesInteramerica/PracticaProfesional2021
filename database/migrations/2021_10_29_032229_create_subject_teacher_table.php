@@ -15,8 +15,8 @@ class CreateSubjectTeacherTable extends Migration
     {
         Schema::create('subject_teacher', function (Blueprint $table) {
             $table->id();
-            $table->integer('subject_grade');
-            $table->string('teacher_id');
+            $table->bigInteger('subject_grade')->unsigned();
+            $table->bigInteger('teacher_id')->unsigned();
             $table->timestamps();
             $table->engine = 'InnoDB';
 

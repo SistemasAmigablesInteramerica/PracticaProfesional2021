@@ -16,16 +16,16 @@ class CreateAttendanceHistoryTable extends Migration
         Schema::create('attendance_history', function (Blueprint $table) {
             $table->id();
             $table->dateTime('date');
-            $table->integer('student_id');
-            $table->string('grade_subject_teacher')->nullable();
-            $table->integer('teacher_id')->nullable();
+            $table->biginteger('student_id')->unsigned();
+            $table->bigInteger('grade_subject_teacher_id')->nullable()->unsigned();
+            $table->biginteger('teacher_id')->nullable()->unsigned();
             $table->boolean('attended');
             $table->timestamps();
             $table->engine = 'InnoDB';
 
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->foreign('subject_teacher')->references('id')->on('subject_teacher');
+            $table->foreign('grade_subject_teacher_id')->references('id')->on('subject_teacher');
         });
     }
 
