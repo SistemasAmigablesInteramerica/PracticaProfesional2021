@@ -12,7 +12,12 @@ class Students extends Model
     use HasFactory;
 }
 
-public function student()
+public function studentRelative()
+{
+    return $this->hasMany(students::class, 'student_id', 'id');
+}
+
+public function attendanceHistorie()
 {
     return $this->hasMany(students::class, 'student_id', 'id');
 }
