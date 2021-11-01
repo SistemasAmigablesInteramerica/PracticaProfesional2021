@@ -14,9 +14,9 @@ class subjectTeachers extends Model
 
 public function subjectGrade()
 {
-    return $this->hasMany(subject_grade::class, 'subject_grade_id', 'id');
+    return $this->belongsTo(subject_grade::class, 'subject_grade_id', 'id');
 }
 public function teacher()
 {
-    return $this->hasMany(teachers::class, 'teacher_id', 'id');
-}
+    return $this->belongsTo(teachers::class, 'teacher_id', 'id');
+} 
