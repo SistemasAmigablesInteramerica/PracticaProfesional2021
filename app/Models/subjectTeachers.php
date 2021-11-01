@@ -12,7 +12,7 @@ class subjectTeachers extends Model
     use HasFactory;
 }
 
-public function subject_grade()
+public function subjectGrade()
 {
     return $this->hasMany(subject_grade::class, 'subject_grade_id', 'id');
 }

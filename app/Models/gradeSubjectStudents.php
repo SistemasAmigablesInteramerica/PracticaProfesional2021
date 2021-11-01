@@ -11,7 +11,7 @@ class gradeSubjectStudents extends Model
     protected $fillable = ['subject_grade_id', 'student_id', 'year'];
     use HasFactory;
 }
-public function subject_grade()
+public function subjectGrade()
 {
     return $this->hasMany(subject_grades::class, 'subject_grade_id', 'id');
 }
