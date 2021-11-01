@@ -16,9 +16,9 @@ class teachers extends Model
 
     public function attendanceHistories()
     {
-        return $this->HasMany(attendanceHistories::class, 'teacher_id', 'id');
+        return $this->hasMany(attendanceHistories::class, 'teacher_id', 'id');
     }
     public function subjectTeachers()
     {
-        return $this->HasMany(subjectTeachers::class, 'teacher_id', 'id');
+        return $this->hasMany(subjectTeachers::class, 'teacher_id', 'id');
     }
