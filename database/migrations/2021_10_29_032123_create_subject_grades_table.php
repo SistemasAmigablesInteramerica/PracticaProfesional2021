@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubjectGradeTable extends Migration
+class CreateSubjectGradesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSubjectGradeTable extends Migration
      */
     public function up()
     {
-        Schema::create('subject_grade', function (Blueprint $table) {
+        Schema::create('subject_grades', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('grade_id')->unsigned();
             $table->bigInteger('subject_id')->unsigned();
@@ -32,6 +32,6 @@ class CreateSubjectGradeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subject_grade');
+        Schema::dropIfExists('subject_grades');
     }
 }

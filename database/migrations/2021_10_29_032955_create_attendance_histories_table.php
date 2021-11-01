@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttendanceHistoryTable extends Migration
+class CreateAttendanceHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAttendanceHistoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendance_history', function (Blueprint $table) {
+        Schema::create('attendance_histories', function (Blueprint $table) {
             $table->id();
             $table->dateTime('date');
             $table->dateTime('check_in');
@@ -27,7 +27,7 @@ class CreateAttendanceHistoryTable extends Migration
 
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->foreign('grade_subject_teacher_id')->references('id')->on('subject_teacher');
+            $table->foreign('grade_subject_teacher_id')->references('id')->on('subject_teachers');
         });
     }
 
@@ -38,6 +38,6 @@ class CreateAttendanceHistoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance_history');
+        Schema::dropIfExists('attendance_histories');
     }
 }
