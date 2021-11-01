@@ -14,5 +14,5 @@ class studentRelatives extends Model
 
 public function students()
 {
-    return $this->hasOne(students::class, 'id', 'student_id');
+    return $this->hasMany(students::class, 'student_id', 'id');
 }

@@ -12,17 +12,17 @@ class attendanceHistories extends Model
     use HasFactory;
 }
 
-public function students()
+public function student()
 {
-    return $this->hasOne(students::class, 'id', 'student_id');
+    return $this->hasMany(students::class, 'student_id', 'id');
 }
 
-public function teachers()
+public function teacher()
 {
-    return $this->hasOne(teachers::class, 'id', 'teacher_id');
+    return $this->hasMany(teachers::class, 'teacher_id', 'id');
 }
 
-public function subject_teachers()
+public function subject_teacher()
 {
-    return $this->hasOne(subject_teachers::class, 'id', 'grade_subject_teacher_id');
+    return $this->hasMany(subject_teachers::class, 'grade_subject_teacher_id', 'id');
 }
