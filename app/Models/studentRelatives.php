@@ -12,7 +12,7 @@ class studentRelatives extends Model
     use HasFactory;
 }
 
-public function students()
+public function student()
 {
     return $this->hasMany(students::class, 'student_id', 'id');
 }
