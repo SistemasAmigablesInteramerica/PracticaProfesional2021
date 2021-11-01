@@ -14,11 +14,11 @@ class Students extends Model
 
 public function studentRelative()
 {
-    return $this->hasMany(students::class, 'student_id', 'id');
+    return $this->hasMany(studentRelative::class, 'student_id', 'id');
 }
 
 public function attendanceHistorie()
 {
-    return $this->hasMany(students::class, 'student_id', 'id');
+    return $this->hasMany(attendanceHistorie::class, 'student_id', 'id');
 }
 
