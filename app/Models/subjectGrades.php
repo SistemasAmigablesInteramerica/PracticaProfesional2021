@@ -12,12 +12,15 @@ class subjectGrades extends Model
     use HasFactory;
 }
 
-public function grades()
-{
-    return $this->hasOne(grades::class, 'id', 'grade_id');
-}
-
-public function subjects()
-{
-    return $this->hasOne(subjects::class, 'id', 'subject_id');
-}
+    public function grades()
+    {
+    return $this->belongsTo(grades::class, 'grade_id', 'id');
+    }
+        public function subject()
+    {   
+    return $this->belongsTo(subjects::class, 'subject_id', 'id');
+    }
+    public function gradeSubjectStudents()
+    {   
+    return $this->HasMany(gradeSubjectStudents::class, 'subject_grade_id', 'id');
+    }

@@ -13,3 +13,12 @@ class teachers extends Model
 
     use HasFactory;
 }
+
+    public function attendanceHistories()
+    {
+        return $this->HasMany(attendanceHistories::class, 'teacher_id', 'id');
+    }
+    public function subjectTeachers()
+    {
+        return $this->HasMany(subjectTeachers::class, 'teacher_id', 'id');
+    }
