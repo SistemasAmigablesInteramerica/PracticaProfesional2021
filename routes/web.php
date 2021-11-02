@@ -21,3 +21,7 @@ Route::get('/meetings', function () {
     return view('meetings');
 });
 
+Route::get('/meetings-details', function () {
+    return view('meetings-details');
+});
+
