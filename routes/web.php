@@ -22,6 +22,6 @@ Route::get('/meetings', function () {
 });
 
 Route::get('/meetings-details', function () {
-    return view('meetings-details');
+    return view('meeting-details');
 });
 
