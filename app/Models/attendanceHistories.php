@@ -5,24 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class attendanceHistories extends Model
+class AttendanceHistories extends Model
 {
     protected $table = 'attendance_histories';
     protected $fillable = ['date', 'check_in', 'check_out', 'student_id', 'grade_subject_teacher_id', 'teacher_id', 'attended']
     use HasFactory;
 }   
 
-public function student()
+public function Student()
 {
-    return $this->hasMany(students::class, 'student_id', 'id');
+    return $this->belongsTo(Students::class, 'student_id', 'id');
 }
 
-public function teacher()
+public function Teacher()
 {
-    return $this->hasMany(teachers::class, 'teacher_id', 'id');
+    return $this->belongsTo(Teachers::class, 'teacher_id', 'id');
 }
 
-public function subject_teacher()
+public function SubjectTeacher()
 {
-    return $this->belongsTo(subject_teachers::class, 'grade_subject_teacher_id', 'id');
+    return $this->belongsTo(SubjectTeachers::class, 'grade_subject_teacher_id', 'id');
 }   
