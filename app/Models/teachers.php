@@ -18,7 +18,7 @@ class Teachers extends Model
     {
         return $this->hasMany(AttendanceHistories::class, 'teacher_id', 'id');
     }
-    public function subjectTeachers()
+    public function SubjectTeachers()
     {
         return $this->hasMany(SubjectTeachers::class, 'teacher_id', 'id');
     }
