@@ -12,17 +12,17 @@ class AttendanceHistories extends Model
     use HasFactory;
 }   
 
-public function student()
+public function Student()
 {
-    return $this->belongsTo(students::class, 'student_id', 'id');
+    return $this->belongsTo(Students::class, 'student_id', 'id');
 }
 
-public function teacher()
+public function Teacher()
 {
-    return $this->belongsTo(teachers::class, 'teacher_id', 'id');
+    return $this->belongsTo(Teachers::class, 'teacher_id', 'id');
 }
 
-public function subject_teacher()
+public function SubjectTeacher()
 {
-    return $this->belongsTo(subject_teachers::class, 'grade_subject_teacher_id', 'id');
+    return $this->belongsTo(SubjectTeachers::class, 'grade_subject_teacher_id', 'id');
 }   
