@@ -63,15 +63,15 @@ https://templatemo.com/tm-569-edu-meeting
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="/index" class="logo">
+                      <a href="/" class="logo">
                           Edu Meeting
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li><a href="/index">Home</a></li>
+                          <li><a href="/">Home</a></li>
                           <li><a href="/meetings" class="active">Meetings</a></li>
-                          <li><a href="/index">Apply Now</a></li>
+                          <li><a href="/">Apply Now</a></li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
@@ -79,8 +79,8 @@ https://templatemo.com/tm-569-edu-meeting
                                   <li><a href="/meetings-details">Meeting Details</a></li>
                               </ul>
                           </li>
-                          <li><a href="/index">Courses</a></li> 
-                          <li><a href="/index">Contact Us</a></li> 
+                          <li><a href="/">Courses</a></li> 
+                          <li><a href="/">Contact Us</a></li> 
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>

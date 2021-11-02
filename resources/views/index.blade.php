@@ -61,7 +61,7 @@ https://templatemo.com/tm-569-edu-meeting
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.html" class="logo">
+                      <a href="/" class="logo">
                           Edu Meeting
                       </a>
                       <!-- ***** Logo End ***** -->
