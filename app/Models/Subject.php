@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subjects extends Model
+class Subject extends Model
 {
     protected $table = 'subjects';
     protected $fillable = ['name'];
 
     use HasFactory;
 }
-    public function SubjectGrades()
+    public function subjectGrade()
     {
-        return $this->hasMany(SubjectGrades::class, 'subject_id', 'id');
+        return $this->hasMany(SubjectGrade::class, 'subject_id', 'id');
     }

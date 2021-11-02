@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Grades extends Model
+class Grade extends Model
 {
     protected $table = 'grades';
     protected $fillable = ['name', 'section'];
@@ -13,7 +13,7 @@ class Grades extends Model
 }
 
 
-public function SubjectGrades()
+public function subjectGrade()
 {
-    return $this->hasMany(SubjectGrades::class, 'grade_id', 'id');  
+    return $this->hasMany(SubjectGrade::class, 'grade_id', 'id');  
 }

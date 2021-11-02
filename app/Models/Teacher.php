@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Teachers extends Model
+class Teacher extends Model
 {
     
     protected $table = 'teachers';
@@ -14,11 +14,11 @@ class Teachers extends Model
     use HasFactory;
 }
 
-    public function AttendanceHistories()
+    public function attendanceHistory()
     {
-        return $this->hasMany(AttendanceHistories::class, 'teacher_id', 'id');
+        return $this->hasMany(AttendanceHistory::class, 'teacher_id', 'id');
     }
-    public function SubjectTeachers()
+    public function subjectTeacher()
     {
-        return $this->hasMany(SubjectTeachers::class, 'teacher_id', 'id');
+        return $this->hasMany(SubjectTeacher::class, 'teacher_id', 'id');
     }

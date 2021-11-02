@@ -5,17 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GradeSubjectStudents extends Model
+class GradeSubjectStudent extends Model
 {
     protected $table = 'grade_subject_students';
     protected $fillable = ['subject_grade_id', 'student_id', 'year'];
     use HasFactory;
 }
-public function SubjectGrade()
+public function subjectGrade()
 {
-    return $this->belongsTo(SubjectGrades::class, 'subject_grade_id', 'id');
+    return $this->belongsTo(SubjectGrade::class, 'subject_grade_id', 'id');
 }
-public function Student()
+public function student()
 {
-    return $this->belongsTo(Students::class, 'student_id', 'id');
+    return $this->belongsTo(Student::class, 'student_id', 'id');
 }
