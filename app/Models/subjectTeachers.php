@@ -16,7 +16,7 @@ public function SubjectGrade()
 {
     return $this->belongsTo(SubjectGrade::class, 'subject_grade_id', 'id');
 }
-public function teacher()
+public function Teacher()
 {
     return $this->belongsTo(Teachers::class, 'teacher_id', 'id'); 
 } 

@@ -16,13 +16,13 @@ class SubjectGrades extends Model
     {
     return $this->belongsTo(Grades::class, 'grade_id', 'id');
     }
-        public function subject()
+        public function Subject()
     {   
     return $this->belongsTo(Subjects::class, 'subject_id', 'id');
     }
-    public function gradeSubjectStudents()
+    public function GradeSubjectStudents()
     {   
-    return $this->belongsTo(gradeSubjectStudents::class, 'subject_grade_id', 'id');  
+    return $this->belongsTo(GradeSubjectStudents::class, 'subject_grade_id', 'id');  
     }
     public function SubjectTeacher()
     {
