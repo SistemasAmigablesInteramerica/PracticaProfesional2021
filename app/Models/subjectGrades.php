@@ -18,7 +18,7 @@ class SubjectGrades extends Model
     }
         public function Subject()
     {   
-    return $this->belongsTo(Subjects::class, 'subject_id', 'id');
+    return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
     public function GradeSubjectStudents()
     {   
