@@ -31,6 +31,7 @@
                   <div class="col-lg-12">
                     <h2>Agregar familiar de estudiante</h2>
                   </div>
+                  <label for=""></label>
                   <div class="col-lg-4">
                     <fieldset>
                       <input name="guardian_name" type="text" id="guardian_name" placeholder="Nombre del familiar">

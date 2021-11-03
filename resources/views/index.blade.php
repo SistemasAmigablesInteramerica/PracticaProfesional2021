@@ -87,10 +87,7 @@ https://templatemo.com/tm-569-edu-meeting
   </header>
   <!-- ***** Main Banner Area Start ***** -->
   <section class="section main-banner" id="top" data-section="section1">
-      <video autoplay muted loop id="bg-video">
-          <source src="/images/course-video.mp4" type="video/mp4" />
-      </video>
-
+          <img src="/images/Prueba.jpg" />
       <div class="video-overlay header-text">
           <div class="container">
             <div class="row">

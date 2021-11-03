@@ -60,8 +60,8 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <label for="Materia"></label>
-                      <input name="specialty" type="text" id="specialty" placeholder="Materia" pattern="" required="">
+                      <label for="Especialidad"></label>
+                      <input name="specialty" type="text" id="specialty" placeholder="Especialidad" pattern="" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
@@ -84,6 +84,11 @@
                     <fieldset>
                         <label for="contact_number">Correro electronico:</label>
                          <input type="tel" id="contact_number" name="contact_number" placeholder="7777-7777">  
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="button">Enviar</button>
                     </fieldset>
                   </div>
                 </div>
