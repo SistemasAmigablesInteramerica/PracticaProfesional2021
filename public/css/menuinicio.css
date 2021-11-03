@@ -1362,7 +1362,7 @@ section.contact-us #contact input {
   color: #7a7a7a;
   padding: 0px 15px;
   margin-bottom: 30px;
-  
+  vertical-align: middle;
 }
 
 section.contact-us #contact textarea {

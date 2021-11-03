@@ -31,9 +31,9 @@
                   <div class="col-lg-12">
                     <h2>Agregar familiar de estudiante</h2>
                   </div>
-                  <label for=""></label>
                   <div class="col-lg-4">
                     <fieldset>
+                    <label for=""></label>
                       <input name="guardian_name" type="text" id="guardian_name" placeholder="Nombre del familiar">
                     </fieldset>
                   </div>
@@ -45,20 +45,22 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
+                    <label for=""></label>
                       <input name="guaridan_profession" type="text" id="guaridan_profession" placeholder="Profesión del familiar">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
+                      <label for=""></label>
                       <input name="guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
                     </fieldset>
                   </div>  
                   <div class="col-lg-4">
-                    <label for="guardian_receives_aid">Recibe ayuda financiera:</label>
-                    <input type="checkbox" id="guardian_receives_aid" name="guardian_receives_aid">
+                  <label><input name="guardian_recieves_aid" type="checkbox" id="guardian_recieves_aid" value="first_checkbox">Recibe ayuda financiera</label>
                   </div>  
                   <div class="col-lg-4">
                   <fieldset>
+                    <br>
                     <label for="guardian_aid_total">Monto de ayuda financiera:</label>
                     <input name="guardian_aid_total" type="number" id="guardian_aid_total"  placeholder="Monto de ayuda financiera" min="1">
                   </fieldset>

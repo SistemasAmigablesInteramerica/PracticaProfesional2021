@@ -89,7 +89,7 @@ https://templatemo.com/tm-569-edu-meeting
   <section class="section main-banner" id="top" data-section="section1">
           <img src="/images/Prueba.jpg" />
       <div class="video-overlay header-text">
-          <div class="container">
+          <!-- <div class="container">
             <div class="row">
               <div class="col-lg-12">
                 <div class="caption">
@@ -103,7 +103,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
           </div>
-      </div>
+      </div> -->
   </section>
   <!-- ***** Main Banner Area End ***** -->
 
