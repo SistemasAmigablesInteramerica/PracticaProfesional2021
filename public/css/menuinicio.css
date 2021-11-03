@@ -1327,10 +1327,11 @@ contact us
 section.contact-us {
   background-image: url(../images/meetings-bg.jpg);
   background-position: center center;
-  background-attachment: fixed;
+  background-attachment: relative ;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 140px 0px 0px 0px;
+  
 }
 
 section.contact-us #contact {
@@ -1362,6 +1363,7 @@ section.contact-us #contact input {
   color: #7a7a7a;
   padding: 0px 15px;
   margin-bottom: 30px;
+  
 }
 
 section.contact-us #contact textarea {
@@ -1378,6 +1380,7 @@ section.contact-us #contact textarea {
   color: #7a7a7a;
   padding: 15px;
   margin-bottom: 30px;
+ 
 }
 
 section.contact-us #contact button {

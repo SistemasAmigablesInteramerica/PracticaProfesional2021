@@ -17,7 +17,7 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="/css/fontawesome.css">
-    <link rel="stylesheet" href="/css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="/css/menuinicio.css">
     <link rel="stylesheet" href="/css/owl.css">
     <link rel="stylesheet" href="/css/lightbox.css">
 <!--

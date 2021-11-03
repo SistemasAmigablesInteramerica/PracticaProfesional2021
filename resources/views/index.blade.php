@@ -19,7 +19,7 @@
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="/css/fontawesome.css">
-    <link rel="stylesheet" href="/css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="/css/menuinicio.css">
     <link rel="stylesheet" href="/css/owl.css">
     <link rel="stylesheet" href="/css/lightbox.css">
 <!--
@@ -34,7 +34,7 @@ https://templatemo.com/tm-569-edu-meeting
 <body>
 
   <!-- Sub Header -->
-  <div class="sub-header">
+  <!-- <div class="sub-header">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-sm-8">
@@ -54,7 +54,7 @@ https://templatemo.com/tm-569-edu-meeting
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">

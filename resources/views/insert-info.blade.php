@@ -12,7 +12,7 @@
 
 <!-- Additional CSS Files -->
 <link rel="stylesheet" href="/css/fontawesome.css">
-<link rel="stylesheet" href="/css/templatemo-edu-meeting.css">
+<link rel="stylesheet" href="/css/menuinicio.css">
 <link rel="stylesheet" href="/css/owl.css">
 <link rel="stylesheet" href="/css/lightbox.css">
 
@@ -22,7 +22,7 @@
 <section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 align-self-center">
+        <div class="col-lg-9 align-center">
           <div class="row">
             <div class="col-lg-12">
               <form id="contact" action="" method="post">
