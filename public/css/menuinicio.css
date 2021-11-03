@@ -1499,7 +1499,9 @@ section.meetings-page {
   padding-top: 140px;
   padding-bottom: 0px;
 }
-
+div{
+  justify-content: center;
+}
 section.meetings-page .filters {
   text-align: center;
   margin-bottom: 60px;
