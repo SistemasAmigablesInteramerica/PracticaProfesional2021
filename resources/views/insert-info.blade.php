@@ -20,6 +20,7 @@
 </head>
 <body>
 <section class="contact-us" id="contact">
+<section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
         <div class="col-lg-9 align-self-center">
@@ -28,7 +29,7 @@
               <form id="contact" action="" method="post">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Ingrese la información requerida: </h2>
+                    <h2>Let's get in touch</h2>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
@@ -59,7 +60,13 @@
               </form>
             </div>
           </div>
+        </div>
       </div>
     </div>
+    <div class="footer">
+      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
+          <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
+    </div>
+  </section>
 </body>
 </html>
