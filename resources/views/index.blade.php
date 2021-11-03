@@ -30,7 +30,8 @@ https://templatemo.com/tm-569-edu-meeting
   </head>
 
 <body>
-  <!-- ***** Header Area Start ***** -->
+
+  <!-- ***** Header Area End ***** -->
   <header class="header-area header-sticky">
       <div class="container">
           <div class="row">
@@ -43,20 +44,18 @@ https://templatemo.com/tm-569-edu-meeting
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                          <li><a href="/meetings">Meetings</a></li>
-                          <li><a href="/insert-info">Comedor Estudiantes</a></li>
                           <li class="has-sub">  
-                              <a href="javascript:void(0)">Pages</a>
+                              <a href="javascript:void(0)">Expediente estudiantes</a>
                               <ul class="sub-menu">
-                                  <li><a href="/meetings">Upcoming Meetings</a></li>
-                                  <li><a href="/meeting-details">Meeting Details</a></li>
+                                  <li><a href="/insert-info">Agregar estudiante</a></li>
+                                  <li><a href="/view-info">Ver expedientes</a></li>
                               </ul>
                           </li>
+                          <li><a href="/meetings">Meetings</a></li>
                           <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
                           <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                       </ul>        
-                      <a class='menu-trigger'>
+                      <a class="menu-trigger">
                           <span>Menu</span>
                       </a>
                       <!-- ***** Menu End ***** -->
@@ -65,8 +64,6 @@ https://templatemo.com/tm-569-edu-meeting
           </div>
       </div>
   </header>
-  <!-- ***** Header Area End ***** -->
-
   <!-- ***** Main Banner Area Start ***** -->
   <section class="section main-banner" id="top" data-section="section1">
       <video autoplay muted loop id="bg-video">
