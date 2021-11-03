@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('nationality');
-            $table->integer('grade');
+            $table->integer('card');
             $table->decimal('salarial_constance');
             $table->string('legal_guardian_name');
             $table->integer('legal_guardian_id');
