@@ -25,8 +25,8 @@ Route::get('/meetings-details', function () {
     return view('meeting-details');
 });
 
-Route::get('/insert-info', function () {
-    return view('insert-info');
+Route::get('/insert-studentsinfo', function () {
+    return view('insert-studentsinfo');
 });
 
 Route::get('/insert-teacherinfo', function () {
@@ -39,4 +39,8 @@ Route::get('/insert-gradeinfo', function () {
 
 Route::get('/insert-subjectinfo', function () {
     return view('insert-subjectinfo');
+});
+
+Route::get('/insert-studentrelativesinfo', function () {
+    return view('insert-studentrelativesinfo');
 });

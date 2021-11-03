@@ -47,8 +47,10 @@ https://templatemo.com/tm-569-edu-meeting
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Expediente estudiantes</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-info">Agregar estudiante</a></li>
-                                  <li><a href="/view-studentinfo">Ver expedientes</a></li>
+                                  <li><a href="/insert-studentsinfo">Agregar estudiante</a></li>
+                                  <li><a href="/view-studentsinfo">Ver expedientes</a></li>
+                                  <li><a href="/insert-studentrelativesinfo">Agregar Familiares</a></li>
+                                  <li><a href="/view-studentrelativesinfo">Ver Familiares</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  

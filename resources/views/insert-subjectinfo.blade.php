@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu de Informacion</title>
-    
+    <title>Agregar materias</title>
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -29,21 +29,16 @@
               <form id="contact" action="" method="post" style = "border-radius:20px">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Agregar nueva sección</h2>
+                    <h2>Agregar Materias</h2>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input name="name" type="text" id="name" placeholder="Grado" required="">
+                      <input name="name" type="text" id="name" placeholder="Materias" required="">
                     </fieldset>
                   </div>
-                  <div class="col-lg-6">
-                  <fieldset>
-                    <input name="section" type="number" id="section"  placeholder="Sección" min="1">
-                  </fieldset>
-                </div>
                 <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" class="button">Enviar</button>
+                      <button type="submit" id="form-submit" class="button">Agregar</button>
                     </fieldset>
                   </div>
               </form>

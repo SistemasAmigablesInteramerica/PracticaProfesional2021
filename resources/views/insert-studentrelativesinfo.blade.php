@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insertar información	de familiares</title>
+    <title>Informacion familiar</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
               <form id="contact" action="" method="post" style = "border-radius:20px">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Agregar famailiar de estudiante</h2>
+                    <h2>Agregar familiar de estudiante</h2>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
