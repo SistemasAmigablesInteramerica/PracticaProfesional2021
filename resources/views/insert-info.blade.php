@@ -29,31 +29,43 @@
               <form id="contact" action="" method="post">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Let's get in touch</h2>
+                    <h2>Expediente Del Beneficiario Del Comedor Estudiantil</h2>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="name" type="text" id="name" placeholder="YOURNAME...*" required="">
+                      <input name="name" type="text" id="name" placeholder="Nombre Completo Del Estudiante" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="YOUR EMAIL..." required="">
+                    <input name="nationality" type="text" id="nacionalidad"  placeholder="Nacionalidad" required="">
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="subject" type="text" id="subject" placeholder="SUBJECT...*" required="">
+                      <input name="card" type="number" id="No.Cedula" placeholder="No.Cédula" pattern="" required="">
                     </fieldset>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-5">
                     <fieldset>
-                      <textarea name="message" type="text" class="form-control" id="message" placeholder="YOUR MESSAGE..." required=""></textarea>
+                    <label for="Birthdate">Fecha de Nacimiento:</label>
+                   <input name="birthdate" type="date" id="Fecha de Nacimiento" placeholder="Fecha de Nacimiento" min="2000-01-01">  
+                  </fieldset>
+                  </div>
+                  <fieldset>
+                  <div class="col-lg-5">
+                      <input name="legal_guardian_name" type="text" id="Nombre Del Encargado Legal" placeholder="Nombre Del Encargado Legal" required="">
                     </fieldset>
                   </div>
+                  <!-- </div>
                   <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" class="button">SEND MESSAGE NOW</button>
+                      <textarea name="message" type="text" class="form-control" id="" placeholder="" required=""></textarea>
+                    </fieldset>
+                  </div> -->
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="button">Enviar</button>
                     </fieldset>
                   </div>
                 </div>

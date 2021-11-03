@@ -1335,7 +1335,7 @@ section.contact-us {
 }
 div {
   justify-content: center;
-
+  margin-top: 60px;
 }
 
 section.contact-us #contact {
@@ -1367,6 +1367,7 @@ section.contact-us #contact input {
   color: #7a7a7a;
   padding: 0px 15px;
   margin-bottom: 30px;
+  
   
 }
 
