@@ -89,6 +89,30 @@
                     <input name="total_per_capita" type="text" id="per capital" placeholder=" ₡ = Per Cápita" required="">
                     </fieldset> 
                   </div>
+                  <div class="col-lg-3">
+                    <fieldset>
+                  <label for="Sr.">Pobreza Extrema</label>
+                    <input type="radio" value="Sr." id="Sr." name="titulo">
+                    </fieldset> 
+                  </div>
+                  <div class="col-lg-3">
+                    <fieldset>
+                  <label for="Sr.">Pobreza</label>
+                    <input type="radio" value="Sr." id="Sr." name="titulo">
+                    </fieldset> 
+                  </div>
+                  <div class="col-lg-3">
+                    <fieldset>
+                  <label for="Sr.">Vulnerabilidad</label>
+                    <input type="radio" value="Sr." id="Sr." name="titulo">
+                    </fieldset> 
+                  </div>
+                  <div class="col-lg-3">
+                    <fieldset>
+                  <label for="Sr.">No Pobre</label>
+                    <input type="radio" value="Sr." id="Sr." name="titulo">
+                    </fieldset> 
+                  </div>
                   <h2>Datos Del Grupo Familiar</h2>
                   <!-- </div>
                   <div class="col-lg-12">
