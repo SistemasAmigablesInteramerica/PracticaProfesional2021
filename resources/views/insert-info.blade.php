@@ -23,7 +23,7 @@
 <section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 align-center">
+        <div class="col-lg-9">
           <div class="row">
             <div class="col-lg-12">
               <form id="contact" action="" method="post">
@@ -46,7 +46,7 @@
                       <input name="card" type="number" id="No.Cedula" placeholder="No.Cédula" pattern="" required="">
                     </fieldset>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-12">
                     <fieldset>
                     <label for="Birthdate">Fecha de Nacimiento:</label>
                    <input name="birthdate" type="date" id="Fecha de Nacimiento" placeholder="Fecha de Nacimiento" min="1995-01-01">  
@@ -54,20 +54,33 @@
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
-                      <input name="legal_guardian_name" type="text" id="Nombre Del Encargado Legal" placeholder="Nombre Del Encargado Legal" required="">
+                  <label for="Birthdate">Nombre del Encargado Legal:</label>
+                      <input name="legal_guardian_name" type="text" id="Nombre Del Encargado Legal" placeholder="Inserte el Nombre" required="">
                     </fieldset>
                   </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                      <label for=""></label>
+                      <input name="card1" type="number" id="No.Cedula" placeholder="No.Cédula" pattern="" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                  <label for="telefono">Telefono Del Domicilio:</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="2777-0000">  
+                    </fieldset>
+                    
                   <!-- </div>
                   <div class="col-lg-12">
                     <fieldset>
                       <textarea name="message" type="text" class="form-control" id="" placeholder="" required=""></textarea>
                     </fieldset>
                   </div> -->
-                  <div class="col-lg-12">
+                  <!-- <div class="col-lg-12">
                     <fieldset>
                       <button type="submit" id="form-submit" class="button">Enviar</button>
                     </fieldset>
-                  </div>
+                  </div> -->
                 </div>
               </form>
             </div>
