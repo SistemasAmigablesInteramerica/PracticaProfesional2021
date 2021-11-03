@@ -26,7 +26,7 @@
         <div class="col-lg-9">
           <div class="row">
             <div class="col-lg-12">
-              <form id="contact" action="" method="post">
+              <form id="contact" action="" method="post" style = "border-radius:20px">
                 <div class="row">
                   <div class="col-lg-12">
                     <h2>Expediente Del Beneficiario Del Comedor Estudiantil</h2>
@@ -69,16 +69,31 @@
                   <label for="telefono">Telefono Del Domicilio:</label>
                     <input type="tel" id="telefono" name="telefono" placeholder="2777-0000">  
                     </fieldset>
-                    
+                    </div>
+                    <div class="col-lg-12">
+                    <fieldset>
+                      <input name="place_residence" type="text" id="Direccion Del Domicilio" placeholder="Direccion Del Domicilio" required="">
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="total_income" type="text" id="total de ingresos" placeholder="₡ Total De Ingresos" required="">
+                    </fieldset> 
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="family_member_total" type="text" id="family_member_total" placeholder="Numero de Miembros Familiares" required="">
+                    </fieldset> 
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="total_per_capita" type="text" id="per capital" placeholder=" ₡ = Per Cápita" required="">
+                    </fieldset> 
+                  </div>
+                  <h2>Datos Del Grupo Familiar</h2>
                   <!-- </div>
                   <div class="col-lg-12">
                     <fieldset>
                       <textarea name="message" type="text" class="form-control" id="" placeholder="" required=""></textarea>
-                    </fieldset>
-                  </div> -->
-                  <!-- <div class="col-lg-12">
-                    <fieldset>
-                      <button type="submit" id="form-submit" class="button">Enviar</button>
                     </fieldset>
                   </div> -->
                 </div>
@@ -88,6 +103,12 @@
         </div>
       </div>
     </div>
+    </div> -->
+                  <!-- <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="button">Enviar</button>
+                    </fieldset>
+                  </div> -->
     <div class="footer">
       <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
