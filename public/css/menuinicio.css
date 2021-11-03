@@ -1331,7 +1331,7 @@ section.contact-us {
   background-attachment: fixed ;
   background-repeat: no-repeat;
   background-size: cover;
-
+  
 }
 div {
   justify-content: center;
@@ -1352,6 +1352,7 @@ section.contact-us #contact h2 {
   padding-bottom: 20px;
   font-size: 22px;
   font-weight: 700;
+
 }
 
 section.contact-us #contact input {
@@ -1367,7 +1368,7 @@ section.contact-us #contact input {
   color: #7a7a7a;
   padding: 0px 15px;
   margin-bottom: 30px;
-  
+  justify-content: left;
   
 }
 
@@ -1385,7 +1386,7 @@ section.contact-us #contact textarea {
   color: #7a7a7a;
   padding: 15px;
   margin-bottom: 30px;
- 
+
 }
 
 section.contact-us #contact button {

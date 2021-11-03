@@ -46,14 +46,14 @@
                       <input name="card" type="number" id="No.Cedula" placeholder="No.Cédula" pattern="" required="">
                     </fieldset>
                   </div>
-                  <div class="col-lg-5">
+                  <div class="col-lg-4">
                     <fieldset>
                     <label for="Birthdate">Fecha de Nacimiento:</label>
-                   <input name="birthdate" type="date" id="Fecha de Nacimiento" placeholder="Fecha de Nacimiento" min="2000-01-01">  
+                   <input name="birthdate" type="date" id="Fecha de Nacimiento" placeholder="Fecha de Nacimiento" min="1995-01-01">  
                   </fieldset>
                   </div>
+                  <div class="col-lg-4">
                   <fieldset>
-                  <div class="col-lg-5">
                       <input name="legal_guardian_name" type="text" id="Nombre Del Encargado Legal" placeholder="Nombre Del Encargado Legal" required="">
                     </fieldset>
                   </div>
