@@ -29,3 +29,7 @@ Route::get('/insert-info', function () {
     return view('insert-info');
 });
 
+Route::get('/insert-teacherinfo', function () {
+    return view('insert-teacherinfo');
+});
+
