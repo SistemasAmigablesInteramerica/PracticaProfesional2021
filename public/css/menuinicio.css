@@ -42,7 +42,6 @@ figure, header, nav, section, article, aside, footer, figcaption {
   padding: 0;
   border: 0;
   outline: 0;
-  
 }
 
 .clearfix:after {
@@ -550,7 +549,7 @@ header
 }
 
 .header-area.header-sticky {
-  min-height: 0px;
+  min-height: 80px;
 }
 
 .header-area .nav {
@@ -1328,14 +1327,10 @@ contact us
 section.contact-us {
   background-image: url(../images/meetings-bg.jpg);
   background-position: center center;
-  background-attachment: fixed ;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-
-}
-div {
-  justify-content: center;
-  margin-top: 60px;
+  padding: 140px 0px 0px 0px;
 }
 
 section.contact-us #contact {
@@ -1367,8 +1362,6 @@ section.contact-us #contact input {
   color: #7a7a7a;
   padding: 0px 15px;
   margin-bottom: 30px;
-  
-  
 }
 
 section.contact-us #contact textarea {
@@ -1385,7 +1378,6 @@ section.contact-us #contact textarea {
   color: #7a7a7a;
   padding: 15px;
   margin-bottom: 30px;
- 
 }
 
 section.contact-us #contact button {
