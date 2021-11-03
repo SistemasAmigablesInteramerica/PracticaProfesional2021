@@ -3,18 +3,16 @@
 
   <head>
 
-  <title>FullPass Students</title>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <title>Education Meeting HTML5 Template</title>
+    <title>Fullpass Students</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
 
     <!-- Additional CSS Files -->
@@ -32,30 +30,6 @@ https://templatemo.com/tm-569-edu-meeting
   </head>
 
 <body>
-
-  <!-- Sub Header -->
-  <!-- <div class="sub-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-sm-8">
-          <div class="left-content">
-            <p>This is an educational <em>HTML CSS</em> template by TemplateMo website.</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-4">
-          <div class="right-icons">
-            <ul>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
       <div class="container">
@@ -64,15 +38,15 @@ https://templatemo.com/tm-569-edu-meeting
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
                       <a href="/" class="logo">
-                          Edu Meeting
+                          Fullpass Students
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
                           <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                           <li><a href="/meetings">Meetings</a></li>
-                          <li class="scroll-to-section"><a href="#apply">Apply Now</a></li>
-                          <li class="has-sub">
+                          <li><a href="/insert-info">Comedor Estudiantes</a></li>
+                          <li class="has-sub">  
                               <a href="javascript:void(0)">Pages</a>
                               <ul class="sub-menu">
                                   <li><a href="/meetings">Upcoming Meetings</a></li>
@@ -126,7 +100,7 @@ https://templatemo.com/tm-569-edu-meeting
           
             <div class="item">
               <div class="icon">
-                <img src="images/service-icon-01.png" alt="">
+                <img src="/images/service-icon-01.png" alt="">
               </div>
               <div class="down-content">
                 <h4>Best Education</h4>
@@ -136,7 +110,7 @@ https://templatemo.com/tm-569-edu-meeting
             
             <div class="item">
               <div class="icon">
-                <img src="images/service-icon-02.png" alt="">
+                <img src="/images/service-icon-02.png" alt="">
               </div>
               <div class="down-content">
                 <h4>Best Teachers</h4>
@@ -146,7 +120,7 @@ https://templatemo.com/tm-569-edu-meeting
             
             <div class="item">
               <div class="icon">
-                <img src="images/service-icon-03.png" alt="">
+                <img src="/images/service-icon-03.png" alt="">
               </div>
               <div class="down-content">
                 <h4>Best Students</h4>
@@ -156,7 +130,7 @@ https://templatemo.com/tm-569-edu-meeting
             
             <div class="item">
               <div class="icon">
-                <img src="images/service-icon-02.png" alt="">
+                <img src="/images/service-icon-02.png" alt="">
               </div>
               <div class="down-content">
                 <h4>Online Meeting</h4>
@@ -166,7 +140,7 @@ https://templatemo.com/tm-569-edu-meeting
             
             <div class="item">
               <div class="icon">
-                <img src="images/service-icon-03.png" alt="">
+                <img src="/images/service-icon-03.png" alt="">
               </div>
               <div class="down-content">
                 <h4>Best Networking</h4>
@@ -211,13 +185,13 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="price">
                     <span>$22.00</span>
                   </div>
-                  <a href="meeting-details.html"><img src="images/meeting-01.jpg" alt="New Lecturer Meeting"></a>
+                  <a href="/meetings-details"><img src="/images/meeting-01.jpg" alt="New Lecturer Meeting"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
                     <h6>Nov <span>10</span></h6>
                   </div>
-                  <a href="meeting-details.html"><h4>New Lecturers Meeting</h4></a>
+                  <a href="/meetings-details"><h4>New Lecturers Meeting</h4></a>
                   <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
                 </div>
               </div>
@@ -228,13 +202,13 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="price">
                     <span>$36.00</span>
                   </div>
-                  <a href="meeting-details.html"><img src="images/meeting-02.jpg" alt="Online Teaching"></a>
+                  <a href="/meetings-details"><img src="/images/meeting-02.jpg" alt="Online Teaching"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
                     <h6>Nov <span>24</span></h6>
                   </div>
-                  <a href="meeting-details.html"><h4>Online Teaching Techniques</h4></a>
+                  <a href="/meetings-details"><h4>Online Teaching Techniques</h4></a>
                   <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
                 </div>
               </div>
@@ -245,13 +219,13 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="price">
                     <span>$14.00</span>
                   </div>
-                  <a href="meeting-details.html"><img src="images/meeting-03.jpg" alt="Higher Education"></a>
+                  <a href="/meetings-details"><img src="/images/meeting-03.jpg" alt="Higher Education"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
                     <h6>Nov <span>26</span></h6>
                   </div>
-                  <a href="meeting-details.html"><h4>Higher Education Conference</h4></a>
+                  <a href="/meetings-details"><h4>Higher Education Conference</h4></a>
                   <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
                 </div>
               </div>
@@ -262,13 +236,13 @@ https://templatemo.com/tm-569-edu-meeting
                   <div class="price">
                     <span>$48.00</span>
                   </div>
-                  <a href="meeting-details.html"><img src="images/meeting-04.jpg" alt="Student Training"></a>
+                  <a href="/meetings-details"><img src="/images/meeting-04.jpg" alt="Student Training"></a>
                 </div>
                 <div class="down-content">
                   <div class="date">
                     <h6>Nov <span>30</span></h6>
                   </div>
-                  <a href="meeting-details.html"><h4>Student Training Meetup</h4></a>
+                  <a href="/meetings-details"><h4>Student Training Meetup</h4></a>
                   <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
                 </div>
               </div>
@@ -378,7 +352,7 @@ https://templatemo.com/tm-569-edu-meeting
         <div class="col-lg-12">
           <div class="owl-courses-item owl-carousel">
             <div class="item">
-              <img src="images/course-01.jpg" alt="Course One">
+              <img src="/images/course-01.jpg" alt="Course One">
               <div class="down-content">
                 <h4>Morbi tincidunt elit vitae justo rhoncus</h4>
                 <div class="info">
@@ -400,7 +374,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-02.jpg" alt="Course Two">
+              <img src="/images/course-02.jpg" alt="Course Two">
               <div class="down-content">
                 <h4>Curabitur molestie dignissim purus vel</h4>
                 <div class="info">
@@ -420,7 +394,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-03.jpg" alt="">
+              <img src="/images/course-03.jpg" alt="">
               <div class="down-content">
                 <h4>Nulla at ipsum a mauris egestas tempor</h4>
                 <div class="info">
@@ -441,7 +415,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-04.jpg" alt="">
+              <img src="/images/course-04.jpg" alt="">
               <div class="down-content">
                 <h4>Aenean molestie quis libero gravida</h4>
                 <div class="info">
@@ -463,7 +437,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-01.jpg" alt="">
+              <img src="/images/course-01.jpg" alt="">
               <div class="down-content">
                 <h4>Lorem ipsum dolor sit amet adipiscing elit</h4>
                 <div class="info">
@@ -485,7 +459,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-02.jpg" alt="">
+              <img src="/images/course-02.jpg" alt="">
               <div class="down-content">
                 <h4>TemplateMo is the best website for Free CSS</h4>
                 <div class="info">
@@ -507,7 +481,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-03.jpg" alt="">
+              <img src="/images/course-03.jpg" alt="">
               <div class="down-content">
                 <h4>Web Design Templates at your finger tips</h4>
                 <div class="info">
@@ -529,7 +503,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-04.jpg" alt="">
+              <img src="/images/course-04.jpg" alt="">
               <div class="down-content">
                 <h4>Please visit our website again</h4>
                 <div class="info">
@@ -551,7 +525,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-01.jpg" alt="">
+              <img src="/images/course-01.jpg" alt="">
               <div class="down-content">
                 <h4>Responsive HTML Templates for you</h4>
                 <div class="info">
@@ -573,7 +547,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-02.jpg" alt="">
+              <img src="/images/course-02.jpg" alt="">
               <div class="down-content">
                 <h4>Download Free CSS Layouts for your business</h4>
                 <div class="info">
@@ -595,7 +569,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-03.jpg" alt="">
+              <img src="/images/course-03.jpg" alt="">
               <div class="down-content">
                 <h4>Morbi in libero blandit lectus cursus</h4>
                 <div class="info">
@@ -617,7 +591,7 @@ https://templatemo.com/tm-569-edu-meeting
               </div>
             </div>
             <div class="item">
-              <img src="images/course-04.jpg" alt="">
+              <img src="/images/course-04.jpg" alt="">
               <div class="down-content">
                 <h4>Curabitur molestie dignissim purus</h4>
                 <div class="info">
@@ -644,7 +618,7 @@ https://templatemo.com/tm-569-edu-meeting
     </div>
   </section>
 
-  <section class="our-facts"> 
+  <section class="our-facts">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
@@ -688,7 +662,7 @@ https://templatemo.com/tm-569-edu-meeting
         </div> 
         <div class="col-lg-6 align-self-center">
           <div class="video">
-            <a href="https://www.youtube.com/watch?v=HndV87XpkWg" target="_blank"><img src="images/play-icon.png" alt=""></a>
+            <a href="https://www.youtube.com/watch?v=HndV87XpkWg" target="_blank"><img src="/images/play-icon.png" alt=""></a>
           </div>
         </div>
       </div>
@@ -769,15 +743,15 @@ https://templatemo.com/tm-569-edu-meeting
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
 
-    <script src="js/isotope.min.js"></script>
-    <script src="js/owl-carousel.js"></script>
-    <script src="js/lightbox.js"></script>
-    <script src="js/tabs.js"></script>
-    <script src="js/video.js"></script>
-    <script src="js/slick-slider.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="/js/isotope.min.js"></script>
+    <script src="/js/owl-carousel.js"></script>
+    <script src="/js/lightbox.js"></script>
+    <script src="/js/tabs.js"></script>
+    <script src="/js/video.js"></script>
+    <script src="/js/slick-slider.js"></script>
+    <script src="/js/custom.js"></script>
     <script>
         //according to loftblog tut
         $('.nav li:first').addClass('active');

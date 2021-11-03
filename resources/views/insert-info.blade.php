@@ -37,7 +37,7 @@
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
-                    <fieldset>
+                  <fieldset>
                     <input name="nationality" type="text" id="nacionalidad"  placeholder="Nacionalidad" required="">
                   </fieldset>
                   </div>
