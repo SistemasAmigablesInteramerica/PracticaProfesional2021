@@ -33,3 +33,7 @@ Route::get('/insert-teacherinfo', function () {
     return view('insert-teacherinfo');
 });
 
+Route::get('/insert-gradeinfo', function () {
+    return view('insert-gradeinfo');
+});
+
