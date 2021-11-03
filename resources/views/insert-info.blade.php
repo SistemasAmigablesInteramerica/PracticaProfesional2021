@@ -73,6 +73,13 @@
                     <div class="col-lg-12">
                     <fieldset>
                       <input name="place_residence" type="text" id="Direccion Del Domicilio" placeholder="Direccion Del Domicilio" required="">
+                      </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                  <label for="archivo">Sube La Constancia Salarial:</label>
+                    <input type="file" id="archivo" name="archivo" accept="image/*,.txt,.doc,.docx,.document,.pdf">
+                    </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
@@ -81,7 +88,7 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                    <input name="family_member_total" type="text" id="family_member_total" placeholder="Numero de Miembros Familiares" required="">
+                    <input name="family_member_total" type="text" id="family_member_total" placeholder="/ Numero de Miembros Familiares =" required="">
                     </fieldset> 
                   </div>
                   <div class="col-lg-4">
@@ -91,29 +98,53 @@
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                  <label for="Sr.">Pobreza Extrema</label>
-                    <input type="radio" value="Sr." id="Sr." name="titulo">
+                  <label for="Pobreza Extrema">Pobreza Extrema</label>
+                    <input type="radio" value="Pobreza Extrema." id="Pobreza Extrema" name="titulo">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                  <label for="Sr.">Pobreza</label>
-                    <input type="radio" value="Sr." id="Sr." name="titulo">
+                  <label for="Pobreza">Pobreza</label>
+                    <input type="radio" value="Pobreza" id="Pobreza" name="titulo">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                  <label for="Sr.">Vulnerabilidad</label>
-                    <input type="radio" value="Sr." id="Sr." name="titulo">
+                  <label for="Vulnerabilidad">Vulnerabilidad</label>
+                    <input type="radio" value="Vulnerabilidad" id="Vulnerabilidad" name="titulo">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                  <label for="Sr.">No Pobre</label>
-                    <input type="radio" value="Sr." id="Sr." name="titulo">
+                  <label for="No Pobre">No Pobre</label>
+                    <input type="radio" value="No Pobre" id="No Pobre" name="titulo">
                     </fieldset> 
                   </div>
                   <h2>Datos Del Grupo Familiar</h2>
+                  <br>
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="financial_assistence" type="text" id="total de ingresos" placeholder="Ayuda Financiera" required="">
+                    </fieldset> 
+                  </div>
+                  
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="voluntary_assistence" type="text" id="Ayuda Voluntaria" placeholder="Ayuda Voluntaria" required="">
+                    </fieldset> 
+                  </div>
+                  
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="rental_income" type="text" id="total de ingresos" placeholder="₡ Total De Ingresos" required="">
+                    </fieldset> 
+                  </div>
+                  
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="others" type="text" id="total de ingresos" placeholder="₡ Total De Ingresos" required="">
+                    </fieldset> 
+                  </div>
                   <!-- </div>
                   <div class="col-lg-12">
                     <fieldset>

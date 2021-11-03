@@ -26,7 +26,7 @@
         <div class="col-lg-9">
           <div class="row">
             <div class="col-lg-12">
-              <form id="contact" action="" method="post">
+              <form id="contact" action="" method="post" style ="border-radius:20px">
                 <div class="row">
                   <div class="col-lg-12">
                     <h2>Información del profesor</h2>
@@ -72,6 +72,7 @@
                    </div>
                    <div class="col-lg-4">
                     <fieldset>
+                      <br>
                         <label for="gender">Genero:</label>
                         <select>
                         <option value="Masculino">Masculino</option>
