@@ -59,6 +59,13 @@ https://templatemo.com/tm-569-edu-meeting
                               </ul>
                           </li>
                           <li class="has-sub">  
+                              <a href="javascript:void(0)">Materias</a>
+                              <ul class="sub-menu">
+                                  <li><a href="/insert-subjectinfo">Agregar Materias</a></li>
+                                  <li><a href="/view-subjectinfo">Ver Materias</a></li>
+                              </ul>
+                          </li>
+                          <li class="has-sub">  
                               <a href="javascript:void(0)">Secciones</a>
                               <ul class="sub-menu">
                                   <li><a href="/insert-gradeinfo">Agregar sección</a></li>
@@ -66,8 +73,6 @@ https://templatemo.com/tm-569-edu-meeting
                               </ul>
                           </li>
                           <li><a href="/meetings">Meetings</a></li>
-                          <li class="scroll-to-section"><a href="#courses">Courses</a></li> 
-                          <li class="scroll-to-section"><a href="#contact">Contact Us</a></li> 
                       </ul>        
                       <a class="menu-trigger">
                           <span>Menu</span>

@@ -77,7 +77,7 @@
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
-                  <label for="archivo">Sube La Constancia Salarial:</label>
+                  <label for="archivo">Subir La Constancia Salarial:</label>
                     <input type="file" id="archivo" name="archivo" accept="image/*,.txt,.doc,.docx,.document,.pdf">
                     </fieldset>
                   </div>
@@ -120,30 +120,37 @@
                     <input type="radio" value="No Pobre" id="No Pobre" name="titulo">
                     </fieldset> 
                   </div>
-                  <h2>Datos Del Grupo Familiar</h2>
-                  <br>
-                  <div class="col-lg-4">
+                  <h2>Otros Ingresos Del Grupo Familiar</h2>
+                  <label for="">Ingrese Los Siguientes datos:</label>
+                  <div class="col-lg-3">
                     <fieldset>
-                    <input name="financial_assistence" type="text" id="total de ingresos" placeholder="Ayuda Financiera" required="">
+                    <input name="financial_assistence" type="text" id="total de ingresos" placeholder="₡ Ayuda Financiera" required="">
                     </fieldset> 
                   </div>
-                  
-                  <div class="col-lg-4">
+                  <div class="col-lg-3">
                     <fieldset>
-                    <input name="voluntary_assistence" type="text" id="Ayuda Voluntaria" placeholder="Ayuda Voluntaria" required="">
+                    <input name="voluntary_assistence" type="text" id="Ayuda Voluntaria" placeholder="₡ Ayuda Voluntaria" required="">
                     </fieldset> 
                   </div>
-                  
-                  <div class="col-lg-4">
+                  <div class="col-lg-3">
                     <fieldset>
-                    <input name="rental_income" type="text" id="total de ingresos" placeholder="₡ Total De Ingresos" required="">
+                    <input name="rental_income" type="text" id="Arquileres" placeholder="₡ Arquileres" required="">
                     </fieldset> 
                   </div>
-                  
-                  <div class="col-lg-4">
+                  <div class="col-lg-3">
                     <fieldset>
-                    <input name="others" type="text" id="total de ingresos" placeholder="₡ Total De Ingresos" required="">
+                    <input name="others" type="text" id="Otros" placeholder="₡ Otros(Especifique)" required="">
                     </fieldset> 
+                  </div>
+                  <div class="col-lg-3">
+                    <fieldset>
+                    <input name="total_income" type="text" id="total de ingresos" placeholder="₡ Ingresos Totales" required="">
+                    </fieldset> 
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="button">Enviar</button>
+                    </fieldset>
                   </div>
                   <!-- </div>
                   <div class="col-lg-12">

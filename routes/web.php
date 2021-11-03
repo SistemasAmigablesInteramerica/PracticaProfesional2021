@@ -37,3 +37,6 @@ Route::get('/insert-gradeinfo', function () {
     return view('insert-gradeinfo');
 });
 
+Route::get('/insert-subjectinfo', function () {
+    return view('insert-subjectinfo');
+});
