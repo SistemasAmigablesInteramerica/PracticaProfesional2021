@@ -44,7 +44,7 @@
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-teacherinfo">Agregar Docentes</a></li>
+                                  <li><a href="/insert-teacherinfo">Agregar docentes</a></li>
                                   <li><a href="/view-teacherinfo">Ver docentes</a></li>
                               </ul>
                           </li>
