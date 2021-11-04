@@ -40,6 +40,8 @@
                               <ul class="sub-menu">
                                   <li><a href="/insert-subjectinfo">Agregar Materias</a></li>
                                   <li><a href="/view-subjectinfo">Ver Materias</a></li>
+                                  <li><a href="/insert-subject-teacherinfo">Asignar docentes</a></li>
+                                  <li><a href="/view-subject-teacherinfo.">Ver asignados</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
@@ -60,6 +62,7 @@
           </div>
       </div>
   </header>
+  
     
 </body>
 </html>

@@ -44,3 +44,6 @@ Route::get('/insert-subjectinfo', function () {
 Route::get('/insert-studentrelativesinfo', function () {
     return view('insert-studentrelativesinfo');
 });
+Route::get('/insert-subject-teacherinfo', function () {
+    return view('insert-subject-teacherinfo');
+});
