@@ -16,7 +16,6 @@
 <link rel="stylesheet" href="/css/owl.css">
 <link rel="stylesheet" href="/css/lightbox.css">
 
-
 </head>
 <body>
 
@@ -38,22 +37,22 @@
                               <ul class="sub-menu">
                                   <li><a href="/insert-studentsinfo">Agregar estudiante</a></li>
                                   <li><a href="/view-studentsinfo">Ver expedientes</a></li>
-                                  <li><a href="/insert-studentrelativesinfo">Agregar Familiares</a></li>
-                                  <li><a href="/view-studentrelativesinfo">Ver Familiares</a></li>
+                                  <li><a href="/insert-studentrelativesinfo">Agregar familiares</a></li>
+                                  <li><a href="/view-studentrelativesinfo">Ver familiares</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
-                              <a href="javascript:void(0)">Expediente Profesores</a>
+                              <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-teacherinfo">Agregar profesores</a></li>
-                                  <li><a href="/view-teacherinfo">Ver profesores</a></li>
+                                  <li><a href="/insert-teacherinfo">Agregar docente</a></li>
+                                  <li><a href="/view-teacherinfo">Ver docente</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Materias</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-subjectinfo">Agregar Materias</a></li>
-                                  <li><a href="/view-subjectinfo">Ver Materias</a></li>
+                                  <li><a href="/insert-subjectinfo">Agregar materias</a></li>
+                                  <li><a href="/view-subjectinfo">Ver materias</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
@@ -74,7 +73,7 @@
           </div>
       </div>
   </header>
-  
+
 <section class="contact-us" id="contact">
 <section class="contact-us" id="contact">
     <div class="container">
@@ -89,12 +88,12 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="names" type="text" id="name" placeholder="Nombre Del Profesor" required="">
+                      <input name="names" type="text" id="name" placeholder="Nombre del docente" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
-                    <input name="last_names" type="text" id="nacionalidad"  placeholder="Apellidos Del Profesor" required="">
+                    <input name="last_names" type="text" id="nacionalidad"  placeholder="Apellidos del docente" required="">
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
@@ -104,7 +103,7 @@
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
-                    <label for="Birthdate">Fecha de Nacimiento:</label>
+                    <label for="Birthdate">Fecha de nacimiento:</label>
                    <input name="birthdate" type="date" id="Fecha de Nacimiento" placeholder="Fecha de Nacimiento" min="1995-01-01">  
                   </fieldset>
                   </div>
@@ -117,7 +116,7 @@
                   <div class="col-lg-4">
                     <fieldset>
                       <label for="Especialidad"></label>
-                      <input name="specialty" type="text" id="specialty" placeholder="Especialidad" pattern="" required="">
+                      <input name="specialty" type="text" id="specialty" placeholder="Especialidad del docente" pattern="" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
