@@ -33,7 +33,7 @@
                       <ul class="nav">
                           <li><a href="/">Menu principal</a></li>
                           <li class="has-sub">  
-                              <a href="javascript:void(0)">Expediente estudiantes</a>
+                              <a href="javascript:void(0)">Expedientes Comedor</a>
                               <ul class="sub-menu">
                                   <li><a href="/insert-studentsinfo">Agregar estudiante</a></li>
                                   <li><a href="/view-studentsinfo">Ver expedientes</a></li>
@@ -53,6 +53,8 @@
                               <ul class="sub-menu">
                                   <li><a href="/insert-subjectinfo">Agregar materias</a></li>
                                   <li><a href="/view-subjectinfo">Ver materias</a></li>
+                                  <li><a href="/insert-subject-teacherinfo">Asignar docentes</a></li>
+                                  <li><a href="/view-subject-teacherinfo.">Ver asignados</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  

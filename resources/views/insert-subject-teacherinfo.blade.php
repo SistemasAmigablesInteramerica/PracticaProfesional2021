@@ -19,27 +19,28 @@
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
+                          <li><a href="/">Menu principal</a></li>
                           <li class="has-sub">  
-                              <a href="javascript:void(0)">Expediente estudiantes</a>
+                              <a href="javascript:void(0)">Expedientes Comedor</a>
                               <ul class="sub-menu">
                                   <li><a href="/insert-studentsinfo">Agregar estudiante</a></li>
                                   <li><a href="/view-studentsinfo">Ver expedientes</a></li>
-                                  <li><a href="/insert-studentrelativesinfo">Agregar Familiares</a></li>
-                                  <li><a href="/view-studentrelativesinfo">Ver Familiares</a></li>
+                                  <li><a href="/insert-studentrelativesinfo">Agregar familiares</a></li>
+                                  <li><a href="/view-studentrelativesinfo">Ver familiares</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
-                              <a href="javascript:void(0)">Expediente Profesores</a>
+                              <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-teacherinfo">Agregar profesores</a></li>
-                                  <li><a href="/view-teacherinfo">Ver profesores</a></li>
+                                  <li><a href="/insert-teacherinfo">Agregar docentes</a></li>
+                                  <li><a href="/view-teacherinfo">Ver docentes</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Materias</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-subjectinfo">Agregar Materias</a></li>
-                                  <li><a href="/view-subjectinfo">Ver Materias</a></li>
+                                  <li><a href="/insert-subjectinfo">Agregar materias</a></li>
+                                  <li><a href="/view-subjectinfo">Ver materias</a></li>
                                   <li><a href="/insert-subject-teacherinfo">Asignar docentes</a></li>
                                   <li><a href="/view-subject-teacherinfo.">Ver asignados</a></li>
                               </ul>
