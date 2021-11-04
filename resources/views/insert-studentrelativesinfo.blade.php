@@ -38,28 +38,45 @@
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
+                  <label for="guardian_card">Cédula:</label>
                     <input name="guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
                   </fieldset>
-                </div>
-                <div class="col-lg-4">
+                  </div>
+                  <div class="col-lg-4">
                     <fieldset>
                       <input name="guaridan_profession" type="text" id="guaridan_profession" placeholder="Profesión del familiar">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
+                    <fieldset>
+                      <input name="guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
+                    </fieldset>
+                  </div>  
+                  <div class="col-lg-4">
+                    <label for="guardian_receives_aid">Recibe ayuda financiera:</label>
+                    <input type="checkbox" id="guardian_receives_aid" name="guardian_receives_aid">
+                  </div>  
+                  <div class="col-lg-4">
                   <fieldset>
-                    <input name="guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
+                    <label for="guardian_aid_total">Monto de ayuda financiera:</label>
+                    <input name="guardian_aid_total" type="number" id="guardian_aid_total"  placeholder="Monto de ayuda financiera" min="1">
                   </fieldset>
-                </div>  
-                <div class="col-lg-4">
-                <label for="guardian_receives_aid">Recibe ayuda financiera:</label>
-                <input type="checkbox" id="guardian_receives_aid" name="guardian_receives_aid">
-                </div>  
-                <div class="col-lg-12">
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                      <input name="scholarship" type="text" id="scholarship"  placeholder="Escolaridad">
+                    </fieldset>
+                  </div>
+                  <fieldset>
+                    <label for="guardian_salary">Salario:</label>
+                    <input name="guardian_salary" type="number" id="guardian_salary"  placeholder="Salario" min="1">
+                  </fieldset>
+                  </div>
+                 <div class="col-lg-12">
                     <fieldset>
                       <button type="submit" id="form-submit" class="button">Enviar</button>
                     </fieldset>
-                  </div>
+                 </div>
               </form>
             </div>
           </div>
