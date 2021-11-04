@@ -86,21 +86,35 @@
               <form id="contact" action="" method="post" style = "border-radius:20px">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Agregar nueva sección</h2>
+                    <h2>Asignar docentes</h2>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input name="name" type="text" id="name" placeholder="Grado" required="">
+                    <label for="select">Docente:</label>
+                        <select size=""id="teacher"placeholder="Docente"required>
+                        <option value="">Elige un docente</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        </select>
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                   <fieldset>
-                    <input name="section" type="number" id="section"  placeholder="Sección" min="1">
+                      <label for="select">Materias:</label>
+                        <select size=""id="pago"placeholder="Materia"required>
+                        <option value="">Elige una materia</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        </select>
                   </fieldset>
-                </div>
-                <div class="col-lg-12">
+                    </div>
+                    <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" class="button">Enviar</button>
+                        <br>
+                        <br>
+                      <button type="submit" id="form-submit" class="button">Añadir</button>
                     </fieldset>
                   </div>
               </form>
