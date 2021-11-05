@@ -88,7 +88,7 @@
                   <div class="col-lg-12">
                     <h2>Asignar docentes</h2>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <fieldset>
                     <label for="select">Docente:</label>
                         <select size=""id="teacher"placeholder="Docente"required>
@@ -99,7 +99,7 @@
                         </select>
                     </fieldset>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                   <fieldset>
                       <label for="select">Materias:</label>
                         <select size=""id="pago"placeholder="Materia"required>
@@ -109,6 +109,11 @@
                         <option value=""></option>
                         </select>
                   </fieldset>
+                    </div>
+                    <div class="col-lg-4">
+                    <fieldset>
+                    <input name="year" type="number" id="year"  placeholder="Año">
+                    </fieldset>
                     </div>
                     <div class="col-lg-12">
                     <fieldset>
