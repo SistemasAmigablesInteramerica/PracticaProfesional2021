@@ -72,3 +72,6 @@ Route::get('/view-studentrelativesinfo', function () {
 Route::get('/view-subject-teacherinfo', function () {
     return view('view-subject-teacherinfo');
 });
+Route::get('/view-subjectgradeinfo', function () {
+    return view('view-subjectgradeinfo');
+});
