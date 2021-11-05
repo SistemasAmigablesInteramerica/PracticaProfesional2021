@@ -49,6 +49,10 @@ Route::get('/insert-subject-teacherinfo', function () {
     return view('insert-subject-teacherinfo');
 });
 
+Route::get('/insert-subjectgradeinfo', function () {
+    return view('insert-subjectgradeinfo');
+});
+
 Route::get('/view-studentsinfo', function () {
     return view('view-studentsinfo');
 });
@@ -72,6 +76,7 @@ Route::get('/view-studentrelativesinfo', function () {
 Route::get('/view-subject-teacherinfo', function () {
     return view('view-subject-teacherinfo');
 });
+
 Route::get('/view-subjectgradeinfo', function () {
     return view('view-subjectgradeinfo');
 });
