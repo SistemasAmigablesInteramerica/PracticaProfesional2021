@@ -87,33 +87,40 @@
                   <div class="col-lg-12">
                     <h2>Agregar familiar de estudiante</h2>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-6">
                     <fieldset>
-                    <label for=""></label>
+                    
                       <input name="guardian_name" type="text" id="guardian_name" placeholder="Nombre del familiar">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-6">
+                    <fieldset>
+                    
+                      <input name="guaridan_profession" type="text" id="guaridan_profession" placeholder="Profesión del familiar">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
-                  <label for="guardian_card">Cédula:</label>
                     <input name="guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                    <label for=""></label>
-                      <input name="guaridan_profession" type="text" id="guaridan_profession" placeholder="Profesión del familiar">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-4">
-                    <fieldset>
-                      <label for=""></label>
                       <input name="guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
                     </fieldset>
                   </div>  
                   <div class="col-lg-4">
-                  <label><input name="guardian_recieves_aid" type="checkbox" id="guardian_recieves_aid" value="first_checkbox">Recibe ayuda financiera</label>
-                  </div>  
+                    <fieldset>
+                      <input name="scholarship" type="text" id="scholarship"  placeholder="Escolaridad">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                  <fieldset>
+                    <br>
+                  <label>Recibe ayuda financiera</label>
+                  <input name="guardian_recieves_aid" type="checkbox" id="guardian_recieves_aid" value="first_checkbox" style="width:73%; height:73%; ">
+                  </fieldset>
+                </div>  
                   <div class="col-lg-4">
                   <fieldset>
                     <br>
@@ -121,11 +128,7 @@
                     <input name="guardian_aid_total" type="number" id="guardian_aid_total"  placeholder="Monto de ayuda financiera" min="1">
                   </fieldset>
                   </div>
-                  <div class="col-lg-4">
-                    <fieldset>
-                      <input name="scholarship" type="text" id="scholarship"  placeholder="Escolaridad">
-                    </fieldset>
-                  </div>
+                  <div class="col-lg-12">
                   <fieldset>
                     <label for="guardian_salary">Salario:</label>
                     <input name="guardian_salary" type="number" id="guardian_salary"  placeholder="Salario" min="1">
