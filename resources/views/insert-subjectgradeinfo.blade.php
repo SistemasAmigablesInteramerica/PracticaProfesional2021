@@ -92,18 +92,32 @@
                     <h2>Asignar materia a un grado</h2>
                   </div>
                   <div class="col-lg-6">
-                    <fieldset>
-                      <input name="grade_id" type="text" id="grade_id" placeholder="Grado" min="7">
-                    </fieldset>
-                  </div>
-                  <div class="col-lg-6">
                   <fieldset>
-                    <input name="subject_id" type="number" id="subject_id"  placeholder="Sección" min="1">
+                      <label for="select">Materias:</label>
+                        <select size=""id="materia"placeholder="Materia"required>
+                        <option value="">Elige una materia</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        </select>
                   </fieldset>
-                </div>
+                    </div>
+                    <div class="col-lg-6">
+                  <fieldset>
+                      <label for="select">Grados:</label>
+                        <select size=""id="grado"placeholder="grado"required>
+                        <option value="">Elige un grado</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        </select>
+                  </fieldset>
+                    </div>
+                    
                 <div class="col-lg-12">
+                  <br>
                     <fieldset>
-                      <button type="submit" id="form-submit" class="button">Enviar</button>
+                      <button type="submit" id="form-submit" class="button">Asignar</button>
                     </fieldset>
                   </div>
               </form>
