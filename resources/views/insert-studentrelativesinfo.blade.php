@@ -62,6 +62,8 @@
                               <ul class="sub-menu">
                                   <li><a href="/insert-gradeinfo">Agregar sección</a></li>
                                   <li><a href="/view-gradeinfo">Ver secciones</a></li>
+                                  <li><a href="/insert-subjectgradeinfo">Asignar materia</a></li>
+                                  <li><a href="/view-subjectgradeinfo">Ver materias</a></li>
                               </ul>
                           </li>
                           <li><a href="/meetings">Meetings</a></li>
