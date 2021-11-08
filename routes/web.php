@@ -80,3 +80,10 @@ Route::get('/view-subject-teacherinfo', function () {
 Route::get('/view-subjectgradeinfo', function () {
     return view('view-subjectgradeinfo');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
