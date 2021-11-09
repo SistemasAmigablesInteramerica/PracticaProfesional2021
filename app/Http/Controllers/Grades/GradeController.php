@@ -14,7 +14,7 @@ class GradeController extends Controller
     }
      public function create()
     {
-        return view('Grades/createGrade');
+        return view('grades/insert-gradeinfo');
     }
 }
   
