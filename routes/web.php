@@ -28,23 +28,17 @@ Route::get('/asignar-materia-grado', [App\Http\Controllers\SubjectGradeControlle
 
 Route::get('/asignar-materia-profesor', [App\Http\Controllers\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
+Route::get('/verview-de-secciones', [App\Http\Controllers\ViewGradeController::class, 'create'])->name('view-gradeinfo');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
+Route::get('/verview-de-profesores', [App\Http\Controllers\ViewTeacherController::class, 'create'])->name('view-teacherinfo');
+view
+Route::get('/verview-de-materias', [App\Http\Controllers\ViewSubjectController::class, 'create'])->name('view-subjectinfo');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
+Route::get('/verview-de-familiares', [App\Http\Controllers\ViewStudentRelativeController::class, 'create'])->name('view-studentrelativesinfo');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
+Route::get('/verview-materia-grado', [App\Http\Controllers\ViewSubjectGradeController::class, 'create'])->name('view-subjectgradeinfo');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
+Route::get('/verview-materia-profesor', [App\Http\Controllers\ViewSubjectTeacherController::class, 'create'])->name('view-subjectteacherinfo');
 
 Auth::routes();
 
@@ -53,9 +47,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-<<<<<<< HEAD
- 
+
 ?>
-=======
->
->>>>>>> ae80fbbf26a845f79d0f4dd92ccfe4daef27cd2f
