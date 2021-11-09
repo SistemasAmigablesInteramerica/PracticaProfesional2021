@@ -79,7 +79,7 @@
       </div>
   </header>
   
-<section class="contact-us" style="min-height: 550px" id="fullPassApp">
+<section class="contact-us" style="min-height: 550px" id="App">
 <div class="container">
     <div class="row">
     @yield('content')
@@ -92,6 +92,6 @@
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
     </div>
 </section>
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/app.js')}}" defer></script>
 </body>
 </html>    

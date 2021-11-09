@@ -7,7 +7,7 @@
                 <div class="row">
                   <div class="col-lg-12">
                     <h2>Agregar nueva sección</h2>
-                  </div>
+                    </div>
                   <div class="col-lg-6">
                     <fieldset>
                       <input name="name" type="text" id="name" placeholder="Grado" required="">
@@ -15,7 +15,14 @@
                   </div>
                   <div class="col-lg-6">
                   <fieldset>
-                    <input name="section" type="number" id="section"  placeholder="Sección" min="1">
+                    <select class="form-control" v-model="grade.section">
+                    <option Value="1">1</option>
+                    <option Value="2">2</option>
+                    <option Value="3">3</option>
+                    <option Value="4">4</option>
+                    <option Value="5">5</option>
+                    <option Value="6">6</option>
+                    </select>
                   </fieldset>
                 </div>
                 <div class="col-lg-12">
@@ -23,6 +30,7 @@
                       <button type="submit" id="form-submit" class="button">Enviar</button>
                     </fieldset>
                   </div>
+                </div>
               </form>
             </div>
           </div>
@@ -32,6 +40,24 @@
 
 <script>
     export default {
-        name: "createGrade"
+        name: "createGrade",
+        data() {
+          return {
+            grade: {
+              name: '',
+              section: ''
+            }
+          }
+        },
+        methods: {
+          send(){
+            axios.post('/store-grade',this.grade).then(response =>{
+              swal.fire('Excelente', 'Se ha guardado con exito', 'Success');
+            }).catch(error=>{
+
+            })
+          }
+        },
     }
+
 </script>

@@ -1,6 +1,7 @@
-<?php
+<?php 
 
-use Illuminate\Support\Facades\Route;
+// use App\Controllers\Grades\GradeController; 
+use Illuminate\Support\Facades\route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\IndexController::class, 'create'])->name('index');
+
+Route::get('/', [App/Http/Controllers\IndexController::class, 'create'])->name('index');
 });
 
 Route::get('/registro-de-estudiantes', [App\Http\Controllers\StudentController::class, 'create'])->name('insert-studentsinfo');
@@ -71,3 +73,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+ 
+?>
