@@ -13,73 +13,57 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', [App\Http\Controllers\IndexController::class, 'create'])->name('index');
 });
 
-Route::get('/meetings', function () {
-    return view('meetings');
+Route::get('/registro-de-estudiantes', [App\Http\Controllers\StudentController::class, 'create'])->name('insert-studentsinfo');
 });
 
-Route::get('/meetings-details', function () {
-    return view('meeting-details');
+Route::get('/registro-de-secciones', [App\Http\Controllers\GradeController::class, 'create'])->name('insert-gradeinfo');
 });
 
-Route::get('/insert-studentsinfo', function () {
-    return view('insert-studentsinfo');
+Route::get('/registro-de-profesores', [App\Http\Controllers\TeacherController::class, 'create'])->name('insert-teacherinfo');
 });
 
-Route::get('/insert-teacherinfo', function () {
-    return view('insert-teacherinfo');
+Route::get('/registro-de-materias', [App\Http\Controllers\SubjectController::class, 'create'])->name('insert-subjectinfo');
 });
 
-Route::get('/insert-gradeinfo', function () {
-    return view('insert-gradeinfo');
+Route::get('/registro-de-familiares', [App\Http\Controllers\StudentRelativeController::class, 'create'])->name('insert-studentrelativesinfo');
 });
 
-Route::get('/insert-subjectinfo', function () {
-    return view('insert-subjectinfo');
+Route::get('/asignar-materia-grado', [App\Http\Controllers\SubjectGradeController::class, 'create'])->name('insert-subjectgradeinfo');
 });
 
-Route::get('/insert-studentrelativesinfo', function () {
-    return view('insert-studentrelativesinfo');
+Route::get('/asignar-materia-profesor', [App\Http\Controllers\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
 });
 
-Route::get('/insert-subject-teacherinfo', function () {
-    return view('insert-subject-teacherinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
 
-Route::get('/insert-subjectgradeinfo', function () {
-    return view('insert-subjectgradeinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
 
-Route::get('/view-studentsinfo', function () {
-    return view('view-studentsinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
 
-Route::get('/view-teacherinfo', function () {
-    return view('view-teacherinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
 
-Route::get('/view-gradeinfo', function () {
-    return view('view-gradeinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
 
-Route::get('/view-subjectinfo', function () {
-    return view('view-subjectinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
 
-Route::get('/view-studentrelativesinfo', function () {
-    return view('view-studentrelativesinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
 
-Route::get('/view-subject-teacherinfo', function () {
-    return view('view-subject-teacherinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
 
-Route::get('/view-subjectgradeinfo', function () {
-    return view('view-subjectgradeinfo');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'create'])->name('home');
 });
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
