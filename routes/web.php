@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\route;
 
 Route::get('/', [App\Http\Controllers\IndexController::class, 'create'])->name('index');
 
-Route::get('/registro-de-secciones', [App\Http\Controllers\GradeController::class, 'create'])->name('insert-gradeinfo');
+Route::get('/registro-de-estudiantes', [App\Http\Controllers\Student\StudentController::class, 'create'])->name('insert-studentsinfo');
+
+Route::get('/registro-de-secciones', [App\Http\Controllers\Grade\GradeController::class, 'create'])->name('insert-gradeinfo');
 
 Route::get('/registro-de-profesores', [App\Http\Controllers\TeacherController::class, 'create'])->name('insert-teacherinfo');
 
