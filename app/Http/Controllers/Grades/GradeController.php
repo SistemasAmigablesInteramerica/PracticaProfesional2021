@@ -16,5 +16,13 @@ class GradeController extends Controller
     {
         return view('grades/insert-gradeinfo');
     }
+    public function store(request $request)
+    {
+        $grade = new grade();
+        $grade->name = $request->all('');
+         $grade->save;
+             return $this->responseSucess('mensaje');
+         
+    }
 }
   
