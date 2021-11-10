@@ -1,6 +1,7 @@
 <?php 
 
 use App\Controllers\Grades\GradeController; 
+use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\route;
 
 /*
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\route;
 Route::get('/', [App\Http\Controllers\IndexController::class, 'create'])->name('index');
 
 Route::get('/registro-de-estudiantes', [App\Http\Controllers\Student\StudentController::class, 'create'])->name('insert-studentsinfo');
+Route::post('/store-student', [StudentController::class, 'store']);
 
 Route::get('/registro-de-secciones', [App\Http\Controllers\Grades\GradeController::class, 'create'])->name('insert-gradeinfo');
 
