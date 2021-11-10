@@ -4,11 +4,11 @@
           <div class="row">
             <div class="col-lg-12">
              
-                <div class="row" style="min-height: 550px; border-radius:10px;width: 100%;border: 10px solid white;">
+                <div class="row" style="min-height: 550px; border-radius:10px;width: 100%;border: 10px solid white; background-color: white;">
                   <div class="col-lg-12" method="post" >
                     <h2>Agregar nueva sección</h2>
                     </div>
-                  <div class="col-lg-6"style=" ">
+                  <div class="col-lg-6">
                     <fieldset>
                       <input name="name" type="text" id="name" placeholder="Grado" required="">
                     </fieldset>
@@ -57,7 +57,7 @@
 
             })
           }
-        },
+        }
     }
 
 </script>
