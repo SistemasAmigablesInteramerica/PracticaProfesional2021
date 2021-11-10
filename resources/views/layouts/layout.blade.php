@@ -61,7 +61,7 @@
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Secciones</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-gradeinfo">Agregar sección</a></li>
+                                  <li><a href="{{asset('registro-de-secciones')}}">Agregar sección</a></li>
                                   <li><a href="/view-gradeinfo">Ver secciones</a></li>
                                   <li><a href="/insert-subjectgradeinfo">Asignar materia</a></li>
                                   <li><a href="/view-subjectgradeinfo">Ver materias</a></li>
@@ -71,7 +71,7 @@
                       </ul>        
                       <a class="menu-trigger">
                           <span>Menu</span>
-                      </a>
+                      </a>  
                       <!-- ***** Menu End ***** -->
                   </nav>
               </div>
@@ -79,7 +79,7 @@
       </div>
   </header>
   
-<section class="contact-us" style="min-height: 550px" id="App">
+<section class="contact-us" id="app">
 <div class="container">
     <div class="row">
     @yield('content')

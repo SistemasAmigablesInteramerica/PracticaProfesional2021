@@ -3,12 +3,12 @@
         <div class="col-lg-9 col-md-9 col-sm-12">
           <div class="row">
             <div class="col-lg-12">
-              
-                <div class="row">
-                  <div class="col-lg-12" method="post" style = "border-radius:20px min-height: 550px">
+             
+                <div class="row" style="min-height: 550px; border-radius:10px;width: 100%;border: 10px solid white;">
+                  <div class="col-lg-12" method="post" >
                     <h2>Agregar nueva sección</h2>
                     </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-6"style=" ">
                     <fieldset>
                       <input name="name" type="text" id="name" placeholder="Grado" required="">
                     </fieldset>
@@ -24,8 +24,8 @@
                     <option Value="6">6</option>
                     </select>
                   </fieldset>
-                </div>
-                <div class="col-lg-12">
+                 </div>
+                 <div class="col-lg-12">
                     <fieldset>
                       <button type="submit" id="form-submit" class="button">Enviar</button>
                     </fieldset>

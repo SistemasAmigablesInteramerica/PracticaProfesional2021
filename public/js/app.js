@@ -37606,64 +37606,76 @@ var render = function () {
   return _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-lg-12" }, [
-        _c("div", { staticClass: "row" }, [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._m(1),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-lg-6" }, [
-            _c("fieldset", [
-              _c(
-                "select",
-                {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.grade.section,
-                      expression: "grade.section",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  on: {
-                    change: function ($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function (o) {
-                          return o.selected
-                        })
-                        .map(function (o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.$set(
-                        _vm.grade,
-                        "section",
-                        $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      )
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              "min-height": "550px",
+              "border-radius": "10px",
+              width: "100%",
+              border: "10px solid white",
+            },
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _vm._m(1),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-6" }, [
+              _c("fieldset", [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.grade.section,
+                        expression: "grade.section",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.grade,
+                          "section",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
                     },
                   },
-                },
-                [
-                  _c("option", { attrs: { Value: "1" } }, [_vm._v("1")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { Value: "2" } }, [_vm._v("2")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { Value: "3" } }, [_vm._v("3")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { Value: "4" } }, [_vm._v("4")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { Value: "5" } }, [_vm._v("5")]),
-                  _vm._v(" "),
-                  _c("option", { attrs: { Value: "6" } }, [_vm._v("6")]),
-                ]
-              ),
+                  [
+                    _c("option", { attrs: { Value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "6" } }, [_vm._v("6")]),
+                  ]
+                ),
+              ]),
             ]),
-          ]),
-          _vm._v(" "),
-          _vm._m(2),
-        ]),
+            _vm._v(" "),
+            _vm._m(2),
+          ]
+        ),
       ]),
     ]),
   ])
@@ -37673,21 +37685,15 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "col-lg-12",
-        staticStyle: { "border-radius": "20px min-height: 550px" },
-        attrs: { method: "post" },
-      },
-      [_c("h2", [_vm._v("Agregar nueva sección")])]
-    )
+    return _c("div", { staticClass: "col-lg-12", attrs: { method: "post" } }, [
+      _c("h2", [_vm._v("Agregar nueva sección")]),
+    ])
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-6" }, [
+    return _c("div", { staticClass: "col-lg-6", staticStyle: {} }, [
       _c("fieldset", [
         _c("input", {
           attrs: {
