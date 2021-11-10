@@ -10,7 +10,7 @@
                     </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input name="name" type="text" id="name" placeholder="Grado" required="">
+                      <input name="name" type="text" id="name" v-model="name" placeholder="Grado" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
@@ -27,7 +27,7 @@
                  </div>
                  <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" class="button">Enviar</button>
+                      <button type="submit" @click="send" class="btn btn-primary" >Enviar</button>
                     </fieldset>
                   </div>
                 </div>
@@ -41,6 +41,7 @@
 <script>
     export default {
         name: "createGrade",
+        components:{Swal},
         data() {
           return {
             grade: {
@@ -53,7 +54,12 @@
           send(){
             axios.post('/store-grade',this.grade).then(response =>{
               swal.fire('Excelente', 'Se ha guardado con exito', 'Success');
-            }).catch(error=>{
+            }).catch(error => {
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Se ha encontrado un error.',
+                    });
 
             })
           }

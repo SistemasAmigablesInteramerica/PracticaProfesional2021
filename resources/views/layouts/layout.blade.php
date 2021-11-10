@@ -92,6 +92,6 @@
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
     </div>
 </section>
-    <script src="{{asset('js/app.js')}}" defer></script>
+    <script src="{{asset('js/app.js')}}" defer=""></script>
 </body>
 </html>    
