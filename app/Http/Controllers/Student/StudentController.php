@@ -19,4 +19,15 @@ class StudentController extends Controller
         return view('students/insert-studentsinfo');
     }
 
+    public function store(Request $request)
+    {
+        $student = new StudentController();
+        $student->name = $request->all('');
+
+        if($student->save()){
+
+            return $this->responseSuccess('mensaje');
+        }
+    }
+
 }
