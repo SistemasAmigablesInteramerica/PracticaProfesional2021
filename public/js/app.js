@@ -2282,7 +2282,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "createStudent",
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
@@ -41259,8 +41258,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.name,
-                            expression: "name",
+                            value: _vm.student.name,
+                            expression: "student.name",
                           },
                         ],
                         staticClass: "form-control",
@@ -41271,13 +41270,13 @@ var render = function () {
                           placeholder: "Nombre Completo Del Estudiante",
                           required: "",
                         },
-                        domProps: { value: _vm.name },
+                        domProps: { value: _vm.student.name },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.name = $event.target.value
+                            _vm.$set(_vm.student, "name", $event.target.value)
                           },
                         },
                       }),
@@ -41291,8 +41290,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.nationality,
-                            expression: "nationality",
+                            value: _vm.student.nationality,
+                            expression: "student.nationality",
                           },
                         ],
                         staticClass: "form-control",
@@ -41303,13 +41302,17 @@ var render = function () {
                           placeholder: "Nacionalidad",
                           required: "",
                         },
-                        domProps: { value: _vm.nationality },
+                        domProps: { value: _vm.student.nationality },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.nationality = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "nationality",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41323,8 +41326,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.card,
-                            expression: "card",
+                            value: _vm.student.card,
+                            expression: "student.card",
                           },
                         ],
                         staticClass: "form-control",
@@ -41336,13 +41339,13 @@ var render = function () {
                           pattern: "",
                           required: "",
                         },
-                        domProps: { value: _vm.card },
+                        domProps: { value: _vm.student.card },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.card = $event.target.value
+                            _vm.$set(_vm.student, "card", $event.target.value)
                           },
                         },
                       }),
@@ -41360,8 +41363,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.birthdate,
-                            expression: "birthdate",
+                            value: _vm.student.birthdate,
+                            expression: "student.birthdate",
                           },
                         ],
                         staticClass: "form-control",
@@ -41372,13 +41375,17 @@ var render = function () {
                           placeholder: "Fecha de Nacimiento",
                           min: "1995-01-01",
                         },
-                        domProps: { value: _vm.birthdate },
+                        domProps: { value: _vm.student.birthdate },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.birthdate = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "birthdate",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41396,8 +41403,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.legal_guardian_name,
-                            expression: "legal_guardian_name",
+                            value: _vm.student.legal_guardian_name,
+                            expression: "student.legal_guardian_name",
                           },
                         ],
                         staticClass: "form-control",
@@ -41408,13 +41415,17 @@ var render = function () {
                           placeholder: "Inserte el Nombre",
                           required: "",
                         },
-                        domProps: { value: _vm.legal_guardian_name },
+                        domProps: { value: _vm.student.legal_guardian_name },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.legal_guardian_name = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "legal_guardian_name",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41430,8 +41441,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.legal_guardian_card,
-                            expression: "legal_guardian_card",
+                            value: _vm.student.legal_guardian_card,
+                            expression: "student.legal_guardian_card",
                           },
                         ],
                         staticClass: "form-control",
@@ -41443,13 +41454,17 @@ var render = function () {
                           pattern: "",
                           required: "",
                         },
-                        domProps: { value: _vm.legal_guardian_card },
+                        domProps: { value: _vm.student.legal_guardian_card },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.legal_guardian_card = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "legal_guardian_card",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41467,8 +41482,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.phone_number,
-                            expression: "phone_number",
+                            value: _vm.student.phone_number,
+                            expression: "student.phone_number",
                           },
                         ],
                         staticClass: "form-control",
@@ -41478,13 +41493,17 @@ var render = function () {
                           name: "phone_number",
                           placeholder: "2777-0000",
                         },
-                        domProps: { value: _vm.phone_number },
+                        domProps: { value: _vm.student.phone_number },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.phone_number = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "phone_number",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41498,8 +41517,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.place_residence,
-                            expression: "place_residence",
+                            value: _vm.student.place_residence,
+                            expression: "student.place_residence",
                           },
                         ],
                         staticClass: "form-control",
@@ -41510,20 +41529,41 @@ var render = function () {
                           placeholder: "Direccion Del Domicilio",
                           required: "",
                         },
-                        domProps: { value: _vm.place_residence },
+                        domProps: { value: _vm.student.place_residence },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.place_residence = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "place_residence",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
                     ]),
                   ]),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("fieldset", [
+                      _c("label", { attrs: { for: "archivo" } }, [
+                        _vm._v("Subir La Constancia Salarial:"),
+                      ]),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "form-control",
+                        attrs: {
+                          type: "file",
+                          id: "archivo",
+                          name: "archivo",
+                          accept: "image/*,.txt,.doc,.docx,.document,.pdf",
+                        },
+                        on: { change: _vm.student.salarial_constance },
+                      }),
+                    ]),
+                  ]),
                   _vm._v(" "),
                   _c("div", { staticClass: "col-lg-4" }, [
                     _c("fieldset", [
@@ -41532,8 +41572,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.total_income,
-                            expression: "total_income",
+                            value: _vm.student.total_income,
+                            expression: "student.total_income",
                           },
                         ],
                         staticClass: "form-control",
@@ -41544,13 +41584,17 @@ var render = function () {
                           placeholder: "₡ Total De Ingresos",
                           required: "",
                         },
-                        domProps: { value: _vm.total_income },
+                        domProps: { value: _vm.student.total_income },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.total_income = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "total_income",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41564,8 +41608,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.family_member_total,
-                            expression: "family_member_total",
+                            value: _vm.student.family_member_total,
+                            expression: "student.family_member_total",
                           },
                         ],
                         staticClass: "form-control",
@@ -41576,13 +41620,17 @@ var render = function () {
                           placeholder: "/ Numero de Miembros Familiares =",
                           required: "",
                         },
-                        domProps: { value: _vm.family_member_total },
+                        domProps: { value: _vm.student.family_member_total },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.family_member_total = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "family_member_total",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41596,8 +41644,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.total_per_capita,
-                            expression: "total_per_capita",
+                            value: _vm.student.total_per_capita,
+                            expression: "student.total_per_capita",
                           },
                         ],
                         staticClass: "form-control",
@@ -41608,13 +41656,17 @@ var render = function () {
                           placeholder: " ₡ = Per Cápita",
                           required: "",
                         },
-                        domProps: { value: _vm.total_per_capita },
+                        domProps: { value: _vm.student.total_per_capita },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.total_per_capita = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "total_per_capita",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41632,11 +41684,10 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.socioeconomic_status,
-                            expression: "socioeconomic_status",
+                            value: _vm.student.socioeconomic_status,
+                            expression: "student.socioeconomic_status",
                           },
                         ],
-                        staticClass: "form-control",
                         attrs: {
                           type: "radio",
                           value: "Pobreza Extrema.",
@@ -41645,13 +41696,17 @@ var render = function () {
                         },
                         domProps: {
                           checked: _vm._q(
-                            _vm.socioeconomic_status,
+                            _vm.student.socioeconomic_status,
                             "Pobreza Extrema."
                           ),
                         },
                         on: {
                           change: function ($event) {
-                            _vm.socioeconomic_status = "Pobreza Extrema."
+                            return _vm.$set(
+                              _vm.student,
+                              "socioeconomic_status",
+                              "Pobreza Extrema."
+                            )
                           },
                         },
                       }),
@@ -41669,11 +41724,10 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.socioeconomic_status,
-                            expression: "socioeconomic_status",
+                            value: _vm.student.socioeconomic_status,
+                            expression: "student.socioeconomic_status",
                           },
                         ],
-                        staticClass: "form-control",
                         attrs: {
                           type: "radio",
                           value: "Pobreza",
@@ -41681,11 +41735,18 @@ var render = function () {
                           name: "titulo",
                         },
                         domProps: {
-                          checked: _vm._q(_vm.socioeconomic_status, "Pobreza"),
+                          checked: _vm._q(
+                            _vm.student.socioeconomic_status,
+                            "Pobreza"
+                          ),
                         },
                         on: {
                           change: function ($event) {
-                            _vm.socioeconomic_status = "Pobreza"
+                            return _vm.$set(
+                              _vm.student,
+                              "socioeconomic_status",
+                              "Pobreza"
+                            )
                           },
                         },
                       }),
@@ -41703,11 +41764,10 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.socioeconomic_status,
-                            expression: "socioeconomic_status",
+                            value: _vm.student.socioeconomic_status,
+                            expression: "student.socioeconomic_status",
                           },
                         ],
-                        staticClass: "form-control",
                         attrs: {
                           type: "radio",
                           value: "Vulnerabilidad",
@@ -41716,13 +41776,17 @@ var render = function () {
                         },
                         domProps: {
                           checked: _vm._q(
-                            _vm.socioeconomic_status,
+                            _vm.student.socioeconomic_status,
                             "Vulnerabilidad"
                           ),
                         },
                         on: {
                           change: function ($event) {
-                            _vm.socioeconomic_status = "Vulnerabilidad"
+                            return _vm.$set(
+                              _vm.student,
+                              "socioeconomic_status",
+                              "Vulnerabilidad"
+                            )
                           },
                         },
                       }),
@@ -41740,11 +41804,10 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.socioeconomic_status,
-                            expression: "socioeconomic_status",
+                            value: _vm.student.socioeconomic_status,
+                            expression: "student.socioeconomic_status",
                           },
                         ],
-                        staticClass: "form-control",
                         attrs: {
                           type: "radio",
                           value: "No Pobre",
@@ -41752,11 +41815,18 @@ var render = function () {
                           name: "titulo",
                         },
                         domProps: {
-                          checked: _vm._q(_vm.socioeconomic_status, "No Pobre"),
+                          checked: _vm._q(
+                            _vm.student.socioeconomic_status,
+                            "No Pobre"
+                          ),
                         },
                         on: {
                           change: function ($event) {
-                            _vm.socioeconomic_status = "No Pobre"
+                            return _vm.$set(
+                              _vm.student,
+                              "socioeconomic_status",
+                              "No Pobre"
+                            )
                           },
                         },
                       }),
@@ -41776,8 +41846,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.financial_assistence,
-                            expression: "financial_assistence",
+                            value: _vm.student.financial_assistence,
+                            expression: "student.financial_assistence",
                           },
                         ],
                         staticClass: "form-control",
@@ -41788,13 +41858,17 @@ var render = function () {
                           placeholder: "₡ Ayuda Financiera",
                           required: "",
                         },
-                        domProps: { value: _vm.financial_assistence },
+                        domProps: { value: _vm.student.financial_assistence },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.financial_assistence = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "financial_assistence",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41808,8 +41882,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.voluntary_assistence,
-                            expression: "voluntary_assistence",
+                            value: _vm.student.voluntary_assistence,
+                            expression: "student.voluntary_assistence",
                           },
                         ],
                         staticClass: "form-control",
@@ -41820,13 +41894,17 @@ var render = function () {
                           placeholder: "₡ Ayuda Voluntaria",
                           required: "",
                         },
-                        domProps: { value: _vm.voluntary_assistence },
+                        domProps: { value: _vm.student.voluntary_assistence },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.voluntary_assistence = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "voluntary_assistence",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41840,8 +41918,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.rental_income,
-                            expression: "rental_income",
+                            value: _vm.student.rental_income,
+                            expression: "student.rental_income",
                           },
                         ],
                         staticClass: "form-control",
@@ -41852,13 +41930,17 @@ var render = function () {
                           placeholder: "₡ Arquileres",
                           required: "",
                         },
-                        domProps: { value: _vm.rental_income },
+                        domProps: { value: _vm.student.rental_income },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.rental_income = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "rental_income",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41872,8 +41954,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.others,
-                            expression: "others",
+                            value: _vm.student.others,
+                            expression: "student.others",
                           },
                         ],
                         staticClass: "form-control",
@@ -41884,13 +41966,13 @@ var render = function () {
                           placeholder: "₡ Otros(Especifique)",
                           required: "",
                         },
-                        domProps: { value: _vm.others },
+                        domProps: { value: _vm.student.others },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.others = $event.target.value
+                            _vm.$set(_vm.student, "others", $event.target.value)
                           },
                         },
                       }),
@@ -41904,8 +41986,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.total_income,
-                            expression: "total_income",
+                            value: _vm.student.total_income,
+                            expression: "student.total_income",
                           },
                         ],
                         staticClass: "form-control",
@@ -41916,13 +41998,17 @@ var render = function () {
                           placeholder: "₡ Ingresos Totales",
                           required: "",
                         },
-                        domProps: { value: _vm.total_income },
+                        domProps: { value: _vm.student.total_income },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.total_income = $event.target.value
+                            _vm.$set(
+                              _vm.student,
+                              "total_income",
+                              $event.target.value
+                            )
                           },
                         },
                       }),
@@ -41958,28 +42044,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
       _c("h2", [_vm._v("Expediente Del Beneficiario Del Comedor Estudiantil")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
-      _c("fieldset", [
-        _c("label", { attrs: { for: "archivo" } }, [
-          _vm._v("Subir La Constancia Salarial:"),
-        ]),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "file",
-            id: "archivo",
-            name: "archivo",
-            accept: "image/*,.txt,.doc,.docx,.document,.pdf",
-          },
-        }),
-      ]),
     ])
   },
 ]

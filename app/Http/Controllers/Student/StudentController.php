@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
@@ -21,13 +22,12 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
-        $student = new StudentController();
-        $student->name = $request->all('');
 
-        if($student->save()){
+        $student = Student::create($request->all());
+        return $result;
+        dd($request->all());
+        $student->save();
 
-            return $this->responseSuccess('mensaje');
-        }
     }
 
 }
