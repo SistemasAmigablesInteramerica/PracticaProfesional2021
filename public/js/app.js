@@ -2065,6 +2065,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2105,6 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createGrade",
   components: {
@@ -2121,7 +2124,7 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     send: function send() {
       axios.post('/store-grade', this.grade).then(function (response) {
-        swal.fire('Excelente', 'Se ha guardado con exito', 'Success');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Excelente', 'Se ha guardado con exito', 'Success');
       })["catch"](function (error) {
         Swal.fire({
           icon: 'error',
@@ -41128,8 +41131,8 @@ var render = function () {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.name,
-                      expression: "name",
+                      value: _vm.grades.name,
+                      expression: "grades.name",
                     },
                   ],
                   attrs: {
@@ -41139,13 +41142,13 @@ var render = function () {
                     placeholder: "Grado",
                     required: "",
                   },
-                  domProps: { value: _vm.name },
+                  domProps: { value: _vm.grades.name },
                   on: {
                     input: function ($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.name = $event.target.value
+                      _vm.$set(_vm.grades, "name", $event.target.value)
                     },
                   },
                 }),
@@ -41161,8 +41164,8 @@ var render = function () {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.grade.section,
-                        expression: "grade.section",
+                        value: _vm.grades.section,
+                        expression: "grades.section",
                       },
                     ],
                     staticClass: "form-control",
@@ -41177,7 +41180,7 @@ var render = function () {
                             return val
                           })
                         _vm.$set(
-                          _vm.grade,
+                          _vm.grades,
                           "section",
                           $event.target.multiple
                             ? $$selectedVal
@@ -41209,7 +41212,7 @@ var render = function () {
                   "button",
                   {
                     staticClass: "btn btn-primary",
-                    attrs: { type: "submit" },
+                    attrs: { type: "submit", id: "form-submit" },
                     on: { click: _vm.send },
                   },
                   [_vm._v("Enviar")]

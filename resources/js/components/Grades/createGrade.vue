@@ -10,12 +10,12 @@
                     </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input name="name" type="text" id="name" v-model="name" placeholder="Grado" required="">
+                      <input name="name" type="text" id="name" v-model="grades.name" placeholder="Grado" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                   <fieldset>
-                    <select class="form-control" v-model="grade.section">
+                    <select class="form-control" v-model="grades.section">
                     <option Value="1">1</option>
                     <option Value="2">2</option>
                     <option Value="3">3</option>
@@ -27,7 +27,7 @@
                  </div>
                  <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" @click="send" class="btn btn-primary" >Enviar</button>
+                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary" >Enviar</button>
                     </fieldset>
                   </div>
                 </div>
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+  import swal from 'sweetalert2'
     export default {
         name: "createGrade",
         components:{Swal},
