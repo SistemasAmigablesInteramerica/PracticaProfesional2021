@@ -75,29 +75,6 @@
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
-                    <!-- <fieldset>
-                  <label for="Pobreza Extrema">Pobreza Extrema</label>
-                    <input type="radio"  v-model="student.socioeconomic_status" value="Pobreza Extrema." id="Pobreza Extrema" name="titulo">
-                    </fieldset> 
-                  </div>
-                  <div class="col-lg-3">
-                    <fieldset>
-                  <label for="Pobreza">Pobreza</label>
-                    <input type="radio"  v-model="student.socioeconomic_status" value="Pobreza" id="Pobreza" name="titulo">
-                    </fieldset> 
-                  </div>
-                  <div class="col-lg-3">
-                    <fieldset>
-                  <label for="Vulnerabilidad">Vulnerabilidad</label>
-                    <input type="radio"  v-model="student.socioeconomic_status" value="Vulnerabilidad" id="Vulnerabilidad" name="titulo">
-                    </fieldset> 
-                  </div>
-                  <div class="col-lg-3">
-                    <fieldset>
-                  <label for="No Pobre">No Pobre</label>
-                    <input type="radio"  v-model="student.socioeconomic_status" value="No Pobre" id="No Pobre" name="titulo">
-                    </fieldset> 
-                        -->  
                         </div>
                     <label for="socioeconomic_status">Estado Socioeconomico:</label>
                     <select v-model="student.socioeconomic_status" id="socioeconomic_status">
