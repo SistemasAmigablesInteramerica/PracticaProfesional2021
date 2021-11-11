@@ -39,13 +39,13 @@
 </template>
 
 <script>
-  import swal from 'sweetalert2'
+  import Swal from 'sweetalert2'
     export default {
         name: "createGrade",
-        components:{Swal},
+        components:{Swal },
         data() {
           return {
-            grade: {
+            grades: {
               name: '',
               section: ''
             }
@@ -54,7 +54,7 @@
         methods: {
           send(){
             axios.post('/store-grade',this.grade).then(response =>{
-              swal.fire('Excelente', 'Se ha guardado con exito', 'Success');
+              Swal.fire('Excelente', 'Se ha guardado con exito', 'Success');
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',
@@ -68,3 +68,4 @@
     }
 
 </script>
+ 

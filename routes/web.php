@@ -1,6 +1,6 @@
 <?php 
 
-use App\Controllers\Grades\GradeController; 
+use App\Http\Controllers\Grades\GradeController; 
 use App\Http\Controllers\Student\StudentController;
 use Illuminate\Support\Facades\route;
 

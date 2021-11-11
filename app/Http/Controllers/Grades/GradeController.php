@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Grades;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Grade;
 
 class GradeController extends Controller
 {
@@ -18,14 +19,14 @@ class GradeController extends Controller
     }
     public function store(Request $request)
     {
-        $grade = new GradeController();
-        $grade->name = $request->all('');
-        if($grades->save()){
+        $grade = Grade::create($request->all());
+        return $result;
+        dd($request->all());
+        $grade->save();
 
-            return $this->responseSuccess('mensaje');
-        }
-         
     }
+         
+    
 } 
 
   
