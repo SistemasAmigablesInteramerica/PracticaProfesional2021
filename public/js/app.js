@@ -2280,6 +2280,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2290,6 +2300,7 @@ __webpack_require__.r(__webpack_exports__);
       student: {
         name: '',
         nationality: '',
+        birthdate: '',
         card: '',
         salarial_constance: '',
         legal_guardian_name: '',
@@ -41673,165 +41684,69 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "Pobreza Extrema" } }, [
-                        _vm._v("Pobreza Extrema"),
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.socioeconomic_status,
-                            expression: "student.socioeconomic_status",
-                          },
-                        ],
-                        attrs: {
-                          type: "radio",
-                          value: "Pobreza Extrema.",
-                          id: "Pobreza Extrema",
-                          name: "titulo",
-                        },
-                        domProps: {
-                          checked: _vm._q(
-                            _vm.student.socioeconomic_status,
-                            "Pobreza Extrema."
-                          ),
-                        },
-                        on: {
-                          change: function ($event) {
-                            return _vm.$set(
-                              _vm.student,
-                              "socioeconomic_status",
-                              "Pobreza Extrema."
-                            )
-                          },
-                        },
-                      }),
-                    ]),
+                  _c("div", { staticClass: "col-lg-3" }),
+                  _vm._v(" "),
+                  _c("label", { attrs: { for: "socioeconomic_status" } }, [
+                    _vm._v("Estado Socioeconomico:"),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "Pobreza" } }, [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.student.socioeconomic_status,
+                          expression: "student.socioeconomic_status",
+                        },
+                      ],
+                      attrs: { id: "socioeconomic_status" },
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.student,
+                            "socioeconomic_status",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                      },
+                    },
+                    [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
+                        _vm._v(" Seleccione estado socioeconomico"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "extreme_poverty" } }, [
+                        _vm._v("Pobreza extrema"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "poverty" } }, [
                         _vm._v("Pobreza"),
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.socioeconomic_status,
-                            expression: "student.socioeconomic_status",
-                          },
-                        ],
-                        attrs: {
-                          type: "radio",
-                          value: "Pobreza",
-                          id: "Pobreza",
-                          name: "titulo",
-                        },
-                        domProps: {
-                          checked: _vm._q(
-                            _vm.student.socioeconomic_status,
-                            "Pobreza"
-                          ),
-                        },
-                        on: {
-                          change: function ($event) {
-                            return _vm.$set(
-                              _vm.student,
-                              "socioeconomic_status",
-                              "Pobreza"
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "Vulnerabilidad" } }, [
-                        _vm._v("Vulnerabilidad"),
+                      _c("option", { attrs: { value: "vulnerabilty" } }, [
+                        _vm._v("Vulberabilidad"),
                       ]),
                       _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.socioeconomic_status,
-                            expression: "student.socioeconomic_status",
-                          },
-                        ],
-                        attrs: {
-                          type: "radio",
-                          value: "Vulnerabilidad",
-                          id: "Vulnerabilidad",
-                          name: "titulo",
-                        },
-                        domProps: {
-                          checked: _vm._q(
-                            _vm.student.socioeconomic_status,
-                            "Vulnerabilidad"
-                          ),
-                        },
-                        on: {
-                          change: function ($event) {
-                            return _vm.$set(
-                              _vm.student,
-                              "socioeconomic_status",
-                              "Vulnerabilidad"
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "No Pobre" } }, [
-                        _vm._v("No Pobre"),
+                      _c("option", { attrs: { value: "not_poor" } }, [
+                        _vm._v("No pobre"),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.socioeconomic_status,
-                            expression: "student.socioeconomic_status",
-                          },
-                        ],
-                        attrs: {
-                          type: "radio",
-                          value: "No Pobre",
-                          id: "No Pobre",
-                          name: "titulo",
-                        },
-                        domProps: {
-                          checked: _vm._q(
-                            _vm.student.socioeconomic_status,
-                            "No Pobre"
-                          ),
-                        },
-                        on: {
-                          change: function ($event) {
-                            return _vm.$set(
-                              _vm.student,
-                              "socioeconomic_status",
-                              "No Pobre"
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("br"),
+                  _c("br"),
                   _vm._v(" "),
                   _c("h2", [_vm._v("Otros Ingresos Del Grupo Familiar")]),
                   _vm._v(" "),
