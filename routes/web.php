@@ -23,7 +23,7 @@ Route::post('/store-student', [StudentController::class, 'store']);
 Route::get('/registro-de-secciones', [App\Http\Controllers\Grades\GradeController::class, 'create'])->name('insert-gradeinfo');
 Route::post('/store-grade', [GradeController::class, 'store']);
 
-Route::get('/registro-de-profesores', [App\Http\Controllers\TeacherController::class, 'create'])->name('insert-teacherinfo');
+Route::get('/registro-de-profesores', [App\Http\Controllers\teachers\TeacherController::class, 'create'])->name('insert-teacherinfo');
 Route::post('/store-teacher', [TeacherController::class, 'store']);
 
 Route::get('/registro-de-materias', [App\Http\Controllers\SubjectController::class, 'create'])->name('insert-subjectinfo');
