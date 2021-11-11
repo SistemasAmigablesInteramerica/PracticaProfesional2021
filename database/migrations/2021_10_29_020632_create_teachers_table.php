@@ -20,7 +20,7 @@ class CreateTeachersTable extends Migration
             $table->integer('identification');
             $table->date('birthdate');
             $table->integer('age');
-            $table->string('specialty');
+            $table->string('speciality');
             $table->string('email');
             $table->string('gender');
             $table->integer('contact_number');
