@@ -2281,6 +2281,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "createStudent",
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
@@ -2395,6 +2396,7 @@ try {
 
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.swal = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -41730,7 +41732,7 @@ var render = function () {
                         _vm._v("Pobreza"),
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "vulnerabilty" } }, [
+                      _c("option", { attrs: { value: "vulnerability" } }, [
                         _vm._v("Vulberabilidad"),
                       ]),
                       _vm._v(" "),
