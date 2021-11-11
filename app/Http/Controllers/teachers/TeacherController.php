@@ -4,7 +4,7 @@ namespace App\Http\Controllers\teachers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use app\Models\Teacher;
+use App\Models\Teacher;
 
 class TeacherController extends Controller
 {
@@ -19,7 +19,7 @@ class TeacherController extends Controller
         return view('teachers/insert-teacherinfo');
     }
 
-    public function send(Request $request)
+    public function store(Request $request)
     {
         $teacher = Teacher::create($request->all());
         return $teacher;

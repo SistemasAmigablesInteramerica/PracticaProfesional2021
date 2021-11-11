@@ -67,7 +67,7 @@
                   </div>
                   <div class="col-lg-12">
                     <fieldset>  
-                      <button type="submit" id="form-submit" class="btn btn-primary">Registrar</button>
+                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Registrar</button>
                     </fieldset>
                   </div>
                 </div>
@@ -110,7 +110,7 @@ export default {
                     title: 'Exito',
                     text: 'El profesor se ha registrado con exito',
                 });
-            }).cath(error => {
+            }).catch(error => {
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Grades\GradeController; 
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\teachers\TeacherController;
 use Illuminate\Support\Facades\route;
 
 /*

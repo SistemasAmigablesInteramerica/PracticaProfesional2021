@@ -2460,7 +2460,7 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Exito',
           text: 'El profesor se ha registrado con exito'
         });
-      }).cath(function (error) {
+      })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'error',
           title: 'Error',
@@ -42536,7 +42536,19 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _vm._m(1),
+                  _c("div", { staticClass: "col-lg-12" }, [
+                    _c("fieldset", [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit", id: "form-submit" },
+                          on: { click: _vm.send },
+                        },
+                        [_vm._v("Registrar")]
+                      ),
+                    ]),
+                  ]),
                 ]),
               ]),
             ]),
@@ -42553,23 +42565,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
       _c("h2", [_vm._v("Información del profesor")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
-      _c("fieldset", [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { type: "submit", id: "form-submit" },
-          },
-          [_vm._v("Registrar")]
-        ),
-      ]),
     ])
   },
 ]
