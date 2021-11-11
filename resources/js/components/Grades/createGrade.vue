@@ -3,7 +3,7 @@
         <div class="col-lg-9 col-md-9 col-sm-12">
           <div class="row">
             <div class="col-lg-12">
-             
+              
                 <div class="row" style="min-height: 550px; border-radius:10px;width: 100%;border: 10px solid white; background-color: white;">
                   <div class="col-lg-12" method="post" >
                     <h2>Agregar nueva sección</h2>
@@ -14,16 +14,16 @@
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
-                  <fieldset>
-                    <select class="form-control" v-model="grades.section">
-                    <option Value="1">1</option>
-                    <option Value="2">2</option>
-                    <option Value="3">3</option>
-                    <option Value="4">4</option>
-                    <option Value="5">5</option>
-                    <option Value="6">6</option>
-                    </select>
-                  </fieldset>
+                    <fieldset>
+                      <select class="form-control" v-model="grades.section">
+                      <option Value="1">1</option>
+                      <option Value="2">2</option>
+                      <option Value="3">3</option>
+                      <option Value="4">4</option>
+                      <option Value="5">5</option>
+                      <option Value="6">6</option>
+                      </select>
+                    </fieldset>
                  </div>
                  <div class="col-lg-12">
                     <fieldset>
@@ -31,7 +31,7 @@
                     </fieldset>
                   </div>
                 </div>
-              
+             
             </div>
           </div>
         </div>

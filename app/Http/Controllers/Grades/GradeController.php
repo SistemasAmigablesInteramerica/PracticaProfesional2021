@@ -26,6 +26,6 @@ class GradeController extends Controller
         }
          
     }
-}
+} 
 
   
