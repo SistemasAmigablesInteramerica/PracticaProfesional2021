@@ -15,8 +15,8 @@ class CreateGradesTable extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('');
-            $table->integer('section');
+            $table->integer('name')->nullable();
+            $table->integer('section')->nullable();
             $table->timestamps();
             $table->engine = 'InnoDB';
         });

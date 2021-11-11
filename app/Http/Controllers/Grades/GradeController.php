@@ -20,7 +20,7 @@ class GradeController extends Controller
     public function store(Request $request)
     {
         $grade = Grade::create($request->all());
-        return $result;
+        return $grade;
         dd($request->all());
         $grade->save();
 
