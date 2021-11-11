@@ -81,7 +81,7 @@
                       <option disabled value=""> Seleccione estado socioeconomico</option>
                       <option value="extreme_poverty">Pobreza extrema</option>
                       <option value="poverty">Pobreza</option>
-                      <option value="vulnerabilty">Vulberabilidad</option>
+                      <option value="vulnerability">Vulberabilidad</option>
                       <option value="not_poor">No pobre</option>
                     </select>
                     <br><br>
@@ -129,7 +129,9 @@
 <script>
     import Swal from 'sweetalert2'
 export default {
-    components: {Swal },
+    name: "createStudent",
+    components: {Swal},
+
     data() {
         return {
             student: {

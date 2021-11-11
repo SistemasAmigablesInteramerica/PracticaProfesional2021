@@ -11,7 +11,7 @@ class Student extends Model
     protected $fillable = ['name', 'nationality', 'birthdate', 'card', 'salarial_constance', 'legal_guardian_name', 'legal_guardian_card', 'place_residence', 'phone_number', 'socioeconomic_status', 'family_member_total', 'total_per_capita', 'clasification', 'financial_assistance', 'voluntary_assistance', 'rental_income', 'others_income'];
     use HasFactory;
 
-    public function studentRelative()
+public function studentRelative()
 {
     return $this->hasMany(StudentRelative::class, 'student_id', 'id');
 }
