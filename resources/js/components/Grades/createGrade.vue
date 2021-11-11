@@ -42,18 +42,18 @@
   import Swal from 'sweetalert2'
     export default {
         name: "createGrade",
-        components:{Swal },
+        components:{Swal},
         data() {
           return {
             grades: {
               name: '',
-              section: ''
+              section: '',
             }
           }
         },
         methods: {
           send(){
-            axios.post('/store-grade',this.grade).then(response =>{
+            axios.post('/store-grade', this.grades).then(response =>{
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
