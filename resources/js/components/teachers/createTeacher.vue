@@ -83,7 +83,7 @@
 <script>
 import Swal from 'sweetalert2'
 export default {
-    name: createTeacher,
+    name: "createTeacher",
     components: {Swal},
 
     data() {
