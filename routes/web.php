@@ -35,7 +35,7 @@ Route::get('/asignar-materia-profesor', [App\Http\Controllers\SubjectTeacherCont
 
 Route::get('/ver-de-secciones', [App\Http\Controllers\ViewGradeController::class, 'create'])->name('view-gradeinfo');
 
-Route::get('/vervde-profesores', [App\Http\Controllers\ViewTeacherController::class, 'create'])->name('view-teacherinfo');
+Route::get('/ver-de-profesores', [App\Http\Controllers\ViewTeacherController::class, 'create'])->name('view-teacherinfo');
 
 Route::get('/ver-de-materias', [App\Http\Controllers\ViewSubjectController::class, 'create'])->name('view-subjectinfo');
 
