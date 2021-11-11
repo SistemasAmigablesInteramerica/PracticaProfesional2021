@@ -2124,7 +2124,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     send: function send() {
       axios.post('/store-grade', this.grade).then(function (response) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Excelente', 'Se ha guardado con exito', 'Success');
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'success',
+          title: 'Datos registrados',
+          text: 'El estudiante se ha registrado con exito.'
+        });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'error',
@@ -2299,6 +2303,7 @@ __webpack_require__.r(__webpack_exports__);
         socioeconomic_status: '',
 
         /* ['extreme_poverty', 'poverty', 'vulnerabilty', 'not_poor']*/
+        total_income_family: '',
         family_member_total: '',
         total_per_capita: '',
         clasification: '',
@@ -41276,7 +41281,6 @@ var render = function () {
                           type: "text",
                           id: "name",
                           placeholder: "Nombre Completo Del Estudiante",
-                          required: "",
                         },
                         domProps: { value: _vm.student.name },
                         on: {
@@ -41308,7 +41312,6 @@ var render = function () {
                           type: "text",
                           id: "nationality",
                           placeholder: "Nacionalidad",
-                          required: "",
                         },
                         domProps: { value: _vm.student.nationality },
                         on: {
@@ -41345,7 +41348,6 @@ var render = function () {
                           id: "No.card",
                           placeholder: "No.Cédula",
                           pattern: "",
-                          required: "",
                         },
                         domProps: { value: _vm.student.card },
                         on: {
@@ -41421,7 +41423,6 @@ var render = function () {
                           type: "text",
                           id: "legal_guardian_name",
                           placeholder: "Inserte el Nombre",
-                          required: "",
                         },
                         domProps: { value: _vm.student.legal_guardian_name },
                         on: {
@@ -41460,7 +41461,6 @@ var render = function () {
                           id: "legal_guardian_card",
                           placeholder: "No.Cédula del encargado legal",
                           pattern: "",
-                          required: "",
                         },
                         domProps: { value: _vm.student.legal_guardian_card },
                         on: {
@@ -41535,7 +41535,6 @@ var render = function () {
                           type: "text",
                           id: "place_residence",
                           placeholder: "Direccion Del Domicilio",
-                          required: "",
                         },
                         domProps: { value: _vm.student.place_residence },
                         on: {
@@ -41580,19 +41579,18 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.student.total_income,
-                            expression: "student.total_income",
+                            value: _vm.student.total_income_family,
+                            expression: "student.total_income_family",
                           },
                         ],
                         staticClass: "form-control",
                         attrs: {
-                          name: "total_income",
+                          name: "total_income_family",
                           type: "text",
-                          id: "total_income",
+                          id: "total_income_family",
                           placeholder: "₡ Total De Ingresos",
-                          required: "",
                         },
-                        domProps: { value: _vm.student.total_income },
+                        domProps: { value: _vm.student.total_income_family },
                         on: {
                           input: function ($event) {
                             if ($event.target.composing) {
@@ -41600,7 +41598,7 @@ var render = function () {
                             }
                             _vm.$set(
                               _vm.student,
-                              "total_income",
+                              "total_income_family",
                               $event.target.value
                             )
                           },
@@ -41626,7 +41624,6 @@ var render = function () {
                           type: "text",
                           id: "family_member_total",
                           placeholder: "/ Numero de Miembros Familiares =",
-                          required: "",
                         },
                         domProps: { value: _vm.student.family_member_total },
                         on: {
@@ -41662,7 +41659,6 @@ var render = function () {
                           type: "text",
                           id: "total_per_capita",
                           placeholder: " ₡ = Per Cápita",
-                          required: "",
                         },
                         domProps: { value: _vm.student.total_per_capita },
                         on: {
@@ -41768,7 +41764,6 @@ var render = function () {
                           type: "text",
                           id: "financial_assistence",
                           placeholder: "₡ Ayuda Financiera",
-                          required: "",
                         },
                         domProps: { value: _vm.student.financial_assistence },
                         on: {
@@ -41804,7 +41799,6 @@ var render = function () {
                           type: "text",
                           id: "voluntary_assistence",
                           placeholder: "₡ Ayuda Voluntaria",
-                          required: "",
                         },
                         domProps: { value: _vm.student.voluntary_assistence },
                         on: {
@@ -41840,7 +41834,6 @@ var render = function () {
                           type: "text",
                           id: "rental_income",
                           placeholder: "₡ Arquileres",
-                          required: "",
                         },
                         domProps: { value: _vm.student.rental_income },
                         on: {
@@ -41876,7 +41869,6 @@ var render = function () {
                           type: "text",
                           id: "others",
                           placeholder: "₡ Otros(Especifique)",
-                          required: "",
                         },
                         domProps: { value: _vm.student.others },
                         on: {
@@ -41908,7 +41900,6 @@ var render = function () {
                           type: "text",
                           id: "total_income",
                           placeholder: "₡ Ingresos Totales",
-                          required: "",
                         },
                         domProps: { value: _vm.student.total_income },
                         on: {

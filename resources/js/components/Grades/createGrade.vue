@@ -54,7 +54,11 @@
         methods: {
           send(){
             axios.post('/store-grade',this.grade).then(response =>{
-              Swal.fire('Excelente', 'Se ha guardado con exito', 'Success');
+              Swal.fire({
+                    icon: 'success',
+                    title: 'Datos registrados',
+                    text: 'El estudiante se ha registrado con exito.',
+                });
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',
