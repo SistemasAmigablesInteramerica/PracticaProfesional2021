@@ -7,14 +7,14 @@
     <title>Grados y secciones</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
 
 <!-- Additional CSS Files -->
-<link rel="stylesheet" href="/css/fontawesome.css">
-<link rel="stylesheet" href="/css/menuinicio.css">
-<link rel="stylesheet" href="/css/owl.css">
-<link rel="stylesheet" href="/css/lightbox.css">
+<link rel="stylesheet" href="{{asset('/css/fontawesome.css')}}">
+<link rel="stylesheet" href="{{asset('/css/menuinicio.css')}}">
+<link rel="stylesheet" href="{{asset('/css/owl.css')}}">
+<link rel="stylesheet" href="{{asset('/css/lightbox.css')}}">
 
 
 

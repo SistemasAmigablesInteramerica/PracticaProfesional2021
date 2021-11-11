@@ -75,7 +75,7 @@
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
-                    <fieldset>
+                    <!-- <fieldset>
                   <label for="Pobreza Extrema">Pobreza Extrema</label>
                     <input type="radio"  v-model="student.socioeconomic_status" value="Pobreza Extrema." id="Pobreza Extrema" name="titulo">
                     </fieldset> 
@@ -97,7 +97,17 @@
                   <label for="No Pobre">No Pobre</label>
                     <input type="radio"  v-model="student.socioeconomic_status" value="No Pobre" id="No Pobre" name="titulo">
                     </fieldset> 
-                  </div>
+                        -->  
+                        </div>
+                    <label for="socioeconomic_status">Estado Socioeconomico:</label>
+                    <select v-model="student.socioeconomic_status" id="socioeconomic_status">
+                      <option disabled value=""> Seleccione estado socioeconomico</option>
+                      <option value="extreme_poverty">Pobreza extrema</option>
+                      <option value="poverty">Pobreza</option>
+                      <option value="vulnerabilty">Vulberabilidad</option>
+                      <option value="not_poor">No pobre</option>
+                    </select>
+                    <br><br>
                   <h2>Otros Ingresos Del Grupo Familiar</h2>
                   <label for="">Ingrese Los Siguientes datos:</label>
                   <div class="col-lg-3">
@@ -148,7 +158,8 @@ export default {
             student: {
                 name: '',
                 nationality: '',
-                card: '',
+                birthdate: '',
+                card: '',   
                 salarial_constance: '',
                 legal_guardian_name: '',
                 place_residence: '',
