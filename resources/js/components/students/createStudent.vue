@@ -11,17 +11,17 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="name" class="form-control" v-model="student.name" type="text" id="name" placeholder="Nombre Completo Del Estudiante" required="">
+                      <input name="name" class="form-control" v-model="student.name" type="text" id="name" placeholder="Nombre Completo Del Estudiante">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
-                    <input name="nationality" class="form-control" v-model="student.nationality" type="text" id="nationality"  placeholder="Nacionalidad" required="">
+                    <input name="nationality" class="form-control" v-model="student.nationality" type="text" id="nationality"  placeholder="Nacionalidad">
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="card" class="form-control" v-model="student.card" type="number" id="No.card" placeholder="No.Cédula" pattern="" required="">
+                      <input name="card" class="form-control" v-model="student.card" type="number" id="No.card" placeholder="No.Cédula" pattern="">
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
@@ -33,13 +33,13 @@
                   <div class="col-lg-4">
                   <fieldset>
                   <label for="legal_guardian_name">Nombre del Encargado Legal:</label>
-                      <input name="legal_guardian_name" class="form-control" v-model="student.legal_guardian_name" type="text" id="legal_guardian_name" placeholder="Inserte el Nombre" required="">
+                      <input name="legal_guardian_name" class="form-control" v-model="student.legal_guardian_name" type="text" id="legal_guardian_name" placeholder="Inserte el Nombre">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                       <label for="legal_guardian_card"></label>
-                      <input name="legal_guardian_card" class="form-control" v-model="student.legal_guardian_card" type="number" id="legal_guardian_card" placeholder="No.Cédula del encargado legal" pattern="" required="">
+                      <input name="legal_guardian_card" class="form-control" v-model="student.legal_guardian_card" type="number" id="legal_guardian_card" placeholder="No.Cédula del encargado legal" pattern="">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-lg-12">
                     <fieldset>
-                      <input name="place_residence" class="form-control" v-model="student.place_residence" type="text" id="place_residence" placeholder="Direccion Del Domicilio" required="">
+                      <input name="place_residence" class="form-control" v-model="student.place_residence" type="text" id="place_residence" placeholder="Direccion Del Domicilio">
                       </fieldset>
                   </div>
                   <div class="col-lg-12">
@@ -61,17 +61,17 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                    <input name="total_income" class="form-control" v-model="student.total_income" type="text" id="total_income" placeholder="₡ Total De Ingresos" required="">
+                    <input name="total_income_family" class="form-control" v-model="student.total_income_family" type="text" id="total_income_family" placeholder="₡ Total De Ingresos">
                     </fieldset> 
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                    <input name="family_member_total" class="form-control" v-model="student.family_member_total" type="text" id="family_member_total" placeholder="/ Numero de Miembros Familiares =" required="">
+                    <input name="family_member_total" class="form-control" v-model="student.family_member_total" type="text" id="family_member_total" placeholder="/ Numero de Miembros Familiares =">
                     </fieldset> 
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                    <input name="total_per_capita" class="form-control" v-model="student.total_per_capita" type="text" id="total_per_capita" placeholder=" ₡ = Per Cápita" required="">
+                    <input name="total_per_capita" class="form-control" v-model="student.total_per_capita" type="text" id="total_per_capita" placeholder=" ₡ = Per Cápita">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
@@ -89,27 +89,27 @@
                   <label for="">Ingrese Los Siguientes datos:</label>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="financial_assistence" class="form-control" v-model="student.financial_assistence" type="text" id="financial_assistence" placeholder="₡ Ayuda Financiera" required="">
+                    <input name="financial_assistence" class="form-control" v-model="student.financial_assistence" type="text" id="financial_assistence" placeholder="₡ Ayuda Financiera">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="voluntary_assistence" class="form-control" v-model="student.voluntary_assistence" type="text" id="voluntary_assistence" placeholder="₡ Ayuda Voluntaria" required="">
+                    <input name="voluntary_assistence" class="form-control" v-model="student.voluntary_assistence" type="text" id="voluntary_assistence" placeholder="₡ Ayuda Voluntaria">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="rental_income" class="form-control" v-model="student.rental_income" type="text" id="rental_income" placeholder="₡ Arquileres" required="">
+                    <input name="rental_income" class="form-control" v-model="student.rental_income" type="text" id="rental_income" placeholder="₡ Arquileres">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="others" class="form-control" v-model="student.others" type="text" id="others" placeholder="₡ Otros(Especifique)" required="">
+                    <input name="others" class="form-control" v-model="student.others" type="text" id="others" placeholder="₡ Otros(Especifique)">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="total_income" class="form-control" v-model="student.total_income" type="text" id="total_income" placeholder="₡ Ingresos Totales" required="">
+                    <input name="total_income" class="form-control" v-model="student.total_income" type="text" id="total_income" placeholder="₡ Ingresos Totales">
                     </fieldset> 
                   </div>
                   <div class="col-lg-12">
@@ -144,6 +144,7 @@ export default {
                 place_residence: '',
                 phone_number: '',
                 socioeconomic_status: '', /* ['extreme_poverty', 'poverty', 'vulnerabilty', 'not_poor']*/
+                total_income_family: '',
                 family_member_total: '',
                 total_per_capita: '',
                 clasification: '',
@@ -151,7 +152,7 @@ export default {
                 voluntary_assistance: '',
                 rental_income: '',
                 others_income: '',
-                total_income: ''
+                total_income: '',
             }
 
         }

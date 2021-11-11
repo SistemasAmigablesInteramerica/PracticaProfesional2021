@@ -25,6 +25,7 @@ class CreateStudentsTable extends Migration
             $table->string('place_residence');
             $table->string('phone_number');
             $table->set('socioeconomic_status', ['extreme_poverty', 'poverty', 'vulnerability', 'not_poor'])->nullable();
+            $table->integer('total_income_family');
             $table->integer('family_member_total');
             $table->decimal('total_per_capita');
             $table->boolean('clasification')->nullable();
@@ -32,7 +33,7 @@ class CreateStudentsTable extends Migration
             $table->decimal('voluntary_assistance')->nullable();
             $table->decimal('rental_income')->nullable();
             $table->decimal('others_income')->nullable();
-            $table->decimal('total_income')->default('0');
+            $table->decimal('total_income');
             $table->timestamps();
             $table->engine = 'InnoDB';
         });
