@@ -24,7 +24,7 @@ class StudentController extends Controller
     {
 
         $student = Student::create($request->all());
-        return $result;
+        return $student;
         dd($request->all());
         $student->save();
 
