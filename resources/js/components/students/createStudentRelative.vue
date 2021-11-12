@@ -57,7 +57,7 @@
                   </div>
                  <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" class="button">Enviar</button>
+                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Enviar</button>
                     </fieldset>
                  </div>
             </div>

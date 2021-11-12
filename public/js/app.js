@@ -2771,7 +2771,7 @@ Vue.component('createGrade', (__webpack_require__(/*! ./components/Grades/create
 Vue.component('createStudent', (__webpack_require__(/*! ./components/students/createStudent.vue */ "./resources/js/components/students/createStudent.vue")["default"]));
 Vue.component('createTeacher', (__webpack_require__(/*! ./components/teachers/createTeacher.vue */ "./resources/js/components/teachers/createTeacher.vue")["default"]));
 Vue.component('createSubject', (__webpack_require__(/*! ./components/Subjects/createSubject.vue */ "./resources/js/components/Subjects/createSubject.vue")["default"]));
-Vue.component('createStudentRelative', (__webpack_require__(/*! ./components/students/createStudentRelative.vue */ "./resources/js/components/students/createStudentRelative.vue")["default"]));
+Vue.component('createStudentrelative', (__webpack_require__(/*! ./components/students/createStudentRelative.vue */ "./resources/js/components/students/createStudentRelative.vue")["default"]));
 Vue.component('createAttendancehistory`', (__webpack_require__(/*! ./components/AttendanceHistory/createAttendanceHistory.vue */ "./resources/js/components/AttendanceHistory/createAttendanceHistory.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -43204,7 +43204,19 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _vm._m(1),
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("fieldset", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit", id: "form-submit" },
+                      on: { click: _vm.send },
+                    },
+                    [_vm._v("Enviar")]
+                  ),
+                ]),
+              ]),
             ]),
           ]),
         ]),
@@ -43219,23 +43231,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
       _c("h2", [_vm._v("Agregar familiar de estudiante")]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
-      _c("fieldset", [
-        _c(
-          "button",
-          {
-            staticClass: "button",
-            attrs: { type: "submit", id: "form-submit" },
-          },
-          [_vm._v("Enviar")]
-        ),
-      ]),
     ])
   },
 ]
