@@ -5,7 +5,7 @@ use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Subjects\SubjectController; 
 use App\Http\Controllers\teachers\TeacherController;
 use App\Http\Controllers\Student\StudentRelativeController;
-use App\Http\Controllers\AttendanceHistoryController;
+use App\Http\Controllers\Attendance\AttendanceHistoryController;
 use Illuminate\Support\Facades\route;
 
 /*
@@ -36,7 +36,7 @@ Route::post('/store-subject', [SubjectController::class, 'store']);
 Route::get('/registro-de-familiares', [App\Http\Controllers\Student\StudentRelativeController::class, 'create'])->name('insert-studentrelativesinfo');
 Route::post('/store-studentRelative', [StudentRelativeController::class, 'store']);
 
-Route::get('/registro-de-asistencias', [App\Http\Controllers\AttendanceHistoryController::class, 'create'])->name('insert-attendancehistory');
+Route::get('/registro-de-asistencias', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'create'])->name('insert-attendancehistory');
 Route::post('/store-attendancehistory', [AttendanceHistoryController::class, 'store']);
 
 Route::get('/asignar-materia-grado', [App\Http\Controllers\SubjectGradeController::class, 'create'])->name('insert-subjectgradeinfo');

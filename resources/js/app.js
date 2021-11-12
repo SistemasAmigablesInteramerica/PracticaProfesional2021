@@ -24,6 +24,7 @@ Vue.component('createStudent', require("./components/students/createStudent.vue"
 Vue.component('createTeacher', require("./components/teachers/createTeacher.vue").default);
 Vue.component('createSubject', require("./components/Subjects/createSubject.vue").default);
 Vue.component('createStudentRelative', require("./components/students/createStudentRelative.vue").default);
+Vue.component('createAttendancehistory`', require("./components/AttendanceHistory/createAttendanceHistory.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
