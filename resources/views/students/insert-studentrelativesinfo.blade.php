@@ -1,5 +1,5 @@
 @extends('layouts.layout')
 
 @section('content')
-<create-studentrelative></create-studentrelative>
+<create-studentRelative></create-studentRelative>
 @endsection
