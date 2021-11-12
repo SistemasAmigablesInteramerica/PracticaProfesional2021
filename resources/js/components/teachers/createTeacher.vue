@@ -107,7 +107,7 @@ export default {
             axios.post('/store-teacher', this.teacher).then(response => {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Exito',
+                    title: 'Datos registrados',
                     text: 'El profesor se ha registrado con exito',
                 });
             }).catch(error => {

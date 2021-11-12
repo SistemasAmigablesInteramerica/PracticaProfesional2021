@@ -71,7 +71,7 @@
 <script>
 import Swal from 'sweetalert2'
 export default {
-    name: 'createStudentRelative',
+    name: "createStudentrelative",
     components: {Swal},
 
     data() {
@@ -93,7 +93,7 @@ export default {
             axios.post('/store.studentRelative', this.StudentRelative).then(response => {
                 Swal.fire({
                     icon: 'success',
-                    title: 'Exito',
+                    title: 'Datos registrados',
                     text: 'El familiar se ha registrado con exito'
                 });
             }).catch(error =>{
