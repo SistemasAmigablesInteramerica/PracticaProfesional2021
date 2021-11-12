@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use app\Models\StudentRelative;
+use App\Models\StudentRelative;
 
 class StudentRelativeController extends Controller
 {
@@ -21,9 +21,9 @@ class StudentRelativeController extends Controller
 
     public function store(Request $request)
     {
-        $studentRelative = StudentRelative::create($request->all());
-        return $studentRelative;
+        $studentrelative = StudentRelative::create($request->all());
+        return $studentrelative;
         dd($request->all());
-        $studentRelative->save();
+        $studentrelative->save();
     }
 }

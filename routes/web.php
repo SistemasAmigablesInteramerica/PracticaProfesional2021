@@ -34,7 +34,7 @@ Route::get('/registro-de-materias', [App\Http\Controllers\Subjects\SubjectContro
 Route::post('/store-subject', [SubjectController::class, 'store']);
 
 Route::get('/registro-de-familiares', [App\Http\Controllers\Student\StudentRelativeController::class, 'create'])->name('insert-studentrelativesinfo');
-Route::post('/store-studentRelative', [StudentRelativeController::class, 'store']);
+Route::post('/store-StudentRelative', [StudentRelativeController::class, 'store']);
 
 Route::get('/registro-de-asistencias', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'create'])->name('insert-attendancehistory');
 Route::post('/store-attendancehistory', [AttendanceHistoryController::class, 'store']);

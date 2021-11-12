@@ -2,57 +2,61 @@
         <div class="container">
       <div class="row">
         <div class="col-lg-9">  
-          <div class="row">
+          <div class="row" style="background-color: white; padding: 20px; border-radius: 20px;">
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
                     <h2>Agregar familiar de estudiante</h2>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
+                    <select v-model="StudentRelative.student_id" @change="GetStudent">
+                      <option disabled selected class="form-control" value="">Seleccione estudiante @change="getStudent"</option>
+                      <option></option>
+                    </select>
+                  </div>
+                  <div class="col-lg-4">
                     <fieldset>
-                    
-                      <input name="guardian_name" v-model="StudentRelative.guardian_name" type="text" id="guardian_name" placeholder="Nombre del familiar">
+                      <input name="guardian_name" class="form-control" v-model="StudentRelative.guardian_name" type="text" id="guardian_name" placeholder="Nombre del familiar">
                     </fieldset>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <fieldset>
-                    
-                      <input name="guaridan_profession" v-model="StudentRelative.guaridan_profession" type="text" id="guaridan_profession" placeholder="Profesión del familiar">
+                      <input name="guaridan_profession" class="form-control" v-model="StudentRelative.guaridan_profession" type="text" id="guaridan_profession" placeholder="Profesión del familiar">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
-                    <input name="guardian_card" v-model="StudentRelative.guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
+                    <input name="guardian_card" class="form-control" v-model="StudentRelative.guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="guardian_relation" v-model="StudentRelative.guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
+                      <input name="guardian_relation" class="form-control" v-model="StudentRelative.guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
                     </fieldset>
                   </div>  
                   <div class="col-lg-4">
-                    <fieldset>
-                      <input name="scholarship" v-model="StudentRelative.scholarship" type="text" id="scholarship"  placeholder="Escolaridad">
+                    <fieldset> 
+                      <input name="scholarship" class="form-control" v-model="StudentRelative.scholarship" type="text" id="scholarship"  placeholder="Escolaridad">
                     </fieldset>
-                  </div>
-                  <div class="col-lg-4">
-                  <fieldset>
-                    <br>
-                  <label>Recibe ayuda financiera</label>
-                  <input name="guardian_recieves_aid" v-model="StudentRelative.guardian_recieves_aid" type="checkbox" id="guardian_recieves_aid" value="first_checkbox" style="width:73%; height:73%; ">
-                  </fieldset>
-                </div>  
-                  <div class="col-lg-4">
-                  <fieldset>
-                    <br>
-                    <label for="guardian_aid_total">Monto de ayuda financiera:</label>
-                    <input name="guardian_aid_total" v-model="StudentRelative.guardian_aid_total" type="number" id="guardian_aid_total"  placeholder="Monto de ayuda financiera" min="1">
-                  </fieldset>
                   </div>
                   <div class="col-lg-12">
                   <fieldset>
+                    <br>
+                  <label>Recibe ayuda financiera</label>
+                  <input name="guardian_recieves_aid" class="form-check-input" v-model="StudentRelative.guardian_recieves_aid" type="checkbox" value="first_checkbox">
+                  </fieldset>
+                </div>  
+                  <div class="col-lg-6">
+                  <fieldset>
+                    <br>
+                    <label for="guardian_aid_total">Monto de ayuda financiera:</label>
+                    <input name="guardian_aid_total" class="form-control" v-model="StudentRelative.guardian_aid_total" type="number" id="guardian_aid_total"  placeholder="Monto de ayuda financiera" min="1">
+                  </fieldset>
+                  </div>
+                  <div class="col-lg-6">
+                  <fieldset>
                     <label for="guardian_salary">Salario:</label>
-                    <input name="guardian_salary" v-model="StudentRelative.guardian_salary" type="number" id="guardian_salary"  placeholder="Salario" min="1">
+                    <input name="guardian_salary" class="form-control" v-model="StudentRelative.guardian_salary" type="number" id="guardian_salary"  placeholder="Salario" min="1">
                   </fieldset>
                   </div>
                  <div class="col-lg-12">
@@ -77,6 +81,7 @@ export default {
     data() {
         return {
             StudentRelative: {
+                student_id: '',
                 guardian_name: '',
                 guaridan_profession: '',
                 guardian_card: '',
@@ -89,8 +94,12 @@ export default {
         }
     },
     methods:{
+        getStudent:function(){
+
+        },
+
         send() {
-            axios.post('/store.studentRelative', this.StudentRelative).then(response => {
+            axios.post('/store-StudentRelative', this.StudentRelative).then(response => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
@@ -104,6 +113,6 @@ export default {
                 });
             })
         }
-    }
+    },
 }
 </script>
