@@ -15,7 +15,7 @@ class GradeController extends Controller
     }
      public function create()
     {
-        return view('Grades/insert-gradeinfo');
+        return view('grades/insert-gradeinfo');
     }
     public function store(Request $request)
     {

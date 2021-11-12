@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Grades\GradeController; 
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Subjects\SubjectController; 
 use Illuminate\Support\Facades\route;
 
 /*
@@ -26,7 +27,8 @@ Route::post('/store-grade', [GradeController::class, 'store']);
 Route::get('/registro-de-profesores', [App\Http\Controllers\teachers\TeacherController::class, 'create'])->name('insert-teacherinfo');
 Route::post('/store-teacher', [TeacherController::class, 'store']);
 
-Route::get('/registro-de-materias', [App\Http\Controllers\SubjectController::class, 'create'])->name('insert-subjectinfo');
+Route::get('/registro-de-materias', [App\Http\Controllers\Subjects\SubjectController::class, 'create'])->name('insert-subjectinfo');
+Route::post('/store-subject', [SubjectController::class, 'store']);
 
 Route::get('/registro-de-familiares', [App\Http\Controllers\StudentRelativeController::class, 'create'])->name('insert-studentrelativesinfo');
 

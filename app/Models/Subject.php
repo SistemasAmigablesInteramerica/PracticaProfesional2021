@@ -11,8 +11,9 @@ class Subject extends Model
     protected $fillable = ['name'];
 
     use HasFactory;
-}
     public function subjectGrade()
     {
         return $this->hasMany(SubjectGrade::class, 'subject_id', 'id');
     }
+}
+    
