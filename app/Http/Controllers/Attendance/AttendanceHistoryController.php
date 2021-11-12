@@ -15,7 +15,7 @@ class AttendanceHistoryController extends Controller
      }
       public function create()
      {
-         return view('AttendanceHistory\insert-attendancehistory');
+         return view('attendance/insert-attendancehistory');
      }
      public function store(Request $request)
      {
