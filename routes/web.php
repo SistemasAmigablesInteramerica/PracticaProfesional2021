@@ -3,6 +3,7 @@
 use App\Http\Controllers\Grades\GradeController; 
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Subjects\SubjectController; 
+use App\Http\Controllers\teachers\TeacherController;
 use Illuminate\Support\Facades\route;
 
 /*
@@ -54,6 +55,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
  
 
