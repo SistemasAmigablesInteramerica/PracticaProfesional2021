@@ -4,6 +4,8 @@ use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Subjects\SubjectController; 
 use App\Http\Controllers\teachers\TeacherController;
+use App\Http\Controllers\StudentRelativeController;
+use App\Http\Controllers\AttendanceHistoryController;
 use Illuminate\Support\Facades\route;
 
 /*

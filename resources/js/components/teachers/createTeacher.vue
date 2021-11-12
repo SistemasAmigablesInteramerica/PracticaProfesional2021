@@ -100,7 +100,7 @@ export default {
                 contact_number: '',
 
             } 
-        }
+        }   
     },
     methods: {
         send(){
