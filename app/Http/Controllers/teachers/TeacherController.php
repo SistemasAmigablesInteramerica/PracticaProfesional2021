@@ -26,5 +26,5 @@ class TeacherController extends Controller
         dd($request->all());
         $teacher -> save();
 
-    }
+    }   
 }

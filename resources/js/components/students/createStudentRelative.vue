@@ -4,7 +4,6 @@
         <div class="col-lg-9">
           <div class="row">
             <div class="col-lg-12">
-              <form id="contact" action="" method="post" style = "border-radius:20px">
                 <div class="row">
                   <div class="col-lg-12">
                     <h2>Agregar familiar de estudiante</h2>
@@ -61,12 +60,12 @@
                       <button type="submit" id="form-submit" class="button">Enviar</button>
                     </fieldset>
                  </div>
-              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -91,7 +90,7 @@ export default {
     },
     methods:{
         send() {
-            axios.post('/store.studentrelative', this.StudentRelative).then(response => {
+            axios.post('/store.studentRelative', this.StudentRelative).then(response => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Exito',
