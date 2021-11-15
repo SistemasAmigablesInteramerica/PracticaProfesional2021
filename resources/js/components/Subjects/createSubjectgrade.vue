@@ -1,0 +1,85 @@
+ <template>
+
+         
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="row" style="min-height: 550px; border-radius:10px;width: 100%;border: 10px solid white; background-color: white;" >
+            <div class="col-lg-12">
+                  <div class="col-lg-12">
+                    <h2>Asignar materia a un grado</h2>
+                  </div>
+                  <div class="col-lg-6">
+                  <fieldset>
+                      <label for="select">Materias:</label>
+                        <select v-model="subjectgrade.subject_id">
+                        <option disabled value="">Elige una materia</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        </select>
+                  </fieldset>
+                    </div>
+                    <div class="col-lg-6">
+                  <fieldset>
+                      <label for="select">Grados:</label>
+                        <select v-model="subjectgrade.grade_id">
+                        <option disabled value="">Elige un grado</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        </select>
+                  </fieldset>
+                    </div>
+                    
+                <div class="col-lg-12">
+                  <br>
+                    <fieldset>
+                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Asignar</button>
+                    </fieldset>
+                  </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ </template>
+ 
+ <script>
+  import Swal from 'sweetalert2'
+    export default {
+        name: "createSubjectgrade",
+        components:{Swal},
+        data() {
+          return {
+            subjectteacher: {
+              teacher_id: '',
+              subject_grade_id: '',
+              year:'',
+
+            }
+          }
+        },
+        methods: {
+          send(){
+            axios.post('/store-subjectteacher', this.subjectteacher).then(response =>{
+              Swal.fire({
+                    icon: 'success',
+                    title: 'Datos registrados',
+                    text: 'El estudiante se ha registrado con exito.',
+                });
+            }).catch(error => {
+                    Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Se ha encontrado un error.',
+                    });
+
+            })
+          }
+        }
+    }
+
+</script>
