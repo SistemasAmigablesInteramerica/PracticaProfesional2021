@@ -1,5 +1,5 @@
-@extends('layouts.layoutAttendance')
+@extends('layouts.layout')
 
-@section('contentAttendanceHistory')
-<create-AttendanceHistory></create-AttendanceHistory>
+@section('content')
+<create-Attendancehistory></create-Attendancehistory>
 @endsection

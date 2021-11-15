@@ -26,7 +26,7 @@ Vue.component('createSubject', require("./components/Subjects/createSubject.vue"
 Vue.component('createSubjectteacher', require("./components/Subjects/createSubjectteacher.vue").default);
 Vue.component('createSubjectgrade', require("./components/Subjects/createSubjectgrade.vue").default);
 Vue.component('createStudentrelative', require("./components/students/createStudentRelative.vue").default);
-Vue.component('createAttendancehistory`', require("./components/AttendanceHistory/createAttendanceHistory.vue").default);
+Vue.component('createAttendancehistory', require("./components/AttendanceHistory/createAttendanceHistory.vue").default);
 Vue.component('index', require("./components/index.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
