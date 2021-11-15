@@ -24,7 +24,7 @@ class CreateStudentsTable extends Migration
             $table->integer('legal_guardian_card');
             $table->string('place_residence');
             $table->string('phone_number');
-            $table->set('socioeconomic_status', ['extreme_poverty', 'poverty', 'vulnerability', 'not_poor'])->nullable();
+            $table->set('socioeconomic_status', ['extreme_poverty', 'poverty', 'vulnerability', 'not_poor']);
             $table->integer('total_income_family');
             $table->integer('family_member_total');
             $table->decimal('total_per_capita');
