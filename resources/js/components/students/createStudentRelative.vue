@@ -9,9 +9,9 @@
                     <h2>Agregar familiar de estudiante</h2>
                   </div>
                   <div class="col-lg-4">
-                    <select v-model="StudentRelative.student_id" @change="GetStudent">
-                      <option disabled selected class="form-control" value="">Seleccione estudiante @change="getStudent"</option>
-                      <option></option>
+                    <select v-model="StudentRelative.student_id" @change="getStudent">
+                      <option disabled selected class="form-control" value="">Seleccione estudiante</option>
+                      <option v-for="student in student" :key="student.id">@{{ student.id }}</option>
                     </select>
                   </div>
                   <div class="col-lg-4">
@@ -31,7 +31,7 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="guardian_relation" class="form-control" v-model="StudentRelative.guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
+                      <input name="guardian_relation" class="form-con trol" v-model="StudentRelative.guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
                     </fieldset>
                   </div>  
                   <div class="col-lg-4">
@@ -93,10 +93,24 @@ export default {
             }
         }
     },
-    methods:{
-        getStudent:function(){
+  
+    mounted() {
+      this.getStudent();
+    },
 
+    methods:{
+        getStudent(){ 
+          axios.get('/store-student', {params: {student: this.student}}).then(response=>
+            response.data.student).catch(error => {
+            Swal.fire({
+              icon:'error',
+              title: 'error',
+              text: 'Se ha producido un error',
+            })
+          });
         },
+
+        
 
         send() {
             axios.post('/store-StudentRelative', this.StudentRelative).then(response => {

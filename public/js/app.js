@@ -2592,8 +2592,25 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  mounted: function mounted() {
+    this.getStudent();
+  },
   methods: {
-    getStudent: function getStudent() {},
+    getStudent: function getStudent() {
+      axios.get('/store-student', {
+        params: {
+          student: this.student
+        }
+      }).then(function (response) {
+        return response.data.student;
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          title: 'error',
+          text: 'Se ha producido un error'
+        });
+      });
+    },
     send: function send() {
       axios.post('/store-StudentRelative', this.StudentRelative).then(function (response) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -42933,7 +42950,7 @@ var render = function () {
                                 : $$selectedVal[0]
                             )
                           },
-                          _vm.GetStudent,
+                          _vm.getStudent,
                         ],
                       },
                     },
@@ -42944,11 +42961,16 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: { disabled: "", selected: "", value: "" },
                         },
-                        [_vm._v('Seleccione estudiante @change="getStudent"')]
+                        [_vm._v("Seleccione estudiante")]
                       ),
                       _vm._v(" "),
-                      _c("option"),
-                    ]
+                      _vm._l(_vm.student, function (student) {
+                        return _c("option", { key: student.id }, [
+                          _vm._v("@" + _vm._s(student.id)),
+                        ])
+                      }),
+                    ],
+                    2
                   ),
                 ]),
                 _vm._v(" "),
@@ -43071,7 +43093,7 @@ var render = function () {
                           expression: "StudentRelative.guardian_relation",
                         },
                       ],
-                      staticClass: "form-control",
+                      staticClass: "form-con trol",
                       attrs: {
                         name: "guardian_relation",
                         type: "text",
