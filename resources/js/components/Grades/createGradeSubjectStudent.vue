@@ -1,37 +1,35 @@
 <template>
 
          <div class="col-lg-9 col-md-9 col-sm-12">
-          <div class="row">
+          <div class="row" >
             <div class="col-lg-12">
               
                 <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
-                  <div class="col-lg-12" method="post" >
-                    <h2>Agregar nueva sección</h2>
+                  <div class="col-lg-12">
+                    <h2>Asignar grado,materia y estudiante</h2>
                     </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input name="name" type="text" id="name" v-model="grades.name" placeholder="Grado" required="">
+                      <input type="text" v-model="gradesubjectstudent.student_id" placeholder="Estudiante ID" >
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <select class="form-control" v-model="grades.section">
-                      <option Value="1">1</option>
-                      <option Value="2">2</option>
-                      <option Value="3">3</option>
-                      <option Value="4">4</option>
-                      <option Value="5">5</option>
-                      <option Value="6">6</option>
-                      </select>
+                      <input type="text" placeholder="Materia ID" v-model="gradesubjectstudent.subject_grade_id">
                     </fieldset>
                  </div>
+                 <div class="col-lg-4">
+                  <fieldset>
+                    <input type="number" v-model="gradesubjectstudent.year" placeholder="Año">
+                    </fieldset>
+                    </div>
                  <div class="col-lg-12">
                     <fieldset>
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary" >Enviar</button>
                     </fieldset>
                   </div>
                 </div>
-             
+              
             </div>
           </div>
         </div>
@@ -45,9 +43,10 @@
         components:{Swal},
         data() {
           return {
-            grades: {
-              name: '',
-              section: '',
+            gradesubjectstudent: {
+              subject_grade_id: '',
+              student_id: '',
+              year: '',
             }
           }
         },
