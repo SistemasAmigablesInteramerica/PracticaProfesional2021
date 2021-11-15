@@ -48,8 +48,8 @@ Route::post('/store-subjectgrade', [SubjectGradeController::class, 'store']);
 Route::get('/asignar-materia-profesor', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
 Route::post('/store-subjectteacher', [SubjectTeacherController::class, 'store']);
 
-Route::get('/asignar-materia-estudiante', [App\Http\Controller\GradeSubjectStudent\GradeSubjectStudentController::class, 'create']);
-Route::post('/store-gradesubjectstudent', [SubjectTeacherController::class, 'store']);
+Route::get('/asignar-materia-estudiante', [App\Http\Controller\GradeSubjectStudent\GradeSubjectStudentController::class, 'create'])->name('insert-gradesubjectstudentinfo');
+Route::post('/store-gradesubjectstudent', [GradeSubjectStudentController::class, 'store']);
 
 Route::get('/ver-de-secciones', [App\Http\Controllers\ViewGradeController::class, 'create'])->name('view-gradeinfo');
 

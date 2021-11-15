@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\GradeSubjectStudent;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -22,10 +22,10 @@ class GradeSubjectStudentController extends Controller
     public function store(Request $request)
     {
 
-        $student = Student::create($request->all(''));
-        return $student;
+        $gradesubjectstudent = GradeSubjectStudent::create($request->all(''));
+        return $gradesubjectstudent;
         dd($request->all(''));
-        $student->save();
+        $gradesubjectstudent->save();
 
     }
 }
