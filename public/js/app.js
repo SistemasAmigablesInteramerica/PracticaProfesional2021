@@ -2129,7 +2129,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       attendancehistory: {
-        name: ''
+        name: '',
+        check_in: '',
+        check_out: '',
+        student_id: '',
+        grade_subject_teacher_id: '',
+        attended: ''
       }
     };
   },
@@ -2139,7 +2144,7 @@ __webpack_require__.r(__webpack_exports__);
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
-          text: 'El estudiante se ha registrado con exito.'
+          text: 'Se ha registrado con exito.'
         });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -42291,13 +42296,7 @@ var render = function () {
                       expression: "attendancehistory.date",
                     },
                   ],
-                  attrs: {
-                    name: "name",
-                    type: "text",
-                    id: "name",
-                    placeholder: "Nombre",
-                    required: "",
-                  },
+                  attrs: { type: "text", placeholder: "Nombre" },
                   domProps: { value: _vm.attendancehistory.date },
                   on: {
                     input: function ($event) {
@@ -42326,13 +42325,7 @@ var render = function () {
                       expression: "attendancehistory.check_in",
                     },
                   ],
-                  attrs: {
-                    name: "name",
-                    type: "text",
-                    id: "name",
-                    placeholder: "Nombre",
-                    required: "",
-                  },
+                  attrs: { type: "date", placeholder: "Entrada" },
                   domProps: { value: _vm.attendancehistory.check_in },
                   on: {
                     input: function ($event) {
@@ -42361,13 +42354,7 @@ var render = function () {
                       expression: "attendancehistory.check_out",
                     },
                   ],
-                  attrs: {
-                    name: "name",
-                    type: "text",
-                    id: "name",
-                    placeholder: "Nombre",
-                    required: "",
-                  },
+                  attrs: { type: "date", placeholder: "Salida" },
                   domProps: { value: _vm.attendancehistory.check_out },
                   on: {
                     input: function ($event) {
@@ -42396,13 +42383,7 @@ var render = function () {
                       expression: "attendancehistory.student_id",
                     },
                   ],
-                  attrs: {
-                    name: "name",
-                    type: "text",
-                    id: "name",
-                    placeholder: "Nombre",
-                    required: "",
-                  },
+                  attrs: { type: "text", placeholder: "Id del estudiante" },
                   domProps: { value: _vm.attendancehistory.student_id },
                   on: {
                     input: function ($event) {
@@ -42431,13 +42412,7 @@ var render = function () {
                       expression: "attendancehistory.grade_subject_teacher_id",
                     },
                   ],
-                  attrs: {
-                    name: "name",
-                    type: "text",
-                    id: "name",
-                    placeholder: "Nombre",
-                    required: "",
-                  },
+                  attrs: { type: "text", placeholder: "ID Clase" },
                   domProps: {
                     value: _vm.attendancehistory.grade_subject_teacher_id,
                   },
@@ -42455,6 +42430,7 @@ var render = function () {
                   },
                 }),
               ]),
+              _vm._v("date\n                "),
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-lg-12" }, [
@@ -42468,24 +42444,38 @@ var render = function () {
                       expression: "attendancehistory.attended",
                     },
                   ],
-                  attrs: {
-                    name: "name",
-                    type: "text",
-                    id: "name",
-                    placeholder: "Nombre",
-                    required: "",
+                  attrs: { type: "checkbox", placeholder: "Atendio" },
+                  domProps: {
+                    checked: Array.isArray(_vm.attendancehistory.attended)
+                      ? _vm._i(_vm.attendancehistory.attended, null) > -1
+                      : _vm.attendancehistory.attended,
                   },
-                  domProps: { value: _vm.attendancehistory.attended },
                   on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
+                    change: function ($event) {
+                      var $$a = _vm.attendancehistory.attended,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(
+                              _vm.attendancehistory,
+                              "attended",
+                              $$a.concat([$$v])
+                            )
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              _vm.attendancehistory,
+                              "attended",
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
+                      } else {
+                        _vm.$set(_vm.attendancehistory, "attended", $$c)
                       }
-                      _vm.$set(
-                        _vm.attendancehistory,
-                        "attended",
-                        $event.target.value
-                      )
                     },
                   },
                 }),
