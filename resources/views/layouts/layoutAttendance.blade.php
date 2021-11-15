@@ -80,20 +80,20 @@
       </div>
   </header>
   
-<section class="contact-us" id="app">
-<div class="container">
-    <div class="row">
+ <section class="contact-us" id="app"  >
+ <div class="container"> 
+  <div class="row">
     @yield('contentAttendanceHistory')
-    </div>
-</div>
-</section>
-<section class="contact-us" id="contact">
+  </div>
+ </div>
+ </section>
+ <section class="contact-us" id="contact">
     <div class="footer">
       <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
     </div>
-</section>
-<script src="{{asset('js/app.js')}}" defer></script>
+ </section>
+ <script src="{{asset('js/app.js')}}" defer></script>
 </body>
 
 </html>    
