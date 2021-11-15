@@ -3,6 +3,7 @@
 use App\Http\Controllers\Grades\GradeController; 
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Subjects\SubjectController; 
+use App\Http\Controllers\Subjects\SubjectTeacherController; 
 use App\Http\Controllers\teachers\TeacherController;
 use App\Http\Controllers\Student\StudentRelativeController;
 use App\Http\Controllers\Attendance\AttendanceHistoryController;
@@ -41,7 +42,8 @@ Route::post('/store-attendancehistory', [AttendanceHistoryController::class, 'st
 
 Route::get('/asignar-materia-grado', [App\Http\Controllers\SubjectGradeController::class, 'create'])->name('insert-subjectgradeinfo');
 
-Route::get('/asignar-materia-profesor', [App\Http\Controllers\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
+Route::get('/asignar-materia-profesor', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
+Route::post('/store-subjectteacher', [SubjectTeacherController::class, 'store']);
 
 Route::get('/ver-de-secciones', [App\Http\Controllers\ViewGradeController::class, 'create'])->name('view-gradeinfo');
 
