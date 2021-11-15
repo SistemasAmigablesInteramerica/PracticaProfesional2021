@@ -46,7 +46,7 @@
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
+                                  <li><a href="{{asset('registro-de-profesor')}}">Agregar docentes</a></li>
                                   <li><a href="{{asset('ver-profesores')}}">Ver docentes</a></li>
                               </ul>
                           </li>
