@@ -11,24 +11,16 @@
                   </div>
                   <div class="col-lg-6">
                   <fieldset>
-                      <label for="select">Materias:</label>
-                        <select v-model="subjectgrade.subject_id">
-                        <option disabled value="">Elige una materia</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        </select>
+                     <label for="input">Materias:</label>
+                      
+                    <input name="name" type="text"  v-model="subjectgrade.subject_id">
                   </fieldset>
                     </div>
                     <div class="col-lg-6">
                   <fieldset>
-                      <label for="select">Grados:</label>
-                        <select v-model="subjectgrade.grade_id">
-                        <option disabled value="">Elige un grado</option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        </select>
+                      <label for="input">Grados:</label>
+
+                      <input name="name" type="text"  v-model="subjectgrade.grade_id">
                   </fieldset>
                     </div>
                     
