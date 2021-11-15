@@ -46,7 +46,7 @@
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  <li><a href="{{asset('registro-de-profesor')}}">Agregar docentes</a></li>
+                                  <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
                                   <li><a href="{{asset('ver-profesores')}}">Ver docentes</a></li>
                               </ul>
                           </li>
@@ -55,7 +55,7 @@
                               <ul class="sub-menu">
                                   <li><a href="{{asset('registro-de-materias')}}">Agregar materias</a></li>
                                   <li><a href="{{asset('ver-materias')}}">Ver materias</a></li>
-                                  <li><a href="{{asset('asignar-materia-profesores')}}">Asignar docentes</a></li>
+                                  <li><a href="{{asset('asignar-materia-profesor')}}">Asignar docentes</a></li>
                                   <li><a href="{{asset('ver-asignados')}}">Ver asignados</a></li>
                               </ul>
                           </li>
