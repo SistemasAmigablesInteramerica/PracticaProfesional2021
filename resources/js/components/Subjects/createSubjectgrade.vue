@@ -54,17 +54,16 @@
         components:{Swal},
         data() {
           return {
-            subjectteacher: {
-              teacher_id: '',
-              subject_grade_id: '',
-              year:'',
+            subjectgrade: {
+              grade_id: '',
+              subject_id: '',
 
             }
           }
         },
         methods: {
           send(){
-            axios.post('/store-subjectteacher', this.subjectteacher).then(response =>{
+            axios.post('/store-subjectgrade', this.subjectgrade).then(response =>{
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',

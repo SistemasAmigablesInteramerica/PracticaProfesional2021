@@ -2122,7 +2122,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "createAttendanceHistory",
+  name: "createAttendancehistory",
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
@@ -2315,6 +2315,103 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "createSubjectgrade",
+  components: {
+    Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  data: function data() {
+    return {
+      subjectgrade: {
+        grade_id: '',
+        subject_id: ''
+      }
+    };
+  },
+  methods: {
+    send: function send() {
+      axios.post('/store-subjectgrade', this.subjectgrade).then(function (response) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'success',
+          title: 'Datos registrados',
+          text: 'El estudiante se ha registrado con exito.'
+        });
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Se ha encontrado un error.'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js&":
 /*!************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js& ***!
@@ -2455,6 +2552,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2930,8 +3032,9 @@ Vue.component('createStudent', (__webpack_require__(/*! ./components/students/cr
 Vue.component('createTeacher', (__webpack_require__(/*! ./components/teachers/createTeacher.vue */ "./resources/js/components/teachers/createTeacher.vue")["default"]));
 Vue.component('createSubject', (__webpack_require__(/*! ./components/Subjects/createSubject.vue */ "./resources/js/components/Subjects/createSubject.vue")["default"]));
 Vue.component('createSubjectteacher', (__webpack_require__(/*! ./components/Subjects/createSubjectteacher.vue */ "./resources/js/components/Subjects/createSubjectteacher.vue")["default"]));
+Vue.component('createSubjectgrade', (__webpack_require__(/*! ./components/Subjects/createSubjectgrade.vue */ "./resources/js/components/Subjects/createSubjectgrade.vue")["default"]));
 Vue.component('createStudentrelative', (__webpack_require__(/*! ./components/students/createStudentRelative.vue */ "./resources/js/components/students/createStudentRelative.vue")["default"]));
-Vue.component('createAttendancehistory`', (__webpack_require__(/*! ./components/AttendanceHistory/createAttendanceHistory.vue */ "./resources/js/components/AttendanceHistory/createAttendanceHistory.vue")["default"]));
+Vue.component('createAttendancehistory', (__webpack_require__(/*! ./components/AttendanceHistory/createAttendanceHistory.vue */ "./resources/js/components/AttendanceHistory/createAttendanceHistory.vue")["default"]));
 Vue.component('index', (__webpack_require__(/*! ./components/index.vue */ "./resources/js/components/index.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -41629,6 +41732,45 @@ component.options.__file = "resources/js/components/Subjects/createSubject.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Subjects/createSubjectgrade.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectgrade.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createSubjectgrade.vue?vue&type=template&id=c6746e18& */ "./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18&");
+/* harmony import */ var _createSubjectgrade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createSubjectgrade.vue?vue&type=script&lang=js& */ "./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _createSubjectgrade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__.render,
+  _createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Subjects/createSubjectgrade.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Subjects/createSubjectteacher.vue":
 /*!*******************************************************************!*\
   !*** ./resources/js/components/Subjects/createSubjectteacher.vue ***!
@@ -41872,6 +42014,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubjectgrade.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************!*\
   !*** ./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js& ***!
@@ -41999,6 +42157,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubject_vue_vue_type_template_id_1345a973___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubject_vue_vue_type_template_id_1345a973___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubject.vue?vue&type=template&id=1345a973& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubject.vue?vue&type=template&id=1345a973&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubjectgrade.vue?vue&type=template&id=c6746e18& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18&");
 
 
 /***/ }),
@@ -42612,6 +42787,183 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
       _c("h2", [_vm._v("Agregar Materias")]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-9" }, [
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              "min-height": "550px",
+              "border-radius": "10px",
+              width: "100%",
+              border: "10px solid white",
+              "background-color": "white",
+            },
+          },
+          [
+            _c("div", { staticClass: "col-lg-12" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("fieldset", [
+                  _c("label", { attrs: { for: "select" } }, [
+                    _vm._v("Materias:"),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.subjectgrade.subject_id,
+                          expression: "subjectgrade.subject_id",
+                        },
+                      ],
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.subjectgrade,
+                            "subject_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                      },
+                    },
+                    [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
+                        _vm._v("Elige una materia"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "" } }),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "" } }),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "" } }),
+                    ]
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("fieldset", [
+                  _c("label", { attrs: { for: "select" } }, [
+                    _vm._v("Grados:"),
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.subjectgrade.grade_id,
+                          expression: "subjectgrade.grade_id",
+                        },
+                      ],
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.subjectgrade,
+                            "grade_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                      },
+                    },
+                    [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
+                        _vm._v("Elige un grado"),
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "" } }),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "" } }),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "" } }),
+                    ]
+                  ),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("br"),
+                _vm._v(" "),
+                _c("fieldset", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit", id: "form-submit" },
+                      on: { click: _vm.send },
+                    },
+                    [_vm._v("Asignar")]
+                  ),
+                ]),
+              ]),
+            ]),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c("h2", [_vm._v("Asignar materia a un grado")]),
     ])
   },
 ]
@@ -43417,8 +43769,8 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.student.financial_assistence,
-                              expression: "student.financial_assistence",
+                              value: _vm.student.financial_assistance,
+                              expression: "student.financial_assistance",
                             },
                           ],
                           staticClass: "form-control",
@@ -43428,7 +43780,7 @@ var render = function () {
                             id: "financial_assistence",
                             placeholder: "₡ Ayuda Financiera",
                           },
-                          domProps: { value: _vm.student.financial_assistence },
+                          domProps: { value: _vm.student.financial_assistance },
                           on: {
                             input: function ($event) {
                               if ($event.target.composing) {
@@ -43436,7 +43788,7 @@ var render = function () {
                               }
                               _vm.$set(
                                 _vm.student,
-                                "financial_assistence",
+                                "financial_assistance",
                                 $event.target.value
                               )
                             },
@@ -43452,18 +43804,16 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.student.voluntary_assistence,
-                              expression: "student.voluntary_assistence",
+                              value: _vm.student.voluntary_assistance,
+                              expression: "student.voluntary_assistance",
                             },
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            name: "voluntary_assistence",
                             type: "text",
-                            id: "voluntary_assistence",
                             placeholder: "₡ Ayuda Voluntaria",
                           },
-                          domProps: { value: _vm.student.voluntary_assistence },
+                          domProps: { value: _vm.student.voluntary_assistance },
                           on: {
                             input: function ($event) {
                               if ($event.target.composing) {
@@ -43471,7 +43821,7 @@ var render = function () {
                               }
                               _vm.$set(
                                 _vm.student,
-                                "voluntary_assistence",
+                                "voluntary_assistance",
                                 $event.target.value
                               )
                             },
@@ -43522,8 +43872,8 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.student.others,
-                              expression: "student.others",
+                              value: _vm.student.others_income,
+                              expression: "student.others_income",
                             },
                           ],
                           staticClass: "form-control",
@@ -43533,7 +43883,7 @@ var render = function () {
                             id: "others",
                             placeholder: "₡ Otros(Especifique)",
                           },
-                          domProps: { value: _vm.student.others },
+                          domProps: { value: _vm.student.others_income },
                           on: {
                             input: function ($event) {
                               if ($event.target.composing) {
@@ -43541,7 +43891,7 @@ var render = function () {
                               }
                               _vm.$set(
                                 _vm.student,
-                                "others",
+                                "others_income",
                                 $event.target.value
                               )
                             },
@@ -43579,6 +43929,58 @@ var render = function () {
                                 "total_income",
                                 $event.target.value
                               )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.clasification,
+                              expression: "student.clasification",
+                            },
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: { name: "clasification", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.student.clasification)
+                              ? _vm._i(_vm.student.clasification, null) > -1
+                              : _vm.student.clasification,
+                          },
+                          on: {
+                            change: function ($event) {
+                              var $$a = _vm.student.clasification,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.student,
+                                      "clasification",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.student,
+                                      "clasification",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.student, "clasification", $$c)
+                              }
                             },
                           },
                         }),
