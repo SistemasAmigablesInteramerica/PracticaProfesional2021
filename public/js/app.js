@@ -2369,14 +2369,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createSubjectgrade",
@@ -2425,16 +2417,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -42833,105 +42815,65 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "col-lg-6" }, [
                 _c("fieldset", [
-                  _c("label", { attrs: { for: "select" } }, [
+                  _c("label", { attrs: { for: "input" } }, [
                     _vm._v("Materias:"),
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.subjectgrade.subject_id,
-                          expression: "subjectgrade.subject_id",
-                        },
-                      ],
-                      on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.subjectgrade,
-                            "subject_id",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectgrade.subject_id,
+                        expression: "subjectgrade.subject_id",
+                      },
+                    ],
+                    attrs: { name: "name", type: "text" },
+                    domProps: { value: _vm.subjectgrade.subject_id },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectgrade,
+                          "subject_id",
+                          $event.target.value
+                        )
                       },
                     },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "" } }, [
-                        _vm._v("Elige una materia"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
-                    ]
-                  ),
+                  }),
                 ]),
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "col-lg-6" }, [
                 _c("fieldset", [
-                  _c("label", { attrs: { for: "select" } }, [
-                    _vm._v("Grados:"),
-                  ]),
+                  _c("label", { attrs: { for: "input" } }, [_vm._v("Grados:")]),
                   _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.subjectgrade.grade_id,
-                          expression: "subjectgrade.grade_id",
-                        },
-                      ],
-                      on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.subjectgrade,
-                            "grade_id",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectgrade.grade_id,
+                        expression: "subjectgrade.grade_id",
+                      },
+                    ],
+                    attrs: { name: "name", type: "text" },
+                    domProps: { value: _vm.subjectgrade.grade_id },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectgrade,
+                          "grade_id",
+                          $event.target.value
+                        )
                       },
                     },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "" } }, [
-                        _vm._v("Elige un grado"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
-                    ]
-                  ),
+                  }),
                 ]),
               ]),
               _vm._v(" "),
@@ -43014,53 +42956,30 @@ var render = function () {
                     _vm._v("Docente:"),
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.subjectteacher.teacher_id,
-                          expression: "subjectteacher.teacher_id",
-                        },
-                      ],
-                      on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.subjectteacher,
-                            "teacher_id",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectteacher.teacher_id,
+                        expression: "subjectteacher.teacher_id",
+                      },
+                    ],
+                    attrs: { name: "name", type: "text" },
+                    domProps: { value: _vm.subjectteacher.teacher_id },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectteacher,
+                          "teacher_id",
+                          $event.target.value
+                        )
                       },
                     },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "" } }, [
-                        _vm._v("Elige un docente"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "1" } }, [
-                        _vm._v("Tony Madrigal"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "2" } }, [_vm._v("Abel")]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "3" } }, [
-                        _vm._v("Stefany"),
-                      ]),
-                    ]
-                  ),
+                  }),
                 ]),
               ]),
               _vm._v(" "),
@@ -43070,55 +42989,30 @@ var render = function () {
                     _vm._v("Materias:"),
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.subjectteacher.subject_grade_id,
-                          expression: "subjectteacher.subject_grade_id",
-                        },
-                      ],
-                      on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.subjectteacher,
-                            "subject_grade_id",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
-                        },
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectteacher.subject_grade_id,
+                        expression: "subjectteacher.subject_grade_id",
+                      },
+                    ],
+                    attrs: { name: "name", type: "text" },
+                    domProps: { value: _vm.subjectteacher.subject_grade_id },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectteacher,
+                          "subject_grade_id",
+                          $event.target.value
+                        )
                       },
                     },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "" } }, [
-                        _vm._v("Elige una materia"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "10" } }, [
-                        _vm._v("Ciencias"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "11" } }, [
-                        _vm._v("Matematicas"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "12" } }, [
-                        _vm._v("Ingles"),
-                      ]),
-                    ]
-                  ),
+                  }),
                 ]),
               ]),
               _vm._v(" "),

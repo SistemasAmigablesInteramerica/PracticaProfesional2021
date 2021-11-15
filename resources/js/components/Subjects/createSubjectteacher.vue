@@ -11,23 +11,13 @@
                   <div class="col-lg-4">
                     <fieldset>
                     <label for="select">Docente:</label>
-                        <select v-model="subjectteacher.teacher_id">
-                        <option  disabled value="">Elige un docente</option>
-                        <option value="1">Tony Madrigal</option>
-                        <option value="2">Abel</option>
-                        <option value="3">Stefany</option>
-                        </select>
+                            <input name="name" type="text"  v-model="subjectteacher.teacher_id">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
                       <label for="select">Materias:</label>
-                        <select v-model="subjectteacher.subject_grade_id">
-                        <option disabled value="">Elige una materia</option>
-                        <option value="10">Ciencias</option>
-                        <option value="11">Matematicas</option>
-                        <option value="12">Ingles</option>
-                        </select>
+                         <input name="name" type="text"  v-model="subjectteacher.subject_grade_id">
                   </fieldset>
                     </div>
                     <div class="col-lg-4">
@@ -49,7 +39,7 @@
       </div>
     </div>
 </template>
-
+ 
 <script>
   import Swal from 'sweetalert2'
     export default {
@@ -85,4 +75,4 @@
         }
     }
 
-</script>
+</script>  
