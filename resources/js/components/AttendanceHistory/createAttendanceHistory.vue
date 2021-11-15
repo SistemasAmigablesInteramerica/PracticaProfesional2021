@@ -10,32 +10,32 @@
                       </div>
                         <div class="col-lg-12">
                           <fieldset>
-                            <input name="name" type="text" v-model="attendancehistory.date" id="name" placeholder="Nombre" required="">
+                            <input type="text" v-model="attendancehistory.date" placeholder="Nombre">
                           </fieldset>
                         </div>
                           <div class="col-lg-12">
                           <fieldset>
-                            <input name="name" type="text" v-model="attendancehistory.check_in" id="name" placeholder="Nombre" required="">
+                            <input type="date" v-model="attendancehistory.check_in" placeholder="Entrada">
                           </fieldset>
                         </div>
                           <div class="col-lg-12">
                           <fieldset>
-                            <input name="name" type="text" v-model="attendancehistory.check_out" id="name" placeholder="Nombre" required="">
+                            <input type="date" v-model="attendancehistory.check_out" placeholder="Salida">
                           </fieldset>
                         </div>
                           <div class="col-lg-12">
                           <fieldset>
-                            <input name="name" type="text" v-model="attendancehistory.student_id" id="name" placeholder="Nombre" required="">
+                            <input type="text" v-model="attendancehistory.student_id" placeholder="Id del estudiante">
                           </fieldset>
                         </div>
                           <div class="col-lg-12">
                           <fieldset>
-                            <input name="name" type="text" v-model="attendancehistory.grade_subject_teacher_id" id="name" placeholder="Nombre" required="">
-                          </fieldset>
+                            <input type="text" v-model="attendancehistory.grade_subject_teacher_id" placeholder="ID Clase">
+                          </fieldset>date
                         </div>
                           <div class="col-lg-12">
                           <fieldset>
-                            <input name="name" type="text" v-model="attendancehistory.attended" id="name" placeholder="Nombre" required="">
+                            <input type="checkbox" v-model="attendancehistory.attended" placeholder="Atendio">
                           </fieldset>
                         </div>
                           <div class="col-lg-12">
@@ -60,6 +60,11 @@
           return {
             attendancehistory: {
               name: '',
+              check_in: '',
+              check_out: '',
+              student_id: '',
+              grade_subject_teacher_id: '',
+              attended: '',
             }
           }
         },
@@ -69,7 +74,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con exito.',
+                    text: 'Se ha registrado con exito.',
                 });
             }).catch(error => {
                     Swal.fire({

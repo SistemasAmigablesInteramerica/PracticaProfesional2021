@@ -21,7 +21,7 @@ class CreateAttendanceHistoriesTable extends Migration
             $table->bigInteger('student_id')->unsigned();
             $table->bigInteger('grade_subject_teacher_id')->nullable()->unsigned();
             $table->bigInteger('teacher_id')->nullable()->unsigned();
-            $table->boolean('attended');
+            $table->boolean('attended')->nullabe();
             $table->timestamps();
             $table->engine = 'InnoDB';
 

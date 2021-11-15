@@ -1,4 +1,4 @@
-@extends('layouts.layoutSubject')
+@extends('layouts.layout')
 
 @section('contentSubject')
 <create-subject></create-subject>
