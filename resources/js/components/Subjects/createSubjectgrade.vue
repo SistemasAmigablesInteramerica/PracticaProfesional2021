@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <div class="row" style="min-height: 550px; border-radius:10px;width: 100%;border: 10px solid white; background-color: white;" >
+          <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
             <div class="col-lg-12">
                   <div class="col-lg-12">
                     <h2>Asignar materia a un grado</h2>
