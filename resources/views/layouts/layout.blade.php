@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grados y secciones</title>
+    <title>Fullpass Students</title>
 
         <!-- Bootstrap core CSS -->
         <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
@@ -27,7 +27,7 @@
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="/" class="logo">
+                      <a href="{{asset('')}}" class="logo">
                           Fullpass Students
                       </a>
                       <!-- ***** Logo End ***** -->
@@ -37,25 +37,25 @@
                           <li class="has-sub">   
                               <a href="javascript:void(0)">Expedientes comedor</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-studentsinfo">Agregar estudiante</a></li>
-                                  <li><a href="/view-studentsinfo">Ver expedientes</a></li>
-                                  <li><a href="/insert-studentrelativesinfo">Agregar familiares</a></li>
-                                  <li><a href="/view-studentrelativesinfo">Ver familiares</a></li>
+                                  <li><a href="{{asset('registro-de-estudiantes')}}">Agregar estudiante</a></li>
+                                  <li><a href="{{asset('ver-estudiante')}}"}>Ver expedientes</a></li>
+                                  <li><a href="{{asset('registro-de-familiares')}}">Agregar familiares</a></li>
+                                  <li><a href="{{asset('ver-familiares')}}">Ver familiares</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-teacherinfo">Agregar docentes</a></li>
-                                  <li><a href="/view-teacherinfo">Ver docentes</a></li>
+                                  <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
+                                  <li><a href="{{asset('ver-profesores')}}">Ver docentes</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
                               <a href="javascript:void(0)">Materias</a>
                               <ul class="sub-menu">
-                                  <li><a href="/insert-subjectinfo">Agregar materias</a></li>
-                                  <li><a href="/view-subjectinfo">Ver materias</a></li>
-                                  <li><a href="/insert-subject-teacherinfo">Asignar docentes</a></li>
+                                  <li><a href="{{asset('registro-de-materias')}}">Agregar materias</a></li>
+                                  <li><a href="{{asset('ver-materias')}}">Ver materias</a></li>
+                                  <li><a href="{{asset('asignar-materia-profesor')}}">Asignar docentes</a></li>
                                   <li><a href="/view-subject-teacherinfo.">Ver asignados</a></li>
                               </ul>
                           </li>
@@ -63,9 +63,9 @@
                               <a href="javascript:void(0)">Secciones</a>
                               <ul class="sub-menu">
                                   <li><a href="{{asset('registro-de-secciones')}}">Agregar sección</a></li>
-                                  <li><a href="/view-gradeinfo">Ver secciones</a></li>
-                                  <li><a href="/insert-subjectgradeinfo">Asignar materia</a></li>
-                                  <li><a href="/view-subjectgradeinfo">Ver materias</a></li>
+                                  <li><a href="{{asset('ver-secciones')}}">Ver secciones</a></li>
+                                  <li><a href="{{asset('asignar-materia-grado')}}">Asignar materia</a></li>
+                                  <li><a href="{{asset('ver-materias')}}">Ver materias</a></li>
                               </ul>
                           </li>
                           <li><a href="/meetings">Meetings</a></li>
