@@ -7,6 +7,7 @@ use App\Http\Controllers\Subjects\SubjectTeacherController;
 use App\Http\Controllers\Subjects\SubjectGradeController; 
 use App\Http\Controllers\teachers\TeacherController;
 use App\Http\Controllers\Student\StudentRelativeController;
+use App\Http\Controller\GradeSubjectStudent\GradeSubjectStudentController;
 use App\Http\Controllers\Attendance\AttendanceHistoryController;
 use Illuminate\Support\Facades\route;
 
@@ -46,6 +47,9 @@ Route::post('/store-subjectgrade', [SubjectGradeController::class, 'store']);
 
 Route::get('/asignar-materia-profesor', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
 Route::post('/store-subjectteacher', [SubjectTeacherController::class, 'store']);
+
+Route::get('/asignar-materia-estudiante', [App\Http\Controller\GradeSubjectStudent\GradeSubjectStudentController::class, 'create']);
+Route::post('/store-gradesubjectstudent', [SubjectTeacherController::class, 'store']);
 
 Route::get('/ver-de-secciones', [App\Http\Controllers\ViewGradeController::class, 'create'])->name('view-gradeinfo');
 
