@@ -66,10 +66,10 @@
                                   <li><a href="{{asset('ver-secciones')}}">Ver secciones</a></li>
                                   <li><a href="{{asset('asignar-materia-grado')}}">Asignar materia</a></li>
                                   <li><a href="{{asset('ver-materias')}}">Ver materias</a></li>
-                                  <li><a href="{{asset('asignar-materia-estudiante)}}">Asignar estudiante</a></li>
+                                  <li><a href="{{asset('asignar-materia-estudiante')}}">Asignar estudiante</a></li>
                               </ul>
                           </li>
-                          <li><a href="{{asset('/registro-de-asistencias')}}">Asistencia</a></li>
+                          <li><a href="{{asset('registro-de-asistencias')}}">Asistencia</a></li>
                       </ul>        
                       <a class="menu-trigger">
                           <span>Menu</span>
