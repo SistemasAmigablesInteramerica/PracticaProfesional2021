@@ -94,7 +94,7 @@
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="voluntary_assistence" class="form-control" v-model="student.voluntary_assistance" type="text" id="voluntary_assistence" placeholder="₡ Ayuda Voluntaria">
+                    <input class="form-control" v-model="student.voluntary_assistance" type="text" placeholder="₡ Ayuda Voluntaria">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
