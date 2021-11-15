@@ -21,7 +21,7 @@ class CreateStudentRelativesTable extends Migration
             $table->string('guaridan_profession');
             $table->string('guardian_relation');
             $table->boolean('guardian_receives_aid');
-            $table->decimal('guardian_aid_total')->nullable();
+            $table->decimal('guardian_aid_total');
             $table->string('scholarship');
             $table->decimal('guardian_salary');
             $table->timestamps();

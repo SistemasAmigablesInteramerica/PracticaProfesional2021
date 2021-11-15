@@ -1,6 +1,6 @@
 <template>
-    
-        <div class="col-lg-9 col-md-9 col-sm-12">
+
+         <div class="col-lg-9 col-md-9 col-sm-12">
           <div class="row">
             <div class="col-lg-12">
               
@@ -35,13 +35,13 @@
             </div>
           </div>
         </div>
-
+    
 </template>
 
 <script>
   import Swal from 'sweetalert2'
     export default {
-        name: "createGrade",
+        name: "createGradeSubjectStudent",
         components:{Swal},
         data() {
           return {
@@ -53,7 +53,7 @@
         },
         methods: {
           send(){
-            axios.post('/store-grade', this.grades).then(response =>{
+            axios.post('/store-gradesubjectstudent', this.gradesubjectstudent).then(response =>{
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
@@ -72,4 +72,3 @@
     }
 
 </script>
- 

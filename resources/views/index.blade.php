@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.indexlayout')
 
 @section('content')
 <index></index>

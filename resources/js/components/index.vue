@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <body>
 
   <!-- ***** Main Banner Area Start ***** -->
@@ -6,6 +7,12 @@
           <img src="/images/Prueba.jpg" />
       <div class="video-overlay header-text">
           <!-- <div class="container">
+=======
+  <section class="section main-banner" id="top" data-section="section1" >
+          <img src="/images/Prueba.jpg" />
+      <div class="video-overlay header-text">
+          <div class="container">
+>>>>>>> origin/main
             <div class="row">
               <div class="col-lg-12">
                 <div class="caption">
@@ -19,6 +26,7 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
       </div> -->
       </div>
   </section>
@@ -739,3 +747,15 @@
     </script>
 
   
+=======
+      </div>
+  </section>
+  
+</template>
+
+<script>
+export default {
+    name: 'index'
+}
+</script>
+>>>>>>> origin/main

@@ -2093,6 +2093,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createAttendancehistory",
@@ -2102,7 +2129,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       attendancehistory: {
-        name: ''
+        name: '',
+        check_in: '',
+        check_out: '',
+        student_id: '',
+        grade_subject_teacher_id: '',
+        attended: ''
       }
     };
   },
@@ -2112,7 +2144,7 @@ __webpack_require__.r(__webpack_exports__);
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
-          text: 'El estudiante se ha registrado con exito.'
+          text: 'Se ha registrado con exito.'
         });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -2215,6 +2247,94 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "createGradeSubjectStudent",
+  components: {
+    Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  data: function data() {
+    return {
+      grades: {
+        name: '',
+        section: ''
+      }
+    };
+  },
+  methods: {
+    send: function send() {
+      axios.post('/store-gradesubjectstudent', this.gradesubjectstudent).then(function (response) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'success',
+          title: 'Datos registrados',
+          text: 'El estudiante se ha registrado con exito.'
+        });
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Se ha encontrado un error.'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubject.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubject.vue?vue&type=script&lang=js& ***!
@@ -2288,6 +2408,226 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "createSubjectgrade",
+  components: {
+    Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  data: function data() {
+    return {
+      subjectgrade: {
+        grade_id: '',
+        subject_id: ''
+      }
+    };
+  },
+  methods: {
+    send: function send() {
+      axios.post('/store-subjectgrade', this.subjectgrade).then(function (response) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'success',
+          title: 'Datos registrados',
+          text: 'El estudiante se ha registrado con exito.'
+        });
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Se ha encontrado un error.'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "createSubjectteacher",
+  components: {
+    Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  data: function data() {
+    return {
+      subjectteacher: {
+        teacher_id: '',
+        subject_grade_id: '',
+        year: ''
+      }
+    };
+  },
+  methods: {
+    send: function send() {
+      axios.post('/store-subjectteacher', this.subjectteacher).then(function (response) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'success',
+          title: 'Datos registrados',
+          text: 'El estudiante se ha registrado con exito.'
+        });
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Se ha encontrado un error.'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'index'
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/students/createStudent.vue?vue&type=script&lang=js&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/students/createStudent.vue?vue&type=script&lang=js& ***!
@@ -2301,6 +2641,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2568,7 +2913,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createStudentrelative",
@@ -2584,31 +2928,13 @@ __webpack_require__.r(__webpack_exports__);
         guardian_card: '',
         guardian_relation: '',
         scholarship: '',
-        guardian_recieves_aid: '',
+        guardian_receives_aid: '',
         guardian_aid_total: '',
         guardian_salary: ''
       }
     };
   },
-  mounted: function mounted() {
-    this.getStudent();
-  },
   methods: {
-    getStudent: function getStudent() {
-      axios.get('/store-student', {
-        params: {
-          student: this.student
-        }
-      }).then(function (response) {
-        return response.data.student;
-      })["catch"](function (error) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-          icon: 'error',
-          title: 'error',
-          text: 'Se ha producido un error'
-        });
-      });
-    },
     send: function send() {
       axios.post('/store-StudentRelative', this.StudentRelative).then(function (response) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -2794,8 +3120,12 @@ Vue.component('createGrade', (__webpack_require__(/*! ./components/Grades/create
 Vue.component('createStudent', (__webpack_require__(/*! ./components/students/createStudent.vue */ "./resources/js/components/students/createStudent.vue")["default"]));
 Vue.component('createTeacher', (__webpack_require__(/*! ./components/teachers/createTeacher.vue */ "./resources/js/components/teachers/createTeacher.vue")["default"]));
 Vue.component('createSubject', (__webpack_require__(/*! ./components/Subjects/createSubject.vue */ "./resources/js/components/Subjects/createSubject.vue")["default"]));
+Vue.component('createSubjectteacher', (__webpack_require__(/*! ./components/Subjects/createSubjectteacher.vue */ "./resources/js/components/Subjects/createSubjectteacher.vue")["default"]));
+Vue.component('createSubjectgrade', (__webpack_require__(/*! ./components/Subjects/createSubjectgrade.vue */ "./resources/js/components/Subjects/createSubjectgrade.vue")["default"]));
 Vue.component('createStudentrelative', (__webpack_require__(/*! ./components/students/createStudentRelative.vue */ "./resources/js/components/students/createStudentRelative.vue")["default"]));
-Vue.component('createAttendancehistory`', (__webpack_require__(/*! ./components/AttendanceHistory/createAttendanceHistory.vue */ "./resources/js/components/AttendanceHistory/createAttendanceHistory.vue")["default"]));
+Vue.component('createAttendancehistory', (__webpack_require__(/*! ./components/AttendanceHistory/createAttendanceHistory.vue */ "./resources/js/components/AttendanceHistory/createAttendanceHistory.vue")["default"]));
+Vue.component('createGradeSubjectStudent', (__webpack_require__(/*! ./components/Grades/createGradeSubjectStudent.vue */ "./resources/js/components/Grades/createGradeSubjectStudent.vue")["default"]));
+Vue.component('index', (__webpack_require__(/*! ./components/index.vue */ "./resources/js/components/index.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -41453,6 +41783,45 @@ component.options.__file = "resources/js/components/Grades/createGrade.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Grades/createGradeSubjectStudent.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/Grades/createGradeSubjectStudent.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _createGradeSubjectStudent_vue_vue_type_template_id_d4d176bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createGradeSubjectStudent.vue?vue&type=template&id=d4d176bc& */ "./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=template&id=d4d176bc&");
+/* harmony import */ var _createGradeSubjectStudent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createGradeSubjectStudent.vue?vue&type=script&lang=js& */ "./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _createGradeSubjectStudent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _createGradeSubjectStudent_vue_vue_type_template_id_d4d176bc___WEBPACK_IMPORTED_MODULE_0__.render,
+  _createGradeSubjectStudent_vue_vue_type_template_id_d4d176bc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Grades/createGradeSubjectStudent.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Subjects/createSubject.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/Subjects/createSubject.vue ***!
@@ -41488,6 +41857,123 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/Subjects/createSubject.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Subjects/createSubjectgrade.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectgrade.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createSubjectgrade.vue?vue&type=template&id=c6746e18& */ "./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18&");
+/* harmony import */ var _createSubjectgrade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createSubjectgrade.vue?vue&type=script&lang=js& */ "./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _createSubjectgrade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__.render,
+  _createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Subjects/createSubjectgrade.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Subjects/createSubjectteacher.vue":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectteacher.vue ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _createSubjectteacher_vue_vue_type_template_id_3ead6a3f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createSubjectteacher.vue?vue&type=template&id=3ead6a3f& */ "./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=template&id=3ead6a3f&");
+/* harmony import */ var _createSubjectteacher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createSubjectteacher.vue?vue&type=script&lang=js& */ "./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _createSubjectteacher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _createSubjectteacher_vue_vue_type_template_id_3ead6a3f___WEBPACK_IMPORTED_MODULE_0__.render,
+  _createSubjectteacher_vue_vue_type_template_id_3ead6a3f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Subjects/createSubjectteacher.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/index.vue":
+/*!*******************************************!*\
+  !*** ./resources/js/components/index.vue ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _index_vue_vue_type_template_id_2ac2c897___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=2ac2c897& */ "./resources/js/components/index.vue?vue&type=template&id=2ac2c897&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/components/index.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _index_vue_vue_type_template_id_2ac2c897___WEBPACK_IMPORTED_MODULE_0__.render,
+  _index_vue_vue_type_template_id_2ac2c897___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/index.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -41641,6 +42127,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createGradeSubjectStudent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createGradeSubjectStudent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createGradeSubjectStudent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Subjects/createSubject.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************!*\
   !*** ./resources/js/components/Subjects/createSubject.vue?vue&type=script&lang=js& ***!
@@ -41654,6 +42156,54 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubject_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubject.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubject.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubject_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubjectgrade.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectteacher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubjectteacher.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectteacher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/index.vue?vue&type=script&lang=js&":
+/*!********************************************************************!*\
+  !*** ./resources/js/components/index.vue?vue&type=script&lang=js& ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
@@ -41739,6 +42289,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=template&id=d4d176bc&":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=template&id=d4d176bc& ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createGradeSubjectStudent_vue_vue_type_template_id_d4d176bc___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createGradeSubjectStudent_vue_vue_type_template_id_d4d176bc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createGradeSubjectStudent_vue_vue_type_template_id_d4d176bc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createGradeSubjectStudent.vue?vue&type=template&id=d4d176bc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=template&id=d4d176bc&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Subjects/createSubject.vue?vue&type=template&id=1345a973&":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/components/Subjects/createSubject.vue?vue&type=template&id=1345a973& ***!
@@ -41752,6 +42319,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubject_vue_vue_type_template_id_1345a973___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubject_vue_vue_type_template_id_1345a973___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubject.vue?vue&type=template&id=1345a973& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubject.vue?vue&type=template&id=1345a973&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectgrade_vue_vue_type_template_id_c6746e18___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubjectgrade.vue?vue&type=template&id=c6746e18& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=template&id=3ead6a3f&":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=template&id=3ead6a3f& ***!
+  \**************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectteacher_vue_vue_type_template_id_3ead6a3f___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectteacher_vue_vue_type_template_id_3ead6a3f___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_createSubjectteacher_vue_vue_type_template_id_3ead6a3f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./createSubjectteacher.vue?vue&type=template&id=3ead6a3f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=template&id=3ead6a3f&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/index.vue?vue&type=template&id=2ac2c897&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/index.vue?vue&type=template&id=2ac2c897& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_2ac2c897___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_2ac2c897___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_2ac2c897___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=template&id=2ac2c897& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index.vue?vue&type=template&id=2ac2c897&");
 
 
 /***/ }),
@@ -41823,25 +42441,26 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-9" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
         _c(
           "div",
           {
             staticClass: "row",
             staticStyle: {
               "min-height": "550px",
-              "border-radius": "10px",
+              "border-radius": "20px",
               width: "100%",
               border: "10px solid white",
               "background-color": "white",
             },
+            attrs: { method: "post" },
           },
           [
             _vm._m(0),
             _vm._v(" "),
-            _c("div", { staticClass: "col-lg-6" }, [
+            _c("div", { staticClass: "col-lg-12" }, [
               _c("fieldset", [
                 _c("input", {
                   directives: [
@@ -41852,13 +42471,7 @@ var render = function () {
                       expression: "attendancehistory.date",
                     },
                   ],
-                  attrs: {
-                    name: "name",
-                    type: "text",
-                    id: "name",
-                    placeholder: "",
-                    required: "",
-                  },
+                  attrs: { type: "text", placeholder: "Nombre" },
                   domProps: { value: _vm.attendancehistory.date },
                   on: {
                     input: function ($event) {
@@ -41870,6 +42483,174 @@ var render = function () {
                         "date",
                         $event.target.value
                       )
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c("fieldset", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.attendancehistory.check_in,
+                      expression: "attendancehistory.check_in",
+                    },
+                  ],
+                  attrs: { type: "date", placeholder: "Entrada" },
+                  domProps: { value: _vm.attendancehistory.check_in },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.attendancehistory,
+                        "check_in",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c("fieldset", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.attendancehistory.check_out,
+                      expression: "attendancehistory.check_out",
+                    },
+                  ],
+                  attrs: { type: "date", placeholder: "Salida" },
+                  domProps: { value: _vm.attendancehistory.check_out },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.attendancehistory,
+                        "check_out",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c("fieldset", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.attendancehistory.student_id,
+                      expression: "attendancehistory.student_id",
+                    },
+                  ],
+                  attrs: { type: "text", placeholder: "Id del estudiante" },
+                  domProps: { value: _vm.attendancehistory.student_id },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.attendancehistory,
+                        "student_id",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c("fieldset", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.attendancehistory.grade_subject_teacher_id,
+                      expression: "attendancehistory.grade_subject_teacher_id",
+                    },
+                  ],
+                  attrs: { type: "text", placeholder: "ID Clase" },
+                  domProps: {
+                    value: _vm.attendancehistory.grade_subject_teacher_id,
+                  },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(
+                        _vm.attendancehistory,
+                        "grade_subject_teacher_id",
+                        $event.target.value
+                      )
+                    },
+                  },
+                }),
+              ]),
+              _vm._v("date\n                "),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c("fieldset", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.attendancehistory.attended,
+                      expression: "attendancehistory.attended",
+                    },
+                  ],
+                  attrs: { type: "checkbox", placeholder: "Atendio" },
+                  domProps: {
+                    checked: Array.isArray(_vm.attendancehistory.attended)
+                      ? _vm._i(_vm.attendancehistory.attended, null) > -1
+                      : _vm.attendancehistory.attended,
+                  },
+                  on: {
+                    change: function ($event) {
+                      var $$a = _vm.attendancehistory.attended,
+                        $$el = $event.target,
+                        $$c = $$el.checked ? true : false
+                      if (Array.isArray($$a)) {
+                        var $$v = null,
+                          $$i = _vm._i($$a, $$v)
+                        if ($$el.checked) {
+                          $$i < 0 &&
+                            _vm.$set(
+                              _vm.attendancehistory,
+                              "attended",
+                              $$a.concat([$$v])
+                            )
+                        } else {
+                          $$i > -1 &&
+                            _vm.$set(
+                              _vm.attendancehistory,
+                              "attended",
+                              $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                            )
+                        }
+                      } else {
+                        _vm.$set(_vm.attendancehistory, "attended", $$c)
+                      }
                     },
                   },
                 }),
@@ -41936,7 +42717,158 @@ var render = function () {
             staticClass: "row",
             staticStyle: {
               "min-height": "550px",
-              "border-radius": "10px",
+              "border-radius": "20px",
+              width: "100%",
+              border: "10px solid white",
+              "background-color": "white",
+            },
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-6" }, [
+              _c("fieldset", [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.grades.name,
+                      expression: "grades.name",
+                    },
+                  ],
+                  attrs: {
+                    name: "name",
+                    type: "text",
+                    id: "name",
+                    placeholder: "Grado",
+                    required: "",
+                  },
+                  domProps: { value: _vm.grades.name },
+                  on: {
+                    input: function ($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.grades, "name", $event.target.value)
+                    },
+                  },
+                }),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-6" }, [
+              _c("fieldset", [
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.grades.section,
+                        expression: "grades.section",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    on: {
+                      change: function ($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function (o) {
+                            return o.selected
+                          })
+                          .map(function (o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.$set(
+                          _vm.grades,
+                          "section",
+                          $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        )
+                      },
+                    },
+                  },
+                  [
+                    _c("option", { attrs: { Value: "1" } }, [_vm._v("1")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "2" } }, [_vm._v("2")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "3" } }, [_vm._v("3")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "4" } }, [_vm._v("4")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "5" } }, [_vm._v("5")]),
+                    _vm._v(" "),
+                    _c("option", { attrs: { Value: "6" } }, [_vm._v("6")]),
+                  ]
+                ),
+              ]),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col-lg-12" }, [
+              _c("fieldset", [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "submit", id: "form-submit" },
+                    on: { click: _vm.send },
+                  },
+                  [_vm._v("Enviar")]
+                ),
+              ]),
+            ]),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12", attrs: { method: "post" } }, [
+      _c("h2", [_vm._v("Agregar nueva sección")]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=template&id=d4d176bc&":
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Grades/createGradeSubjectStudent.vue?vue&type=template&id=d4d176bc& ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              "min-height": "550px",
+              "border-radius": "20px",
               width: "100%",
               border: "10px solid white",
               "background-color": "white",
@@ -42087,7 +43019,7 @@ var render = function () {
             staticClass: "row",
             staticStyle: {
               "min-height": "550px",
-              "border-radius": "10px",
+              "border-radius": "20px",
               width: "100%",
               border: "10px solid white",
               "background-color": "white",
@@ -42162,6 +43094,413 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectgrade.vue?vue&type=template&id=c6746e18& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-9" }, [
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              "min-height": "550px",
+              "border-radius": "20px",
+              width: "100%",
+              border: "10px solid white",
+              "background-color": "white",
+            },
+          },
+          [
+            _c("div", { staticClass: "col-lg-12" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("fieldset", [
+                  _c("label", { attrs: { for: "input" } }, [
+                    _vm._v("Materias:"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectgrade.subject_id,
+                        expression: "subjectgrade.subject_id",
+                      },
+                    ],
+                    attrs: { name: "name", type: "text" },
+                    domProps: { value: _vm.subjectgrade.subject_id },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectgrade,
+                          "subject_id",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-6" }, [
+                _c("fieldset", [
+                  _c("label", { attrs: { for: "input" } }, [_vm._v("Grados:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectgrade.grade_id,
+                        expression: "subjectgrade.grade_id",
+                      },
+                    ],
+                    attrs: { name: "name", type: "text" },
+                    domProps: { value: _vm.subjectgrade.grade_id },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectgrade,
+                          "grade_id",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("br"),
+                _vm._v(" "),
+                _c("fieldset", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit", id: "form-submit" },
+                      on: { click: _vm.send },
+                    },
+                    [_vm._v("Asignar")]
+                  ),
+                ]),
+              ]),
+            ]),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c("h2", [_vm._v("Asignar materia a un grado")]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=template&id=3ead6a3f&":
+/*!*****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/createSubjectteacher.vue?vue&type=template&id=3ead6a3f& ***!
+  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-lg-9" }, [
+        _c(
+          "div",
+          {
+            staticClass: "row",
+            staticStyle: {
+              "min-height": "550px",
+              "border-radius": "20px",
+              width: "100%",
+              border: "10px solid white",
+              "background-color": "white",
+            },
+          },
+          [
+            _c("div", { staticClass: "col-lg-12" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("label", { attrs: { for: "select" } }, [
+                    _vm._v("Docente:"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectteacher.teacher_id,
+                        expression: "subjectteacher.teacher_id",
+                      },
+                    ],
+                    attrs: { name: "name", type: "text" },
+                    domProps: { value: _vm.subjectteacher.teacher_id },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectteacher,
+                          "teacher_id",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("label", { attrs: { for: "select" } }, [
+                    _vm._v("Materias:"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectteacher.subject_grade_id,
+                        expression: "subjectteacher.subject_grade_id",
+                      },
+                    ],
+                    attrs: { name: "name", type: "text" },
+                    domProps: { value: _vm.subjectteacher.subject_grade_id },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectteacher,
+                          "subject_grade_id",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.subjectteacher.year,
+                        expression: "subjectteacher.year",
+                      },
+                    ],
+                    attrs: {
+                      name: "year",
+                      type: "number",
+                      id: "year",
+                      placeholder: "Año",
+                    },
+                    domProps: { value: _vm.subjectteacher.year },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.subjectteacher,
+                          "year",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("fieldset", [
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit", id: "form-submit" },
+                      on: { click: _vm.send },
+                    },
+                    [_vm._v("Añadir")]
+                  ),
+                ]),
+              ]),
+            ]),
+          ]
+        ),
+      ]),
+    ]),
+  ])
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c("h2", [_vm._v("Asignar docentes")]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index.vue?vue&type=template&id=2ac2c897&":
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/index.vue?vue&type=template&id=2ac2c897& ***!
+  \*****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "section",
+      {
+        staticClass: "section main-banner",
+        attrs: { id: "top", "data-section": "section1" },
+      },
+      [
+        _c("img", { attrs: { src: "/images/Prueba.jpg" } }),
+        _vm._v(" "),
+        _c("div", { staticClass: "video-overlay header-text" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "caption" }, [
+                  _c("h6", [_vm._v("Hello Students")]),
+                  _vm._v(" "),
+                  _c("h2", [_vm._v("Welcome to Education")]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "This is an edu meeting HTML CSS template provided by "
+                    ),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          rel: "nofollow",
+                          href: "https://templatemo.com/page/1",
+                          target: "_blank",
+                        },
+                      },
+                      [_vm._v("TemplateMo website")]
+                    ),
+                    _vm._v(
+                      ". This is a Bootstrap v5.1.3 layout. The video background is taken from Pexels website, a group of young people by "
+                    ),
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          rel: "nofollow",
+                          href: "https://www.pexels.com/@pressmaster",
+                          target: "_blank",
+                        },
+                      },
+                      [_vm._v("Pressmaster")]
+                    ),
+                    _vm._v("."),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "main-button-red" }, [
+                    _c("div", { staticClass: "scroll-to-section" }, [
+                      _c("a", { attrs: { href: "#contact" } }, [
+                        _vm._v("Join Us Now!"),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ]),
+        ]),
+      ]
+    )
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/students/createStudent.vue?vue&type=template&id=07e1451a&":
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/students/createStudent.vue?vue&type=template&id=07e1451a& ***!
@@ -42185,681 +43524,731 @@ var render = function () {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-9" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
-                _c("div", { staticClass: "row" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.name,
-                            expression: "student.name",
+            _c(
+              "div",
+              {
+                staticClass: "row",
+                staticStyle: {
+                  "min-height": "550px",
+                  "border-radius": "20px",
+                  width: "100%",
+                  border: "10px solid white",
+                  "background-color": "white",
+                },
+              },
+              [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.name,
+                              expression: "student.name",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "name",
+                            type: "text",
+                            placeholder: "Nombre Completo Del Estudiante",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "name",
-                          type: "text",
-                          id: "name",
-                          placeholder: "Nombre Completo Del Estudiante",
-                        },
-                        domProps: { value: _vm.student.name },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.student, "name", $event.target.value)
+                          domProps: { value: _vm.student.name },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.student, "name", $event.target.value)
+                            },
                           },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.nationality,
-                            expression: "student.nationality",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "nationality",
-                          type: "text",
-                          id: "nationality",
-                          placeholder: "Nacionalidad",
-                        },
-                        domProps: { value: _vm.student.nationality },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "nationality",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.card,
-                            expression: "student.card",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "card",
-                          type: "number",
-                          id: "No.card",
-                          placeholder: "No.Cédula",
-                          pattern: "",
-                        },
-                        domProps: { value: _vm.student.card },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.student, "card", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "Birthdate" } }, [
-                        _vm._v("Fecha de Nacimiento:"),
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.birthdate,
-                            expression: "student.birthdate",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "birthdate",
-                          type: "date",
-                          id: "Fecha de birthdate",
-                          placeholder: "Fecha de Nacimiento",
-                          min: "1995-01-01",
-                        },
-                        domProps: { value: _vm.student.birthdate },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "birthdate",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "legal_guardian_name" } }, [
-                        _vm._v("Nombre del Encargado Legal:"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.nationality,
+                              expression: "student.nationality",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "nationality",
+                            type: "text",
+                            placeholder: "Nacionalidad",
+                          },
+                          domProps: { value: _vm.student.nationality },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "nationality",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.legal_guardian_name,
-                            expression: "student.legal_guardian_name",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "legal_guardian_name",
-                          type: "text",
-                          id: "legal_guardian_name",
-                          placeholder: "Inserte el Nombre",
-                        },
-                        domProps: { value: _vm.student.legal_guardian_name },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "legal_guardian_name",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "legal_guardian_card" } }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.legal_guardian_card,
-                            expression: "student.legal_guardian_card",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.card,
+                              expression: "student.card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "card",
+                            type: "number",
+                            placeholder: "No.Cédula",
+                            pattern: "",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "legal_guardian_card",
-                          type: "number",
-                          id: "legal_guardian_card",
-                          placeholder: "No.Cédula del encargado legal",
-                          pattern: "",
-                        },
-                        domProps: { value: _vm.student.legal_guardian_card },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "legal_guardian_card",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.card },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.student, "card", $event.target.value)
+                            },
                           },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "phone_number" } }, [
-                        _vm._v("Telefono Del Domicilio:"),
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.phone_number,
-                            expression: "student.phone_number",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "tel",
-                          id: "phone_number",
-                          name: "phone_number",
-                          placeholder: "2777-0000",
-                        },
-                        domProps: { value: _vm.student.phone_number },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "phone_number",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.place_residence,
-                            expression: "student.place_residence",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "Birthdate" } }, [
+                          _vm._v("Fecha de Nacimiento:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.birthdate,
+                              expression: "student.birthdate",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "birthdate",
+                            type: "date",
+                            placeholder: "Fecha de Nacimiento",
+                            min: "1995-01-01",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "place_residence",
-                          type: "text",
-                          id: "place_residence",
-                          placeholder: "Direccion Del Domicilio",
-                        },
-                        domProps: { value: _vm.student.place_residence },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "place_residence",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.birthdate },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "birthdate",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "archivo" } }, [
-                        _vm._v("Subir La Constancia Salarial:"),
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "file",
-                          id: "archivo",
-                          name: "archivo",
-                          accept: "image/*,.txt,.doc,.docx,.document,.pdf",
-                        },
-                        on: { change: _vm.student.salarial_constance },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "legal_guardian_name" } }, [
+                          _vm._v("Nombre del Encargado Legal:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.legal_guardian_name,
+                              expression: "student.legal_guardian_name",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "legal_guardian_name",
+                            type: "text",
+                            placeholder: "Inserte el Nombre",
+                          },
+                          domProps: { value: _vm.student.legal_guardian_name },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "legal_guardian_name",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "legal_guardian_card" } }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.legal_guardian_card,
+                              expression: "student.legal_guardian_card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "legal_guardian_card",
+                            type: "number",
+                            placeholder: "No.Cédula del encargado legal",
+                            pattern: "",
+                          },
+                          domProps: { value: _vm.student.legal_guardian_card },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "legal_guardian_card",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "phone_number" } }, [
+                          _vm._v("Telefono Del Domicilio:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.phone_number,
+                              expression: "student.phone_number",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "tel",
+                            name: "phone_number",
+                            placeholder: "2777-0000",
+                          },
+                          domProps: { value: _vm.student.phone_number },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "phone_number",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.place_residence,
+                              expression: "student.place_residence",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "place_residence",
+                            type: "text",
+                            placeholder: "Direccion Del Domicilio",
+                          },
+                          domProps: { value: _vm.student.place_residence },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "place_residence",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "archivo" } }, [
+                          _vm._v("Subir La Constancia Salarial:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "file",
+                            name: "archivo",
+                            accept: "image/*,.txt,.doc,.docx,.document,.pdf",
+                          },
+                          on: { change: _vm.student.salarial_constance },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.total_income_family,
+                              expression: "student.total_income_family",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "total_income_family",
+                            type: "text",
+                            placeholder: "₡ Total De Ingresos",
+                          },
+                          domProps: { value: _vm.student.total_income_family },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "total_income_family",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.family_member_total,
+                              expression: "student.family_member_total",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "family_member_total",
+                            type: "text",
+                            placeholder: "/ Numero de Miembros Familiares =",
+                          },
+                          domProps: { value: _vm.student.family_member_total },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "family_member_total",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.total_per_capita,
+                              expression: "student.total_per_capita",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "total_per_capita",
+                            type: "text",
+                            placeholder: " ₡ = Per Cápita",
+                          },
+                          domProps: { value: _vm.student.total_per_capita },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "total_per_capita",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "socioeconomic_status" } }, [
+                      _vm._v("Estado Socioeconomico:"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.student.total_income_family,
-                            expression: "student.total_income_family",
+                            value: _vm.student.socioeconomic_status,
+                            expression: "student.socioeconomic_status",
                           },
                         ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "total_income_family",
-                          type: "text",
-                          id: "total_income_family",
-                          placeholder: "₡ Total De Ingresos",
-                        },
-                        domProps: { value: _vm.student.total_income_family },
                         on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
                             _vm.$set(
                               _vm.student,
-                              "total_income_family",
-                              $event.target.value
+                              "socioeconomic_status",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
                             )
                           },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.family_member_total,
-                            expression: "student.family_member_total",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "family_member_total",
-                          type: "text",
-                          id: "family_member_total",
-                          placeholder: "/ Numero de Miembros Familiares =",
-                        },
-                        domProps: { value: _vm.student.family_member_total },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "family_member_total",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.total_per_capita,
-                            expression: "student.total_per_capita",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "total_per_capita",
-                          type: "text",
-                          id: "total_per_capita",
-                          placeholder: " ₡ = Per Cápita",
-                        },
-                        domProps: { value: _vm.student.total_per_capita },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "total_per_capita",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "socioeconomic_status" } }, [
-                    _vm._v("Estado Socioeconomico:"),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.student.socioeconomic_status,
-                          expression: "student.socioeconomic_status",
-                        },
-                      ],
-                      attrs: { id: "socioeconomic_status" },
-                      on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.student,
-                            "socioeconomic_status",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
                         },
                       },
-                    },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "" } }, [
-                        _vm._v(" Seleccione estado socioeconomico"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "extreme_poverty" } }, [
-                        _vm._v("Pobreza extrema"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "poverty" } }, [
-                        _vm._v("Pobreza"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "vulnerability" } }, [
-                        _vm._v("Vulberabilidad"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "not_poor" } }, [
-                        _vm._v("No pobre"),
-                      ]),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("br"),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("h2", [_vm._v("Otros Ingresos Del Grupo Familiar")]),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "" } }, [
-                    _vm._v("Ingrese Los Siguientes datos:"),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.financial_assistence,
-                            expression: "student.financial_assistence",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "financial_assistence",
-                          type: "text",
-                          id: "financial_assistence",
-                          placeholder: "₡ Ayuda Financiera",
-                        },
-                        domProps: { value: _vm.student.financial_assistence },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "financial_assistence",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
+                      [
+                        _c("option", { attrs: { disabled: "", value: "" } }, [
+                          _vm._v(" Seleccione estado socioeconomico"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "extreme_poverty" } }, [
+                          _vm._v("Pobreza extrema"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "poverty" } }, [
+                          _vm._v("Pobreza"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "vulnerability" } }, [
+                          _vm._v("Vulberabilidad"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "not_poor" } }, [
+                          _vm._v("No pobre"),
+                        ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("h2", [_vm._v("Otros Ingresos Del Grupo Familiar")]),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "" } }, [
+                      _vm._v("Ingrese Los Siguientes datos:"),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.voluntary_assistence,
-                            expression: "student.voluntary_assistence",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.financial_assistance,
+                              expression: "student.financial_assistance",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "financial_assistance",
+                            type: "text",
+                            placeholder: "₡ Ayuda Financiera",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "voluntary_assistence",
-                          type: "text",
-                          id: "voluntary_assistence",
-                          placeholder: "₡ Ayuda Voluntaria",
-                        },
-                        domProps: { value: _vm.student.voluntary_assistence },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "voluntary_assistence",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.financial_assistance },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "financial_assistance",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
+                        }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.rental_income,
-                            expression: "student.rental_income",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.voluntary_assistance,
+                              expression: "student.voluntary_assistance",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "text",
+                            placeholder: "₡ Ayuda Voluntaria",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "rental_income",
-                          type: "text",
-                          id: "rental_income",
-                          placeholder: "₡ Arquileres",
-                        },
-                        domProps: { value: _vm.student.rental_income },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "rental_income",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.voluntary_assistance },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "voluntary_assistance",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
+                        }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.others,
-                            expression: "student.others",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.rental_income,
+                              expression: "student.rental_income",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "rental_income",
+                            type: "text",
+                            placeholder: "₡ Arquileres",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "others",
-                          type: "text",
-                          id: "others",
-                          placeholder: "₡ Otros(Especifique)",
-                        },
-                        domProps: { value: _vm.student.others },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.student, "others", $event.target.value)
+                          domProps: { value: _vm.student.rental_income },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "rental_income",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
+                        }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.total_income,
-                            expression: "student.total_income",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.others_income,
+                              expression: "student.others_income",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "others_income",
+                            type: "text",
+                            placeholder: "₡ Otros(Especifique)",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "total_income",
-                          type: "text",
-                          id: "total_income",
-                          placeholder: "₡ Ingresos Totales",
-                        },
-                        domProps: { value: _vm.student.total_income },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "total_income",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.others_income },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "others_income",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
+                        }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "submit" },
-                          on: { click: _vm.send },
-                        },
-                        [_vm._v("Registrar")]
-                      ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.total_income,
+                              expression: "student.total_income",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "total_income",
+                            type: "text",
+                            placeholder: "₡ Ingresos Totales",
+                          },
+                          domProps: { value: _vm.student.total_income },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "total_income",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.clasification,
+                              expression: "student.clasification",
+                            },
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: { name: "clasification", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.student.clasification)
+                              ? _vm._i(_vm.student.clasification, null) > -1
+                              : _vm.student.clasification,
+                          },
+                          on: {
+                            change: function ($event) {
+                              var $$a = _vm.student.clasification,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.student,
+                                      "clasification",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.student,
+                                      "clasification",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.student, "clasification", $$c)
+                              }
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit" },
+                            on: { click: _vm.send },
+                          },
+                          [_vm._v("Registrar")]
+                        ),
+                      ]),
                     ]),
                   ]),
                 ]),
-              ]),
-            ]),
+              ]
+            ),
           ]),
         ]),
       ]),
@@ -42906,9 +44295,11 @@ var render = function () {
           {
             staticClass: "row",
             staticStyle: {
-              "background-color": "white",
-              padding: "20px",
+              "min-height": "550px",
               "border-radius": "20px",
+              width: "100%",
+              border: "10px solid white",
+              "background-color": "white",
             },
           },
           [
@@ -42917,9 +44308,8 @@ var render = function () {
                 _vm._m(0),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-4" }, [
-                  _c(
-                    "select",
-                    {
+                  _c("fieldset", [
+                    _c("input", {
                       directives: [
                         {
                           name: "model",
@@ -42928,47 +44318,27 @@ var render = function () {
                           expression: "StudentRelative.student_id",
                         },
                       ],
-                      on: {
-                        change: [
-                          function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.StudentRelative,
-                              "student_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                          _vm.getStudent,
-                        ],
+                      staticClass: "form-control",
+                      attrs: {
+                        name: "student_id",
+                        type: "text",
+                        id: "student_id",
                       },
-                    },
-                    [
-                      _c(
-                        "option",
-                        {
-                          staticClass: "form-control",
-                          attrs: { disabled: "", selected: "", value: "" },
+                      domProps: { value: _vm.StudentRelative.student_id },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.StudentRelative,
+                            "student_id",
+                            $event.target.value
+                          )
                         },
-                        [_vm._v("Seleccione estudiante")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.student, function (student) {
-                        return _c("option", { key: student.id }, [
-                          _vm._v("@" + _vm._s(student.id)),
-                        ])
-                      }),
-                    ],
-                    2
-                  ),
+                      },
+                    }),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-4" }, [
@@ -43162,53 +44532,53 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.StudentRelative.guardian_recieves_aid,
-                          expression: "StudentRelative.guardian_recieves_aid",
+                          value: _vm.StudentRelative.guardian_receives_aid,
+                          expression: "StudentRelative.guardian_receives_aid",
                         },
                       ],
                       staticClass: "form-check-input",
                       attrs: {
                         name: "guardian_recieves_aid",
                         type: "checkbox",
-                        value: "first_checkbox",
+                        value: "guardian_receives_aid",
                       },
                       domProps: {
                         checked: Array.isArray(
-                          _vm.StudentRelative.guardian_recieves_aid
+                          _vm.StudentRelative.guardian_receives_aid
                         )
                           ? _vm._i(
-                              _vm.StudentRelative.guardian_recieves_aid,
-                              "first_checkbox"
+                              _vm.StudentRelative.guardian_receives_aid,
+                              "guardian_receives_aid"
                             ) > -1
-                          : _vm.StudentRelative.guardian_recieves_aid,
+                          : _vm.StudentRelative.guardian_receives_aid,
                       },
                       on: {
                         change: function ($event) {
-                          var $$a = _vm.StudentRelative.guardian_recieves_aid,
+                          var $$a = _vm.StudentRelative.guardian_receives_aid,
                             $$el = $event.target,
                             $$c = $$el.checked ? true : false
                           if (Array.isArray($$a)) {
-                            var $$v = "first_checkbox",
+                            var $$v = "guardian_receives_aid",
                               $$i = _vm._i($$a, $$v)
                             if ($$el.checked) {
                               $$i < 0 &&
                                 _vm.$set(
                                   _vm.StudentRelative,
-                                  "guardian_recieves_aid",
+                                  "guardian_receives_aid",
                                   $$a.concat([$$v])
                                 )
                             } else {
                               $$i > -1 &&
                                 _vm.$set(
                                   _vm.StudentRelative,
-                                  "guardian_recieves_aid",
+                                  "guardian_receives_aid",
                                   $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                                 )
                             }
                           } else {
                             _vm.$set(
                               _vm.StudentRelative,
-                              "guardian_recieves_aid",
+                              "guardian_receives_aid",
                               $$c
                             )
                           }
@@ -43362,369 +44732,392 @@ var render = function () {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-9" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
-                _c("div", { staticClass: "row" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacher.names,
-                            expression: "teacher.names",
-                          },
-                        ],
-                        attrs: {
-                          name: "names",
-                          type: "text",
-                          id: "name",
-                          placeholder: "Nombre del docente",
-                          required: "",
-                        },
-                        domProps: { value: _vm.teacher.names },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.teacher, "names", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacher.last_names,
-                            expression: "teacher.last_names",
-                          },
-                        ],
-                        attrs: {
-                          name: "last_names",
-                          type: "text",
-                          id: "nacionalidad",
-                          placeholder: "Apellidos del docente",
-                          required: "",
-                        },
-                        domProps: { value: _vm.teacher.last_names },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.teacher,
-                              "last_names",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacher.identification,
-                            expression: "teacher.identification",
-                          },
-                        ],
-                        attrs: {
-                          name: "identification",
-                          type: "number",
-                          id: "No.Cedula",
-                          placeholder: "No.Cédula",
-                          pattern: "",
-                          required: "",
-                        },
-                        domProps: { value: _vm.teacher.identification },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.teacher,
-                              "identification",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "Birthdate" } }, [
-                        _vm._v("Fecha de nacimiento:"),
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacher.birthdate,
-                            expression: "teacher.birthdate",
-                          },
-                        ],
-                        attrs: {
-                          name: "birthdate",
-                          type: "date",
-                          id: "Fecha de Nacimiento",
-                          placeholder: "Fecha de Nacimiento",
-                          min: "1995-01-01",
-                        },
-                        domProps: { value: _vm.teacher.birthdate },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.teacher,
-                              "birthdate",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "Birthdate" } }, [
-                        _vm._v("Edad:"),
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacher.age,
-                            expression: "teacher.age",
-                          },
-                        ],
-                        attrs: {
-                          name: "age",
-                          type: "number",
-                          id: "age",
-                          placeholder: "Edad",
-                          required: "",
-                        },
-                        domProps: { value: _vm.teacher.age },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.teacher, "age", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "Especialidad" } }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacher.speciality,
-                            expression: "teacher.speciality",
-                          },
-                        ],
-                        attrs: {
-                          name: "specialty",
-                          type: "text",
-                          id: "specialty",
-                          placeholder: "Especialidad del docente",
-                          pattern: "",
-                          required: "",
-                        },
-                        domProps: { value: _vm.teacher.speciality },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.teacher,
-                              "speciality",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "email" } }, [
-                        _vm._v("Correro electronico:"),
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacher.email,
-                            expression: "teacher.email",
-                          },
-                        ],
-                        attrs: {
-                          type: "email",
-                          id: "email",
-                          name: "email",
-                          placeholder: "ejemplo@gmail.com",
-                        },
-                        domProps: { value: _vm.teacher.email },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.teacher, "email", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("br"),
-                      _vm._v(" "),
-                      _c("label", { attrs: { for: "gender" } }, [
-                        _vm._v("Genero:"),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
+            _c(
+              "div",
+              {
+                staticClass: "row",
+                staticStyle: {
+                  "min-height": "550px",
+                  "border-radius": "20px",
+                  width: "100%",
+                  border: "10px solid white",
+                  "background-color": "white",
+                },
+              },
+              [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
                           directives: [
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.teacher.gender,
-                              expression: "teacher.gender",
+                              value: _vm.teacher.names,
+                              expression: "teacher.names",
                             },
                           ],
+                          attrs: {
+                            name: "names",
+                            type: "text",
+                            id: "name",
+                            placeholder: "Nombre del docente",
+                            required: "",
+                          },
+                          domProps: { value: _vm.teacher.names },
                           on: {
-                            change: function ($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function (o) {
-                                  return o.selected
-                                })
-                                .map(function (o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
                               _vm.$set(
                                 _vm.teacher,
-                                "gender",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
+                                "names",
+                                $event.target.value
                               )
                             },
                           },
-                        },
-                        [
-                          _c("option", { attrs: { disabled: "", value: "" } }, [
-                            _vm._v("Seleccione genero"),
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "Masculino" } }, [
-                            _vm._v("Masculino"),
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "Femenino" } }, [
-                            _vm._v("Femenino"),
-                          ]),
-                        ]
-                      ),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "contact_number" } }, [
-                        _vm._v("Correro electronico:"),
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.teacher.contact_number,
-                            expression: "teacher.contact_number",
-                          },
-                        ],
-                        attrs: {
-                          type: "tel",
-                          id: "contact_number",
-                          name: "contact_number",
-                          placeholder: "7777-7777",
-                        },
-                        domProps: { value: _vm.teacher.contact_number },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.teacher,
-                              "contact_number",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "submit", id: "form-submit" },
-                          on: { click: _vm.send },
-                        },
-                        [_vm._v("Registrar")]
-                      ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.teacher.last_names,
+                              expression: "teacher.last_names",
+                            },
+                          ],
+                          attrs: {
+                            name: "last_names",
+                            type: "text",
+                            id: "nacionalidad",
+                            placeholder: "Apellidos del docente",
+                            required: "",
+                          },
+                          domProps: { value: _vm.teacher.last_names },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.teacher,
+                                "last_names",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.teacher.identification,
+                              expression: "teacher.identification",
+                            },
+                          ],
+                          attrs: {
+                            name: "identification",
+                            type: "number",
+                            id: "No.Cedula",
+                            placeholder: "No.Cédula",
+                            pattern: "",
+                            required: "",
+                          },
+                          domProps: { value: _vm.teacher.identification },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.teacher,
+                                "identification",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "Birthdate" } }, [
+                          _vm._v("Fecha de nacimiento:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.teacher.birthdate,
+                              expression: "teacher.birthdate",
+                            },
+                          ],
+                          attrs: {
+                            name: "birthdate",
+                            type: "date",
+                            id: "Fecha de Nacimiento",
+                            placeholder: "Fecha de Nacimiento",
+                            min: "1995-01-01",
+                          },
+                          domProps: { value: _vm.teacher.birthdate },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.teacher,
+                                "birthdate",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "Birthdate" } }, [
+                          _vm._v("Edad:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.teacher.age,
+                              expression: "teacher.age",
+                            },
+                          ],
+                          attrs: {
+                            name: "age",
+                            type: "number",
+                            id: "age",
+                            placeholder: "Edad",
+                            required: "",
+                          },
+                          domProps: { value: _vm.teacher.age },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.teacher, "age", $event.target.value)
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "Especialidad" } }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.teacher.speciality,
+                              expression: "teacher.speciality",
+                            },
+                          ],
+                          attrs: {
+                            name: "specialty",
+                            type: "text",
+                            id: "specialty",
+                            placeholder: "Especialidad del docente",
+                            pattern: "",
+                            required: "",
+                          },
+                          domProps: { value: _vm.teacher.speciality },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.teacher,
+                                "speciality",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "email" } }, [
+                          _vm._v("Correro electronico:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.teacher.email,
+                              expression: "teacher.email",
+                            },
+                          ],
+                          attrs: {
+                            type: "email",
+                            id: "email",
+                            name: "email",
+                            placeholder: "ejemplo@gmail.com",
+                          },
+                          domProps: { value: _vm.teacher.email },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.teacher,
+                                "email",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("label", { attrs: { for: "gender" } }, [
+                          _vm._v("Genero:"),
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.teacher.gender,
+                                expression: "teacher.gender",
+                              },
+                            ],
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.teacher,
+                                  "gender",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
+                            },
+                          },
+                          [
+                            _c(
+                              "option",
+                              { attrs: { disabled: "", value: "" } },
+                              [_vm._v("Seleccione genero")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Masculino" } }, [
+                              _vm._v("Masculino"),
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "Femenino" } }, [
+                              _vm._v("Femenino"),
+                            ]),
+                          ]
+                        ),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "contact_number" } }, [
+                          _vm._v("Correro electronico:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.teacher.contact_number,
+                              expression: "teacher.contact_number",
+                            },
+                          ],
+                          attrs: {
+                            type: "tel",
+                            id: "contact_number",
+                            name: "contact_number",
+                            placeholder: "7777-7777",
+                          },
+                          domProps: { value: _vm.teacher.contact_number },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.teacher,
+                                "contact_number",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit", id: "form-submit" },
+                            on: { click: _vm.send },
+                          },
+                          [_vm._v("Registrar")]
+                        ),
+                      ]),
                     ]),
                   ]),
                 ]),
-              ]),
-            ]),
+              ]
+            ),
           ]),
         ]),
       ]),

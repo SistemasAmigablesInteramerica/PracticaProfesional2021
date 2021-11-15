@@ -23,9 +23,9 @@ class StudentController extends Controller
     public function store(Request $request)
     {
 
-        $student = Student::create($request->all());
+        $student = Student::create($request->all(''));
         return $student;
-        dd($request->all());
+        dd($request->all(''));
         $student->save();
 
     }
