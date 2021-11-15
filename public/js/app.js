@@ -2122,7 +2122,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "createAttendanceHistory",
+  name: "createAttendancehistory",
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
@@ -2455,6 +2455,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2931,7 +2936,7 @@ Vue.component('createTeacher', (__webpack_require__(/*! ./components/teachers/cr
 Vue.component('createSubject', (__webpack_require__(/*! ./components/Subjects/createSubject.vue */ "./resources/js/components/Subjects/createSubject.vue")["default"]));
 Vue.component('createSubjectteacher', (__webpack_require__(/*! ./components/Subjects/createSubjectteacher.vue */ "./resources/js/components/Subjects/createSubjectteacher.vue")["default"]));
 Vue.component('createStudentrelative', (__webpack_require__(/*! ./components/students/createStudentRelative.vue */ "./resources/js/components/students/createStudentRelative.vue")["default"]));
-Vue.component('createAttendancehistory`', (__webpack_require__(/*! ./components/AttendanceHistory/createAttendanceHistory.vue */ "./resources/js/components/AttendanceHistory/createAttendanceHistory.vue")["default"]));
+Vue.component('createAttendancehistory', (__webpack_require__(/*! ./components/AttendanceHistory/createAttendanceHistory.vue */ "./resources/js/components/AttendanceHistory/createAttendanceHistory.vue")["default"]));
 Vue.component('index', (__webpack_require__(/*! ./components/index.vue */ "./resources/js/components/index.vue")["default"]));
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -42942,7 +42947,6 @@ var render = function () {
                           attrs: {
                             name: "name",
                             type: "text",
-                            id: "name",
                             placeholder: "Nombre Completo Del Estudiante",
                           },
                           domProps: { value: _vm.student.name },
@@ -42973,7 +42977,6 @@ var render = function () {
                           attrs: {
                             name: "nationality",
                             type: "text",
-                            id: "nationality",
                             placeholder: "Nacionalidad",
                           },
                           domProps: { value: _vm.student.nationality },
@@ -43008,7 +43011,6 @@ var render = function () {
                           attrs: {
                             name: "card",
                             type: "number",
-                            id: "No.card",
                             placeholder: "No.Cédula",
                             pattern: "",
                           },
@@ -43044,7 +43046,6 @@ var render = function () {
                           attrs: {
                             name: "birthdate",
                             type: "date",
-                            id: "Fecha de birthdate",
                             placeholder: "Fecha de Nacimiento",
                             min: "1995-01-01",
                           },
@@ -43084,7 +43085,6 @@ var render = function () {
                           attrs: {
                             name: "legal_guardian_name",
                             type: "text",
-                            id: "legal_guardian_name",
                             placeholder: "Inserte el Nombre",
                           },
                           domProps: { value: _vm.student.legal_guardian_name },
@@ -43121,7 +43121,6 @@ var render = function () {
                           attrs: {
                             name: "legal_guardian_card",
                             type: "number",
-                            id: "legal_guardian_card",
                             placeholder: "No.Cédula del encargado legal",
                             pattern: "",
                           },
@@ -43160,7 +43159,6 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             type: "tel",
-                            id: "phone_number",
                             name: "phone_number",
                             placeholder: "2777-0000",
                           },
@@ -43196,7 +43194,6 @@ var render = function () {
                           attrs: {
                             name: "place_residence",
                             type: "text",
-                            id: "place_residence",
                             placeholder: "Direccion Del Domicilio",
                           },
                           domProps: { value: _vm.student.place_residence },
@@ -43226,7 +43223,6 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             type: "file",
-                            id: "archivo",
                             name: "archivo",
                             accept: "image/*,.txt,.doc,.docx,.document,.pdf",
                           },
@@ -43250,7 +43246,6 @@ var render = function () {
                           attrs: {
                             name: "total_income_family",
                             type: "text",
-                            id: "total_income_family",
                             placeholder: "₡ Total De Ingresos",
                           },
                           domProps: { value: _vm.student.total_income_family },
@@ -43285,7 +43280,6 @@ var render = function () {
                           attrs: {
                             name: "family_member_total",
                             type: "text",
-                            id: "family_member_total",
                             placeholder: "/ Numero de Miembros Familiares =",
                           },
                           domProps: { value: _vm.student.family_member_total },
@@ -43320,7 +43314,6 @@ var render = function () {
                           attrs: {
                             name: "total_per_capita",
                             type: "text",
-                            id: "total_per_capita",
                             placeholder: " ₡ = Per Cápita",
                           },
                           domProps: { value: _vm.student.total_per_capita },
@@ -43357,7 +43350,6 @@ var render = function () {
                             expression: "student.socioeconomic_status",
                           },
                         ],
-                        attrs: { id: "socioeconomic_status" },
                         on: {
                           change: function ($event) {
                             var $$selectedVal = Array.prototype.filter
@@ -43417,18 +43409,17 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.student.financial_assistence,
-                              expression: "student.financial_assistence",
+                              value: _vm.student.financial_assistance,
+                              expression: "student.financial_assistance",
                             },
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            name: "financial_assistence",
+                            name: "financial_assistance",
                             type: "text",
-                            id: "financial_assistence",
                             placeholder: "₡ Ayuda Financiera",
                           },
-                          domProps: { value: _vm.student.financial_assistence },
+                          domProps: { value: _vm.student.financial_assistance },
                           on: {
                             input: function ($event) {
                               if ($event.target.composing) {
@@ -43436,7 +43427,7 @@ var render = function () {
                               }
                               _vm.$set(
                                 _vm.student,
-                                "financial_assistence",
+                                "financial_assistance",
                                 $event.target.value
                               )
                             },
@@ -43452,18 +43443,16 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.student.voluntary_assistence,
-                              expression: "student.voluntary_assistence",
+                              value: _vm.student.voluntary_assistance,
+                              expression: "student.voluntary_assistance",
                             },
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            name: "voluntary_assistence",
                             type: "text",
-                            id: "voluntary_assistence",
                             placeholder: "₡ Ayuda Voluntaria",
                           },
-                          domProps: { value: _vm.student.voluntary_assistence },
+                          domProps: { value: _vm.student.voluntary_assistance },
                           on: {
                             input: function ($event) {
                               if ($event.target.composing) {
@@ -43471,7 +43460,7 @@ var render = function () {
                               }
                               _vm.$set(
                                 _vm.student,
-                                "voluntary_assistence",
+                                "voluntary_assistance",
                                 $event.target.value
                               )
                             },
@@ -43495,7 +43484,6 @@ var render = function () {
                           attrs: {
                             name: "rental_income",
                             type: "text",
-                            id: "rental_income",
                             placeholder: "₡ Arquileres",
                           },
                           domProps: { value: _vm.student.rental_income },
@@ -43522,18 +43510,17 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.student.others,
-                              expression: "student.others",
+                              value: _vm.student.others_income,
+                              expression: "student.others_income",
                             },
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            name: "others",
+                            name: "others_income",
                             type: "text",
-                            id: "others",
                             placeholder: "₡ Otros(Especifique)",
                           },
-                          domProps: { value: _vm.student.others },
+                          domProps: { value: _vm.student.others_income },
                           on: {
                             input: function ($event) {
                               if ($event.target.composing) {
@@ -43541,7 +43528,7 @@ var render = function () {
                               }
                               _vm.$set(
                                 _vm.student,
-                                "others",
+                                "others_income",
                                 $event.target.value
                               )
                             },
@@ -43565,7 +43552,6 @@ var render = function () {
                           attrs: {
                             name: "total_income",
                             type: "text",
-                            id: "total_income",
                             placeholder: "₡ Ingresos Totales",
                           },
                           domProps: { value: _vm.student.total_income },
@@ -43579,6 +43565,58 @@ var render = function () {
                                 "total_income",
                                 $event.target.value
                               )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.clasification,
+                              expression: "student.clasification",
+                            },
+                          ],
+                          staticClass: "form-check-input",
+                          attrs: { name: "clasification", type: "checkbox" },
+                          domProps: {
+                            checked: Array.isArray(_vm.student.clasification)
+                              ? _vm._i(_vm.student.clasification, null) > -1
+                              : _vm.student.clasification,
+                          },
+                          on: {
+                            change: function ($event) {
+                              var $$a = _vm.student.clasification,
+                                $$el = $event.target,
+                                $$c = $$el.checked ? true : false
+                              if (Array.isArray($$a)) {
+                                var $$v = null,
+                                  $$i = _vm._i($$a, $$v)
+                                if ($$el.checked) {
+                                  $$i < 0 &&
+                                    _vm.$set(
+                                      _vm.student,
+                                      "clasification",
+                                      $$a.concat([$$v])
+                                    )
+                                } else {
+                                  $$i > -1 &&
+                                    _vm.$set(
+                                      _vm.student,
+                                      "clasification",
+                                      $$a
+                                        .slice(0, $$i)
+                                        .concat($$a.slice($$i + 1))
+                                    )
+                                }
+                              } else {
+                                _vm.$set(_vm.student, "clasification", $$c)
+                              }
                             },
                           },
                         }),
@@ -56632,7 +56670,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
