@@ -29,10 +29,10 @@ class CreateStudentsTable extends Migration
             $table->integer('family_member_total');
             $table->decimal('total_per_capita');
             $table->boolean('clasification')->nullable();
-            $table->decimal('financial_assistance')->nullable();
-            $table->decimal('voluntary_assistance')->nullable();
-            $table->decimal('rental_income')->nullable();
-            $table->decimal('others_income')->nullable();
+            $table->decimal('financial_assistance');
+            $table->decimal('voluntary_assistance');
+            $table->decimal('rental_income');
+            $table->decimal('others_income');
             $table->decimal('total_income');
             $table->timestamps();
             $table->engine = 'InnoDB';

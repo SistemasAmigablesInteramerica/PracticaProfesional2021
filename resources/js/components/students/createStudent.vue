@@ -89,12 +89,12 @@
                   <label for="">Ingrese Los Siguientes datos:</label>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="financial_assistence" class="form-control" v-model="student.financial_assistence" type="text" id="financial_assistence" placeholder="₡ Ayuda Financiera">
+                    <input name="financial_assistence" class="form-control" v-model="student.financial_assistance" type="text" id="financial_assistence" placeholder="₡ Ayuda Financiera">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="voluntary_assistence" class="form-control" v-model="student.voluntary_assistence" type="text" id="voluntary_assistence" placeholder="₡ Ayuda Voluntaria">
+                    <input name="voluntary_assistence" class="form-control" v-model="student.voluntary_assistance" type="text" id="voluntary_assistence" placeholder="₡ Ayuda Voluntaria">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
@@ -104,12 +104,17 @@
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
-                    <input name="others" class="form-control" v-model="student.others" type="text" id="others" placeholder="₡ Otros(Especifique)">
+                    <input name="others" class="form-control" v-model="student.others_income" type="text" id="others" placeholder="₡ Otros(Especifique)">
                     </fieldset> 
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
                     <input name="total_income" class="form-control" v-model="student.total_income" type="text" id="total_income" placeholder="₡ Ingresos Totales">
+                    </fieldset> 
+                  </div>
+                  <div class="col-lg-3">
+                    <fieldset>
+                    <input name="clasification" class="form-check-input" v-model="student.clasification" type="checkbox">
                     </fieldset> 
                   </div>
                   <div class="col-lg-12">

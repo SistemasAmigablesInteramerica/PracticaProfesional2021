@@ -54,7 +54,7 @@
 <script>
   import Swal from 'sweetalert2'
     export default {
-        name: "createAttendanceHistory",
+        name: "createAttendancehistory",
         components:{Swal},
         data() {
           return {
