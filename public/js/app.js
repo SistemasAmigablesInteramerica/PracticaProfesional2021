@@ -2722,7 +2722,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createStudentrelative",
@@ -2738,31 +2737,13 @@ __webpack_require__.r(__webpack_exports__);
         guardian_card: '',
         guardian_relation: '',
         scholarship: '',
-        guardian_recieves_aid: '',
+        guardian_receives_aid: '',
         guardian_aid_total: '',
         guardian_salary: ''
       }
     };
   },
-  mounted: function mounted() {
-    this.getStudent();
-  },
   methods: {
-    getStudent: function getStudent() {
-      axios.get('/store-student', {
-        params: {
-          student: this.student
-        }
-      }).then(function (response) {
-        return response.data.student;
-      })["catch"](function (error) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-          icon: 'error',
-          title: 'error',
-          text: 'Se ha producido un error'
-        });
-      });
-    },
     send: function send() {
       axios.post('/store-StudentRelative', this.StudentRelative).then(function (response) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -42929,681 +42910,698 @@ var render = function () {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-9" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
-                _c("div", { staticClass: "row" }, [
-                  _vm._m(0),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.name,
-                            expression: "student.name",
+            _c(
+              "div",
+              {
+                staticClass: "row",
+                staticStyle: {
+                  "min-height": "550px",
+                  "border-radius": "10px",
+                  width: "100%",
+                  border: "10px solid white",
+                  "background-color": "white",
+                },
+              },
+              [
+                _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "row" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.name,
+                              expression: "student.name",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "name",
+                            type: "text",
+                            id: "name",
+                            placeholder: "Nombre Completo Del Estudiante",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "name",
-                          type: "text",
-                          id: "name",
-                          placeholder: "Nombre Completo Del Estudiante",
-                        },
-                        domProps: { value: _vm.student.name },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.student, "name", $event.target.value)
+                          domProps: { value: _vm.student.name },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.student, "name", $event.target.value)
+                            },
                           },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.nationality,
-                            expression: "student.nationality",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "nationality",
-                          type: "text",
-                          id: "nationality",
-                          placeholder: "Nacionalidad",
-                        },
-                        domProps: { value: _vm.student.nationality },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "nationality",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.card,
-                            expression: "student.card",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "card",
-                          type: "number",
-                          id: "No.card",
-                          placeholder: "No.Cédula",
-                          pattern: "",
-                        },
-                        domProps: { value: _vm.student.card },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.student, "card", $event.target.value)
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "Birthdate" } }, [
-                        _vm._v("Fecha de Nacimiento:"),
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.birthdate,
-                            expression: "student.birthdate",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "birthdate",
-                          type: "date",
-                          id: "Fecha de birthdate",
-                          placeholder: "Fecha de Nacimiento",
-                          min: "1995-01-01",
-                        },
-                        domProps: { value: _vm.student.birthdate },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "birthdate",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "legal_guardian_name" } }, [
-                        _vm._v("Nombre del Encargado Legal:"),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.nationality,
+                              expression: "student.nationality",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "nationality",
+                            type: "text",
+                            id: "nationality",
+                            placeholder: "Nacionalidad",
+                          },
+                          domProps: { value: _vm.student.nationality },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "nationality",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.legal_guardian_name,
-                            expression: "student.legal_guardian_name",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "legal_guardian_name",
-                          type: "text",
-                          id: "legal_guardian_name",
-                          placeholder: "Inserte el Nombre",
-                        },
-                        domProps: { value: _vm.student.legal_guardian_name },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "legal_guardian_name",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "legal_guardian_card" } }),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.legal_guardian_card,
-                            expression: "student.legal_guardian_card",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.card,
+                              expression: "student.card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "card",
+                            type: "number",
+                            id: "No.card",
+                            placeholder: "No.Cédula",
+                            pattern: "",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "legal_guardian_card",
-                          type: "number",
-                          id: "legal_guardian_card",
-                          placeholder: "No.Cédula del encargado legal",
-                          pattern: "",
-                        },
-                        domProps: { value: _vm.student.legal_guardian_card },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "legal_guardian_card",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.card },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.student, "card", $event.target.value)
+                            },
                           },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "phone_number" } }, [
-                        _vm._v("Telefono Del Domicilio:"),
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.phone_number,
-                            expression: "student.phone_number",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "tel",
-                          id: "phone_number",
-                          name: "phone_number",
-                          placeholder: "2777-0000",
-                        },
-                        domProps: { value: _vm.student.phone_number },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "phone_number",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.place_residence,
-                            expression: "student.place_residence",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "Birthdate" } }, [
+                          _vm._v("Fecha de Nacimiento:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.birthdate,
+                              expression: "student.birthdate",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "birthdate",
+                            type: "date",
+                            id: "Fecha de birthdate",
+                            placeholder: "Fecha de Nacimiento",
+                            min: "1995-01-01",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "place_residence",
-                          type: "text",
-                          id: "place_residence",
-                          placeholder: "Direccion Del Domicilio",
-                        },
-                        domProps: { value: _vm.student.place_residence },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "place_residence",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.birthdate },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "birthdate",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c("label", { attrs: { for: "archivo" } }, [
-                        _vm._v("Subir La Constancia Salarial:"),
+                        }),
                       ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "file",
-                          id: "archivo",
-                          name: "archivo",
-                          accept: "image/*,.txt,.doc,.docx,.document,.pdf",
-                        },
-                        on: { change: _vm.student.salarial_constance },
-                      }),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "legal_guardian_name" } }, [
+                          _vm._v("Nombre del Encargado Legal:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.legal_guardian_name,
+                              expression: "student.legal_guardian_name",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "legal_guardian_name",
+                            type: "text",
+                            id: "legal_guardian_name",
+                            placeholder: "Inserte el Nombre",
+                          },
+                          domProps: { value: _vm.student.legal_guardian_name },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "legal_guardian_name",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "legal_guardian_card" } }),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.legal_guardian_card,
+                              expression: "student.legal_guardian_card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "legal_guardian_card",
+                            type: "number",
+                            id: "legal_guardian_card",
+                            placeholder: "No.Cédula del encargado legal",
+                            pattern: "",
+                          },
+                          domProps: { value: _vm.student.legal_guardian_card },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "legal_guardian_card",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "phone_number" } }, [
+                          _vm._v("Telefono Del Domicilio:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.phone_number,
+                              expression: "student.phone_number",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "tel",
+                            id: "phone_number",
+                            name: "phone_number",
+                            placeholder: "2777-0000",
+                          },
+                          domProps: { value: _vm.student.phone_number },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "phone_number",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.place_residence,
+                              expression: "student.place_residence",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "place_residence",
+                            type: "text",
+                            id: "place_residence",
+                            placeholder: "Direccion Del Domicilio",
+                          },
+                          domProps: { value: _vm.student.place_residence },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "place_residence",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c("label", { attrs: { for: "archivo" } }, [
+                          _vm._v("Subir La Constancia Salarial:"),
+                        ]),
+                        _vm._v(" "),
+                        _c("input", {
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "file",
+                            id: "archivo",
+                            name: "archivo",
+                            accept: "image/*,.txt,.doc,.docx,.document,.pdf",
+                          },
+                          on: { change: _vm.student.salarial_constance },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.total_income_family,
+                              expression: "student.total_income_family",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "total_income_family",
+                            type: "text",
+                            id: "total_income_family",
+                            placeholder: "₡ Total De Ingresos",
+                          },
+                          domProps: { value: _vm.student.total_income_family },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "total_income_family",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.family_member_total,
+                              expression: "student.family_member_total",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "family_member_total",
+                            type: "text",
+                            id: "family_member_total",
+                            placeholder: "/ Numero de Miembros Familiares =",
+                          },
+                          domProps: { value: _vm.student.family_member_total },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "family_member_total",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.total_per_capita,
+                              expression: "student.total_per_capita",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "total_per_capita",
+                            type: "text",
+                            id: "total_per_capita",
+                            placeholder: " ₡ = Per Cápita",
+                          },
+                          domProps: { value: _vm.student.total_per_capita },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "total_per_capita",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "socioeconomic_status" } }, [
+                      _vm._v("Estado Socioeconomico:"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.student.total_income_family,
-                            expression: "student.total_income_family",
+                            value: _vm.student.socioeconomic_status,
+                            expression: "student.socioeconomic_status",
                           },
                         ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "total_income_family",
-                          type: "text",
-                          id: "total_income_family",
-                          placeholder: "₡ Total De Ingresos",
-                        },
-                        domProps: { value: _vm.student.total_income_family },
+                        attrs: { id: "socioeconomic_status" },
                         on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
                             _vm.$set(
                               _vm.student,
-                              "total_income_family",
-                              $event.target.value
+                              "socioeconomic_status",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
                             )
                           },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.family_member_total,
-                            expression: "student.family_member_total",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "family_member_total",
-                          type: "text",
-                          id: "family_member_total",
-                          placeholder: "/ Numero de Miembros Familiares =",
-                        },
-                        domProps: { value: _vm.student.family_member_total },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "family_member_total",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.total_per_capita,
-                            expression: "student.total_per_capita",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "total_per_capita",
-                          type: "text",
-                          id: "total_per_capita",
-                          placeholder: " ₡ = Per Cápita",
-                        },
-                        domProps: { value: _vm.student.total_per_capita },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "total_per_capita",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
-                    ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "socioeconomic_status" } }, [
-                    _vm._v("Estado Socioeconomico:"),
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "select",
-                    {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.student.socioeconomic_status,
-                          expression: "student.socioeconomic_status",
-                        },
-                      ],
-                      attrs: { id: "socioeconomic_status" },
-                      on: {
-                        change: function ($event) {
-                          var $$selectedVal = Array.prototype.filter
-                            .call($event.target.options, function (o) {
-                              return o.selected
-                            })
-                            .map(function (o) {
-                              var val = "_value" in o ? o._value : o.value
-                              return val
-                            })
-                          _vm.$set(
-                            _vm.student,
-                            "socioeconomic_status",
-                            $event.target.multiple
-                              ? $$selectedVal
-                              : $$selectedVal[0]
-                          )
                         },
                       },
-                    },
-                    [
-                      _c("option", { attrs: { disabled: "", value: "" } }, [
-                        _vm._v(" Seleccione estado socioeconomico"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "extreme_poverty" } }, [
-                        _vm._v("Pobreza extrema"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "poverty" } }, [
-                        _vm._v("Pobreza"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "vulnerability" } }, [
-                        _vm._v("Vulberabilidad"),
-                      ]),
-                      _vm._v(" "),
-                      _c("option", { attrs: { value: "not_poor" } }, [
-                        _vm._v("No pobre"),
-                      ]),
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("br"),
-                  _c("br"),
-                  _vm._v(" "),
-                  _c("h2", [_vm._v("Otros Ingresos Del Grupo Familiar")]),
-                  _vm._v(" "),
-                  _c("label", { attrs: { for: "" } }, [
-                    _vm._v("Ingrese Los Siguientes datos:"),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.financial_assistence,
-                            expression: "student.financial_assistence",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "financial_assistence",
-                          type: "text",
-                          id: "financial_assistence",
-                          placeholder: "₡ Ayuda Financiera",
-                        },
-                        domProps: { value: _vm.student.financial_assistence },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "financial_assistence",
-                              $event.target.value
-                            )
-                          },
-                        },
-                      }),
+                      [
+                        _c("option", { attrs: { disabled: "", value: "" } }, [
+                          _vm._v(" Seleccione estado socioeconomico"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "extreme_poverty" } }, [
+                          _vm._v("Pobreza extrema"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "poverty" } }, [
+                          _vm._v("Pobreza"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "vulnerability" } }, [
+                          _vm._v("Vulberabilidad"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "not_poor" } }, [
+                          _vm._v("No pobre"),
+                        ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(" "),
+                    _c("h2", [_vm._v("Otros Ingresos Del Grupo Familiar")]),
+                    _vm._v(" "),
+                    _c("label", { attrs: { for: "" } }, [
+                      _vm._v("Ingrese Los Siguientes datos:"),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.voluntary_assistence,
-                            expression: "student.voluntary_assistence",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.financial_assistence,
+                              expression: "student.financial_assistence",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "financial_assistence",
+                            type: "text",
+                            id: "financial_assistence",
+                            placeholder: "₡ Ayuda Financiera",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "voluntary_assistence",
-                          type: "text",
-                          id: "voluntary_assistence",
-                          placeholder: "₡ Ayuda Voluntaria",
-                        },
-                        domProps: { value: _vm.student.voluntary_assistence },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "voluntary_assistence",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.financial_assistence },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "financial_assistence",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
+                        }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.rental_income,
-                            expression: "student.rental_income",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.voluntary_assistence,
+                              expression: "student.voluntary_assistence",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "voluntary_assistence",
+                            type: "text",
+                            id: "voluntary_assistence",
+                            placeholder: "₡ Ayuda Voluntaria",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "rental_income",
-                          type: "text",
-                          id: "rental_income",
-                          placeholder: "₡ Arquileres",
-                        },
-                        domProps: { value: _vm.student.rental_income },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "rental_income",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.voluntary_assistence },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "voluntary_assistence",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
+                        }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.others,
-                            expression: "student.others",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.rental_income,
+                              expression: "student.rental_income",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "rental_income",
+                            type: "text",
+                            id: "rental_income",
+                            placeholder: "₡ Arquileres",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "others",
-                          type: "text",
-                          id: "others",
-                          placeholder: "₡ Otros(Especifique)",
-                        },
-                        domProps: { value: _vm.student.others },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.student, "others", $event.target.value)
+                          domProps: { value: _vm.student.rental_income },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "rental_income",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
+                        }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-3" }, [
-                    _c("fieldset", [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.total_income,
-                            expression: "student.total_income",
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.others,
+                              expression: "student.others",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "others",
+                            type: "text",
+                            id: "others",
+                            placeholder: "₡ Otros(Especifique)",
                           },
-                        ],
-                        staticClass: "form-control",
-                        attrs: {
-                          name: "total_income",
-                          type: "text",
-                          id: "total_income",
-                          placeholder: "₡ Ingresos Totales",
-                        },
-                        domProps: { value: _vm.student.total_income },
-                        on: {
-                          input: function ($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(
-                              _vm.student,
-                              "total_income",
-                              $event.target.value
-                            )
+                          domProps: { value: _vm.student.others },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "others",
+                                $event.target.value
+                              )
+                            },
                           },
-                        },
-                      }),
+                        }),
+                      ]),
                     ]),
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "submit" },
-                          on: { click: _vm.send },
-                        },
-                        [_vm._v("Registrar")]
-                      ),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-3" }, [
+                      _c("fieldset", [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.total_income,
+                              expression: "student.total_income",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "total_income",
+                            type: "text",
+                            id: "total_income",
+                            placeholder: "₡ Ingresos Totales",
+                          },
+                          domProps: { value: _vm.student.total_income },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.student,
+                                "total_income",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-12" }, [
+                      _c("fieldset", [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit" },
+                            on: { click: _vm.send },
+                          },
+                          [_vm._v("Registrar")]
+                        ),
+                      ]),
                     ]),
                   ]),
                 ]),
-              ]),
-            ]),
+              ]
+            ),
           ]),
         ]),
       ]),
@@ -43661,9 +43659,8 @@ var render = function () {
                 _vm._m(0),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-4" }, [
-                  _c(
-                    "select",
-                    {
+                  _c("fieldset", [
+                    _c("input", {
                       directives: [
                         {
                           name: "model",
@@ -43672,47 +43669,27 @@ var render = function () {
                           expression: "StudentRelative.student_id",
                         },
                       ],
-                      on: {
-                        change: [
-                          function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.StudentRelative,
-                              "student_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                          _vm.getStudent,
-                        ],
+                      staticClass: "form-control",
+                      attrs: {
+                        name: "student_id",
+                        type: "text",
+                        id: "student_id",
                       },
-                    },
-                    [
-                      _c(
-                        "option",
-                        {
-                          staticClass: "form-control",
-                          attrs: { disabled: "", selected: "", value: "" },
+                      domProps: { value: _vm.StudentRelative.student_id },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.StudentRelative,
+                            "student_id",
+                            $event.target.value
+                          )
                         },
-                        [_vm._v("Seleccione estudiante")]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.student, function (student) {
-                        return _c("option", { key: student.id }, [
-                          _vm._v("@" + _vm._s(student.id)),
-                        ])
-                      }),
-                    ],
-                    2
-                  ),
+                      },
+                    }),
+                  ]),
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-4" }, [
@@ -43906,53 +43883,53 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.StudentRelative.guardian_recieves_aid,
-                          expression: "StudentRelative.guardian_recieves_aid",
+                          value: _vm.StudentRelative.guardian_receives_aid,
+                          expression: "StudentRelative.guardian_receives_aid",
                         },
                       ],
                       staticClass: "form-check-input",
                       attrs: {
                         name: "guardian_recieves_aid",
                         type: "checkbox",
-                        value: "first_checkbox",
+                        value: "guardian_receives_aid",
                       },
                       domProps: {
                         checked: Array.isArray(
-                          _vm.StudentRelative.guardian_recieves_aid
+                          _vm.StudentRelative.guardian_receives_aid
                         )
                           ? _vm._i(
-                              _vm.StudentRelative.guardian_recieves_aid,
-                              "first_checkbox"
+                              _vm.StudentRelative.guardian_receives_aid,
+                              "guardian_receives_aid"
                             ) > -1
-                          : _vm.StudentRelative.guardian_recieves_aid,
+                          : _vm.StudentRelative.guardian_receives_aid,
                       },
                       on: {
                         change: function ($event) {
-                          var $$a = _vm.StudentRelative.guardian_recieves_aid,
+                          var $$a = _vm.StudentRelative.guardian_receives_aid,
                             $$el = $event.target,
                             $$c = $$el.checked ? true : false
                           if (Array.isArray($$a)) {
-                            var $$v = "first_checkbox",
+                            var $$v = "guardian_receives_aid",
                               $$i = _vm._i($$a, $$v)
                             if ($$el.checked) {
                               $$i < 0 &&
                                 _vm.$set(
                                   _vm.StudentRelative,
-                                  "guardian_recieves_aid",
+                                  "guardian_receives_aid",
                                   $$a.concat([$$v])
                                 )
                             } else {
                               $$i > -1 &&
                                 _vm.$set(
                                   _vm.StudentRelative,
-                                  "guardian_recieves_aid",
+                                  "guardian_receives_aid",
                                   $$a.slice(0, $$i).concat($$a.slice($$i + 1))
                                 )
                             }
                           } else {
                             _vm.$set(
                               _vm.StudentRelative,
-                              "guardian_recieves_aid",
+                              "guardian_receives_aid",
                               $$c
                             )
                           }
@@ -56655,7 +56632,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

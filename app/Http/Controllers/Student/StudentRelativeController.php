@@ -27,9 +27,4 @@ class StudentRelativeController extends Controller
         dd($request->all());
         $studentrelative->save();
     }
-
-    public function getStudent(){
-        $student = Student::id();
-        return response()->json(["student"=>$student]);
-    }
 }
