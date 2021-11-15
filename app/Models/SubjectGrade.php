@@ -10,7 +10,6 @@ class SubjectGrade extends Model
     protected $table = 'subject_grades';
     protected $fillable = ['grade_id', 'subject_id']; 
     use HasFactory;
-}
 
     public function grade()
     {
@@ -28,3 +27,6 @@ class SubjectGrade extends Model
     {
     return $this->hasMany(SubjectTeacher::class, 'subject_grade_id', 'id');
     }
+}
+
+    

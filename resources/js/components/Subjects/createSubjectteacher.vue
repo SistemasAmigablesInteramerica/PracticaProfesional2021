@@ -11,22 +11,22 @@
                   <div class="col-lg-4">
                     <fieldset>
                     <label for="select">Docente:</label>
-                        <select size=""id="teacher"placeholder="Docente" v-model="subjectteacher.teacher_id" required>
-                        <option value="">Elige un docente</option>
-                        <option value="Melissa"></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <select v-model="subjectteacher.teacher_id">
+                        <option  disabled value="">Elige un docente</option>
+                        <option value="1">Tony Madrigal</option>
+                        <option value="2">Abel</option>
+                        <option value="3">Stefany</option>
                         </select>
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
                       <label for="select">Materias:</label>
-                        <select size=""id="pago"placeholder="Materia" v-model="subjectteacher.subject_grade_id" required>
-                        <option value="">Elige una materia</option>
-                        <option value="Informatica"></option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <select v-model="subjectteacher.subject_grade_id">
+                        <option disabled value="">Elige una materia</option>
+                        <option value="10">Ciencias</option>
+                        <option value="11">Matematicas</option>
+                        <option value="12">Ingles</option>
                         </select>
                   </fieldset>
                     </div>

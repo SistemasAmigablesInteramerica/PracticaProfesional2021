@@ -42692,12 +42692,6 @@ var render = function () {
                           expression: "subjectteacher.teacher_id",
                         },
                       ],
-                      attrs: {
-                        size: "",
-                        id: "teacher",
-                        placeholder: "Docente",
-                        required: "",
-                      },
                       on: {
                         change: function ($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -42719,15 +42713,19 @@ var render = function () {
                       },
                     },
                     [
-                      _c("option", { attrs: { value: "" } }, [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
                         _vm._v("Elige un docente"),
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "Melissa" } }),
+                      _c("option", { attrs: { value: "1" } }, [
+                        _vm._v("Tony Madrigal"),
+                      ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
+                      _c("option", { attrs: { value: "2" } }, [_vm._v("Abel")]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
+                      _c("option", { attrs: { value: "3" } }, [
+                        _vm._v("Stefany"),
+                      ]),
                     ]
                   ),
                 ]),
@@ -42750,12 +42748,6 @@ var render = function () {
                           expression: "subjectteacher.subject_grade_id",
                         },
                       ],
-                      attrs: {
-                        size: "",
-                        id: "pago",
-                        placeholder: "Materia",
-                        required: "",
-                      },
                       on: {
                         change: function ($event) {
                           var $$selectedVal = Array.prototype.filter
@@ -42777,15 +42769,21 @@ var render = function () {
                       },
                     },
                     [
-                      _c("option", { attrs: { value: "" } }, [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
                         _vm._v("Elige una materia"),
                       ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "Informatica" } }),
+                      _c("option", { attrs: { value: "10" } }, [
+                        _vm._v("Ciencias"),
+                      ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
+                      _c("option", { attrs: { value: "11" } }, [
+                        _vm._v("Matematicas"),
+                      ]),
                       _vm._v(" "),
-                      _c("option", { attrs: { value: "" } }),
+                      _c("option", { attrs: { value: "12" } }, [
+                        _vm._v("Ingles"),
+                      ]),
                     ]
                   ),
                 ]),
