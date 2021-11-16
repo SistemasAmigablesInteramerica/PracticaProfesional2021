@@ -29,12 +29,25 @@
     <tr v-for="(student, index) in listStudent" :key="student.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ student.name }}</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>{{ student.nationality }}</th>
+      <th>{{ student.card }}</th>
+      <th>{{ student.birthdate }}</th>
+      <th>aun no se como guardar archivos</th>
+      <th>{{ student.legal_guardian_name }}</th>
+      <th>{{ student.legal_guardian_card }}</th>
+      <th>{{ student.place_residence }}</th>
+      <th>{{ student.phone_number }}</th>
+      <th>{{ student.socioeconomic_status }}</th>
+      <th>{{ student.total_income_family }}</th>
+      <th>{{ student.family_member_total }}</th>
+      <th>{{ student.total_per_capita }}</th>
+      <th>{{ student.clasification }}</th>
+      <th>{{ student.financial_assistance }}</th>
+      <th>{{ student.voluntary_assistance }}</th>
+      <th>{{ student.rental_income }}</th>
+      <th>{{ student.others_income }}</th>
+      <th>{{ student.total_income }}</th>
+
     </tr>
   </tbody>
     </table>
