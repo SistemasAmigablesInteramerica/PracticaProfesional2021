@@ -1,6 +1,15 @@
-<?php
+<?php 
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Grades\GradeController; 
+use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Subjects\SubjectController; 
+use App\Http\Controllers\Subjects\SubjectTeacherController; 
+use App\Http\Controllers\Subjects\SubjectGradeController; 
+use App\Http\Controllers\teachers\TeacherController;
+use App\Http\Controllers\Student\StudentRelativeController;
+use App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController;
+use App\Http\Controllers\Attendance\AttendanceHistoryController;
+use Illuminate\Support\Facades\route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,77 +22,53 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [App\Http\Controllers\IndexController::class, 'create'])->name('index');
 
-Route::get('/meetings', function () {
-    return view('meetings');
-});
+Route::get('/registro-de-estudiantes', [App\Http\Controllers\Student\StudentController::class, 'create'])->name('insert-studentsinfo');
+Route::post('/store-student', [StudentController::class, 'store']);
 
-Route::get('/meetings-details', function () {
-    return view('meeting-details');
-});
+Route::get('/registro-de-secciones', [App\Http\Controllers\Grades\GradeController::class, 'create'])->name('insert-gradeinfo');
+Route::post('/store-grade', [GradeController::class, 'store']);
 
-Route::get('/insert-studentsinfo', function () {
-    return view('insert-studentsinfo');
-});
+Route::get('/registro-de-profesores', [App\Http\Controllers\teachers\TeacherController::class, 'create'])->name('insert-teacherinfo');
+Route::post('/store-teacher', [TeacherController::class, 'store']);
 
-Route::get('/insert-teacherinfo', function () {
-    return view('insert-teacherinfo');
-});
+Route::get('/registro-de-materias', [App\Http\Controllers\Subjects\SubjectController::class, 'create'])->name('insert-subjectinfo');
+Route::post('/store-subject', [SubjectController::class, 'store']);
 
-Route::get('/insert-gradeinfo', function () {
-    return view('insert-gradeinfo');
-});
+Route::get('/registro-de-familiares', [App\Http\Controllers\Student\StudentRelativeController::class, 'create'])->name('insert-studentrelativesinfo');
+Route::post('/store-StudentRelative', [StudentRelativeController::class, 'store']);
 
-Route::get('/insert-subjectinfo', function () {
-    return view('insert-subjectinfo');
-});
+Route::get('/registro-de-asistencias', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'create'])->name('insert-attendancehistory');
+Route::post('/store-attendancehistory', [AttendanceHistoryController::class, 'store']);
 
-Route::get('/insert-studentrelativesinfo', function () {
-    return view('insert-studentrelativesinfo');
-});
+Route::get('/asignar-materia-grado', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'create'])->name('insert-subjectgradeinfo');
+Route::post('/store-subjectgrade', [SubjectGradeController::class, 'store']);
 
-Route::get('/insert-subject-teacherinfo', function () {
-    return view('insert-subject-teacherinfo');
-});
+Route::get('/asignar-materia-profesor', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
+Route::post('/store-subjectteacher', [SubjectTeacherController::class, 'store']);
 
-Route::get('/insert-subjectgradeinfo', function () {
-    return view('insert-subjectgradeinfo');
-});
+Route::get('/asignar-materia-estudiante', [App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController::class, 'create'])->name('insert-gradesubjectstudentinfo');
+Route::post('/store-gradesubjectstudent', [GradeSubjectStudentController::class, 'store']);
 
-Route::get('/view-studentsinfo', function () {
-    return view('view-studentsinfo');
-});
+Route::get('/ver-de-secciones', [App\Http\Controllers\ViewGradeController::class, 'create'])->name('view-gradeinfo');
 
-Route::get('/view-teacherinfo', function () {
-    return view('view-teacherinfo');
-});
+Route::get('/ver-de-profesores', [App\Http\Controllers\ViewTeacherController::class, 'create'])->name('view-teacherinfo');
 
-Route::get('/view-gradeinfo', function () {
-    return view('view-gradeinfo');
-});
+Route::get('/ver-de-materias', [App\Http\Controllers\ViewSubjectController::class, 'create'])->name('view-subjectinfo');
 
-Route::get('/view-subjectinfo', function () {
-    return view('view-subjectinfo');
-});
+Route::get('/ver-de-familiares', [App\Http\Controllers\ViewStudentRelativeController::class, 'create'])->name('view-studentrelativesinfo');
 
-Route::get('/view-studentrelativesinfo', function () {
-    return view('view-studentrelativesinfo');
-});
+Route::get('/ver-materia-grado', [App\Http\Controllers\ViewSubjectGradeController::class, 'create'])->name('view-subjectgradeinfo');
 
-Route::get('/view-subject-teacherinfo', function () {
-    return view('view-subject-teacherinfo');
-});
+Route::get('/ver-materia-profesor', [App\Http\Controllers\ViewSubjectTeacherController::class, 'create'])->name('view-subjectteacherinfo');
 
-Route::get('/view-subjectgradeinfo', function () {
-    return view('view-subjectgradeinfo');
-});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
+ 
+

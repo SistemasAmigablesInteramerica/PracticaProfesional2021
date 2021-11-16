@@ -10,9 +10,8 @@ class AttendanceHistory extends Model
     protected $table = 'attendance_histories';
     protected $fillable = ['date', 'check_in', 'check_out', 'student_id', 'grade_subject_teacher_id', 'teacher_id', 'attended'];
     use HasFactory;
-}   
 
-public function student()
+    public function student()
 {
     return $this->belongsTo(Student::class, 'student_id', 'id');
 }
@@ -26,3 +25,5 @@ public function subjectTeacher()
 {
     return $this->belongsTo(SubjectTeacher::class, 'grade_subject_teacher_id', 'id');
 }   
+}   
+

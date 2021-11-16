@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Controllers\Grades;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Grade;
+
+class GradeController extends Controller
+{
+    //
+    Public function __construct()
+    {
+        
+    }
+     public function create()
+    {
+        return view('grades/insert-gradeinfo');
+    }
+    public function store(Request $request)
+    {
+        $grade = Grade::create($request->all());
+        return $grade;
+        dd($request->all());
+        $grade->save();
+
+    }
+         
+    
+} 
+
+  

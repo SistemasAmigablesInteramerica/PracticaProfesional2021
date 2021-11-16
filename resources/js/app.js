@@ -19,17 +19,21 @@ window.Vue = require('vue').default;
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('createGrade', require('.\components\Grades\createGrade.vue').default);
-
+Vue.component('createGrade', require("./components/Grades/createGrade.vue").default);
+Vue.component('createStudent', require("./components/students/createStudent.vue").default);
+Vue.component('createTeacher', require("./components/teachers/createTeacher.vue").default);
+Vue.component('createSubject', require("./components/Subjects/createSubject.vue").default);
+Vue.component('createSubjectteacher', require("./components/Subjects/createSubjectteacher.vue").default);
+Vue.component('createSubjectgrade', require("./components/Subjects/createSubjectgrade.vue").default);
+Vue.component('createStudentrelative', require("./components/students/createStudentRelative.vue").default);
+Vue.component('createAttendancehistory', require("./components/AttendanceHistory/createAttendanceHistory.vue").default);
+Vue.component('createGradesubjectstudent', require("./components/Grades/createGradesubjectstudent.vue").default);
+Vue.component('index', require("./components/index.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-new Vue( {
-
-    el: "#fullPassApp"
-})
 
 
 const app = new Vue({ 

@@ -74,10 +74,17 @@
                 </div>
             </div>
         </nav>
-
+        <div id='app'>
         <main class="py-4">
             @yield('content')
         </main>
+        </div>
+        <section class="contact-us" id="contact">
+    <div class="footer">
+      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
+          <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
+    </div>
+</section>
     </div>
 </body>
 </html>
