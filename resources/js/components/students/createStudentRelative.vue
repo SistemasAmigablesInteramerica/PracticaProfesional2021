@@ -10,7 +10,11 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="student_id" class="form-control" v-model="StudentRelative.student_id" type="text" id="student_id">
+                        <label>Estudiante:</label>
+                        <select v-model="StudentRelative.student_id">
+                        <option disabled value="">Seleccione estudiante</option>
+                        <option v-for="student in listStudent" :value="student.id" :key="student.id">{{ student.name }}</option>
+                        </select>
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
@@ -42,7 +46,7 @@
                   <fieldset>
                     <br>
                   <label>Recibe ayuda financiera</label>
-                  <input name="guardian_recieves_aid" class="form-check-input" v-model="StudentRelative.guardian_receives_aid" type="checkbox" value="guardian_receives_aid">
+                  <input class="form-check-input" v-model="StudentRelative.guardian_receives_aid" type="checkbox" value="guardian_receives_aid">
                   </fieldset>
                 </div>  
                   <div class="col-lg-6">
@@ -89,8 +93,15 @@ export default {
                 guardian_receives_aid: '',
                 guardian_aid_total: '',
                 guardian_salary: ''
-            }
+            },
+            listStudent:[]
         }
+    },
+    created(){
+      axios.get('/list-student').then(response=>{
+        this.listStudent = response.data
+        console.log('revisando información', this.listStudent)
+      })
     },
     methods:{
           send() {

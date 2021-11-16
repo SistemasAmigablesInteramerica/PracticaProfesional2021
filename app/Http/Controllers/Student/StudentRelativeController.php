@@ -22,9 +22,14 @@ class StudentRelativeController extends Controller
 
     public function store(Request $request)
     {
-        $studentrelative = StudentRelative::create($request->all());
-        return $studentrelative;
-        dd($request->all());
-        $studentrelative->save();
+        $studentRelative = new StudentRelative();
+        $studentRelative->fill($request->all());
+        $studentRelative->save();
+        return $studentRelative;
+    }
+
+    public function list()
+    {
+        return StudentRelative::all();
     }
 }
