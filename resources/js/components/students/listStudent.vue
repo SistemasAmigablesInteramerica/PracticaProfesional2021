@@ -1,7 +1,7 @@
 <template>
 <div class="table-responsive-sm">
-    <table class="table table-light table-sm">
-        <thead>
+    <table class="table table-light table-md">
+  <thead>
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Nombre</th>
@@ -47,7 +47,6 @@
       <th>{{ student.rental_income }}</th>
       <th>{{ student.others_income }}</th>
       <th>{{ student.total_income }}</th>
-
     </tr>
   </tbody>
     </table>
@@ -68,6 +67,5 @@ export default {
             console.log(this.listStudent)
         })
     }
-    
 }
 </script>

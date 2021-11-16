@@ -38,9 +38,9 @@
                               <a href="javascript:void(0)">Expedientes comedor</a>
                               <ul class="sub-menu">
                                   <li><a href="{{asset('registro-de-estudiantes')}}">Agregar estudiante</a></li>
-                                  <li><a href="{{asset('ver-expedientes')}}">Ver expedientes</a></li>
+                                  <li><a href="{{asset('lista-de-estudiantes')}}">Ver expedientes</a></li>
                                   <li><a href="{{asset('registro-de-familiares')}}">Agregar familiares</a></li>
-                                  <li><a href="{{asset('ver-familiares')}}">Ver familiares</a></li>
+                                  <li><a href="{{asset('lista-de-familiares')}}">Ver familiares</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
