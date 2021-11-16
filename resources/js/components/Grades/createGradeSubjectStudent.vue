@@ -17,9 +17,7 @@
                     <fieldset>
                      <select class="form-select" v-model="gradesubjectstudent.subject_grade_id">
                         <option disabled value="">Escoger materia</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option v-for="subject in listsubjects.data" :value="subject.id">{{subject.name}}</option>
                       </select> 
                     </fieldset>
                  </div>
@@ -39,7 +37,7 @@
           </div>
         </div>
     
-</template>
+</template> 
 
 <script>
   import Swal from 'sweetalert2'
@@ -54,6 +52,11 @@
               year: '',
             }
           }
+        },
+        created(){
+          axios.get('/list-subjects').then(response=>
+          this.listsubjects = response.data
+        )  
         },
         methods: {
           send(){
