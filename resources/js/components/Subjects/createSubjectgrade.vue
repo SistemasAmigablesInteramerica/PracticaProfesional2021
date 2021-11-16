@@ -13,14 +13,18 @@
                   <fieldset>
                      <label for="subject">Materias:</label>
                     <select id="subject" v-model="subjectgrade.subject_id">
-                      <option value="">Seleccione una materia</option>
+                      <option value="">Seleccione una materia:</option>
+                      <option v-for="subject in listSubjects.data" :value="subject.id">{{subject.name}}</option>
                     </select>
                   </fieldset>
                     </div>
                     <div class="col-lg-6">
                   <fieldset>
                       <label for="grade">Grados:</label>
-                      <input name="grade" type="text"  v-model="subjectgrade.grade_id">
+                      <Select v-for="grade in listGrade.data" :value="grade.id">{{grade.name}}>
+                        <option></option>
+                        <option></option>
+                      </select>
                   </fieldset>
                     </div>
                 <div class="col-lg-12">
@@ -49,16 +53,24 @@
               subject_id: '',
 
             },
-            listSubjects: []
+            listsSubjects: [],
+            listsGrade: []
           }
         },
         created() {
-          axios.get('/list-subjects').then(response=>{
-            this.listsubjects = response.data
+          axios.get('/lists-grades').then(response=>{
+            this.listsSubjects = response.data
           })
+          axios.get('/lists-subjects').then(response=>{
+            this.listsGrades = response.data
+           })
         },
         methods: {
           send(){
+            if(this.subjectgrade.grade_id ===''){
+              Swal.fire('Atencion', 'Debe elegir un grado', 'warning')
+              return false
+            }
             axios.post('/store-subjectgrade', this.subjectgrade).then(response =>{
               Swal.fire({
                     icon: 'success',
