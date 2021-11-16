@@ -15,7 +15,10 @@
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input type="text" placeholder="Materia ID" v-model="gradesubjectstudent.subject_grade_id">
+                     <select class="form-select" v-model="gradesubjectstudent.subject_grade_id">
+                        <option disabled value="">Escoger materia</option>
+                        <option v-for="subject in listsubjects.data" :value="subject.id">{{subject.name}}</option>
+                      </select> 
                     </fieldset>
                  </div>
                  <div class="col-lg-4">
@@ -34,7 +37,7 @@
           </div>
         </div>
     
-</template>
+</template> 
 
 <script>
   import Swal from 'sweetalert2'
@@ -50,8 +53,26 @@
             }
           }
         },
+        created(){
+          axios.get('/list-subjects').then(response=>
+          this.listsubjects = response.data
+        )  
+        },
         methods: {
           send(){
+            
+            if(this.gradesubjectstudent.student_id === ''){
+              Swal.fire('Atención', 'Debe añadir un estudiante', 'warning')
+              return false
+            }
+             if(this.gradesubjectstudent.subject_grade_id === ''){
+              Swal.fire('Atención', 'Debe añadir la materia', 'warning')
+              return false 
+            }
+            if(this.gradesubjectstudent.year === ''){
+              Swal.fire('Atención', 'Debe digitar el año', 'warning')
+              return false
+            }
             axios.post('/store-gradesubjectstudent', this.gradesubjectstudent).then(response =>{
               Swal.fire({
                     icon: 'success',
@@ -70,4 +91,4 @@
         }
     }
 
-</script>
+</script> 

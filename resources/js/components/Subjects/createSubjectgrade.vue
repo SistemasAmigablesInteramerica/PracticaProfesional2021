@@ -11,21 +11,19 @@
                   </div>
                   <div class="col-lg-6">
                   <fieldset>
-                     <label for="input">Materias:</label>
-                      
-                    <input name="name" type="text"  v-model="subjectgrade.subject_id">
+                     <label for="subject">Materias:</label>
+                    <select id="subject" v-model="subjectgrade.subject_id">
+                      <option value="">Seleccione una materia</option>
+                    </select>
                   </fieldset>
                     </div>
                     <div class="col-lg-6">
                   <fieldset>
-                      <label for="input">Grados:</label>
-
-                      <input name="name" type="text"  v-model="subjectgrade.grade_id">
+                      <label for="grade">Grados:</label>
+                      <input name="grade" type="text"  v-model="subjectgrade.grade_id">
                   </fieldset>
                     </div>
-                    
                 <div class="col-lg-12">
-                  <br>
                     <fieldset>
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>
@@ -50,8 +48,14 @@
               grade_id: '',
               subject_id: '',
 
-            }
+            },
+            listSubjects: []
           }
+        },
+        created() {
+          axios.get('/list-subjects').then(response=>{
+            this.listsubjects = response.data
+          })
         },
         methods: {
           send(){

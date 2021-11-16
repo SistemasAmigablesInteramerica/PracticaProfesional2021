@@ -15,6 +15,11 @@ class StudentController extends Controller
 
     }
 
+    public function index()
+    {
+        return view ('students/list-student');
+    }
+
     public function create()
     {
         return view('students/insert-studentsinfo');
@@ -22,12 +27,15 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
-
-        $student = Student::create($request->all(''));
-        return $student;
-        dd($request->all(''));
+        $student = new Student();
+        $student->fill($request->all());
         $student->save();
+        return $student;
+    }
 
+    public function list()
+    {
+        return Student::all();
     }
 
 }
