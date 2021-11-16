@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\route;
 Route::get('/', [App\Http\Controllers\IndexController::class, 'create'])->name('index');
 
 Route::get('/registro-de-estudiantes', [App\Http\Controllers\Student\StudentController::class, 'create'])->name('insert-studentsinfo');
+Route::get('/lista-de-estudiantes', [App\Http\Controllers\Student\ListStudentController::class, 'create'])->name('list-studentsinfo');
+Route::get('/list-student', [App\Http\Controllers\Student\StudentController::class, 'list']);
 Route::post('/store-student', [StudentController::class, 'store']);
 
 Route::get('/registro-de-secciones', [App\Http\Controllers\Grades\GradeController::class, 'create'])->name('insert-gradeinfo');
@@ -50,18 +52,6 @@ Route::post('/store-subjectteacher', [SubjectTeacherController::class, 'store'])
 
 Route::get('/asignar-materia-estudiante', [App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController::class, 'create'])->name('insert-gradesubjectstudentinfo');
 Route::post('/store-gradesubjectstudent', [GradeSubjectStudentController::class, 'store']);
-
-Route::get('/ver-de-secciones', [App\Http\Controllers\ViewGradeController::class, 'create'])->name('view-gradeinfo');
-
-Route::get('/ver-de-profesores', [App\Http\Controllers\ViewTeacherController::class, 'create'])->name('view-teacherinfo');
-
-Route::get('/ver-de-materias', [App\Http\Controllers\ViewSubjectController::class, 'create'])->name('view-subjectinfo');
-
-Route::get('/ver-de-familiares', [App\Http\Controllers\ViewStudentRelativeController::class, 'create'])->name('view-studentrelativesinfo');
-
-Route::get('/ver-materia-grado', [App\Http\Controllers\ViewSubjectGradeController::class, 'create'])->name('view-subjectgradeinfo');
-
-Route::get('/ver-materia-profesor', [App\Http\Controllers\ViewSubjectTeacherController::class, 'create'])->name('view-subjectteacherinfo');
 
 Auth::routes();
 

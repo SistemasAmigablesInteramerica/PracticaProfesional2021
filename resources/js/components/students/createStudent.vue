@@ -16,12 +16,12 @@
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
-                    <input name="nationality" class="form-control" v-model="student.nationality" type="text" placeholder="Nacionalidad">
+                    <input name="nationality" class="form-control" v-model="student.nationality" type="text" placeholder="Nacionalidad" >
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <input name="card" class="form-control" v-model="student.card" type="number" placeholder="No.Cédula" pattern="">
+                      <input name="card" class="form-control" v-model="student.card" type="number" pattern="[0-9]+" placeholder="Numero de Cédula">
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
@@ -74,18 +74,20 @@
                     <input name="total_per_capita" class="form-control" v-model="student.total_per_capita" type="text" placeholder=" ₡ = Per Cápita">
                     </fieldset> 
                   </div>
-                  <div class="col-lg-3">
-                        </div>
+                  <div class="col-lg-12">
                     <label for="socioeconomic_status">Estado Socioeconomico:</label>
-                    <select v-model="student.socioeconomic_status">
+                    <select name="socioeconomic_status" class="form-control" v-model="student.socioeconomic_status">
                       <option disabled value=""> Seleccione estado socioeconomico</option>
                       <option value="extreme_poverty">Pobreza extrema</option>
                       <option value="poverty">Pobreza</option>
                       <option value="vulnerability">Vulberabilidad</option>
                       <option value="not_poor">No pobre</option>
                     </select>
-                    <br><br>
+                  </div>
+                  <div>
+                    <br>
                   <h2>Otros Ingresos Del Grupo Familiar</h2>
+                  </div>
                   <label for="">Ingrese Los Siguientes datos:</label>
                   <div class="col-lg-3">
                     <fieldset>
@@ -112,12 +114,11 @@
                     <input name="total_income" class="form-control" v-model="student.total_income" type="text" placeholder="₡ Ingresos Totales">
                     </fieldset> 
                   </div>
-                  <div class="col-lg-3">
-                    <fieldset>
-                    <input name="clasification" class="form-check-input" v-model="student.clasification" type="checkbox">
-                    </fieldset> 
+                  <div class="col-lg-3  form-check-inline" >
+                    <label>Clasificó</label>
+                    <input id="clasification" v-model="student.clasification" type="checkbox">
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12" style="text-align: center" >
                     <fieldset>
                       <button type="submit" @click="send" class="btn btn-primary">Registrar</button>
                     </fieldset>
@@ -146,6 +147,7 @@ export default {
                 card: '',   
                 salarial_constance: '',
                 legal_guardian_name: '',
+                legal_guardian_card: '',
                 place_residence: '',
                 phone_number: '',
                 socioeconomic_status: '', /* ['extreme_poverty', 'poverty', 'vulnerabilty', 'not_poor']*/
@@ -164,7 +166,133 @@ export default {
     },
     methods:{
         send() {
+          if(this.student.name === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El nombre no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.nationality === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'La nacionalidad no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.card === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'La cedula no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.birthdate === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'La fecha de nacimiento no puede estar vacío'
+            })
+            return false
+          }
+          // // if(this.student.salarial_constance === ''){
+          // //   Swal.fire({
+          // //     icon: 'warning',
+          // //     title: 'Atención',
+          // //     text: 'La constancia salarial no puede estar vacío'
+          // //   })
+          // return false
+          // }
+          if(this.student.legal_guardian_name === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El nombre del encargado legal no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.legal_guardian_card === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'La cedula del encargado legal no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.place_residence === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El lugar de residencia no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.phone_number === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El numero telefonico no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.socioeconomic_status === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El estado socioeconomico no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.total_income_family === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El ingreso de familia no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.family_member_total === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El total de miembros de familia no puede estar vacío'
+            })
+            return false
+          }
+          if(this.student.total_income === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El total de ingreso no puede estar vacío'
+            })
+            return false
+          }
+
             axios.post('/store-student', this.student).then(response => {
+
+              this.student.name = '',
+              this.student.nationality = '',
+              this.student.birthdate = '',
+              this.student.card = '',
+              this.student.clasification = '',
+              this.student.salarial_constance = '',
+              this.student.legal_guardian_name = '',
+              this.student.legal_guardian_card = '',
+              this.student.place_residence = '',
+              this.student.phone_number = '',
+              this.student.socioeconomic_status = '',
+              this.student.total_income_family = '',
+              this.student.family_member_total = '',
+              this.student.total_per_capita = '',
+              this.student.clasification = '',
+              this.student.financial_assistance = '',
+              this.student.voluntary_assistance = '',
+              this.student.rental_income = '',
+              this.student.others_income = '',
+              this.student.total_income = '',
 
                 Swal.fire({
                     icon: 'success',
