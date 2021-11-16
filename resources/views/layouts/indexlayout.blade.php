@@ -39,7 +39,7 @@
                                   <li><a href="{{asset('registro-de-estudiantes')}}">Agregar estudiante</a></li>
                                   <li><a href="{{asset('lista-de-estudiantes')}}">Ver expedientes</a></li>
                                   <li><a href="{{asset('registro-de-familiares')}}">Agregar familiares</a></li>
-                                  <li><a href="{{asset('lista-de-famliares')}}">Ver familiares</a></li>
+                                  <li><a href="{{asset('lista-de-familiares')}}">Ver familiares</a></li>
                               </ul>
                           </li>
                           <li class="has-sub">  
