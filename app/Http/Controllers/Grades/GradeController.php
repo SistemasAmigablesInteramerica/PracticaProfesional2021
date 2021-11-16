@@ -19,11 +19,12 @@ class GradeController extends Controller
     }
     public function store(Request $request)
     {
-        $grade = Grade::create($request->all());
-        return $grade;
-        dd($request->all());
-        $grade->save();
-
+        $grade = new Grade();
+        $grade->fill($request->all());
+        if($grade->save()){
+            return response()->json(['message'=>'Se guardo con exito','data'=> $grade], 200);
+        }
+        return response()->json(['message'=>'No se guardo el grado', 'data'=> $grade], 471);
     }
          
     

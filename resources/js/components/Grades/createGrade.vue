@@ -10,21 +10,25 @@
                     </div>
                   <div class="col-lg-6">
                     <fieldset>
+                    <label for="input">Grados:</label>
                       <input name="name" type="text" id="name" v-model="grades.name" placeholder="Grado" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <select class="form-control" v-model="grades.section">
-                      <option Value="1">1</option>
-                      <option Value="2">2</option>
-                      <option Value="3">3</option>
-                      <option Value="4">4</option>
-                      <option Value="5">5</option>
-                      <option Value="6">6</option>
-                      </select>
-                    </fieldset>
-                 </div>
+                        <select class="form-control form-control-sm" v-model="grades.section" id="section">
+                          <option disabled value="">Seleccione una sección</option>
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                          <option>6</option>
+                          <option>7</option>
+                          <option>8</option>
+                        </select>
+                        </fieldset>
+                      </div>
                  <div class="col-lg-12">
                     <fieldset>
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary" >Enviar</button>
@@ -53,6 +57,16 @@
         },
         methods: {
           send(){
+
+            if(this.grades.name === ''){
+              Swal.fire('Atención', 'Debe digitar un grado', 'warning')
+              return false
+            }
+            if(this.grades.section === ''){
+              Swal.fire('Atención', 'Debe digitar una sección', 'warning')
+              return false
+            }
+
             axios.post('/store-grade', this.grades).then(response =>{
               Swal.fire({
                     icon: 'success',
@@ -71,5 +85,5 @@
         }
     }
 
-</script>
+</script> 
  
