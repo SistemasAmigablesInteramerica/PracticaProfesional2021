@@ -15,7 +15,12 @@
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <input type="text" placeholder="Materia ID" v-model="gradesubjectstudent.subject_grade_id">
+                     <select class="form-select" v-model="gradesubjectstudent.subject_grade_id">
+                        <option disabled value="">Escoger materia</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select> 
                     </fieldset>
                  </div>
                  <div class="col-lg-4">
@@ -59,7 +64,7 @@
             }
              if(this.gradesubjectstudent.subject_grade_id === ''){
               Swal.fire('Atención', 'Debe añadir la materia', 'warning')
-              return false gradesubjectstudent.year
+              return false 
             }
             if(this.gradesubjectstudent.year === ''){
               Swal.fire('Atención', 'Debe digitar el año', 'warning')
