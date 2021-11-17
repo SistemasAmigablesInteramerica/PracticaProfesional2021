@@ -16,5 +16,5 @@ class ListTeacherController extends Controller
     public function create()
     {
         return view ('teachers/list-teacherinfo');
-    }
+    }   
 }
