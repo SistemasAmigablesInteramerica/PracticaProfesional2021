@@ -10,8 +10,8 @@
                     </div>
                   <div class="col-lg-6">
                     <fieldset>
-                    <label for="input">Grados:</label>
-                      <input name="name" type="text" id="name" v-model="grades.name" placeholder="Grado" required="">
+                    <label>Grados:</label>
+                      <input type="text"  v-model="grades.name" placeholder="Grado">
                     </fieldset>
                   </div>
                   <div class="col-lg-6">

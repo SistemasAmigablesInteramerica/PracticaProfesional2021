@@ -1,5 +1,5 @@
 @extends('layouts.layout')
 
 @section('content')
-<lists-grade></lists-grade>
+<lists-Grade></lists-Grade>
 @endsection
