@@ -21,9 +21,9 @@
                     <div class="col-lg-6">
                   <fieldset>
                       <label>Grados:</label>
-                      <Select v-model="subjectgrade.grade_id">
+                      <select  v-model="subjectgrade.grade_id" >
                         <option disabled value="">Seleccione un grado:</option>
-                        <option v-for="grade in listsGrades" :key="grade_id" value="grade.id">{{grade.name}}</option>
+                        <option v-for="grade in listsGrades" :value="grade.id" key="grade_id">{{grade.name}}</option>
                       </select>
                   </fieldset>
                     </div>
@@ -66,7 +66,22 @@
         },
         methods: {
           send(){
-          
+                if(this.subjectgrade.grade_id === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'El grado no puede estar vacío'
+            })
+            return false
+          }
+          if(this.subjectgrade.subject_id === ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'La materia no puede estar vacía'
+            })
+            return false
+          }
             axios.post('/store-subjectgrade', this.subjectgrade).then(response =>{
               this.subjectgrade.grade_id='',
               this.subjectgrade.subject_id=''

@@ -5,6 +5,7 @@
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Grado</th>
+      <th scope="col">Sección</th>
     </tr>
   </thead>
   <tbody>
@@ -27,9 +28,9 @@ export default {
         }
     },
     created() {
-        axios.get('/lists-grades').then(response =>{
-            this.listsGrade =response.data
-            console.log(this.listsGrade)
+        axios.get('lists-grades').then(response =>{
+            this.listsGrades =response.data
+            console.log(this.listsGrades)
         })
     }
 }
