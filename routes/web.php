@@ -57,6 +57,7 @@ Route::post('/store-teacher', [TeacherController::class, 'store']);
  * Inicio de rutas de las materias
  */
 Route::get('/registro-de-materias', [App\Http\Controllers\Subjects\SubjectController::class, 'create'])->name('insert-subjectinfo');
+Route::get('/lista-de-materias', [App\Http\Controllers\Subjects\ListSubjectController::class, 'create'])->name('lists-subjects');
 Route::get('/lists-subjects', [App\Http\Controllers\Subjects\SubjectController::class, 'lists']);
 Route::post('/store-subject', [SubjectController::class, 'store']); 
 /**
