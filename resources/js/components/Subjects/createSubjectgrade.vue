@@ -11,19 +11,19 @@
                   </div>
                   <div class="col-lg-6">
                   <fieldset>
-                     <label for="subject">Materias:</label>
-                    <select id="subject" v-model="subjectgrade.subject_id">
-                      <option value="">Seleccione una materia:</option>
-                      <option v-for="subject in listsSubjects" :value="subject.id">{{subject.name}}</option>
+                     <label>Materias:</label>
+                    <select v-model="subjectgrade.subject_id">
+                      <option disabled value="">Seleccione una materia:</option>
+                      <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
                     </select>
                   </fieldset>
                     </div>
                     <div class="col-lg-6">
                   <fieldset>
-                      <label for="grade">Grados:</label>
-                      <Select id="subject" v-model="subjectgrade.grade_id">
-                        <option></option>
-                        <option v-for="grade in listsGrade" :value="grade.id">{{grade.name}}></option>
+                      <label>Grados:</label>
+                      <Select v-model="subjectgrade.grade_id">
+                        <option disabled value="">Seleccione un grado:</option>
+                        <option v-for="grade in listsGrades" :key="grade_id" value="grade.id">{{grade.name}}</option>
                       </select>
                   </fieldset>
                     </div>
@@ -51,27 +51,24 @@
             subjectgrade: {
               grade_id: '',
               subject_id: '',
-
             },
             listsSubjects: [],
-            listsGrade: []
+            listsGrades: []
           }
         },
         created() {
-          axios.get('/lists-grades').then(response=>{
+            axios.get('/lists-subjects').then(response=>{
             this.listsSubjects = response.data
-          })
-          axios.get('/lists-subjects').then(response=>{
-            this.listsGrades = response.data
            })
+          axios.get('/lists-grades').then(response=>{
+            this.listsGrades = response.data
+          })
         },
         methods: {
           send(){
-            if(this.subjectgrade.grade_id ===''){
-              Swal.fire('Atencion', 'Debe elegir un grado', 'warning')
-              return false
-            }
+          
             axios.post('/store-subjectgrade', this.subjectgrade).then(response =>{
+              this.subjectgrade.grade_id='',
               this.subjectgrade.subject_id=''
               Swal.fire({
                     icon: 'success',
