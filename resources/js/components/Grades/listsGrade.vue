@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(grade, index) in listsGrade" :key="grades.id">
+    <tr v-for="(grades, index) in listsGrades" :key="grades.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ grades.name }}</th>
       <th>{{ grades.section }}</th>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    name: 'listsGrade',
+    name: 'listsGrades',
     data(){
         return{
             listsGrades:[]
@@ -28,8 +28,8 @@ export default {
     },
     created() {
         axios.get('/lists-grades').then(response =>{
-            this.listStudent =response.data
-            console.log(this.listsGrades)
+            this.listsGrade =response.data
+            console.log(this.listsGrade)
         })
     }
 }
