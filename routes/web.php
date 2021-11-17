@@ -46,6 +46,8 @@ Route::post('/store-grade', [GradeController::class, 'store']);
  * Inicio de rutas de profesores
  */
 Route::get('/registro-de-profesores', [App\Http\Controllers\teachers\TeacherController::class, 'create'])->name('insert-teacherinfo');
+Route::get('/lista-de-profesores', [App\Http\Controllers\teachers\ListTeacherController::class, 'create'])->name('list-teacherinfo');
+Route::get('/list-teacher', [App\Http\Controllers\teachers\TeacherController::class, 'list']);
 Route::post('/store-teacher', [TeacherController::class, 'store']);
 /**
  * Fin de rutas de profesores

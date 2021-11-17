@@ -1,0 +1,54 @@
+<template>
+<div class="table-responsive-sm">
+    <table class="table table-light table-md">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Cédula</th>
+      <th scope="col">Fecha de nacimiento</th>  
+      <th scope="col">Edad</th>
+      <th scope="col">Especialidad</th>
+      <th scope="col">Correo eletornico</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Numero de telefono</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(teacher, index) in listteacher" :key="teacher.id">
+      <th scope="row">{{ index +1 }}</th>
+      <th>{{ teacher.names }}</th>
+      <th>{{ teacher.last_names }}</th>
+      <th>{{ teacher.identification }}</th>
+      <th>{{ teacher.birthdate }}</th>
+      <th>{{ teacher.age }}</th>
+      <th>{{ teacher.speciality }}</th>
+      <th>{{ teacher.email }}</th>
+      <th>{{ teacher.gender }}</th>
+      <th>{{ teacher.contact_number }}</th>
+     
+    </tr>
+  </tbody>
+    </table>
+</div>
+</template>
+
+<script>
+export default {
+    name: 'listTeacher',
+    data(){
+        return{
+            listteacher:[]
+        }
+    },
+
+    created(){
+        axios.get('list-teacher').then(response=>{
+            this.listteacher = response.data
+        })
+    }
+    
+}
+</script>

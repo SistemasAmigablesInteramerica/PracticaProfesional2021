@@ -21,10 +21,14 @@ class TeacherController extends Controller
 
     public function store(Request $request)
     {
-        $teacher = Teacher::create($request->all());
+        $teacher = new Teacher();
+        $teacher->fill($request->all());
+        $teacher->save();
         return $teacher;
-        dd($request->all());
-        $teacher -> save();
+    }
 
-    }   
+    public function list()
+    {
+        return Teacher::all();
+    }
 }
