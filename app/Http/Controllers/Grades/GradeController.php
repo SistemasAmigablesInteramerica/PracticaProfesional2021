@@ -26,7 +26,11 @@ class GradeController extends Controller
         }
         return response()->json(['message'=>'No se guardo el grado', 'data'=> $grade], 471);
     }
-         
+        
+    public function lists()
+    {
+        return Grade::all();
+    }
     
 } 
 

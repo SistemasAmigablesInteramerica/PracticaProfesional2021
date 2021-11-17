@@ -22,11 +22,17 @@ class SubjectController extends Controller
     }
     public function store(Request $request)
     {
-        $subject = Subject::create($request->all());
-        return $subject;
-        dd($request->all());
-        $subject->save();
+        $subject = new Subject();
+        $subject->fill($request->all());
+        if($subject->save()){
+            return response()->json(['message'=>'Se guardo con exito', 'data'=> $subject], 200);
+        }
 
+        return response()->json(['message'=>'No se guardo la materia', 'data'=> $subject], 421);
+
+    } 
+    public function lists(){
+        return Subject::all();
     }
 
 }

@@ -37,6 +37,8 @@ Route::post('/store-student', [StudentController::class, 'store']);
  * Inicio de rutas de secciones
  */
 Route::get('/registro-de-secciones', [App\Http\Controllers\Grades\GradeController::class, 'create'])->name('insert-gradeinfo');
+Route::get('/lista-de-secciones', [App\Http\Controllers\Grades\ListGradeController::class, 'create'])->name('lists-gradeinfo');
+Route::get('/lists-grades', [App\Http\Controllers\Grades\GradeController::class, 'lists']);
 Route::post('/store-grade', [GradeController::class, 'store']);
 /**
  * Fin de rutas de secciones
@@ -45,6 +47,8 @@ Route::post('/store-grade', [GradeController::class, 'store']);
  * Inicio de rutas de profesores
  */
 Route::get('/registro-de-profesores', [App\Http\Controllers\teachers\TeacherController::class, 'create'])->name('insert-teacherinfo');
+Route::get('/lista-de-profesores', [App\Http\Controllers\teachers\ListTeacherController::class, 'create'])->name('list-teacherinfo');
+Route::get('/list-teacher', [App\Http\Controllers\teachers\TeacherController::class, 'list']);
 Route::post('/store-teacher', [TeacherController::class, 'store']);
 /**
  * Fin de rutas de profesores
@@ -53,8 +57,9 @@ Route::post('/store-teacher', [TeacherController::class, 'store']);
  * Inicio de rutas de las materias
  */
 Route::get('/registro-de-materias', [App\Http\Controllers\Subjects\SubjectController::class, 'create'])->name('insert-subjectinfo');
-Route::get('/list-subjects', [App\Http\Controllers\Subjects\SubjectController::class, 'list']);
-Route::post('/store-subject', [SubjectController::class, 'store']);
+Route::get('/lista-de-materias', [App\Http\Controllers\Subjects\ListSubjectController::class, 'create'])->name('lists-subjects');
+Route::get('/lists-subjects', [App\Http\Controllers\Subjects\SubjectController::class, 'lists']);
+Route::post('/store-subject', [SubjectController::class, 'store']); 
 /**
  * Fin de rutas de las materias
  */
@@ -62,6 +67,8 @@ Route::post('/store-subject', [SubjectController::class, 'store']);
  * Inicio de rutas de los familiares
  */
 Route::get('/registro-de-familiares', [App\Http\Controllers\Student\StudentRelativeController::class, 'create'])->name('insert-studentrelativesinfo');
+Route::get('/list-studentRelative', [App\Http\Controllers\Student\StudentRelativeController::class, 'list']);
+Route::get('/lista-de-familiares', [App\Http\Controllers\Student\ListStudentRelativeController::class, 'create'])->name('list-studentrelativesinfo');
 Route::post('/store-StudentRelative', [StudentRelativeController::class, 'store']);
 /**
  * Fin de rutas de los familiares
