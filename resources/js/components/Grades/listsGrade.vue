@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(grades, index) in listsGrades" :key="grades.id">
+    <tr v-for="(grade, index) in listsGrade" :key="grades.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ grades.name }}</th>
       <th>{{ grades.section }}</th>
@@ -33,4 +33,4 @@ export default {
         })
     }
 }
-</script>``
+</script>
