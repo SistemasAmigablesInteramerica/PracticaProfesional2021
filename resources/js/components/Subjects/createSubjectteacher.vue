@@ -1,9 +1,9 @@
 <template>
-   
+   <section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+          <div class="row" style="min-height: 350px; border-radius: 20px;width: 100%;border: 20px solid white; background-color: white;">
             <div class="col-lg-12">
                   <div class="col-lg-12">
                     <h2>Asignar docentes</h2>
@@ -11,13 +11,19 @@
                   <div class="col-lg-4">
                     <fieldset>
                     <label for="select">Docente:</label>
-                            <input name="name" type="text"  v-model="subjectteacher.teacher_id">
+                          <select v-model="subjectteacher.teacher_id">
+                            <option disabled value="">Seleccione un Docente:</option>
+                            <option v-for="teacher in listTeacher" :value="teacher.id" key="teacher_id" >{{teacher.names}}</option>
+                          </select>
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
                       <label for="select">Materias:</label>
-                         <input name="name" type="text"  v-model="subjectteacher.subject_grade_id">
+                         <select v-model="subjectteacher.subject_grade_id">
+                          <option disabled value="">Seleccione una materia:</option>
+                          <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
+                         </select>
                   </fieldset>
                     </div>
                     <div class="col-lg-4">
@@ -38,6 +44,7 @@
         </div>
       </div>
     </div>
+  </section>  
 </template>
  
 <script>
@@ -52,8 +59,18 @@
               subject_grade_id: '',
               year:'',
 
-            }
+            },
+            listsSubjects: [],
+            listTeacher: [],
           }
+        },
+        created() {
+            axios.get('/lists-subjects').then(response=>{
+            this.listsSubjects = response.data
+           })
+            axios.get('/list-teacher').then(response=>{
+            this.listTeacher = response.data
+           })
         },
         methods: {
           send(){
@@ -61,7 +78,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con exito.',
+                    text: 'El docente se ha registrado con exito.',
                 });
             }).catch(error => {
                     Swal.fire({

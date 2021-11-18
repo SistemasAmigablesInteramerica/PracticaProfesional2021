@@ -1,6 +1,6 @@
  <template>
 
-         
+  <section class="contact-us" id="contact">       
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
@@ -38,7 +38,7 @@
         </div>
       </div>
     </div>
-
+  </section>
  </template>
  
  <script>

@@ -32,6 +32,7 @@ Vue.component('index', require("./components/index.vue").default);
 
 
 Vue.component('listsGrade', require("./components/Grades/listsGrade.vue").default);
+Vue.component('listsSubjects', require("./components/Subjects/listsSubjects.vue").default);
 
 Vue.component('listStudent', require("./components/students/listStudent.vue").default);
 Vue.component('listTeacher', require("./components/teachers/listTeacher.vue").default);

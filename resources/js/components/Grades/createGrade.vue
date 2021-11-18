@@ -1,21 +1,31 @@
 <template>
-    
+    <section class="contact-us" id="contact">
         <div class="col-lg-9 col-md-9 col-sm-12">
           <div class="row">
             <div class="col-lg-12">
               
-                <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+                <div class="row" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;position: relative;left: 180px;">
                   <div class="col-lg-12" method="post" >
                     <h2>Agregar nueva sección</h2>
                     </div>
                   <div class="col-lg-6">
                     <fieldset>
                     <label>Grados:</label>
-                      <input type="text"  v-model="grades.name" placeholder="Grado">
+                      <select class="form-control form-control-sm" v-model="grades.name">
+                          <option disabled value="">Seleccione una grado</option>
+                          <option value="7">7°</option>
+                          <option value="8">8°</option>
+                          <option value="9">9°</option>
+                          <option value="10">10°</option>
+                          <option value="11">11°</option>
+                          <option value="12">12°</option>
+                      </select>
+                        </fieldset>
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
+                     <label>Secciónes:</label>
                         <select class="form-control form-control-sm" v-model="grades.section" id="section">
                           <option disabled value="">Seleccione una sección</option>
                           <option>1</option>
@@ -31,7 +41,7 @@
                       </div>
                  <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary" >Enviar</button>
+                      <button type="submit" style="border-radius:20px;" id="form-submit" @click="send" class="btn btn-primary" >Registrar</button>
                     </fieldset>
                   </div>
                 </div>
@@ -39,7 +49,7 @@
             </div>
           </div>
         </div>
-
+  </section>
 </template>
 
 <script>
@@ -71,7 +81,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con exito.',
+                    text: 'El grado se ha registrado con exito.',
                 });
             }).catch(error => {
                     Swal.fire({
