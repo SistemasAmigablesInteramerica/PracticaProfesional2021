@@ -28,7 +28,6 @@
       <th>{{ student.socioeconomic_status }}</th>
       <th>{{ student.total_per_capita }}</th>
       <th>{{ student.clasification }}</th>
-      <th>{{ student.financial_assistance }}</th>
       <th>{{ student.total_income }}</th>
     </tr>
   </tbody>

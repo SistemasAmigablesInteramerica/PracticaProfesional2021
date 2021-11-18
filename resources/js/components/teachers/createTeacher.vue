@@ -11,16 +11,19 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
+                      <label>Nombre del docente</label>
                       <input name="names" v-model="teacher.names" type="text" id="name" placeholder="Nombre del docente" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
+                    <label>Apellidos del docente</label>
                     <input name="last_names" v-model="teacher.last_names" type="text" id="nacionalidad"  placeholder="Apellidos del docente" required="">
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
+                      <label>Cedula del docente</label>
                       <input name="identification" v-model="teacher.identification" type="number" id="No.Cedula" placeholder="No.Cédula" pattern="" required="">
                     </fieldset>
                   </div>
@@ -38,7 +41,7 @@
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <label for="Especialidad"></label>
+                      <label for="Especialidad">Especialidad:</label>
                       <input name="specialty" v-model="teacher.speciality" type="text" id="specialty" placeholder="Especialidad del docente" pattern="" required="">
                     </fieldset>
                   </div>
@@ -52,7 +55,7 @@
                     <fieldset>
                       <br>
                         <label for="gender">Genero:</label>
-                        <select v-model="teacher.gender">
+                        <select class="form-control" v-model="teacher.gender">
                         <option disabled value="">Seleccione genero</option>
                         <option value="Masculino">Masculino</option>
                         <option value="Femenino">Femenino</option>
@@ -61,12 +64,13 @@
                    </div>
                   <div class="col-lg-4">
                     <fieldset>
-                        <label for="contact_number">Correro electronico:</label>
+                      <br>
+                        <label for="contact_number">Número de telefono:</label>
                          <input type="tel" v-model="teacher.contact_number" id="contact_number" name="contact_number" placeholder="7777-7777">  
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
-                    <fieldset>  
+                    <fieldset style="text-align:center">  
                       <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Registrar</button>
                     </fieldset>
                   </div>
