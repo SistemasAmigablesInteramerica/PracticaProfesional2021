@@ -25,7 +25,9 @@
                         </div>
                           <div class="col-lg-12">
                           <fieldset>
-                            <input type="text" v-model="attendancehistory.student_id" placeholder="Id del estudiante">
+                            <select v-model="attendancehistory.student_id">
+                              <option v-for="student in listStudent" :value="student.id" :key="student.id">{{student.name}}</option>
+                            </select>
                           </fieldset>
                         </div>
                           <div class="col-lg-12">
@@ -42,9 +44,8 @@
                             <fieldset>
                               <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Agregar</button>
                             </fieldset>
-                          </div>
-                          </div>
-                         
+                       </div>
+                    </div>        
               </div>
            </div>
         </div>
@@ -65,9 +66,17 @@
               student_id: '',
               grade_subject_teacher_id: '',
               attended: '',
-            }
+            },
+            listStudent: [],
+            listGradeSubjectTeacher: []
           }
         },
+        created(){
+          axios.get('list-student').then(response=>{
+            this.listStudent = response.data
+          })
+        },
+
         methods: {
           send(){
             axios.post('/store-attendancehistory', this.attendancehistory).then(response =>{

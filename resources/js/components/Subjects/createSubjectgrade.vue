@@ -14,7 +14,7 @@
                      <label>Materias:</label>
                     <select v-model="subjectgrade.subject_id">
                       <option disabled value="">Seleccione una materia:</option>
-                      <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
+                      <option v-for="subject in listsSubjects" :value="subject.id" :key="subject.id" >{{subject.name}}</option>
                     </select>
                   </fieldset>
                     </div>
@@ -27,7 +27,7 @@
                       </select>
                   </fieldset>
                     </div>
-                <div class="col-lg-12">
+                    <div class="col-lg-12">
                     <fieldset>
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>

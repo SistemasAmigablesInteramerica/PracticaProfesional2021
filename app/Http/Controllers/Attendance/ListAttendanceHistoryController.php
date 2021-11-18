@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\teachers;
+namespace App\Http\Controllers\Attendance;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ListTeacherController extends Controller
+class ListAttendanceHistoryController extends Controller
 {
     //
     public function __construct()
@@ -15,6 +15,6 @@ class ListTeacherController extends Controller
 
     public function create()
     {
-        return view('teachers/list-teacherinfo');
-    }   
+        return view('attendance/list-attendancehistoryinfo');
+    }
 }
