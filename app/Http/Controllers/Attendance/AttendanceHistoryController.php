@@ -19,10 +19,14 @@ class AttendanceHistoryController extends Controller
      }
      public function store(Request $request)
      {
-         $attendancehistory = AttendanceHistory::create($request->all());
-         return $attendancehistory;
-         dd($request->all());
-         $attendancehistory->save();
- 
+        $attendance = new AttendanceHistory();
+        $attendance->fill($request->all());
+        $attendance->save();
+        return $attendace;
      }
+
+    public function list()
+    {
+        return AttendanceHistory::all();
+    }
 }

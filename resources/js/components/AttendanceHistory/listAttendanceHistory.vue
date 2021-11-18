@@ -42,7 +42,7 @@ export default {
         }
     },
     created(){
-        axios.get('listAttendanceHistory').then(response=>{
+        axios.get('list-attendanceHistory').then(response=>{
             this.listAttendancehistory = response.data
         })
     }

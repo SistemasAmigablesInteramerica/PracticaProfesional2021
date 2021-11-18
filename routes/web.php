@@ -77,6 +77,8 @@ Route::post('/store-StudentRelative', [StudentRelativeController::class, 'store'
  * Inicio de rutas de Asistencia
  */
 Route::get('/registro-de-asistencias', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'create'])->name('insert-attendancehistory');
+Route::get('/list-attendanceHistory', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'list']);
+Route::get('/lista-de-asistencia', [App\Http\Controllers\Attendance\ListAttendanceHistoryController::class, 'create'])->name('list-attendancehistoryinfo');
 Route::post('/store-attendancehistory', [AttendanceHistoryController::class, 'store']);
 /**
  * Fin de rutas de Asistencia
