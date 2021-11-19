@@ -46,6 +46,6 @@ Vue.component('listAttendancehistory', require("./components/AttendanceHistory/l
  */
 
 
-const app = new Vue({ 
+const app = new Vue({  
     el: '#app',
 });
