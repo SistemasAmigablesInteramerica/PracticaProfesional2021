@@ -1,5 +1,5 @@
 @extends('layouts.layout')
 
 @section('content')
-<lists-subjects></lists-subjects>
-@endsection
+<lists-Subjects></lists-Subjects>
+@endsection 

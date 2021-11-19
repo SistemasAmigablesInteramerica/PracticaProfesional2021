@@ -1,5 +1,6 @@
 <template>
       
+<section class="contact-us" id="contact">
         <div class="col-lg-9 col-md-9 col-sm-12">
           <div class="row" >
             <div class="col-lg-12">
@@ -8,46 +9,55 @@
                       <div class="col-lg-12" >
                         <h2>Asistencias</h2>
                       </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-4">
                           <fieldset>
+                            <label>Nombre del estudiante:</label>
                             <input type="text" v-model="attendancehistory.date" placeholder="Nombre">
                           </fieldset>
                         </div>
-                          <div class="col-lg-12">
+                          <div class="col-lg-4">
                           <fieldset>
-                            <input type="date" v-model="attendancehistory.check_in" placeholder="Entrada">
+                            <label>Hora de entrada:</label>
+                            <input type="datetime-local" v-model="attendancehistory.check_in" placeholder="Entrada">
                           </fieldset>
                         </div>
-                          <div class="col-lg-12">
+                          <div class="col-lg-4">
                           <fieldset>
-                            <input type="date" v-model="attendancehistory.check_out" placeholder="Salida">
+                            <label>Hora de salida:</label>
+                            <input type="datetime-local" v-model="attendancehistory.check_out" placeholder="Salida">
                           </fieldset>
                         </div>
-                          <div class="col-lg-12">
+                          <div class="col-lg-4">
                           <fieldset>
-                            <input type="text" v-model="attendancehistory.student_id" placeholder="Id del estudiante">
+                            <label>Estudiante:</label>
+                            <select class="form-control" v-model="attendancehistory.student_id">
+                              <option selected disabled value="">Seleccione un estudiante</option>
+                              <option v-for="student in listStudent" :value="student.id" :key="student.id">{{student.name}}</option>
+                            </select>
                           </fieldset>
                         </div>
-                          <div class="col-lg-12">
+                          <div class="col-lg-4">
                           <fieldset>
+                            <label>Clase:</label>
                             <input type="text" v-model="attendancehistory.grade_subject_teacher_id" placeholder="ID Clase">
-                          </fieldset>date
-                        </div>
-                          <div class="col-lg-12">
-                          <fieldset>
-                            <input type="checkbox" v-model="attendancehistory.attended" placeholder="Atendio">
                           </fieldset>
                         </div>
-                          <div class="col-lg-12">
+                          <div class="col-lg-4">
+                          <fieldset>
+                            <label>Asistió:</label>
+                            <input style="width: 2em; height: 2em; margin-top: .25em; vertical-align:top; border-radius:.25em" type="checkbox" v-model="attendancehistory.attended" placeholder="Atendio">
+                          </fieldset>
+                        </div>
+                          <div class="col-lg-4">
                             <fieldset>
                               <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Agregar</button>
                             </fieldset>
-                          </div>
-                          </div>
-                         
+                       </div>
+                    </div>        
               </div>
            </div>
         </div>
+</section>
  
 </template>
 
@@ -65,9 +75,17 @@
               student_id: '',
               grade_subject_teacher_id: '',
               attended: '',
-            }
+            },
+            listStudent: [],
+            listGradeSubjectTeacher: []
           }
         },
+        created(){
+          axios.get('list-student').then(response=>{
+            this.listStudent = response.data
+          })
+        },
+
         methods: {
           send(){
             axios.post('/store-attendancehistory', this.attendancehistory).then(response =>{
