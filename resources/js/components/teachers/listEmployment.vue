@@ -1,5 +1,5 @@
 <template>
-    <table class="table table-light table-md">
+    <table class="table table-light table-md" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
   <thead>
     <tr>
       <th scope="col">Id</th>

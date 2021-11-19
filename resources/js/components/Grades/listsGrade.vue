@@ -14,7 +14,7 @@
       <th scope="row">{{ index +1 }}</th>
       <th>{{ grades.name }}</th>
       <th>{{ grades.section }}</th>
-      <td><a class="btm btm-info btm-se" :href="edit(grade.id)"><span class="fa fa-edit"></span></a></td>
+      <td><a class="btm btm-info btm-se" :href="edit(grades.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
     </table>
@@ -30,7 +30,7 @@ export default {
         }
     },
     created() {
-        axios.get('listsgrades').then(response =>{
+        axios.get('lists-grades').then(response =>{
             this.listsGrades = response.data
             console.log(this.listsGrades)
         })
