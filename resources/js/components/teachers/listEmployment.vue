@@ -1,0 +1,57 @@
+<template>
+    <table class="table table-light table-md">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Correo electronico:</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Especialidad</th>
+      <th scope="col">Cédula</th>  
+      <th scope="col">Numero de telefono</th>
+      <th scope="col">Domicilio:</th>
+      <th scope="col">Titulos y capacitaciones</th>
+      <th scope="col">Trabaja actualmente</th>
+      <th scope="col">En buscoempleocr</th>
+      <th scope="col">Condiciones del trabajo solicitado</th>
+      <th scope="col">Lugares donde le gustaría trabajar</th>
+      <th scope="col">Egresado o miembro de la comunidad</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="(employment, index) in listEmployment" :key="employment.id">
+      <th scope="row">{{ index +1 }}</th>
+      <th>{{ employment.email }}</th>
+      <th>{{ employment.name }}</th>
+      <th>{{ employment.specility }}</th>
+      <th>{{ employment.card }}</th>
+      <th>{{ employment.phone_number }}</th>
+      <th>{{ employment.place_likeness }}</th>
+      <th>{{ employment.titles }}</th>
+      <th>{{ employment.do_work }}</th>
+      <th>{{ employment.in_empleocr }}</th>
+      <th>{{ employment.conditions }}</th>
+      <th>{{ employment.place_likeness }}</th>
+      <th>{{ employment.graduate_status }}</th>
+     
+    </tr>
+  </tbody>
+    </table>
+</template>
+
+<script>
+export default {
+    name: 'listEmployment',
+
+    data(){
+        return{
+            listEmployment:[],
+        }
+    },
+    created(){
+            axios.get('list-employment').then(response=>{
+                    this.listEmployment = response.data
+            })
+    }
+}
+</script>

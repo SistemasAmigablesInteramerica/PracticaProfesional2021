@@ -9,7 +9,7 @@
                  </div>
                   <div class="col-lg-12">
                     <fieldset>  
-                      <label>Materias: <input id="subject" class="form-control-sm" type="text" v-model="subjects.name"  placeholder="@Ejemplo: Ciencias"></label>
+                      <label>Materias: <input class="form-control-sm" type="text" v-model="subjects.name"  placeholder="@Ejemplo: Ciencias"></label>
                     </fieldset>
                   </div>
                    <div class="col-lg-12">
@@ -24,7 +24,7 @@
     </div>
  </section>
 </template>
-
+ 
 <script>
   import Swal from 'sweetalert2'
     export default {
@@ -35,6 +35,7 @@
             subjects: {
               name: '',
             }
+          
           }
         },
         methods: {
@@ -47,7 +48,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con exito.',
+                    text: 'La materia se ha registrado con exito.',
                 });
             }).catch(error => {
                     Swal.fire({

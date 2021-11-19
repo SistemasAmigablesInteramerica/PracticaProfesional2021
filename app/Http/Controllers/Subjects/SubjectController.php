@@ -34,6 +34,6 @@ class SubjectController extends Controller
     public function lists(){
         return Subject::all();
     }
-
+    
 }
 

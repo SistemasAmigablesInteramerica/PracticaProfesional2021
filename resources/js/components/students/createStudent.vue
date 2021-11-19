@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-lg-12">
                     <fieldset>
-                      <label>Lugar de residencia:</label>
+                      <label>Domicilio:</label>
                       <input name="place_residence" class="form-control" v-model="student.place_residence" type="text" placeholder="Direccion Del Domicilio">
                       </fieldset>
                   </div>

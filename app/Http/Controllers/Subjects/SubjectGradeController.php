@@ -19,11 +19,15 @@ class SubjectGradeController extends Controller
     }
     public function store(Request $request)
     {
-        $subjectgrade = SubjectGrade::create($request->all());
-        return $subjectgrade;
-        dd($request->all());
-        $subjectgrade->save();
-
+        $subjectgrade = new SubjectGrade();
+        $subjectgrade->fill($request->all());
+        if($subjectgrade->save()){
+            return response()->json(['message'=>'Se guardo con exito', 'data'=> $subjectgrade], 200);
+        }
+        return response()->json(['message'=>'No se guardo la materia', 'data'=> $subjectgrade], 421);
+    }
+    public function lists(){
+        return SubjectGrade::all();
     }
 }
-
+ 

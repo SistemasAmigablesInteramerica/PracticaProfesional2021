@@ -19,10 +19,14 @@ class SubjectTeacherController extends Controller
     }
     public function store(Request $request)
     {
-        $subjectteacher = SubjectTeacher::create($request->all());
-        return $subjectteacher;
-        dd($request->all());
-        $subjectteacher->save();
-
+        $subjectteacher = new SubjectTeacher();
+        $subjectteacher->fill($request->all());
+        if($subjectteacher->save()){
+            return response()->json(['message'=>'Se guardo con exito', 'data'=> $subjectteacher], 200);
+        }
+        return response()->json(['message'=>'No se guardo la materia', 'data'=> $subjectteacher], 421);
+    }
+    public function lists(){
+        return SubjectTeacher::all();
     }
 }

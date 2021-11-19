@@ -22,14 +22,13 @@ export default {
     name: 'listsSubjects',
     data(){
         return{
-            listsSubjects:[]
+            listsSubjects: [],
         }
     },
     created() {
-        axios.get('listsSubjects').then(response =>{
+        axios.get('lists-subjects').then(response =>{
             this.listsSubjects = response.data
-            console.log(this.listStudent)
         })
     }
 }
-</script>
+</script> 

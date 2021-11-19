@@ -4,30 +4,31 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+          <div class="row" style="min-height: 350px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
             <div class="col-lg-12">
                   <div class="col-lg-12">
                     <h2>Asignar materia a un grado</h2>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                   <fieldset>
                      <label>Materias:</label>
-                    <select v-model="subjectgrade.subject_id">
+                    <select class="form-select form-select-sm" v-model="subjectgrade.subject_id">
                       <option disabled value="">Seleccione una materia:</option>
-                      <option v-for="subject in listsSubjects" :value="subject.id" :key="subject.id" >{{subject.name}}</option>
+                      <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
                     </select>
                   </fieldset>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                   <fieldset>
                       <label>Grados:</label>
-                      <select  v-model="subjectgrade.grade_id" >
+                      <select class="form-select form-select-sm" v-model="subjectgrade.grade_id" >
                         <option disabled value="">Seleccione un grado:</option>
                         <option v-for="grade in listsGrades" :value="grade.id" key="grade_id">{{grade.name}}</option>
                       </select>
                   </fieldset>
                     </div>
-                    <div class="col-lg-12">
+                    <br>
+                <div class="col-lg-12">
                     <fieldset>
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>
