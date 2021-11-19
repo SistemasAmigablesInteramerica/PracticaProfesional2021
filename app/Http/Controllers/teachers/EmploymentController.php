@@ -26,4 +26,9 @@ class EmploymentController extends Controller
         $employment->save();
         return $employment;
     }
+
+    public function list()
+    {
+        return Employment::all();
+    }
 }

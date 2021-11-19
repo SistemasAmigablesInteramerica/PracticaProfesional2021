@@ -49,6 +49,8 @@ Route::post('/store-teacher', [TeacherController::class, 'store']);
 
 // Inicio de rutas de empleo
 Route::get('/registro-de-empleos', [App\Http\Controllers\teachers\EmploymentController::class, 'create'])->name('insert-employmentinfo');
+Route::get('/lista-de-aspirante', [App\Http\Controllers\teachers\ListEmploymentController::class, 'create'])->name('list-employmentinfo');
+Route::get('/list-employment', [App\Http\Controllers\teachers\EmploymentController::class, 'list']);
 Route::post('/store-employment', [App\Http\Controllers\teachers\EmploymentController::class, 'store']);
 // Fin de rutas de empleo
 
