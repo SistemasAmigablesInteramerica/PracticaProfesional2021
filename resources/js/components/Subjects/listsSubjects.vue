@@ -8,7 +8,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(subjects, index) in listsSubjects" :key="subjects.id">
+    <tr v-for="(subjects, index) in listsSubjects" :key="subject.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ subjects.name }}</th>
     </tr>
@@ -22,14 +22,13 @@ export default {
     name: 'listsSubjects',
     data(){
         return{
-            listsSubjects:[]
+            listsSubjects: [],
         }
     },
     created() {
-        axios.get('listsSubjects').then(response =>{
-            this.listsSubjects = response.data
-            console.log(this.listStudent)
+        axios.get('/lists-Subject').then(response =>{
+            this.listsSubject = response.data
         })
     }
 }
-</script>
+</script> 

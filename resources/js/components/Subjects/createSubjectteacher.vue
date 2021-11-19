@@ -8,7 +8,7 @@
                   <div class="col-lg-12">
                     <h2>Asignar docentes</h2>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                     <fieldset>
                     <label for="select">Docente:</label>
                           <select class="form-control form-control-sm" v-model="subjectteacher.teacher_id">
@@ -17,7 +17,7 @@
                           </select>
                     </fieldset> 
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-12">
                   <fieldset>
                       <label for="select">Materias:</label>
                          <select class="form-control form-control-sm" v-model="subjectteacher.subject_grade_id">
@@ -27,16 +27,14 @@
                   </fieldset>
                     </div>
                     <br>
-                    <div class="col-lg-4">
-                    <fieldset>
-                    <input class="input-group-text" type="number" v-model="subjectteacher.year" id="year"  placeholder="Año">
-                    </fieldset>
-                    </div>
                     <div class="col-lg-12">
                     <fieldset>
-                        <br>
-                        <br>
-                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Añadir</button>
+                    <input v-model="subjectteacher.year" type="number" placeholder="Año"/>
+                    </fieldset> 
+                    </div>                 
+                    <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>
                   </div>
             
@@ -76,10 +74,13 @@
         methods: {
           send(){
             axios.post('/store-subjectteacher', this.subjectteacher).then(response =>{
+               this.subjectteacher.teacher_id='',
+              this.subjectteacher.subject_grade_id=''
+              this.subjectteacher.year='',
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El docente se ha registrado con exito.',
+                    text: 'El docente se ha asignado con exito.',
                 });
             }).catch(error => {
                     Swal.fire({
