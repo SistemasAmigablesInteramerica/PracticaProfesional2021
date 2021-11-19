@@ -35,6 +35,7 @@ Route::post('/store-student', [StudentController::class, 'store']);
 // Inicio de rutas de secciones
 Route::get('/registro-de-secciones', [App\Http\Controllers\Grades\GradeController::class, 'create'])->name('insert-gradeinfo');
 Route::get('/lista-de-secciones', [App\Http\Controllers\Grades\ListGradeController::class, 'create'])->name('lists-gradeinfo');
+Route::get('/edit-grade/{id}', [App\Http\Controllers\Grades\GradeController::class, 'edit']);
 Route::get('/lists-grades', [App\Http\Controllers\Grades\GradeController::class, 'lists']);
 Route::post('/store-grade', [GradeController::class, 'store']);
 // Fin de rutas de secciones

@@ -26,7 +26,12 @@ class GradeController extends Controller
         }
         return response()->json(['message'=>'No se guardo el grado', 'data'=> $grade], 471);
     }
-        
+    public function edit($id) 
+    {
+        $grade = Grade::find($id);
+
+        return view('grades/edit-grade',compact('grade'));
+    }   
     public function lists()
     {
         return Grade::all();
