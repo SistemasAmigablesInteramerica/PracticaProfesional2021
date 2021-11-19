@@ -32,6 +32,12 @@ class GradeController extends Controller
 
         return view('grades/edit-grade',compact('grade'));
     }   
+
+    public function update(Request $request, $id)
+    {
+        $grade = Grade::where('id',$id)->update($request->all());
+        return $grade;
+    }
     public function lists()
     {
         return Grade::all();

@@ -12,7 +12,7 @@
                     <fieldset>
                     <label>Grados:</label>
                       <select class="form-control form-control-sm" v-model="grades.name" :value="data_grade.name">
-                          <option value="data_grade.name">{{data_grade.name}}</option>
+                          <option></option>
                           <option value="7">7°</option>
                           <option value="8">8°</option>
                           <option value="9">9°</option>
@@ -27,7 +27,7 @@
                     <fieldset>
                      <label>Secciónes:</label>
                         <select class="form-control form-control-sm" v-model="grades.section" id="section">
-                          <option value="data_grade.name">{{data_grade.section}}</option>
+                          <option></option>
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -57,7 +57,7 @@
     export default {
         name: "createGrade",
         props:[
-            'data_Grade'
+            'data_grade'
         ],
         components:{Swal},
         data() {
@@ -65,8 +65,15 @@
             grades: {
               name: '',
               section: '',
-            }
+            },
+            idGrade:''
           }
+        },
+        created() {
+            const grade = JSON.parse(this.data_grade)
+          this.idGrade = grade.id
+          this.grades.name = this.grade.name
+          this.grades.section = this.section
         },
         methods: {
           send(){
@@ -80,7 +87,7 @@
               return false
             }
 
-            axios.post('/store-grade', this.grades).then(response =>{
+            axios.put('/update-grade/'+ this.grades).then(response =>{
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',

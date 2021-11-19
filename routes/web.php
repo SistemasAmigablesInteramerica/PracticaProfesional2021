@@ -38,6 +38,7 @@ Route::get('/lista-de-secciones', [App\Http\Controllers\Grades\ListGradeControll
 Route::get('/edit-grade/{id}', [App\Http\Controllers\Grades\GradeController::class, 'edit']);
 Route::get('/lists-grades', [App\Http\Controllers\Grades\GradeController::class, 'lists']);
 Route::post('/store-grade', [GradeController::class, 'store']);
+Route::put('/update-grade/{id}', [GradeController::class, 'update']);
 // Fin de rutas de secciones
 
 
