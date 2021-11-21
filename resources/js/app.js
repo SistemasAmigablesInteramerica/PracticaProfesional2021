@@ -39,6 +39,9 @@ Vue.component('listTeacher', require("./components/teachers/listTeacher.vue").de
 Vue.component('listEmployment', require("./components/teachers/listEmployment.vue").default);
 Vue.component('listStudentrelative', require("./components/students/listStudentRelative.vue").default);
 Vue.component('listAttendancehistory', require("./components/AttendanceHistory/listAttendanceHistory.vue").default);
+
+Vue.component('editGrade', require("./components/Grades/editGrade.vue").default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
