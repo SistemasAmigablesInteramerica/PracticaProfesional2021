@@ -17,11 +17,11 @@ class CreateStudentsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('nationality');
-            $table->integer('card');
+            $table->biginteger('card');
             $table->date('birthdate');
             $table->binary('salarial_constance')->nullable();
             $table->string('legal_guardian_name');
-            $table->integer('legal_guardian_card');
+            $table->biginteger('legal_guardian_card');
             $table->string('place_residence');
             $table->string('phone_number');
             $table->set('socioeconomic_status', ['extreme_poverty', 'poverty', 'vulnerability', 'not_poor']);

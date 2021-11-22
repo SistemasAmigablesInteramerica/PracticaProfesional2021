@@ -18,7 +18,7 @@ class CreateEmploymentTable extends Migration
             $table->string('email');
             $table->string('name');
             $table->set('speciality', ['hotel_events', 'food_drinks', 'accounting', 'computing', 'occupational_health', 'executive_services']);
-            $table->integer('card');
+            $table->biginteger('card');
             $table->integer('phone_number');
             $table->string('place_residence');
             $table->string('titles');

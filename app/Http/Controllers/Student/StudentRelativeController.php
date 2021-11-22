@@ -28,6 +28,12 @@ class StudentRelativeController extends Controller
         return $studentRelative;
     }
 
+    public function edit($id)
+    {
+        $studentRelative = StudentRelative::find($id);
+        return view('students/edit-studentrelative', compact('studentrelative'));
+    }
+
     public function list()
     {
         return StudentRelative::all();

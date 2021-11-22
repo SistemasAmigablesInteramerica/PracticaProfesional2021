@@ -30,7 +30,7 @@
                   <div class="col-lg-12">
                     <fieldset>
                     <label for="Birthdate">Fecha de Nacimiento:</label>
-                   <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento" min="1995-01-01">  
+                   <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">  
                   </fieldset>
                   </div>  
                   <div class="col-lg-4">
@@ -308,7 +308,7 @@ export default {
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con exito.',
+                    text: 'El estudiante se ha registrado con éxito.',
                 });
 
 

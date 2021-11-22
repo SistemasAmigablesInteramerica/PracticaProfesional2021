@@ -67,6 +67,7 @@ Route::post('/store-subject', [SubjectController::class, 'store']);
 // Inicio de rutas de los familiares
 Route::get('/registro-de-familiares', [App\Http\Controllers\Student\StudentRelativeController::class, 'create'])->name('insert-studentrelativesinfo');
 Route::get('/list-studentRelative', [App\Http\Controllers\Student\StudentRelativeController::class, 'list']);
+Route::get('/edit-studentrelative/{id}', [StudentRelativeController::class, 'edit']);
 Route::get('/lista-de-familiares', [App\Http\Controllers\Student\ListStudentRelativeController::class, 'create'])->name('list-studentrelativesinfo');
 Route::post('/store-StudentRelative', [StudentRelativeController::class, 'store']);
 // Fin de rutas de los familiares
