@@ -59,8 +59,10 @@ Route::post('/store-employment', [App\Http\Controllers\teachers\EmploymentContro
 // Inicio de rutas de las materias
 Route::get('/registro-de-materias', [App\Http\Controllers\Subjects\SubjectController::class, 'create'])->name('insert-subjectinfo');
 Route::get('/lista-de-materias', [App\Http\Controllers\Subjects\ListSubjectController::class, 'create'])->name('lists-subjects');
+Route::get('/edit-subject/{id}', [App\Http\Controllers\Subjects\SubjectController::class, 'edit']);
 Route::get('/lists-subjects', [App\Http\Controllers\Subjects\SubjectController::class, 'lists']);
 Route::post('/store-subject', [SubjectController::class, 'store']); 
+Route::put('/update-subject/{id}', [SubjectController::class, 'update']);
 // Fin de rutas de las materias
 
 

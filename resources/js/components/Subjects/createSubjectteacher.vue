@@ -27,7 +27,7 @@
                   </fieldset>
                     </div>
                     <br>
-                    <div class="form-control col-lg-12" >
+                    <div class="col-lg-12" >
                     <fieldset>
                     <input v-model="subjectteacher.year" type="number" placeholder="Año">
                     </fieldset> 
@@ -63,7 +63,7 @@
             listsSubjects: [],
             listTeacher: [],
           }
-        },
+        }, 
         created() {
             axios.get('/lists-subjects').then(response=>{
             this.listsSubjects = response.data

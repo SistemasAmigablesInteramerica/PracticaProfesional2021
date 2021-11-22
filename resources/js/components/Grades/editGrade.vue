@@ -13,21 +13,12 @@
                     <label>Grados:</label>
                       <input class="form-control form-control-sm" v-model="grades.name">
                         </fieldset>
+                    </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
                      <label>Secciónes:</label>
-                        <select class="form-control form-control-sm" v-model="grades.section" id="section">
-                          <option></option>
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                          <option>6</option>
-                          <option>7</option>
-                          <option>8</option>
-                        </select>
+                        <input class="form-control form-control-sm" v-model="grades.section" id="name" required="">
                         </fieldset>
                       </div>
                  <div class="col-lg-12">
@@ -64,8 +55,8 @@
           console.log('probando', this.data_grade)
             const grade = JSON.parse(this.data_grade)
           this.idGrade = grade.id 
-          this.grades.name = this.grade.name
-          this.grades.section = this.grade.section
+          this.grades.name = grade.name
+          this.grades.section = grade.section
         },
         methods: {
           send(){

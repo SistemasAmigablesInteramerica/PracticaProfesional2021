@@ -31,6 +31,17 @@ class SubjectController extends Controller
         return response()->json(['message'=>'No se guardo la materia', 'data'=> $subject], 421);
 
     } 
+    public function edit($id) 
+    {
+        $subject = Subject::find($id);
+
+        return view('subjects/edit-subject',compact('subject'));
+    }   
+    public function update(Request $request, $id)
+    {
+        $subject = Subject::where('id',$id)->update($request->all());
+        return $subject;
+    }    
     public function lists(){
         return Subject::all();
     }
