@@ -27,8 +27,10 @@ Route::get('/', [App\Http\Controllers\IndexController::class, 'create'])->name('
 // Inicio de rutas de estudiantes
 Route::get('/registro-de-estudiantes', [App\Http\Controllers\Student\StudentController::class, 'create'])->name('insert-studentsinfo');
 Route::get('/lista-de-estudiantes', [App\Http\Controllers\Student\ListStudentController::class, 'create'])->name('list-studentsinfo');
+Route::get('/edit-student/{id}', [App\Http\Controllers\Student\StudentController::class, 'edit']);
 Route::get('/list-student', [App\Http\Controllers\Student\StudentController::class, 'list']);
 Route::post('/store-student', [StudentController::class, 'store']);
+Route::put('/update-student/{id}', [StudentController::class, 'update']);
 // Fin de rutas de estudiantes
 
 
@@ -45,15 +47,19 @@ Route::put('/update-grade/{id}', [GradeController::class, 'update']);
 // Inicio de rutas de profesores
 Route::get('/registro-de-profesores', [App\Http\Controllers\teachers\TeacherController::class, 'create'])->name('insert-teacherinfo');
 Route::get('/lista-de-profesores', [App\Http\Controllers\teachers\ListTeacherController::class, 'create'])->name('list-teacherinfo');
+Route::get('/edit-teacher/{id}', [App\Http\Controllers\teachers\TeacherController::class, 'edit']);
 Route::get('/list-teacher', [App\Http\Controllers\teachers\TeacherController::class, 'list']);
 Route::post('/store-teacher', [TeacherController::class, 'store']);
+Route::put('/update-teacher/{id}', [TeacherController::class, 'update']);
 // Fin de rutas de profesores
 
 // Inicio de rutas de empleo
 Route::get('/registro-de-empleos', [App\Http\Controllers\teachers\EmploymentController::class, 'create'])->name('insert-employmentinfo');
 Route::get('/lista-de-aspirante', [App\Http\Controllers\teachers\ListEmploymentController::class, 'create'])->name('list-employmentinfo');
+Route::get('/edit-employment/{id}', [App\Http\Controllers\teachers\EmploymentController::class, 'edit']);
 Route::get('/list-employment', [App\Http\Controllers\teachers\EmploymentController::class, 'list']);
 Route::post('/store-employment', [App\Http\Controllers\teachers\EmploymentController::class, 'store']);
+Route::put('/update-employment/{id}', [EmploymentController::class, 'update']);
 // Fin de rutas de empleo
 
 // Inicio de rutas de las materias
@@ -79,14 +85,20 @@ Route::put('/update-studentrelative/{id}', [StudentRelativeController::class, 'u
 // Inicio de rutas de Asistencia
 Route::get('/registro-de-asistencias', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'create'])->name('insert-attendancehistory');
 Route::get('/list-attendanceHistory', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'list']);
+Route::get('/edit-attendancehistory/{id}', [AttendanceHistoryController::class, 'edit']);
 Route::get('/lista-de-asistencia', [App\Http\Controllers\Attendance\ListAttendanceHistoryController::class, 'create'])->name('list-attendancehistoryinfo');
 Route::post('/store-attendancehistory', [AttendanceHistoryController::class, 'store']);
+Route::put('/update-attendancehistory/{id}', [AttendanceHistoryController::class, 'update']);
 // Fin de rutas de Asistencia
 
 
 // Inicio de rutas de asignar materia-grado
 Route::get('/asignar-materia-grado', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'create'])->name('insert-subjectgradeinfo');
+Route::get('/lista-de-materiasygrados', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'create'])->name('list-subjectgradeinfo');
+Route::get('/list-subjectGrade', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'list']);
+Route::get('/edit-subjectGrade/{id}', [SubjectGradeController::class, 'edit']);
 Route::post('/store-subjectgrade', [SubjectGradeController::class, 'store']);
+Route::put('/update-subjectgrade/{id}', [SubjectGradeController::class, 'update']);
 // Fin de rutas de asignar materia-grado
 
 
