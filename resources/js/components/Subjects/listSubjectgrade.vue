@@ -21,7 +21,7 @@
 
 <script>
 export default {
-    name: 'listsSubjects',
+    name: 'listSubjectgrade',
     data(){
         return{
             listsSubjects: [],

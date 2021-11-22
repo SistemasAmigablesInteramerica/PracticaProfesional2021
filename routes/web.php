@@ -94,7 +94,7 @@ Route::put('/update-attendancehistory/{id}', [AttendanceHistoryController::class
 
 // Inicio de rutas de asignar materia-grado
 Route::get('/asignar-materia-grado', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'create'])->name('insert-subjectgradeinfo');
-Route::get('/lista-de-materiasygrados', [App\Http\Controllers\Subjects\ListSubjectGradeController::class, 'create'])->name('list-subjectgradeinfo');
+Route::get('/lista-de-materiasygrados', [App\Http\Controllers\Subjects\ListSubjectGradeController::class, 'create'])->name('list-subjectgrade');
 Route::get('/list-subjectGrade', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'list']);
 Route::get('/edit-subjectGrade/{id}', [SubjectGradeController::class, 'edit']);
 Route::post('/store-subjectgrade', [SubjectGradeController::class, 'store']);
@@ -116,7 +116,7 @@ Route::put('/update-subjectteacher/{id}', [SubjectTeacherController::class, 'upd
 Route::get('/asignar-materia-estudiante', [App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController::class, 'create'])->name('insert-gradesubjectstudentinfo');
 Route::get('/lista-de-materiasyestudiantes', [App\Http\Controllers\GradeSubjectStudent\ListGradeSubjectStudentController::class, 'create'])->name('list-subjectteacherinfo');
 Route::get('/list-gradesubjectstudent', [App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController::class, 'list']);
-Route::get('/edit-sgradesubjectstudent/{id}', [GradeSubjectStudentController::class, 'edit']);
+Route::get('/edit-gradesubjectstudent/{id}', [GradeSubjectStudentController::class, 'edit']);
 Route::post('/store-gradesubjectstudent', [GradeSubjectStudentController::class, 'store']);
 Route::put('/update-gradesubjectstudent/{id}', [GradeSubjectStudentController::class, 'update']);
 // Fin de rutas de asignar materia-estudiante
