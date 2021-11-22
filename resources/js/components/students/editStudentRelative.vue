@@ -85,7 +85,7 @@
 <script>
 import Swal from 'sweetalert2'
 export default {
-    name: "editStudentrelative",
+    name: 'editStudentrelative',
     props:[
         'data_studentrelative'
     ],

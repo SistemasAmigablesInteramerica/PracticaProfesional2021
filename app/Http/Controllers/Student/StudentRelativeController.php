@@ -31,7 +31,7 @@ class StudentRelativeController extends Controller
     public function edit($id)
     {
         $studentRelative = StudentRelative::find($id);
-        return view('students/edit-studentrelative', compact('studentrelative'));
+        return view('students/edit-StudentRelative', compact('studentRelative'));
     }
 
     public function list()
