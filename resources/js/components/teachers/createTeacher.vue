@@ -112,7 +112,7 @@ export default {
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El profesor se ha registrado con exito',
+                    text: 'El profesor se ha registrado con éxito',
                 });
             }).catch(error => {
                 Swal.fire({
