@@ -180,7 +180,7 @@ export default {
             axios.put('/update-studentrelative/'+ this.idStudentrelative, this.StudentRelative).then(response=>{
                 Swal.fire({
                     icon: 'success',
-                    Title: 'Datos cambiados',
+                    title: 'Datos cambiados',
                     text: 'Los datos se han editado con éxito'
                 });
             }).catch(error =>{

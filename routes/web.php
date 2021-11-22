@@ -59,7 +59,7 @@ Route::get('/lista-de-aspirante', [App\Http\Controllers\teachers\ListEmploymentC
 Route::get('/edit-employment/{id}', [App\Http\Controllers\teachers\EmploymentController::class, 'edit']);
 Route::get('/list-employment', [App\Http\Controllers\teachers\EmploymentController::class, 'list']);
 Route::post('/store-employment', [App\Http\Controllers\teachers\EmploymentController::class, 'store']);
-Route::put('/update-employment/{id}', [EmploymentController::class, 'update']);
+Route::put('/update-employment/{id}', [App\Http\Controllers\teachers\EmploymentController::class, 'update']);
 // Fin de rutas de empleo
 
 // Inicio de rutas de las materias

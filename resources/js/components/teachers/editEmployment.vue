@@ -14,7 +14,7 @@
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Correo electronico:</label>
-                      <input name="email" v-model="employment.email" type="text" placeholder="Correo electronico">
+                      <input name="email" v-model="employment.email" type="text" id="email" placeholder="Correo electronico">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
@@ -114,8 +114,9 @@
 <script>
 import Swal from 'sweetalert2'
 export default {
-    name: 'insertEmployment',
-    components: {Swal},
+    name: 'editEmployment',
+    component: {Swal},
+    props:['data_employment'],
 
     data(){
         return{
@@ -132,26 +133,44 @@ export default {
                 conditions: '',
                 place_likeness: '',
                 graduate_status: '',
-            }
+            },
+            idEmployment: ''
         }
     },
+    created(){
+        const Employments = JSON.parse(this.data_employment)
+        this.idEmployment = Employments.id
+        this.employment.email = Employments.email
+        this.employment.name = Employments.name
+        this.employment.speciality = Employments.speciality
+        this.employment.card = Employments.card
+        this.employment.phone_number = Employments.phone_number
+        this.employment.place_residence = Employments.place_residence
+        this.employment.titles = Employments.titles
+        this.employment.do_work = Employments.do_work
+        this.employment.in_empleocr = Employments.in_empleocr
+        this.employment.conditions = Employments.conditions
+        this.employment.place_likeness = Employments.place_likeness
+        this.employment.graduate_status = Employments.graduate_status
 
+    },
     methods:{
         send(){
-            axios.post('/store-employment', this.employment).then(response=>{
+            axios.put('/update-employment/' + this.idEmployment, this.employment).then(response=>{
                 Swal.fire({
                     icon: 'success',
-                    title: 'Datos registrados',
-                    text: 'Los datos de empleo han sido registrados',
+                    title: 'Datos cambiados',
+                    text: 'Los datos se han editado con éxito'
                 });
             }).catch(error=>{
                 Swal.fire({
-                    icon: 'error',
+                    icon:'error',
                     title: 'Error',
-                    text: 'Se ha producido un error',
+                    text: 'Se ha encontrado un error'
                 });
             })
         }
     }
+
 }
 </script>
