@@ -34,6 +34,13 @@ class StudentRelativeController extends Controller
         return view('students/edit-StudentRelative', compact('studentRelative'));
     }
 
+
+    public function update(Request $request, $id)
+    {
+        $studentRelative = StudentRelative::where('id',$id)->update($request->all());
+        return $studentRelative;
+    }
+
     public function list()
     {
         return StudentRelative::all();

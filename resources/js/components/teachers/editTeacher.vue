@@ -12,7 +12,7 @@
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Nombre del docente</label>
-                      <input name="names" v-model="teacher.names" type="text" id="name" placeholder="Nombre del docente" required="">
+                      <input name="names" v-model="teacher.names" type="text" placeholder="Nombre del docente" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
@@ -24,7 +24,7 @@
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Cedula del docente</label>
-                      <input name="identification" v-model="teacher.identification" type="number"  placeholder="No.Cédula" pattern="" required="">
+                      <input name="identification" v-model="teacher.identification" type="number" placeholder="No.Cédula" pattern="" required="">
                     </fieldset>
                   </div>
                   <div class="col-lg-12">
@@ -42,7 +42,7 @@
                   <div class="col-lg-4">
                     <fieldset>
                       <label for="Especialidad">Especialidad:</label>
-                      <input name="specialty" v-model="teacher.speciality" type="text" placeholder="Especialidad del docente" pattern="" required="">
+                      <input name="specialty" v-model="teacher.speciality" type="text" placeholder="Especialidad del docente" >
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
@@ -71,7 +71,7 @@
                   </div>
                   <div class="col-lg-12">
                     <fieldset style="text-align:center">  
-                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Registrar</button>
+                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Editar</button>
                     </fieldset>
                   </div>
                 </div>
@@ -87,10 +87,11 @@
 <script>
 import Swal from 'sweetalert2'
 export default {
-    name: "createTeacher",
+    name: 'editTeacher',
     components: {Swal},
+    props: ['data_teacher'],
 
-    data() {
+     data() {
         return {
             teacher: {
                 names: '',
@@ -103,12 +104,26 @@ export default {
                 gender: '',
                 contact_number: '',
 
-            } 
+            },
+            idTeacher: '' 
         }   
     },
-    methods: {
+    created(){
+        const teachers = JSON.parse(this.data_teacher)
+        this.idTeacher = teachers.id
+        this.teacher.names = teachers.names
+        this.teacher.last_names = teachers.last_names
+        this.teacher.identification = teachers.identification
+        this.teacher.birthdate = teachers.birthdate
+        this.teacher.age = teachers.age
+        this.teacher.speciality = teachers.speciality
+        this.teacher.email = teachers.email
+        this.teacher.gender = teachers.gender
+        this.teacher.contact_number = teachers.contact_number
+    },
+    methods:{
         send(){
-          if(this.teacher.name === ''){
+             if(this.teacher.name === ''){
             Swal.fire({
               icon: 'warning',
               title: 'Atención',
@@ -181,22 +196,21 @@ export default {
             return false
           }
 
-          
-            axios.post('/store-teacher', this.teacher).then(response => {
+            axios.put('/update-teacher/' + this.idTeacher, this.teacher).then(response=>{
                 Swal.fire({
                     icon: 'success',
-                    title: 'Datos registrados',
-                    text: 'El profesor se ha registrado con éxito',
+                    Title: 'Datos cambiados',
+                    text: 'Los datos se han editado con éxito'
                 });
-            }).catch(error => {
+            }).catch(error =>{
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Se ha producido un error',
+                    text: 'Se ha encontrado un error'
                 });
             })
+
         }
     }
-
 }
 </script>

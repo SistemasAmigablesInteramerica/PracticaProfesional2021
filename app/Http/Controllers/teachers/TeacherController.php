@@ -27,6 +27,18 @@ class TeacherController extends Controller
         return $teacher;
     }
 
+    public function edit($id)
+    {   
+        $teacher = Teacher::find($id);
+        return view('teachers/edit-teachers', compact('teacher'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $teacher = Teacher::where('id', $id)->update($request->all());
+        return $teacher;
+    }
+
     public function list()
     {
         return Teacher::all();

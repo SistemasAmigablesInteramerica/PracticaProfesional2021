@@ -112,6 +112,55 @@ export default {
     },
     methods:{
           send() {
+            if(this.StudentRelative.student_id === ''){
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Atención',
+                    text: 'Debe introducir el estudiante'
+                })
+                return false
+            }
+            if(this.StudentRelative.guardian_name === ''){
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Atención',
+                    text: 'Debe introducir el nombre'
+                })
+                return false
+            }
+            if(this.StudentRelative.guardian_profession === ''){
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Atención',
+                    text: 'Debe introducir la actividad laboral'
+                })
+                return false
+            }
+            if(this.StudentRelative.guardian_card === ''){
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Atención',
+                    text: 'Debe introducir la cédula'
+                })
+                return false
+            }
+            if(this.StudentRelative.guardian_relation === ''){
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Atención',
+                    text: 'Debe introducir la relación familiar'
+                })
+                return false
+            }
+            if(this.StudentRelative.scholarship === ''){
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Atención',
+                    text: 'Debe introducir la escolaridad'
+                })
+                return false
+            }
+
             axios.post('/store-StudentRelative', this.StudentRelative).then(response => {
                 Swal.fire({
                     icon: 'success',
