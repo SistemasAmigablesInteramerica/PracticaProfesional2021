@@ -13,7 +13,6 @@
                     <label>Grados:</label>
                       <input class="form-control form-control-sm" v-model="grades.name">
                         </fieldset>
-                    </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>

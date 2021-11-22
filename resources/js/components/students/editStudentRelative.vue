@@ -111,7 +111,7 @@ export default {
         const studentrelative = JSON.parse(this.data_studentrelative)
         this.idStudentrelative = studentrelative.id
         this.student_id = this.data_studentrelative.student_id
-        this.guardian_name = this.data._studentrelative.guardian_name
+        this.guardian_name = this.data_studentrelative.guardian_name
         this.guardian_profession = this.data_studentrelative.guardian_profession
         this.guardian_card = this.data_studentrelative.guardian_card
         this.guardian_relation = this.data_studentrelative.guardian_relation

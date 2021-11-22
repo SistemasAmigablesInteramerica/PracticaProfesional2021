@@ -70,6 +70,7 @@ Route::get('/list-studentRelative', [App\Http\Controllers\Student\StudentRelativ
 Route::get('/edit-studentrelative/{id}', [StudentRelativeController::class, 'edit']);
 Route::get('/lista-de-familiares', [App\Http\Controllers\Student\ListStudentRelativeController::class, 'create'])->name('list-studentrelativesinfo');
 Route::post('/store-StudentRelative', [StudentRelativeController::class, 'store']);
+Route::put('/update-studentrelative/{id}', [StudentRelativeController::class, 'update']);
 // Fin de rutas de los familiares
 
 

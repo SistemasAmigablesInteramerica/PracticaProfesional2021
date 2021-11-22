@@ -2524,19 +2524,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createGrade",
-  props: ['data_Grade'],
+  props: ['data_grade'],
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
@@ -2545,8 +2536,16 @@ __webpack_require__.r(__webpack_exports__);
       grades: {
         name: '',
         section: ''
-      }
+      },
+      idGrade: ''
     };
+  },
+  created: function created() {
+    console.log('probando', this.data_grade);
+    var grade = JSON.parse(this.data_grade);
+    this.idGrade = grade.id;
+    this.grades.name = this.grade.name;
+    this.grades.section = this.grade.section;
   },
   methods: {
     send: function send() {
@@ -2560,11 +2559,11 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
-      axios.post('/store-grade', this.grades).then(function (response) {
+      axios.put('/update-grade/' + this.idGrade, this.grades).then(function (response) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
-          text: 'El grado se ha registrado con exito.'
+          text: 'El grado se ha cambiado con éxito.'
         });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -2623,7 +2622,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get('listsgrades').then(function (response) {
+    axios.get('lists-grades').then(function (response) {
       _this.listsGrades = response.data;
       console.log(_this.listsGrades);
     });
@@ -2902,6 +2901,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createSubjectteacher",
@@ -2938,7 +2938,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.subjectteacher.year = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
-          text: 'El docente se ha asignado con exito.'
+          text: 'El docente se ha asignado con éxito.'
         });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -3356,7 +3356,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.student.name = '', _this.student.nationality = '', _this.student.birthdate = '', _this.student.card = '', _this.student.clasification = '', _this.student.salarial_constance = '', _this.student.legal_guardian_name = '', _this.student.legal_guardian_card = '', _this.student.place_residence = '', _this.student.phone_number = '', _this.student.socioeconomic_status = '', _this.student.total_income_family = '', _this.student.family_member_total = '', _this.student.total_per_capita = '', _this.student.clasification = '', _this.student.financial_assistance = '', _this.student.voluntary_assistance = '', _this.student.rental_income = '', _this.student.others_income = '', _this.student.total_income = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
-          text: 'El estudiante se ha registrado con exito.'
+          text: 'El estudiante se ha registrado con éxito.'
         });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -3634,6 +3634,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'listStudentrelative',
   data: function data() {
@@ -3648,6 +3651,11 @@ __webpack_require__.r(__webpack_exports__);
       _this.listStudentrelative = response.data;
       console.log(_this.listStudentrelative);
     });
+  },
+  methods: {
+    edit: function edit(id) {
+      return '/edit-studentrelative/' + id;
+    }
   }
 });
 
@@ -3950,7 +3958,7 @@ __webpack_require__.r(__webpack_exports__);
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
-          text: 'El profesor se ha registrado con exito'
+          text: 'El profesor se ha registrado con éxito'
         });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -44915,63 +44923,26 @@ var render = function () {
                   _c("fieldset", [
                     _c("label", [_vm._v("Grados:")]),
                     _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.grades.name,
-                            expression: "grades.name",
-                          },
-                        ],
-                        staticClass: "form-control form-control-sm",
-                        domProps: { value: _vm.data_grade.name },
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.grades,
-                              "name",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.grades.name,
+                          expression: "grades.name",
+                        },
+                      ],
+                      staticClass: "form-control form-control-sm",
+                      domProps: { value: _vm.grades.name },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.grades, "name", $event.target.value)
                         },
                       },
-                      [
-                        _c("option", { attrs: { value: "data_grade.name" } }, [
-                          _vm._v(_vm._s(_vm.data_grade.name)),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "7" } }, [_vm._v("7°")]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "8" } }, [_vm._v("8°")]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "9" } }, [_vm._v("9°")]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "10" } }, [
-                          _vm._v("10°"),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "11" } }, [
-                          _vm._v("11°"),
-                        ]),
-                        _vm._v(" "),
-                        _c("option", { attrs: { value: "12" } }, [
-                          _vm._v("12°"),
-                        ]),
-                      ]
-                    ),
+                    }),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -45013,9 +44984,7 @@ var render = function () {
                         },
                       },
                       [
-                        _c("option", { attrs: { value: "data_grade.name" } }, [
-                          _vm._v(_vm._s(_vm.data_grade.section)),
-                        ]),
+                        _c("option"),
                         _vm._v(" "),
                         _c("option", [_vm._v("1")]),
                         _vm._v(" "),
@@ -45047,7 +45016,7 @@ var render = function () {
                         attrs: { type: "submit", id: "form-submit" },
                         on: { click: _vm.send },
                       },
-                      [_vm._v("Registrar")]
+                      [_vm._v("editar")]
                     ),
                   ]),
                 ]),
@@ -45065,7 +45034,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12", attrs: { method: "post" } }, [
-      _c("h2", [_vm._v("Agregar nueva sección")]),
+      _c("h2", [_vm._v("Editar Grado y Sección")]),
     ])
   },
 ]
@@ -45124,7 +45093,7 @@ var render = function () {
                   "a",
                   {
                     staticClass: "btm btm-info btm-se",
-                    attrs: { href: _vm.edit(_vm.grade.id) },
+                    attrs: { href: _vm.edit(grades.id) },
                   },
                   [_c("span", { staticClass: "fa fa-edit" })]
                 ),
@@ -45487,7 +45456,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
             _c(
               "div",
               {
@@ -45624,7 +45593,7 @@ var render = function () {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "form-control col-lg-12" }, [
                     _c("fieldset", [
                       _c("input", {
                         directives: [
@@ -45653,7 +45622,7 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-6" }, [
                     _c("fieldset", [
                       _c(
                         "button",
@@ -45663,6 +45632,12 @@ var render = function () {
                           on: { click: _vm.send },
                         },
                         [_vm._v("Asignar")]
+                      ),
+                    ]),
+                    _vm._v(" "),
+                    _c("small", { staticStyle: { color: "#9e1205" } }, [
+                      _vm._v(
+                        "*Para asignar un docente debe agregar los datos de seccion y asignar la materia.*"
                       ),
                     ]),
                   ]),
@@ -45707,23 +45682,38 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table-responsive-sm" }, [
-    _c("table", { staticClass: "table table-light table-md" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.listsSubjects, function (subjects, index) {
-          return _c("tr", { key: subjects.id }, [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index + 1))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(subjects.name))]),
-          ])
-        }),
-        0
-      ),
-    ]),
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "table-responsive-sm",
+      staticStyle: {
+        "min-height": "400px",
+        "border-radius": "20px",
+        width: "100%",
+        border: "10px solid white",
+        "background-color": "white",
+      },
+    },
+    [
+      _c("table", { staticClass: "table table-light table-md" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.listsSubjects, function (subjects, index) {
+            return _c("tr", { key: subjects.id }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(index + 1)),
+              ]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(subjects.name))]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
@@ -45972,7 +45962,6 @@ var render = function () {
                             name: "birthdate",
                             type: "date",
                             placeholder: "Fecha de Nacimiento",
-                            min: "1995-01-01",
                           },
                           domProps: { value: _vm.student.birthdate },
                           on: {
@@ -47134,41 +47123,56 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table-responsive-sm" }, [
-    _c("table", { staticClass: "table table-light table-md" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.listStudent, function (student, index) {
-          return _c("tr", { key: student.id }, [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index + 1))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.name))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.nationality))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.card))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.legal_guardian_name))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.place_residence))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.phone_number))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.socioeconomic_status))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.total_per_capita))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.clasification))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(student.total_income))]),
-          ])
-        }),
-        0
-      ),
-    ]),
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "table-responsive-sm",
+      staticStyle: {
+        "min-height": "400px",
+        "border-radius": "20px",
+        width: "100%",
+        border: "10px solid white",
+        "background-color": "white",
+      },
+    },
+    [
+      _c("table", { staticClass: "table table-light table-md" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.listStudent, function (student, index) {
+            return _c("tr", { key: student.id }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(index + 1)),
+              ]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.name))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.nationality))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.card))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.legal_guardian_name))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.place_residence))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.phone_number))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.socioeconomic_status))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.total_per_capita))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.clasification))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(student.total_income))]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
@@ -47228,39 +47232,65 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table-responsive-sm" }, [
-    _c("table", { staticClass: "table table-light table-md" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.listStudentrelative, function (StudentRelative, index) {
-          return _c("tr", { key: StudentRelative.id }, [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index + 1))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.student_id))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.guardian_name))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.guaridan_profession))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.guardian_card))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.guardian_relation))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.scholarship))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.guardian_receives_aid))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.guardian_aid_total))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(StudentRelative.guardian_salary))]),
-          ])
-        }),
-        0
-      ),
-    ]),
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "table-responsive-sm",
+      staticStyle: {
+        "min-height": "400px",
+        "border-radius": "20px",
+        width: "100%",
+        border: "10px solid white",
+        "background-color": "white",
+      },
+    },
+    [
+      _c("table", { staticClass: "table table-light table-md" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.listStudentrelative, function (StudentRelative, index) {
+            return _c("tr", { key: StudentRelative.id }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(index + 1)),
+              ]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.student_id))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.guardian_name))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.guardian_profession))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.guardian_card))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.guardian_relation))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.scholarship))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.guardian_receives_aid))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.guardian_aid_total))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(StudentRelative.guardian_salary))]),
+              _vm._v(" "),
+              _c("td", [
+                _c(
+                  "a",
+                  {
+                    staticClass: "btm btm-info btm-se",
+                    attrs: { href: _vm.edit(StudentRelative.id) },
+                  },
+                  [_c("span", { staticClass: "fa fa-edit" })]
+                ),
+              ]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
@@ -47294,6 +47324,8 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Salario del familiar")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acción")]),
       ]),
     ])
   },
@@ -48441,43 +48473,56 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table table-light table-md" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.listEmployment, function (employment, index) {
-        return _c("tr", { key: employment.id }, [
-          _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index + 1))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.email))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.name))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.specility))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.card))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.phone_number))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.place_likeness))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.titles))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.do_work))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.in_empleocr))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.conditions))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.place_likeness))]),
-          _vm._v(" "),
-          _c("th", [_vm._v(_vm._s(employment.graduate_status))]),
-        ])
-      }),
-      0
-    ),
-  ])
+  return _c(
+    "table",
+    {
+      staticClass: "table table-light table-md",
+      staticStyle: {
+        "min-height": "400px",
+        "border-radius": "20px",
+        width: "100%",
+        border: "10px solid white",
+        "background-color": "white",
+      },
+    },
+    [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.listEmployment, function (employment, index) {
+          return _c("tr", { key: employment.id }, [
+            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index + 1))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.email))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.name))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.specility))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.card))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.phone_number))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.place_likeness))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.titles))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.do_work))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.in_empleocr))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.conditions))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.place_likeness))]),
+            _vm._v(" "),
+            _c("th", [_vm._v(_vm._s(employment.graduate_status))]),
+          ])
+        }),
+        0
+      ),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
@@ -48545,39 +48590,54 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "table-responsive-sm" }, [
-    _c("table", { staticClass: "table table-light table-md" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.listteacher, function (teacher, index) {
-          return _c("tr", { key: teacher.id }, [
-            _c("th", { attrs: { scope: "row" } }, [_vm._v(_vm._s(index + 1))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.names))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.last_names))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.identification))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.birthdate))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.age))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.speciality))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.email))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.gender))]),
-            _vm._v(" "),
-            _c("th", [_vm._v(_vm._s(teacher.contact_number))]),
-          ])
-        }),
-        0
-      ),
-    ]),
-  ])
+  return _c(
+    "div",
+    {
+      staticClass: "table-responsive-sm",
+      staticStyle: {
+        "min-height": "400px",
+        "border-radius": "20px",
+        width: "100%",
+        border: "10px solid white",
+        "background-color": "white",
+      },
+    },
+    [
+      _c("table", { staticClass: "table table-light table-md" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.listteacher, function (teacher, index) {
+            return _c("tr", { key: teacher.id }, [
+              _c("th", { attrs: { scope: "row" } }, [
+                _vm._v(_vm._s(index + 1)),
+              ]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.names))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.last_names))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.identification))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.birthdate))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.age))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.speciality))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.email))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.gender))]),
+              _vm._v(" "),
+              _c("th", [_vm._v(_vm._s(teacher.contact_number))]),
+            ])
+          }),
+          0
+        ),
+      ]),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
@@ -60779,7 +60839,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
