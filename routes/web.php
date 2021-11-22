@@ -94,7 +94,7 @@ Route::put('/update-attendancehistory/{id}', [AttendanceHistoryController::class
 
 // Inicio de rutas de asignar materia-grado
 Route::get('/asignar-materia-grado', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'create'])->name('insert-subjectgradeinfo');
-Route::get('/lista-de-materiasygrados', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'create'])->name('list-subjectgradeinfo');
+Route::get('/lista-de-materiasygrados', [App\Http\Controllers\Subjects\ListSubjectGradeController::class, 'create'])->name('list-subjectgradeinfo');
 Route::get('/list-subjectGrade', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'list']);
 Route::get('/edit-subjectGrade/{id}', [SubjectGradeController::class, 'edit']);
 Route::post('/store-subjectgrade', [SubjectGradeController::class, 'store']);
@@ -104,13 +104,21 @@ Route::put('/update-subjectgrade/{id}', [SubjectGradeController::class, 'update'
 
 // Inicio de rutas de asignar materia-profesor
 Route::get('/asignar-materia-profesor', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
+Route::get('/lista-de-materiasyprofesores', [App\Http\Controllers\Subjects\ListSubjectTeacherController::class, 'create'])->name('list-subjectteacherinfo');
+Route::get('/list-subjectteacher', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'list']);
+Route::get('/edit-subjectteacher/{id}', [SubjectTeacherController::class, 'edit']);
 Route::post('/store-subjectteacher', [SubjectTeacherController::class, 'store']);
+Route::put('/update-subjectteacher/{id}', [SubjectTeacherController::class, 'update']);
 // Fin de rutas de asignar materia-profesor
 
 
 // Inicio de rutas de asignar materia-estudiante
 Route::get('/asignar-materia-estudiante', [App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController::class, 'create'])->name('insert-gradesubjectstudentinfo');
+Route::get('/lista-de-materiasyestudiantes', [App\Http\Controllers\GradeSubjectStudent\ListGradeSubjectStudentController::class, 'create'])->name('list-subjectteacherinfo');
+Route::get('/list-gradesubjectstudent', [App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController::class, 'list']);
+Route::get('/edit-sgradesubjectstudent/{id}', [GradeSubjectStudentController::class, 'edit']);
 Route::post('/store-gradesubjectstudent', [GradeSubjectStudentController::class, 'store']);
+Route::put('/update-gradesubjectstudent/{id}', [GradeSubjectStudentController::class, 'update']);
 // Fin de rutas de asignar materia-estudiante
 
 Auth::routes();
