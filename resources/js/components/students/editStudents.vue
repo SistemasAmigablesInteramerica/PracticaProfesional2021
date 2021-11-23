@@ -57,12 +57,12 @@
                       <input name="place_residence" class="form-control" v-model="student.place_residence" type="text" placeholder="Direccion Del Domicilio">
                       </fieldset>
                   </div>
-                  <div class="col-lg-12">
+                  <!-- <div class="col-lg-12">
                     <fieldset>
                   <label for="archivo">Subir La Constancia Salarial:</label>
                     <input type="file" v-on:change="student.salarial_constance" class="form-control" name="archivo" accept="image/*,.txt,.doc,.docx,.document,.pdf">
                     </fieldset>
-                  </div>
+                  </div> -->
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Ingresos familiares:</label>
@@ -144,14 +144,15 @@
 </template>
 
 <script>
-    import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 export default {
-    name: "createStudent",
+    name: 'editStudents',
     components: {Swal},
-
-    data() {
-        return {
-            student: {
+    props:['data_student'],
+    
+    data(){
+      return{
+        student: {
                 name: '',
                 nationality: '',
                 birthdate: '',
@@ -171,13 +172,37 @@ export default {
                 rental_income: '',
                 others_income: '',
                 total_income: '',
-            }
+            },
+            idStudent: ''
+      } 
+    },  
+    created(){
+      const Students = JSON.parse(this.data_student)
+      this.idStudent = Students.id
+      this.student.name = Students.name
+      this.student.nationality = Students.nationality
+      this.student.birthdate = Students.birthdate
+      this.student.card = Students.card
+      this.student.salarial_constance = Students.salarial_constance
+      this.student.legal_guardian_name = Students.legal_guardian_name
+      this.student.legal_guardian_card = Students.legal_guardian_card
+      this.student.place_residence = Students.place_residence
+      this.student.phone_number = Students.phone_number
+      this.student.socioeconomic_status = Students.socioeconomic_status
+      this.student.total_income_family = Students.total_income_family
+      this.student.family_member_total = Students.family_member_total
+      this.student.total_per_capita = Students.total_per_capita
+      this.student.clasification = Students.clasification
+      this.student.financial_assistance = Students.financial_assistance
+      this.student.voluntary_assistance = Students.voluntary_assistance
+      this.student.rental_income = Students.rental_income
+      this.student.others_income = Students.others_income
+      this.student.total_income = Students.total_income
 
-        }
     },
     methods:{
-        send() {
-          if(this.student.name === ''){
+      send(){
+        if(this.student.name === ''){
             Swal.fire({
               icon: 'warning',
               title: 'Atención',
@@ -282,45 +307,20 @@ export default {
             return false
           }
 
-            axios.post('/store-student', this.student).then(response => {
-
-              this.student.name = '',
-              this.student.nationality = '',
-              this.student.birthdate = '',
-              this.student.card = '',
-              this.student.clasification = '',
-              this.student.salarial_constance = '',
-              this.student.legal_guardian_name = '',
-              this.student.legal_guardian_card = '',
-              this.student.place_residence = '',
-              this.student.phone_number = '',
-              this.student.socioeconomic_status = '',
-              this.student.total_income_family = '',
-              this.student.family_member_total = '',
-              this.student.total_per_capita = '',
-              this.student.clasification = '',
-              this.student.financial_assistance = '',
-              this.student.voluntary_assistance = '',
-              this.student.rental_income = '',
-              this.student.others_income = '',
-              this.student.total_income = '',
-
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con éxito.',
-                });
-
-
-            }).catch(error => {
-                    Swal.fire({
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'Se ha encontrado un error.',
-                });
+          axios.put('/update-student/' + this.idStudent, this.student).then(response=>{
+            Swal.fire({
+              icon: 'success',
+              title: 'Datos cambiados',
+              text: 'Los datos se han editado con éxito'
+            });
+          }).catch(error=>{
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'Se ha encontrado un error'
             })
-        }
+          })
+      }
     }
-
 }
 </script>

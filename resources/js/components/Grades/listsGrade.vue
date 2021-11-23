@@ -12,7 +12,7 @@
   <tbody>
     <tr v-for="(grades, index) in listsGrades" :key="grades.id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ grades.name }}</th>
+      <th>{{ grades.name }}°</th>
       <th>{{ grades.section }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(grades.id)"><span class="fa fa-edit"></span></a></td>
     </tr>

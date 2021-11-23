@@ -13,21 +13,24 @@
       <th scope="col">Recibe ayuda financiera</th>
       <th scope="col">Total de ayuda financiera</th>
       <th scope="col">Salario del familiar</th>
+      <th scope="col">Acción</th>
 
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(StudentRelative, index) in listStudentrelative" :key="StudentRelative.id">
+    <tr v-for="(StudentRelative, index) in  listStudentrelative" :key="StudentRelative.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ StudentRelative.student_id }}</th>
       <th>{{ StudentRelative.guardian_name }}</th>
-      <th>{{ StudentRelative.guaridan_profession }}</th>
+      <th>{{ StudentRelative.guardian_profession }}</th>
       <th>{{ StudentRelative.guardian_card }}</th>
       <th>{{ StudentRelative.guardian_relation }}</th>
       <th>{{ StudentRelative.scholarship }}</th>
       <th>{{ StudentRelative.guardian_receives_aid }}</th>
       <th>{{ StudentRelative.guardian_aid_total }}</th>
       <th>{{ StudentRelative.guardian_salary }}</th>
+      <td><a class="btm btm-info btm-se" :href="edit(StudentRelative.id)"><span class="fa fa-edit"></span></a></td>
+
      
     </tr>
   </tbody>
@@ -48,6 +51,11 @@ export default {
             this.listStudentrelative = response.data
             console.log(this.listStudentrelative)
         })
+    },
+    methods:{
+      edit(id){
+        return '/edit-studentrelative/' + id
+      }
     }
     
 }

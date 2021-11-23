@@ -9,7 +9,7 @@
                  </div>
                   <div class="col-lg-12">
                     <fieldset>  
-                      <label>Materias: <input class="form-control-sm" type="text" v-model="subjects.name"  placeholder="@Ejemplo: Ciencias"></label>
+                      <label>Materias: <input class="form-control-sm" type="text" v-model="subjects.name"></label>
                     </fieldset>
                   </div>
                    <div class="col-lg-12">
@@ -24,19 +24,27 @@
     </div>
  </section>
 </template>
- 
+  
 <script>
   import Swal from 'sweetalert2'
     export default {
         name: "createSubject",
+        props:[
+            'data_subject'
+        ],
         components:{Swal},
         data() {
           return {
             subjects: {
               name: '',
-            }
-          
+            },
+          idSuject:''
           }
+        },
+        created() {
+           const subject = JSON.parse(this.data_subject)
+           this.idSubject = subject.id
+           this.subjects.name = subject.name 
         },
         methods: {
           send(){
@@ -44,11 +52,11 @@
               Swal.fire('Atención', 'Debe digitar una materia', 'warning')
               return false
             }
-            axios.post('/store-subject', this.subjects).then(response =>{
+            axios.put('/update-subject/'+ this.idSubject, this.subjects).then(response =>{
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'La materia se ha registrado con éxito.',
+                    text: 'La materia se ha cambiado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({

@@ -22,7 +22,7 @@ class AttendanceHistoryController extends Controller
         $attendance = new AttendanceHistory();
         $attendance->fill($request->all());
         $attendance->save();
-        return $attendace;
+        return $attendance;
      }
 
     public function list()

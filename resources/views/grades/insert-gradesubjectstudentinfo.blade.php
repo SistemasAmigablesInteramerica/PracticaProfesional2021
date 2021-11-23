@@ -1,5 +1,5 @@
 @extends('layouts.layout')
 
 @section('content')
-<create-Gradesubjectstudent></create-Gradesubjectstudent>
+<create-gradesubjectstudent></create-gradesubjectstudent>
 @endsection

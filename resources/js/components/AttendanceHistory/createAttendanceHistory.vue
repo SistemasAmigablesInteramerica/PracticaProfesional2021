@@ -9,19 +9,13 @@
                       <div class="col-lg-12" >
                         <h2>Asistencias</h2>
                       </div>
-                        <div class="col-lg-4">
-                          <fieldset>
-                            <label>Nombre del estudiante:</label>
-                            <input type="text" v-model="attendancehistory.date" placeholder="Nombre">
-                          </fieldset>
-                        </div>
-                          <div class="col-lg-4">
+                          <div class="col-lg-6">
                           <fieldset>
                             <label>Hora de entrada:</label>
                             <input type="datetime-local" v-model="attendancehistory.check_in" placeholder="Entrada">
                           </fieldset>
                         </div>
-                          <div class="col-lg-4">
+                          <div class="col-lg-6">
                           <fieldset>
                             <label>Hora de salida:</label>
                             <input type="datetime-local" v-model="attendancehistory.check_out" placeholder="Salida">
@@ -39,10 +33,21 @@
                           <div class="col-lg-4">
                           <fieldset>
                             <label>Clase:</label>
-                            <input type="text" v-model="attendancehistory.grade_subject_teacher_id" placeholder="ID Clase">
+                            <select class="form-control" v-model="attendancehistory.subject_teacher_id">
+                              <option selected disabled value="">Seleccione una clase</option>
+                              <option v-for="subjectteacher in listSubjectTeacher" :value="subjectteacher.id" :key="subjectteacher.id">{{subjectteacher.id}}</option>
+                            </select>
                           </fieldset>
-                        </div>
+                          </div>
                           <div class="col-lg-4">
+                          <fieldset>
+                            <label>Profesor:</label>
+                            <select class="form-control" v-model="attendancehistory.teacher_id">
+                              <option selected disabled value="">Seleccione un profesor</option>
+                              <option v-for="teacher in listTeacher" :value="teacher.id" :key="teacher.id">{{teacher.names}}</option>
+                            </select>
+                          </fieldset>
+                          <div class="col-lg-12">
                           <fieldset>
                             <label>Asistió:</label>
                             <input style="width: 2em; height: 2em; margin-top: .25em; vertical-align:top; border-radius:.25em" type="checkbox" v-model="attendancehistory.attended" placeholder="Atendio">
@@ -56,6 +61,7 @@
                     </div>        
               </div>
            </div>
+        </div>
         </div>
 </section>
  
@@ -73,26 +79,39 @@
               check_in: '',
               check_out: '',
               student_id: '',
-              grade_subject_teacher_id: '',
+              subject_teacher_id: '',
+              teacher_id: '',
               attended: '',
             },
             listStudent: [],
-            listGradeSubjectTeacher: []
+            listSubjectTeacher: [],
+            listTeacher: []
           }
         },
         created(){
-          axios.get('list-student').then(response=>{
+          axios.get('/list-student').then(response=>{
             this.listStudent = response.data
+          })
+           axios.get('/list-subjectteacher').then(response=>{
+            this.listSubjectTeacher = response.data
+          })
+          axios.get('/list-teacher').then(response=>{
+            this.listTeacher = response.data
           })
         },
 
         methods: {
           send(){
             axios.post('/store-attendancehistory', this.attendancehistory).then(response =>{
+              this.attendancehistory.check_in = '',
+              this.attendancehistory.check_out = '',
+              this.attendancehistory.student_id = '',
+              this.attendancehistory.subject_teacher_id = '',
+              this.attendancehistory.teacher_id = '',
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'Se ha registrado con exito.',
+                    text: 'Se ha registrado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({

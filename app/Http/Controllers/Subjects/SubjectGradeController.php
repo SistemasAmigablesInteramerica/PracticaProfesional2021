@@ -26,7 +26,18 @@ class SubjectGradeController extends Controller
         }
         return response()->json(['message'=>'No se guardo la materia', 'data'=> $subjectgrade], 421);
     }
-    public function lists(){
+    public function edit($id) 
+    {
+        $subjectgrade = SubjectGrade::find($id);
+
+        return view('subjects/edit-subjectgrade',compact('subjectgrade'));
+    }   
+    public function update(Request $request, $id)
+    {
+        $subjectgrade = SubjectGrade::where('id',$id)->update($request->all());
+        return $subjectgrade;
+    }
+    public function list(){
         return SubjectGrade::all();
     }
 }

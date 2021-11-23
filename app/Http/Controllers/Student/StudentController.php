@@ -33,6 +33,18 @@ class StudentController extends Controller
         return $student;
     }
 
+    public function edit($id)
+    {
+        $student = Student::find($id);
+        return view ('students/edit-student', compact('student'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $student = Student::where('id', $id)->update($request->all());
+        return $student;
+    }
+
     public function list()
     {
         return Student::all();

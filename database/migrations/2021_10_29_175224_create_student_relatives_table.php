@@ -18,12 +18,12 @@ class CreateStudentRelativesTable extends Migration
             $table->bigInteger('student_id')->unsigned();
             $table->string('guardian_name');
             $table->integer('guardian_card');
-            $table->string('guaridan_profession');
+            $table->string('guardian_profession');
             $table->string('guardian_relation');
             $table->boolean('guardian_receives_aid', 12, 2)->nullable();
             $table->decimal('guardian_aid_total', 12, 2)->nullable();
             $table->string('scholarship');
-            $table->decimal('guardian_salary', 12, 2);
+            $table->decimal('guardian_salary', 12, 2)->nullable();
             $table->timestamps();
             $table->engine = 'InnoDB';
 

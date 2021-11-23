@@ -13,6 +13,7 @@
       <th scope="col">Correo eletornico</th>
       <th scope="col">Genero</th>
       <th scope="col">Numero de telefono</th>
+      <th scope="col">Acción</th>
 
     </tr>
   </thead>
@@ -28,6 +29,7 @@
       <th>{{ teacher.email }}</th>
       <th>{{ teacher.gender }}</th>
       <th>{{ teacher.contact_number }}</th>
+      <td><a class="btm btm-info btm-se" :href="edit(teacher.id)"><span class="fa fa-edit"></span></a></td>
      
     </tr>
   </tbody>
@@ -48,6 +50,11 @@ export default {
         axios.get('list-teacher').then(response=>{
             this.listteacher = response.data
         })
+    },
+    methods:{
+      edit(id){
+        return "/edit-teacher/" + id
+      }
     }
     
 }

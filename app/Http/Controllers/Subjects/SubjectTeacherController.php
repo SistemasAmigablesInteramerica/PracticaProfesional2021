@@ -26,7 +26,7 @@ class SubjectTeacherController extends Controller
         }
         return response()->json(['message'=>'No se guardo la materia', 'data'=> $subjectteacher], 421);
     }
-    public function lists(){
+    public function list(){
         return SubjectTeacher::all();
     }
 }

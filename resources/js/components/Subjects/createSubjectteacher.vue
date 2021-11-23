@@ -2,7 +2,7 @@
    <section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-9 col-md-9 col-sm-12">
           <div class="row" style="min-height: 400px; border-radius: 20px;width: 100%;border: 20px solid white; background-color: white;">
             <div class="col-lg-12">
                   <div class="col-lg-12">
@@ -27,15 +27,16 @@
                   </fieldset>
                     </div>
                     <br>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12" >
                     <fieldset>
-                    <input v-model="subjectteacher.year" type="number" placeholder="Año"/>
+                    <input v-model="subjectteacher.year" type="number" placeholder="Año">
                     </fieldset> 
-                    </div>                 
-                    <div class="col-lg-12">
+                    </div>                
+                    <div class="col-lg-6">
                     <fieldset>
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>
+                    <small style="color:#9e1205;">*Para asignar un docente debe agregar los datos de seccion y asignar la materia.*</small>
                   </div>
             
             </div>
@@ -62,7 +63,7 @@
             listsSubjects: [],
             listTeacher: [],
           }
-        },
+        }, 
         created() {
             axios.get('/lists-subjects').then(response=>{
             this.listsSubjects = response.data
@@ -80,7 +81,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El docente se ha asignado con exito.',
+                    text: 'El docente se ha asignado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({

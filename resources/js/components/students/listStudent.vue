@@ -14,6 +14,7 @@
       <th scope="col">Total per capita</th>
       <th scope="col">Clasificó</th>
       <th scope="col">Ingresos totales</th>
+      <th scope="col">Acción</th>
     </tr>
   </thead>
   <tbody>
@@ -29,6 +30,7 @@
       <th>{{ student.total_per_capita }}</th>
       <th>{{ student.clasification }}</th>
       <th>{{ student.total_income }}</th>
+      <td><a class="btm btm-info btm-se" :href="edit(student.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
     </table>
@@ -40,7 +42,7 @@ export default {
     name: 'listStudent',
     data(){
         return{
-            listStudent:[]
+            listStudent: [],
         }
     },
     created() {
@@ -48,6 +50,11 @@ export default {
             this.listStudent =response.data
             console.log(this.listStudent)
         })
+    },
+    methods:{
+      edit(id){
+        return '/edit-student/' + id
+      }
     }
 }
 </script>

@@ -27,6 +27,18 @@ class EmploymentController extends Controller
         return $employment;
     }
 
+    public function edit($id)
+    {
+        $employment = Employment::find($id);
+        return view('teachers/edit-employment', compact('employment'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $employment = Employment::where('id', $id)->update($request->all());
+        return $employment;
+    }
+
     public function list()
     {
         return Employment::all();

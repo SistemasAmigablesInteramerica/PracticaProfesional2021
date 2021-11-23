@@ -83,17 +83,19 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2' 
 export default {
-    name: "createStudentrelative",
-    components: {Swal},
-
-    data() {
-        return {
+    name: 'editStudentrelative',
+    props:[
+        'data_studentrelative'
+    ],
+    components:{Swal},
+    data(){
+        return{
             StudentRelative: {
                 student_id: '',
                 guardian_name: '',
-                guaridan_profession: '',
+                guardian_profession: '',
                 guardian_card: '',
                 guardian_relation: '',
                 scholarship: '',
@@ -101,17 +103,31 @@ export default {
                 guardian_aid_total: '',
                 guardian_salary: ''
             },
-            listStudent:[]
+            idStudentrelative: '',
+            listStudent:[],
         }
     },
     created(){
-      axios.get('/list-student').then(response=>{
-        this.listStudent = response.data
+        const StudentRelatives = JSON.parse(this.data_studentrelative)
+        this.idStudentrelative = StudentRelatives.id
+        this.StudentRelative.student_id = StudentRelatives.student_id
+        this.StudentRelative.guardian_name = StudentRelatives.guardian_name
+        this.StudentRelative.guardian_profession = StudentRelatives.guardian_profession
+        this.StudentRelative.guardian_card = StudentRelatives.guardian_card
+        this.StudentRelative.guardian_relation = StudentRelatives.guardian_relation
+        this.StudentRelative.scholarship = StudentRelatives.scholarship
+        this.StudentRelative.guardian_receives_aid = StudentRelatives.guardian_receives_aid
+        this.StudentRelative.guardian_aid_total = StudentRelatives.guardian_aid_total
+        this.StudentRelative.guardian_salary = StudentRelatives.guardian_salary
+
+        axios.get('/list-student').then(response=>{
+            this.listStudent = response.data
         console.log('revisando información', this.listStudent)
       })
+
     },
-    methods:{
-          send() {
+    methods: {
+        send(){
             if(this.StudentRelative.student_id === ''){
                 Swal.fire({
                     icon: 'warning',
@@ -161,33 +177,21 @@ export default {
                 return false
             }
 
-            axios.post('/store-StudentRelative', this.StudentRelative).then(response => {
-                this.StudentRelative.student_id = '',
-                this.StudentRelative.guardian_name = '',
-                this.StudentRelative.guaridan_profession = '',
-                this.StudentRelative.guardian_card = '',
-                this.StudentRelative.guardian_relation = '',
-                this.StudentRelative.scholarship = '',
-                this.StudentRelative.guardian_receives_aid = '',
-                this.StudentRelative.guardian_aid_total = '',
-                this.StudentRelative.guardian_salary = ''
-
+            axios.put('/update-studentrelative/'+ this.idStudentrelative, this.StudentRelative).then(response=>{
                 Swal.fire({
                     icon: 'success',
-                    title: 'Datos registrados',
-                    text: 'El familiar se ha registrado con éxito'
+                    title: 'Datos cambiados',
+                    text: 'Los datos se han editado con éxito'
                 });
             }).catch(error =>{
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Se ha producido un error'
-                })
-            });
+                    text: 'Se ha encontrado un error'
+                });
+            })
         }
-
-    }   
+    }
     
-
 }
 </script>
