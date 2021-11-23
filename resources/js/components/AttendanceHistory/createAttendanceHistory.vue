@@ -111,7 +111,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'Se ha registrado con exito.',
+                    text: 'Se ha registrado la entrada con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({
