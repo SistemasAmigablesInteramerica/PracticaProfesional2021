@@ -183,6 +183,16 @@ export default {
 
           
             axios.post('/store-teacher', this.teacher).then(response => {
+              this.teacher.names = '',
+              this.teacher.last_names = '',
+              this.teacher.birthdate = '',
+              this.teacher.identification = '',
+              this.teacher.age = '',
+              this.teacher.email = '',
+              this.teacher.speciality = '',
+              this.teacher.gender = '',
+              this.teacher.contact_number = '',
+              
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',

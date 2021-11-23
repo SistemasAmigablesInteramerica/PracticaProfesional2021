@@ -15,11 +15,10 @@ class CreateAttendanceHistoriesTable extends Migration
     {
         Schema::create('attendance_histories', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('date');
             $table->dateTime('check_in');
             $table->dateTime('check_out');
             $table->bigInteger('student_id')->unsigned();
-            $table->bigInteger('grade_subject_teacher_id')->nullable()->unsigned();
+            $table->bigInteger('subject_teacher_id')->nullable()->unsigned();
             $table->bigInteger('teacher_id')->nullable()->unsigned();
             $table->boolean('attended')->nullabe();
             $table->timestamps();
@@ -27,7 +26,7 @@ class CreateAttendanceHistoriesTable extends Migration
 
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->foreign('grade_subject_teacher_id')->references('id')->on('subject_teachers');
+            $table->foreign('subject_teacher_id')->references('id')->on('subject_teachers');
         });
     }
 

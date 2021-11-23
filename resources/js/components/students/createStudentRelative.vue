@@ -162,6 +162,16 @@ export default {
             }
 
             axios.post('/store-StudentRelative', this.StudentRelative).then(response => {
+                this.StudentRelative.student_id = '',
+                this.StudentRelative.guardian_name = '',
+                this.StudentRelative.guaridan_profession = '',
+                this.StudentRelative.guardian_card = '',
+                this.StudentRelative.guardian_relation = '',
+                this.StudentRelative.scholarship = '',
+                this.StudentRelative.guardian_receives_aid = '',
+                this.StudentRelative.guardian_aid_total = '',
+                this.StudentRelative.guardian_salary = ''
+
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',

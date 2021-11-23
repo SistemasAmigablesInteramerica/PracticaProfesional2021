@@ -4,12 +4,12 @@
   <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Nombre</th>
       <th scope="col">Entrada</th>
       <th scope="col">Salida</th>
       <th scope="col">Estudiante</th>  
       <th scope="col">Materia</th>
       <th scope="col">Asistió</th>
+      <th scope="col">Acción</th>
 
 
     </tr>
@@ -17,15 +17,13 @@
   <tbody>
     <tr v-for="(attendancehistory, index) in listAttendancehistory" :key="attendancehistory.id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ attendancehistory.names }}</th>
       <th>{{ attendancehistory.check_in }}</th>
       <th>{{ attendancehistory.check_out }}</th>
       <th>{{ attendancehistory.student_id }}</th>
-      <th>{{ attendancehistory.grade_subject_teacher_id }}</th>
-      <th>{{ attendancehistory.attendancehistory }}</th>
+      <th>{{ attendancehistory.subject_teacher_id }}</th>
       <th v-if="attendancehistory.attended === 1">Atendio</th>
       <th v-else>No Atendio</th>
-
+      <td><a class="btm btm-info btm-se" :href="edit(attendancehistory.id)"><span class="fa fa-edit"></span></a></td>
      
     </tr>
   </tbody>
@@ -45,6 +43,11 @@ export default {
         axios.get('list-attendanceHistory').then(response=>{
             this.listAttendancehistory = response.data
         })
+    },
+    methods:{
+      edit(id){
+        return '/edit-attendancehistory/' + id
+      }
     }
 }
 </script>
