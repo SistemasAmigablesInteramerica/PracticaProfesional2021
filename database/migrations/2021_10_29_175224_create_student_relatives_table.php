@@ -17,7 +17,7 @@ class CreateStudentRelativesTable extends Migration
             $table->id();
             $table->bigInteger('student_id')->unsigned();
             $table->string('guardian_name');
-            $table->integer('guardian_card');
+            $table->string('guardian_card');
             $table->string('guardian_profession');
             $table->string('guardian_relation');
             $table->boolean('guardian_receives_aid', 12, 2)->nullable();

@@ -3,11 +3,11 @@
         <div class="container">
       <div class="row">
         <div class="col-lg-9">  
-          <div class="row" style="min-height: 320px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+          <div class="row" style="min-height: 320spx; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Agregar familiar de estudiante</h2>
+                    <h2>Editar familiar de estudiante</h2>
                   </div>  
                   <div class="col-lg-4">
                     <fieldset>
@@ -70,7 +70,7 @@
                  <div class="col-lg-12">
                    <br>
                     <fieldset style="text-align:center">
-                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Registrar</button>
+                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Actualizar</button>
                     </fieldset>
                  </div>
             </div>

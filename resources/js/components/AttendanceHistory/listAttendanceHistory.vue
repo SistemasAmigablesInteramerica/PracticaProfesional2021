@@ -10,8 +10,6 @@
       <th scope="col">Materia</th>
       <th scope="col">Asistió</th>
       <th scope="col">Acción</th>
-
-
     </tr>
   </thead>
   <tbody>
@@ -23,8 +21,7 @@
       <th>{{ attendancehistory.subject_teacher_id }}</th>
       <th v-if="attendancehistory.attended === 1">Atendio</th>
       <th v-else>No Atendio</th>
-      <td><a class="btm btm-info btm-se" :href="edit(attendancehistory.id)"><span class="fa fa-edit"></span></a></td>
-     
+      <td><a class="btm btm-info btm-se" :href="edit(attendancehistory.id)"><span class="fa fa-edit"></span></a></td> 
     </tr>
   </tbody>
     </table>

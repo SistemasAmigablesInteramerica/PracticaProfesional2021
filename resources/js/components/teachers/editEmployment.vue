@@ -7,7 +7,7 @@
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Formulario de intermediación de empleo</h2>
+                    <h2>Editar formulario de intermediación de empleo</h2>
                     <p>El Colegio Técnico Profesional de Quepos está comprometido con la calidad educativa, por lo que le solicitamos atentamente su colaboración completando el siguiente formulario con el fin de mejorar el servicio que brindamos.</p>
                     <br>
                   </div>
@@ -98,7 +98,7 @@
                   <small>Curriculum digital <br> Si ya cuenta con un curriculum digital en formato .pdf, nos lo puede enviar a la dirección de correo electrónico: marvin.rodriguez.ramirez@mep.go.cr</small>
                   <div class="col-lg-12">
                     <fieldset style="text-align:center">  
-                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Registrar</button>
+                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Actualizar</button>
                     </fieldset>
                   </div>
                 </div>
