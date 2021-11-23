@@ -175,7 +175,7 @@ export default {
             },
             idStudent: ''
       } 
-    },
+    },  
     created(){
       const Students = JSON.parse(this.data_student)
       this.idStudent = Students.id
