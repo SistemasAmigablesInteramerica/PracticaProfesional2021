@@ -10,11 +10,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(Subjectgrade, index) in listSubjectgrade" :key="Subjectgrade.id">
+    <tr v-for="(subjectgrade, index) in listSubjectgrade" :key="subjectgrade.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ subjectgrade.subject_id }}</th>
       <th>{{ subjectgrade.grade_id }}</th>
-      <td><a class="btm btm-info btm-se" :href="edit(Subjectgrade.id)"><span class="fa fa-edit"></span></a></td>
+      <td><a class="btm btm-info btm-se" :href="edit(subjectgrade.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
     </table>

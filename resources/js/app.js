@@ -27,12 +27,13 @@ Vue.component('createSubjectteacher', require("./components/Subjects/createSubje
 Vue.component('createSubjectgrade', require("./components/Subjects/createSubjectgrade.vue").default);
 Vue.component('createStudentrelative', require("./components/students/createStudentRelative.vue").default);
 Vue.component('createAttendancehistory', require("./components/AttendanceHistory/createAttendanceHistory.vue").default);
-Vue.component('createGradesubjectstudent', require("./components/Grades/createGradesubjectstudent.vue").default);
+Vue.component('createGradeSubjectStudent', require("./components/Grades/createGradesubjectstudent.vue").default);
 Vue.component('createEmployment', require("./components/teachers/createEmployment.vue").default);
 Vue.component('index', require("./components/index.vue").default);
 
 
 Vue.component('listsGrade', require("./components/Grades/listsGrade.vue").default);
+Vue.component('listgradesubjectstudent', require("./components/Grades/listGradeSubjectStudent.vue").default);
 Vue.component('listSubjectgrade', require("./components/Subjects/listSubjectgrade.vue").default);
 Vue.component('listsSubjects', require("./components/Subjects/listsSubjects.vue").default);
 Vue.component('listStudent', require("./components/students/listStudent.vue").default);
@@ -42,6 +43,7 @@ Vue.component('listStudentrelative', require("./components/students/listStudentR
 Vue.component('listAttendancehistory', require("./components/AttendanceHistory/listAttendanceHistory.vue").default);
 
 Vue.component('editGrade', require("./components/Grades/editGrade.vue").default);
+Vue.component('editGradesubjectstudent', require("./components/Grades/editGradeSubjectStudent.vue").default);
 Vue.component('editStudents', require("./components/students/editStudents.vue").default);
 Vue.component('editSubjectgrade', require("./components/Subjects/editSubjectgrade.vue").default);
 Vue.component('editSubject', require("./components/Subjects/editSubject.vue").default);

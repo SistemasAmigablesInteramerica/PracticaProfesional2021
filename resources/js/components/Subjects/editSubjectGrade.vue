@@ -14,7 +14,7 @@
                      <label>Materias:</label>
                     <select class="form-select form-select-sm" v-model="subjectgrade.subject_id">
                       <option disabled value="">Seleccione una materia:</option>
-                      <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
+                      <option></option>
                     </select>
                   </fieldset>
                     </div>
@@ -23,7 +23,6 @@
                       <label>Grados:</label>
                       <select class="form-select form-select-sm" v-model="subjectgrade.grade_id" >
                         <option disabled value="">Seleccione un grado:</option>
-                        <option v-for="grade in listsGrades" :value="grade.id" key="grade_id">{{grade.name}}</option>
                       </select>
                   </fieldset>
                     </div>
@@ -53,9 +52,14 @@
               grade_id: '',
               subject_id: '',
             },
-            listsSubjects: [],
-            listsGrades: []
-          }
+              idSubjectGrade:''
+           }
+          },
+          created(){
+           const subjectgrade = JSON.parse(this.data_subjectgrade)
+           this.idSubjectGrade = subjectgrade.id
+           this.subjectgrades.subject_id = subjectgrade.subject_id
+           this.subjectgrades.grade_id = subjectgrade.grade_id 
         },
         created() {
             axios.get('/lists-subjects').then(response=>{
@@ -83,13 +87,13 @@
             })
             return false
           }
-            axios.post('/store-subjectgrade', this.subjectgrade).then(response =>{
+            axios.put('/update-subjectgrade/'+ this.idSubjectGrade , this.subjectgrades).then(response =>{
               this.subjectgrade.grade_id='',
               this.subjectgrade.subject_id=''
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con exito.',
+                    text: 'Se ha guardado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({

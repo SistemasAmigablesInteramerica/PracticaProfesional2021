@@ -114,7 +114,7 @@ Route::put('/update-subjectteacher/{id}', [SubjectTeacherController::class, 'upd
 
 // Inicio de rutas de asignar materia-estudiante
 Route::get('/asignar-materia-estudiante', [App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController::class, 'create'])->name('insert-gradesubjectstudentinfo');
-Route::get('/lista-de-materiasyestudiantes', [App\Http\Controllers\GradeSubjectStudent\ListGradeSubjectStudentController::class, 'create'])->name('list-subjectteacherinfo');
+Route::get('/lista-de-materiasyestudiantes', [App\Http\Controllers\GradeSubjectStudent\ListGradeSubjectStudentController::class, 'create'])->name('list-gradesubjectstudentinfo');
 Route::get('/list-gradesubjectstudent', [App\Http\Controllers\GradeSubjectStudent\GradeSubjectStudentController::class, 'list']);
 Route::get('/edit-gradesubjectstudent/{id}', [GradeSubjectStudentController::class, 'edit']);
 Route::post('/store-gradesubjectstudent', [GradeSubjectStudentController::class, 'store']);

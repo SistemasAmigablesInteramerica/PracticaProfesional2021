@@ -41,7 +41,7 @@ class GradeSubjectStudentController extends Controller
         $gradesubjectstudent = GradeSubjectStudent::where('id',$id)->update($request->all());
         return $gradesubjectstudent;
     }
-    public function lists()
+    public function list()
     {
         return GradeSubjectStudent::all();
     }

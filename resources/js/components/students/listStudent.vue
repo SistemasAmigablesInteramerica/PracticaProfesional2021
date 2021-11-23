@@ -42,7 +42,7 @@ export default {
     name: 'listStudent',
     data(){
         return{
-            listStudent:[]
+            listStudent: [],
         }
     },
     created() {
