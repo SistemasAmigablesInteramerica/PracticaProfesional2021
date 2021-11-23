@@ -11,7 +11,7 @@
                     <fieldset>
                       <select  class="form-select" v-model="gradesubjectstudent.student_id">
                       <option disabled value="">ID del estudiante</option>
-                        <option v-for="student in listStudent" :value="student.id" :key="student.id">{{ student.name }}</option>
+                        <option></option> 
                       </select>
                     </fieldset>
                   </div>
@@ -45,6 +45,9 @@
   import Swal from 'sweetalert2'
     export default {
         name: "createGradeSubjectStudent",
+        props:[
+          'data_gradesubjectstudent'
+        ],
         components:{Swal},
         data() {
           return {
@@ -53,12 +56,19 @@
               student_id: '',
               year: '',
             },
-            listsGrades: [],
+            idGradeSubjectStudent:'',
+             listsGrades: [],
             listsSubjects: [],
             listStudent: [],
           }
         },
         created(){
+           const Gradesubjectstudent = JSON.parse(this.data_Gradesubjectstudent)
+        this.idGradesubjectstudent = Gradesubjectstudent.id
+        this.gradesubjectstudents.student_id = gradesubjectstudent.student_id
+        this.gradesubjectstudents.subject_grade_id = gradesubjectstudent.subject_grade_id
+        this.gradesubjectstudents.year = gradesubjectstudent.year
+
           axios.get('/lists-subjects').then(response=>{
             this.listsSubjects = response.data
            })
@@ -84,11 +94,11 @@
               Swal.fire('Atención', 'Debe digitar el año', 'warning')
               return false
             }
-            axios.post('/store-gradesubjectstudent', this.gradesubjectstudent).then(response =>{
+            axios.post('/update-gradesubjectstudent' + this.idGradeSubjectStudent, this.gradesubjectstudent).then(response =>{
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con exito.',
+                    text: 'Se ha registrado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({

@@ -48,7 +48,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'La materia se ha registrado con exito.',
+                    text: 'La materia se ha registrado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({
