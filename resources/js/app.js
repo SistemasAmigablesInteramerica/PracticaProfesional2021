@@ -42,6 +42,7 @@ Vue.component('listStudentrelative', require("./components/students/listStudentR
 Vue.component('listAttendancehistory', require("./components/AttendanceHistory/listAttendanceHistory.vue").default);
 
 Vue.component('editGrade', require("./components/Grades/editGrade.vue").default);
+Vue.component('editStudents', require("./components/students/editStudents.vue").default);
 Vue.component('editSubjectgrade', require("./components/Subjects/editSubjectgrade.vue").default);
 Vue.component('editSubject', require("./components/Subjects/editSubject.vue").default);
 Vue.component('editTeacher', require("./components/teachers/editTeacher.vue").default);
