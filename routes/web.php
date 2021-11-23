@@ -95,8 +95,8 @@ Route::put('/update-attendancehistory/{id}', [AttendanceHistoryController::class
 // Inicio de rutas de asignar materia-grado
 Route::get('/asignar-materia-grado', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'create'])->name('insert-subjectgradeinfo');
 Route::get('/lista-de-materiasygrados', [App\Http\Controllers\Subjects\ListSubjectGradeController::class, 'create'])->name('list-subjectgrade');
-Route::get('/list-subjectGrade', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'list']);
-Route::get('/edit-subjectGrade/{id}', [SubjectGradeController::class, 'edit']);
+Route::get('/list-subjectgrade', [App\Http\Controllers\Subjects\SubjectGradeController::class, 'list']);
+Route::get('/edit-subjectgrade/{id}', [SubjectGradeController::class, 'edit']);
 Route::post('/store-subjectgrade', [SubjectGradeController::class, 'store']);
 Route::put('/update-subjectgrade/{id}', [SubjectGradeController::class, 'update']);
 // Fin de rutas de asignar materia-grado

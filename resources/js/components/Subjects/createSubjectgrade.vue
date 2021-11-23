@@ -54,7 +54,8 @@
               subject_id: '',
             },
             listsSubjects: [],
-            listsGrades: []
+            listsGrades: [],
+            listSubjectgrade:[],
           }
         },
         created() {
