@@ -11,7 +11,7 @@
                     <fieldset>
                       <select  class="form-select" v-model="gradesubjectstudent.student_id">
                       <option disabled value="">ID del estudiante</option>
-                        <option v-for="student in listStudent" :value="student.id" :key="student.id">{{ student.name }}</option>
+                        <option v-for="student in listStudent" :value="student.id" :key="student.id">{{ student_id }}</option>
                       </select>
                     </fieldset>
                   </div>
@@ -19,7 +19,7 @@
                     <fieldset>
                      <select class="form-select" v-model="gradesubjectstudent.subject_grade_id">
                         <option disabled value="">Escoger materia</option>
-                       <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
+                       <option v-for="subject in listSubjects" :value="subject.id" key="subject_id" >{{subject_grade_id}}</option>
                       </select> 
                     </fieldset>
                  </div>
@@ -53,8 +53,8 @@
               student_id: '',
               year: '',
             },
-            listsGrades: [],
-            listsSubjects: [],
+            listGrades: [],
+            listSubjects: [],
             listStudent: [],
           }
         },
@@ -88,7 +88,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El estudiante se ha registrado con exito.',
+                    text: 'Se ha guardado con exito.',
                 });
             }).catch(error => {
                     Swal.fire({

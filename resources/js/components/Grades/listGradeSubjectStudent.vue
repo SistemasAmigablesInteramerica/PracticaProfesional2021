@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(gradesubjectstudent, index) in listGradeSubjectStudent" :key="gradesubjectstudents.id">
+    <tr v-for="(gradesubjectstudent, index) in listGradesubjectstudent" :key="gradesubjectstudent.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ gradesubjectstudent.year }}</th>
       <th>{{ gradesubjectstudent.subject_grade_id }}</th>
@@ -22,7 +22,7 @@
     </table>
 </div>
 </template>
-
+ 
 <script>
 export default {
     name: 'listGradeSubjectStudent',
@@ -32,7 +32,7 @@ export default {
         }
     },
     created() {
-        axios.get('lists-Gradesubjectstudent').then(response =>{
+        axios.get('list-gradesubjectstudent').then(response =>{
             this.listGradesubjectstudent = response.data
            
         })

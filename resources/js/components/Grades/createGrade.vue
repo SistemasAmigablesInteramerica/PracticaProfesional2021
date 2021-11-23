@@ -81,7 +81,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El grado se ha registrado con exito.',
+                    text: 'El grado se ha registrado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({

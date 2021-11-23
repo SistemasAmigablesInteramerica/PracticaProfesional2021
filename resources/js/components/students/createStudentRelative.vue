@@ -175,7 +175,7 @@ export default {
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El familiar se ha registrado con exito'
+                    text: 'El familiar se ha registrado con éxito'
                 });
             }).catch(error =>{
                 Swal.fire({
