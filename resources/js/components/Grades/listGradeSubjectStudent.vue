@@ -4,17 +4,19 @@
   <thead>
     <tr>
       <th scope="col">Id</th>
-      <th scope="col">Grado</th>
-      <th scope="col">Sección</th>
-      <th scope="col"></th>
+      <th scope="col">Curso Lectivo</th>
+      <th scope="col">Materia</th>
+      <th scope="col">ID del Estudiante</th>
+      <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(grades, index) in listsGrades" :key="grades.id">
+    <tr v-for="(gradesubjectstudent, index) in listGradeSubjectStudent" :key="gradesubjectstudents.id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ grades.name }}°</th>
-      <th>{{ grades.section }}</th>
-      <td><a class="btm btm-info btm-se" :href="edit(grades.id)"><span class="fa fa-edit"></span></a></td>
+      <th>{{ gradesubjectstudent.year }}</th>
+      <th>{{ gradesubjectstudent.subject_grade_id }}</th>
+      <th>{{ gradesubjectstudent.student_id}}</th>
+      <td><a class="btm btm-info btm-se" :href="edit(gradesubjectstudent.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
     </table>
@@ -23,21 +25,21 @@
 
 <script>
 export default {
-    name: 'listsGrades',
+    name: 'listGradeSubjectStudent',
     data(){
         return{
-            listsGrades:[]
+            listGradesubjectstudent: [],
         }
     },
     created() {
-        axios.get('lists-grades').then(response =>{
-            this.listsGrades = response.data
-            console.log(this.listsGrades)
+        axios.get('lists-Gradesubjectstudent').then(response =>{
+            this.listGradesubjectstudent = response.data
+           
         })
     },
     methods: {
       edit(id){
-        return '/edit-grade/' + id
+        return '/edit-gradesubjectstudent/' + id
       }
     },
 }
