@@ -199,7 +199,7 @@ export default {
             axios.put('/update-teacher/' + this.idTeacher, this.teacher).then(response=>{
                 Swal.fire({
                     icon: 'success',
-                    Title: 'Datos cambiados',
+                    title: 'Datos cambiados',
                     text: 'Los datos se han editado con éxito'
                 });
             }).catch(error =>{

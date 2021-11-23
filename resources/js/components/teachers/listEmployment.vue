@@ -1,5 +1,6 @@
 <template>
-    <table class="table table-light table-md" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+    <table class="table table-light table-md">
+      <div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -15,6 +16,7 @@
       <th scope="col">Condiciones del trabajo solicitado</th>
       <th scope="col">Lugares donde le gustaría trabajar</th>
       <th scope="col">Egresado o miembro de la comunidad</th>
+      <th scope="col">Acción</th>
 
     </tr>
   </thead>
@@ -33,10 +35,13 @@
       <th>{{ employment.conditions }}</th>
       <th>{{ employment.place_likeness }}</th>
       <th>{{ employment.graduate_status }}</th>
+      <td><a class="btm btm-info btm-se" :href="edit(employment.id)"><span class="fa fa-edit"></span></a></td>
      
     </tr>
   </tbody>
+  </div>
     </table>
+  
 </template>
 
 <script>
@@ -52,6 +57,12 @@ export default {
             axios.get('list-employment').then(response=>{
                     this.listEmployment = response.data
             })
+    },
+    methods:{
+      edit(id){
+        return "/edit-employment/" + id
+      }
+      
     }
 }
 </script>
