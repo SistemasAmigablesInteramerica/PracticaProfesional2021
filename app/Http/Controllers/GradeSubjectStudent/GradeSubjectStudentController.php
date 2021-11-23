@@ -22,11 +22,28 @@ class GradeSubjectStudentController extends Controller
     public function store(Request $request)
     {
 
-        $gradesubjectstudent = GradeSubjectStudent::create($request->all(''));
-        return $gradesubjectstudent;
-        dd($request->all(''));
-        $gradesubjectstudent->save();
-
+        $gradesubjectstudent = new GradeSubjectStudent();
+        $gradesubjectstudent->fill($request->all());
+        if($grade->save()){
+            return response()->json(['message'=>'Se guardo con exito','data'=> $gradesubjectstudent], 200);
+        }
+        return response()->json(['message'=>'No se guardo la informacion', 'data'=> $gradesubjectstudent], 471);
     }
-}
+    public function edit($id) 
+    {
+        $gradesubjectstudent = GradeSubjectStudent::find($id);
+
+        return view('grades/edit-gradesubjectstudent',compact('gradesubjectstudent'));
+    }   
+
+    public function update(Request $request, $id)
+    {
+        $gradesubjectstudent = GradeSubjectStudent::where('id',$id)->update($request->all());
+        return $gradesubjectstudent;
+    }
+    public function lists()
+    {
+        return GradeSubjectStudent::all();
+    }
+} 
  
