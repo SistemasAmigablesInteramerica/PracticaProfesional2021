@@ -5,19 +5,21 @@
             <div class="col-lg-12">
                 <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
                   <div class="col-lg-12">
-                    <h2>Asignar grado,materia y estudiante</h2>
+                    <h2>Actualizar grado de materia y estudiante</h2>
                     </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <select  class="form-select" v-model="gradesubjectstudent.student_id">
+                      <label>ID del estudiante:</label>
+                      <select  class="form-control" v-model="gradesubjectstudent.student_id">
                       <option disabled value="">ID del estudiante</option>
-                        <option></option> 
+                        <option v-for="student in listStudent" :value="student.id" key="student.id">{{ student.name }}</option>
                       </select>
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                     <select class="form-select" v-model="gradesubjectstudent.subject_grade_id">
+                    <label>Materias:</label>
+                     <select class="form-control" v-model="gradesubjectstudent.subject_grade_id">
                         <option disabled value="">Escoger materia</option>
                        <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
                       </select> 
@@ -30,7 +32,7 @@
                     </div>
                  <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary" >Enviar</button>
+                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary" >Actualizar</button>
                     </fieldset>
                   </div>
                 </div>
@@ -40,7 +42,7 @@
         </div>
     </section>
 </template> 
-
+ 
 <script>
   import Swal from 'sweetalert2'
     export default {
@@ -60,15 +62,19 @@
              listsGrades: [],
             listsSubjects: [],
             listStudent: [],
+            listGradesubjectstudent: [],
           }
         },
         created(){
-           const Gradesubjectstudent = JSON.parse(this.data_Gradesubjectstudent)
-        this.idGradesubjectstudent = Gradesubjectstudent.id
-        this.gradesubjectstudents.student_id = gradesubjectstudent.student_id
-        this.gradesubjectstudents.subject_grade_id = gradesubjectstudent.subject_grade_id
-        this.gradesubjectstudents.year = gradesubjectstudent.year
+           const gradesubjectstudents = JSON.parse(this.data_gradesubjectstudent)
+        this.idGradesubjectstudent = gradesubjectstudents.id
+        this.gradesubjectstudent.student_id = gradesubjectstudents.student_id
+        this.gradesubjectstudent.subject_grade_id = gradesubjectstudents.subject_grade_id
+        this.gradesubjectstudent.year = gradesubjectstudents.year
 
+          axios.get('/list-gradesubjectstudent').then(response=>{
+            this.listGradesubjectstudent = response.data
+           })
           axios.get('/lists-subjects').then(response=>{
             this.listsSubjects = response.data
            })
@@ -94,11 +100,11 @@
               Swal.fire('Atención', 'Debe digitar el año', 'warning')
               return false
             }
-            axios.post('/update-gradesubjectstudent' + this.idGradeSubjectStudent, this.gradesubjectstudent).then(response =>{
+            axios.put('/update-gradesubjectstudent/'+ this.idGradesubjectstudent, this.gradesubjectstudent).then(response =>{
               Swal.fire({
                     icon: 'success',
-                    title: 'Datos registrados',
-                    text: 'Se ha registrado con éxito.',
+                    title: 'Datos actualizados',
+                    text: 'Se ha actualizado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({

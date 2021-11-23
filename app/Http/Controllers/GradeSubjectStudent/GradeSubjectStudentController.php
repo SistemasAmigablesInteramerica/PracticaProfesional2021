@@ -24,7 +24,7 @@ class GradeSubjectStudentController extends Controller
 
         $gradesubjectstudent = new GradeSubjectStudent();
         $gradesubjectstudent->fill($request->all());
-        if($grade->save()){
+        if($gradesubjectstudent->save()){
             return response()->json(['message'=>'Se guardo con exito','data'=> $gradesubjectstudent], 200);
         }
         return response()->json(['message'=>'No se guardo la informacion', 'data'=> $gradesubjectstudent], 471);

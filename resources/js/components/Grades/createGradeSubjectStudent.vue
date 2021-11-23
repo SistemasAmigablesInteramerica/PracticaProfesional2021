@@ -5,21 +5,23 @@
             <div class="col-lg-12">
                 <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
                   <div class="col-lg-12">
-                    <h2>Asignar grado,materia y estudiante</h2>
+                    <h2>Asignar grado a materia y estudiante</h2>
                     </div>
                   <div class="col-lg-6">
                     <fieldset>
-                      <select  class="form-select" v-model="gradesubjectstudent.student_id">
+                    <label>ID del estudiante:</label>
+                      <select  class="form-control" v-model="gradesubjectstudent.student_id">
                       <option disabled value="">ID del estudiante</option>
-                        <option v-for="student in listStudent" :value="student.id" :key="student.id">{{ student_id }}</option>
+                        <option v-for="student in listStudent" :value="student.id" :key="student.id">{{ student.name }}</option>
                       </select>
                     </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
-                     <select class="form-select" v-model="gradesubjectstudent.subject_grade_id">
+                    <label>Materias:</label>
+                     <select class="form-control" v-model="gradesubjectstudent.subject_grade_id">
                         <option disabled value="">Escoger materia</option>
-                       <option v-for="subject in listSubjects" :value="subject.id" key="subject_id" >{{subject_grade_id}}</option>
+                       <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
                       </select> 
                     </fieldset>
                  </div>
@@ -53,12 +55,16 @@
               student_id: '',
               year: '',
             },
-            listGrades: [],
-            listSubjects: [],
+            listsGrades: [],
+            listsSubjects: [],
             listStudent: [],
+            listGradesubjectstudent: [],
           }
         },
         created(){
+            axios.get('/list-gradesubjectstudent').then(response=>{
+            this.listGradesubjectstudent = response.data
+           })
           axios.get('/lists-subjects').then(response=>{
             this.listsSubjects = response.data
            })
@@ -85,10 +91,13 @@
               return false
             }
             axios.post('/store-gradesubjectstudent', this.gradesubjectstudent).then(response =>{
+               this.gradesubjectstudent.student_id='',
+              this.gradesubjectstudent.subject_grade_id='',
+              this.gradesubjectstudent.year='',
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'Se ha guardado con exito.',
+                    text: 'Se ha guardado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({
