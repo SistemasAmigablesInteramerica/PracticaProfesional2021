@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-9">
-          <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+          <div class="row" style="min-height: 470px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
@@ -27,7 +27,7 @@
                       <input name="identification" v-model="teacher.identification" type="number"  placeholder="No.Cédula" pattern="" required="">
                     </fieldset>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-4">
                     <fieldset>
                     <label for="Birthdate">Fecha de nacimiento:</label>
                    <input name="birthdate" v-model="teacher.birthdate" type="date" placeholder="Fecha de Nacimiento" min="1995-01-01">  
@@ -53,7 +53,6 @@
                    </div>
                    <div class="col-lg-4">
                     <fieldset>
-                      <br>
                         <label for="gender">Genero:</label>
                         <select class="form-control" v-model="teacher.gender">
                         <option disabled value="">Seleccione genero</option>
@@ -64,7 +63,6 @@
                    </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <br>
                         <label for="contact_number">Número de telefono:</label>
                          <input type="tel" v-model="teacher.contact_number" id="contact_number" name="contact_number" placeholder="7777-7777">  
                     </fieldset>

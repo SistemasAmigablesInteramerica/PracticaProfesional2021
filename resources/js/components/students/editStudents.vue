@@ -7,7 +7,7 @@
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Expediente Del Beneficiario Del Comedor Estudiantil</h2>
+                    <h2>Editar Expediente del beneficiario del comedor estudiantil</h2>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
@@ -131,7 +131,7 @@
                   </div>
                   <div class="col-lg-12" style="text-align: center" >
                     <fieldset>
-                      <button type="submit" @click="send" class="btn btn-primary">Registrar</button>
+                      <button type="submit" @click="send" class="btn btn-primary">Actualizar</button>
                     </fieldset>
                   </div>
                 </div>
@@ -311,8 +311,9 @@ export default {
             Swal.fire({
               icon: 'success',
               title: 'Datos cambiados',
-              text: 'Los datos se han editado con éxito'
+              text: 'Los datos se han editado con éxito',
             });
+
           }).catch(error=>{
             Swal.fire({
               icon: 'error',

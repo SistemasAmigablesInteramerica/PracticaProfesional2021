@@ -17,8 +17,7 @@
       <th scope="col">Lugares donde le gustaría trabajar</th>
       <th scope="col">Egresado o miembro de la comunidad</th>
       <th scope="col">Acción</th>
-
-    </tr>
+    </tr> 
   </thead>
   <tbody>
     <tr v-for="(employment, index) in listEmployment" :key="employment.id">
@@ -36,7 +35,6 @@
       <th>{{ employment.place_likeness }}</th>
       <th>{{ employment.graduate_status }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(employment.id)"><span class="fa fa-edit"></span></a></td>
-     
     </tr>
   </tbody>
   </div>

@@ -27,7 +27,7 @@
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Actividad laboral:</label>
-                      <input name="guaridan_profession" class="form-control" v-model="StudentRelative.guaridan_profession" type="text" id="guaridan_profession" placeholder="Empleo del familiar">
+                      <input name="guaridan_profession" class="form-control" v-model="StudentRelative.guardian_profession" type="text" id="guaridan_profession" placeholder="Empleo del familiar">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">

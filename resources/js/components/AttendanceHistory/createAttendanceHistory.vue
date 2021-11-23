@@ -111,11 +111,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-<<<<<<< HEAD
-                    text: 'Se ha registrado la entrada con éxito.',
-=======
                     text: 'Se ha registrado con éxito.',
->>>>>>> refs/remotes/origin/main
                 });
             }).catch(error => {
                     Swal.fire({
