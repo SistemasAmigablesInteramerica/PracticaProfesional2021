@@ -1,13 +1,13 @@
 <template>
-      <section class="contact-us" id="contact">
-         <div class="col-lg-9 col-md-9 col-sm-12">
+      <section id="contact" style="min-height: 350px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+         <div class="col-lg-12">
           <div class="row" >
             <div class="col-lg-12">
-                <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+                <div class="row" >
                   <div class="col-lg-12">
                     <h2>Asignar grado a materia y estudiante</h2>
                     </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <fieldset>
                     <label>ID del estudiante:</label>
                       <select  class="form-control" v-model="gradesubjectstudent.student_id">
@@ -16,7 +16,7 @@
                       </select>
                     </fieldset>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-4">
                     <fieldset>
                     <label>Materias:</label>
                      <select class="form-control" v-model="gradesubjectstudent.subject_grade_id">
@@ -27,12 +27,13 @@
                  </div>
                  <div class="col-lg-4">
                   <fieldset>
+                  <label>Curso lectivo:</label>
                     <input type="text" v-model="gradesubjectstudent.year" placeholder="Año">
                     </fieldset>
                     </div>
                  <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary" >Enviar</button>
+                      <button type="submit" id="form-submit" @click="send" class="btn btn-primary" >Asignar</button>
                     </fieldset>
                   </div>
                 </div>
