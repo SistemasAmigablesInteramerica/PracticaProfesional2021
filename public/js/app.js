@@ -2235,9 +2235,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'listAttendancehistory',
   data: function data() {
@@ -2429,6 +2426,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createGradeSubjectStudent",
@@ -2442,14 +2442,18 @@ __webpack_require__.r(__webpack_exports__);
         student_id: '',
         year: ''
       },
-      listGrades: [],
-      listSubjects: [],
-      listStudent: []
+      listsGrades: [],
+      listsSubjects: [],
+      listStudent: [],
+      listGradesubjectstudent: []
     };
   },
   created: function created() {
     var _this = this;
 
+    axios.get('/list-gradesubjectstudent').then(function (response) {
+      _this.listGradesubjectstudent = response.data;
+    });
     axios.get('/lists-subjects').then(function (response) {
       _this.listsSubjects = response.data;
     });
@@ -2462,6 +2466,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     send: function send() {
+      var _this2 = this;
+
       if (this.gradesubjectstudent.student_id === '') {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atención', 'Debe añadir un estudiante', 'warning');
         return false;
@@ -2478,10 +2484,10 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       axios.post('/store-gradesubjectstudent', this.gradesubjectstudent).then(function (response) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        _this2.gradesubjectstudent.student_id = '', _this2.gradesubjectstudent.subject_grade_id = '', _this2.gradesubjectstudent.year = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
-          text: 'Se ha guardado con exito.'
+          text: 'Se ha guardado con éxito.'
         });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -2664,6 +2670,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createGradeSubjectStudent",
@@ -2681,17 +2690,21 @@ __webpack_require__.r(__webpack_exports__);
       idGradeSubjectStudent: '',
       listsGrades: [],
       listsSubjects: [],
-      listStudent: []
+      listStudent: [],
+      listGradesubjectstudent: []
     };
   },
   created: function created() {
     var _this = this;
 
-    var Gradesubjectstudent = JSON.parse(this.data_Gradesubjectstudent);
-    this.idGradesubjectstudent = Gradesubjectstudent.id;
-    this.gradesubjectstudents.student_id = gradesubjectstudent.student_id;
-    this.gradesubjectstudents.subject_grade_id = gradesubjectstudent.subject_grade_id;
-    this.gradesubjectstudents.year = gradesubjectstudent.year;
+    var gradesubjectstudents = JSON.parse(this.data_gradesubjectstudent);
+    this.idGradesubjectstudent = gradesubjectstudents.id;
+    this.gradesubjectstudent.student_id = gradesubjectstudents.student_id;
+    this.gradesubjectstudent.subject_grade_id = gradesubjectstudents.subject_grade_id;
+    this.gradesubjectstudent.year = gradesubjectstudents.year;
+    axios.get('/list-gradesubjectstudent').then(function (response) {
+      _this.listGradesubjectstudent = response.data;
+    });
     axios.get('/lists-subjects').then(function (response) {
       _this.listsSubjects = response.data;
     });
@@ -2719,11 +2732,11 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
-      axios.post('/update-gradesubjectstudent' + this.idGradeSubjectStudent, this.gradesubjectstudent).then(function (response) {
+      axios.put('/update-gradesubjectstudent/' + this.idGradesubjectstudent, this.gradesubjectstudent).then(function (response) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
-          title: 'Datos registrados',
-          text: 'Se ha registrado con éxito.'
+          title: 'Datos actualizados',
+          text: 'Se ha actualizado con éxito.'
         });
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -5062,8 +5075,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createTeacher",
@@ -5202,9 +5213,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
-//
-//
-//
 //
 //
 //
@@ -5481,8 +5489,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'listEmployment',
   data: function data() {
@@ -5611,7 +5617,7 @@ Vue.component('createSubjectteacher', (__webpack_require__(/*! ./components/Subj
 Vue.component('createSubjectgrade', (__webpack_require__(/*! ./components/Subjects/createSubjectgrade.vue */ "./resources/js/components/Subjects/createSubjectgrade.vue")["default"]));
 Vue.component('createStudentrelative', (__webpack_require__(/*! ./components/students/createStudentRelative.vue */ "./resources/js/components/students/createStudentRelative.vue")["default"]));
 Vue.component('createAttendancehistory', (__webpack_require__(/*! ./components/AttendanceHistory/createAttendanceHistory.vue */ "./resources/js/components/AttendanceHistory/createAttendanceHistory.vue")["default"]));
-Vue.component('createGradeSubjectStudent', (__webpack_require__(/*! ./components/Grades/createGradesubjectstudent.vue */ "./resources/js/components/Grades/createGradesubjectstudent.vue")["default"]));
+Vue.component('createGradesubjectstudent', (__webpack_require__(/*! ./components/Grades/createGradesubjectstudent.vue */ "./resources/js/components/Grades/createGradesubjectstudent.vue")["default"]));
 Vue.component('createEmployment', (__webpack_require__(/*! ./components/teachers/createEmployment.vue */ "./resources/js/components/teachers/createEmployment.vue")["default"]));
 Vue.component('index', (__webpack_require__(/*! ./components/index.vue */ "./resources/js/components/index.vue")["default"]));
 Vue.component('listsGrade', (__webpack_require__(/*! ./components/Grades/listsGrade.vue */ "./resources/js/components/Grades/listsGrade.vue")["default"]));
@@ -46835,180 +46841,179 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    { staticClass: "contact-us", attrs: { id: "contact" } },
+    {
+      staticStyle: {
+        "min-height": "350px",
+        "border-radius": "20px",
+        width: "100%",
+        border: "10px solid white",
+        "background-color": "white",
+      },
+      attrs: { id: "contact" },
+    },
     [
-      _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-12" }, [
-            _c(
-              "div",
-              {
-                staticClass: "row",
-                staticStyle: {
-                  "min-height": "550px",
-                  "border-radius": "20px",
-                  width: "100%",
-                  border: "10px solid white",
-                  "background-color": "white",
-                },
-              },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
-                  _c("fieldset", [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.gradesubjectstudent.student_id,
-                            expression: "gradesubjectstudent.student_id",
-                          },
-                        ],
-                        staticClass: "form-select",
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.gradesubjectstudent,
-                              "student_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                        },
-                      },
-                      [
-                        _c("option", { attrs: { disabled: "", value: "" } }, [
-                          _vm._v("ID del estudiante"),
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.listStudent, function (student) {
-                          return _c(
-                            "option",
-                            {
-                              key: student.id,
-                              domProps: { value: student.id },
-                            },
-                            [_vm._v(_vm._s(_vm.student_id))]
-                          )
-                        }),
-                      ],
-                      2
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
-                  _c("fieldset", [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.gradesubjectstudent.subject_grade_id,
-                            expression: "gradesubjectstudent.subject_grade_id",
-                          },
-                        ],
-                        staticClass: "form-select",
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.gradesubjectstudent,
-                              "subject_grade_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                        },
-                      },
-                      [
-                        _c("option", { attrs: { disabled: "", value: "" } }, [
-                          _vm._v("Escoger materia"),
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.listSubjects, function (subject) {
-                          return _c(
-                            "option",
-                            {
-                              key: "subject_id",
-                              domProps: { value: subject.id },
-                            },
-                            [_vm._v(_vm._s(_vm.subject_grade_id))]
-                          )
-                        }),
-                      ],
-                      2
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4" }, [
-                  _c("fieldset", [
-                    _c("input", {
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("label", [_vm._v("ID del estudiante:")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.gradesubjectstudent.year,
-                          expression: "gradesubjectstudent.year",
+                          value: _vm.gradesubjectstudent.student_id,
+                          expression: "gradesubjectstudent.student_id",
                         },
                       ],
-                      attrs: { type: "text", placeholder: "Año" },
-                      domProps: { value: _vm.gradesubjectstudent.year },
+                      staticClass: "form-control",
                       on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
                           _vm.$set(
                             _vm.gradesubjectstudent,
-                            "year",
-                            $event.target.value
+                            "student_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
                           )
                         },
                       },
-                    }),
-                  ]),
+                    },
+                    [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
+                        _vm._v("ID del estudiante"),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.listStudent, function (student) {
+                        return _c(
+                          "option",
+                          { key: student.id, domProps: { value: student.id } },
+                          [_vm._v(_vm._s(student.name))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
                 ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12" }, [
-                  _c("fieldset", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "submit", id: "form-submit" },
-                        on: { click: _vm.send },
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("label", [_vm._v("Materias:")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gradesubjectstudent.subject_grade_id,
+                          expression: "gradesubjectstudent.subject_grade_id",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.gradesubjectstudent,
+                            "subject_grade_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
                       },
-                      [_vm._v("Enviar")]
-                    ),
-                  ]),
+                    },
+                    [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
+                        _vm._v("Escoger materia"),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.listsSubjects, function (subject) {
+                        return _c(
+                          "option",
+                          {
+                            key: "subject_id",
+                            domProps: { value: subject.id },
+                          },
+                          [_vm._v(_vm._s(subject.name))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
                 ]),
-              ]
-            ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("label", [_vm._v("Curso lectivo:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.gradesubjectstudent.year,
+                        expression: "gradesubjectstudent.year",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "Año" },
+                    domProps: { value: _vm.gradesubjectstudent.year },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.gradesubjectstudent,
+                          "year",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("fieldset", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit", id: "form-submit" },
+                      on: { click: _vm.send },
+                    },
+                    [_vm._v("Asignar")]
+                  ),
+                ]),
+              ]),
+            ]),
           ]),
         ]),
       ]),
@@ -47021,7 +47026,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h2", [_vm._v("Asignar grado,materia y estudiante")]),
+      _c("h2", [_vm._v("Asignar grado a materia y estudiante")]),
     ])
   },
 ]
@@ -47166,7 +47171,7 @@ var render = function () {
                         attrs: { type: "submit", id: "form-submit" },
                         on: { click: _vm.send },
                       },
-                      [_vm._v("editar")]
+                      [_vm._v("Actualizar")]
                     ),
                   ]),
                 ]),
@@ -47212,170 +47217,182 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "section",
-    { staticClass: "contact-us", attrs: { id: "contact" } },
+    {
+      staticStyle: {
+        "min-height": "350px",
+        "border-radius": "20px",
+        width: "100%",
+        border: "10px solid white",
+        "background-color": "white",
+      },
+      attrs: { id: "contact" },
+    },
     [
-      _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
+      _c("div", { staticClass: "col-lg-12" }, [
         _c("div", { staticClass: "row" }, [
           _c("div", { staticClass: "col-lg-12" }, [
-            _c(
-              "div",
-              {
-                staticClass: "row",
-                staticStyle: {
-                  "min-height": "550px",
-                  "border-radius": "20px",
-                  width: "100%",
-                  border: "10px solid white",
-                  "background-color": "white",
-                },
-              },
-              [
-                _vm._m(0),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
-                  _c("fieldset", [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.gradesubjectstudent.student_id,
-                            expression: "gradesubjectstudent.student_id",
-                          },
-                        ],
-                        staticClass: "form-select",
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.gradesubjectstudent,
-                              "student_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                        },
-                      },
-                      [
-                        _c("option", { attrs: { disabled: "", value: "" } }, [
-                          _vm._v("ID del estudiante"),
-                        ]),
-                        _vm._v(" "),
-                        _c("option"),
-                      ]
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
-                  _c("fieldset", [
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.gradesubjectstudent.subject_grade_id,
-                            expression: "gradesubjectstudent.subject_grade_id",
-                          },
-                        ],
-                        staticClass: "form-select",
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.gradesubjectstudent,
-                              "subject_grade_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                        },
-                      },
-                      [
-                        _c("option", { attrs: { disabled: "", value: "" } }, [
-                          _vm._v("Escoger materia"),
-                        ]),
-                        _vm._v(" "),
-                        _vm._l(_vm.listsSubjects, function (subject) {
-                          return _c(
-                            "option",
-                            {
-                              key: "subject_id",
-                              domProps: { value: subject.id },
-                            },
-                            [_vm._v(_vm._s(subject.name))]
-                          )
-                        }),
-                      ],
-                      2
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4" }, [
-                  _c("fieldset", [
-                    _c("input", {
+            _c("div", { staticClass: "row" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("label", [_vm._v("Estudiante:")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.gradesubjectstudent.year,
-                          expression: "gradesubjectstudent.year",
+                          value: _vm.gradesubjectstudent.student_id,
+                          expression: "gradesubjectstudent.student_id",
                         },
                       ],
-                      attrs: { type: "text", placeholder: "Año" },
-                      domProps: { value: _vm.gradesubjectstudent.year },
+                      staticClass: "form-control",
                       on: {
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
                           _vm.$set(
                             _vm.gradesubjectstudent,
-                            "year",
-                            $event.target.value
+                            "student_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
                           )
                         },
                       },
-                    }),
-                  ]),
+                    },
+                    [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
+                        _vm._v("Estudiante"),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.listStudent, function (student) {
+                        return _c(
+                          "option",
+                          {
+                            key: "student.id",
+                            domProps: { value: student.id },
+                          },
+                          [_vm._v(_vm._s(student.name))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
                 ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12" }, [
-                  _c("fieldset", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "submit", id: "form-submit" },
-                        on: { click: _vm.send },
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("label", [_vm._v("Materias:")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.gradesubjectstudent.subject_grade_id,
+                          expression: "gradesubjectstudent.subject_grade_id",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      on: {
+                        change: function ($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function (o) {
+                              return o.selected
+                            })
+                            .map(function (o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.gradesubjectstudent,
+                            "subject_grade_id",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
                       },
-                      [_vm._v("Enviar")]
-                    ),
-                  ]),
+                    },
+                    [
+                      _c("option", { attrs: { disabled: "", value: "" } }, [
+                        _vm._v("Escoger materia"),
+                      ]),
+                      _vm._v(" "),
+                      _vm._l(_vm.listsSubjects, function (subject) {
+                        return _c(
+                          "option",
+                          {
+                            key: "subject_id",
+                            domProps: { value: subject.id },
+                          },
+                          [_vm._v(_vm._s(subject.name))]
+                        )
+                      }),
+                    ],
+                    2
+                  ),
                 ]),
-              ]
-            ),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-4" }, [
+                _c("fieldset", [
+                  _c("label", [_vm._v("Curso lectivo:")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.gradesubjectstudent.year,
+                        expression: "gradesubjectstudent.year",
+                      },
+                    ],
+                    attrs: { type: "text", placeholder: "Año" },
+                    domProps: { value: _vm.gradesubjectstudent.year },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(
+                          _vm.gradesubjectstudent,
+                          "year",
+                          $event.target.value
+                        )
+                      },
+                    },
+                  }),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-lg-12" }, [
+                _c("fieldset", [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn btn-primary",
+                      attrs: { type: "submit", id: "form-submit" },
+                      on: { click: _vm.send },
+                    },
+                    [_vm._v("Actualizar")]
+                  ),
+                ]),
+              ]),
+            ]),
           ]),
         ]),
       ]),
@@ -47388,7 +47405,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h2", [_vm._v("Asignar grado,materia y estudiante")]),
+      _c("h2", [_vm._v("Editar grado de materia y estudiante")]),
     ])
   },
 ]
@@ -49589,8 +49606,8 @@ var render = function () {
                             {
                               name: "model",
                               rawName: "v-model",
-                              value: _vm.StudentRelative.guaridan_profession,
-                              expression: "StudentRelative.guaridan_profession",
+                              value: _vm.StudentRelative.guardian_profession,
+                              expression: "StudentRelative.guardian_profession",
                             },
                           ],
                           staticClass: "form-control",
@@ -49601,7 +49618,7 @@ var render = function () {
                             placeholder: "Empleo del familiar",
                           },
                           domProps: {
-                            value: _vm.StudentRelative.guaridan_profession,
+                            value: _vm.StudentRelative.guardian_profession,
                           },
                           on: {
                             input: function ($event) {
@@ -49610,7 +49627,7 @@ var render = function () {
                               }
                               _vm.$set(
                                 _vm.StudentRelative,
-                                "guaridan_profession",
+                                "guardian_profession",
                                 $event.target.value
                               )
                             },
@@ -49962,7 +49979,7 @@ var render = function () {
               {
                 staticClass: "row",
                 staticStyle: {
-                  "min-height": "320px",
+                  "min-height": "320spx",
                   "border-radius": "20px",
                   width: "100%",
                   border: "10px solid white",
@@ -50395,7 +50412,7 @@ var render = function () {
                               attrs: { type: "submit", id: "form-submit" },
                               on: { click: _vm.send },
                             },
-                            [_vm._v("Registrar")]
+                            [_vm._v("Actualizar")]
                           ),
                         ]
                       ),
@@ -50416,7 +50433,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h2", [_vm._v("Agregar familiar de estudiante")]),
+      _c("h2", [_vm._v("Editar familiar de estudiante")]),
     ])
   },
 ]
@@ -51180,7 +51197,7 @@ var render = function () {
                               attrs: { type: "submit" },
                               on: { click: _vm.send },
                             },
-                            [_vm._v("Registrar")]
+                            [_vm._v("Actualizar")]
                           ),
                         ]),
                       ]
@@ -51201,7 +51218,9 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h2", [_vm._v("Expediente Del Beneficiario Del Comedor Estudiantil")]),
+      _c("h2", [
+        _vm._v("Editar Expediente del beneficiario del comedor estudiantil"),
+      ]),
     ])
   },
   function () {
@@ -52164,7 +52183,7 @@ var render = function () {
               {
                 staticClass: "row",
                 staticStyle: {
-                  "min-height": "550px",
+                  "min-height": "470px",
                   "border-radius": "20px",
                   width: "100%",
                   border: "10px solid white",
@@ -52286,7 +52305,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
+                    _c("div", { staticClass: "col-lg-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "Birthdate" } }, [
                           _vm._v("Fecha de nacimiento:"),
@@ -52437,8 +52456,6 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4" }, [
                       _c("fieldset", [
-                        _c("br"),
-                        _vm._v(" "),
                         _c("label", { attrs: { for: "gender" } }, [
                           _vm._v("Genero:"),
                         ]),
@@ -52496,8 +52513,6 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4" }, [
                       _c("fieldset", [
-                        _c("br"),
-                        _vm._v(" "),
                         _c("label", { attrs: { for: "contact_number" } }, [
                           _vm._v("Número de telefono:"),
                         ]),
@@ -52605,7 +52620,7 @@ var render = function () {
               {
                 staticClass: "row",
                 staticStyle: {
-                  "min-height": "550px",
+                  "min-height": "470px",
                   "border-radius": "20px",
                   width: "100%",
                   border: "10px solid white",
@@ -52633,6 +52648,7 @@ var render = function () {
                           attrs: {
                             name: "names",
                             type: "text",
+                            id: "name",
                             placeholder: "Nombre del docente",
                             required: "",
                           },
@@ -52726,7 +52742,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
+                    _c("div", { staticClass: "col-lg-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "Birthdate" } }, [
                           _vm._v("Fecha de nacimiento:"),
@@ -52817,6 +52833,8 @@ var render = function () {
                             name: "specialty",
                             type: "text",
                             placeholder: "Especialidad del docente",
+                            pattern: "",
+                            required: "",
                           },
                           domProps: { value: _vm.teacher.speciality },
                           on: {
@@ -52875,8 +52893,6 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4" }, [
                       _c("fieldset", [
-                        _c("br"),
-                        _vm._v(" "),
                         _c("label", { attrs: { for: "gender" } }, [
                           _vm._v("Genero:"),
                         ]),
@@ -52934,8 +52950,6 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4" }, [
                       _c("fieldset", [
-                        _c("br"),
-                        _vm._v(" "),
                         _c("label", { attrs: { for: "contact_number" } }, [
                           _vm._v("Número de telefono:"),
                         ]),
@@ -52984,7 +52998,7 @@ var render = function () {
                               attrs: { type: "submit", id: "form-submit" },
                               on: { click: _vm.send },
                             },
-                            [_vm._v("Editar")]
+                            [_vm._v("Actualizar")]
                           ),
                         ]
                       ),
@@ -53005,7 +53019,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h2", [_vm._v("Información del profesor")]),
+      _c("h2", [_vm._v("Editar información del profesor")]),
     ])
   },
 ]
