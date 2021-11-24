@@ -5,13 +5,13 @@
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Actualizar grado de materia y estudiante</h2>
+                    <h2>Editar grado de materia y estudiante</h2>
                     </div>
                   <div class="col-lg-4">
                     <fieldset>
-                      <label>ID del estudiante:</label>
+                      <label>Estudiante:</label>
                       <select  class="form-control" v-model="gradesubjectstudent.student_id">
-                      <option disabled value="">ID del estudiante</option>
+                      <option disabled value="">Estudiante</option>
                         <option v-for="student in listStudent" :value="student.id" key="student.id">{{ student.name }}</option>
                       </select>
                     </fieldset>

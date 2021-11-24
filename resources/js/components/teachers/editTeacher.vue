@@ -7,7 +7,7 @@
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Información del profesor</h2>
+                    <h2>Editar información del profesor</h2>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
@@ -69,7 +69,7 @@
                   </div>
                   <div class="col-lg-12">
                     <fieldset style="text-align:center">  
-                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Registrar</button>
+                      <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Actualizar</button>
                     </fieldset>
                   </div>
                 </div>
