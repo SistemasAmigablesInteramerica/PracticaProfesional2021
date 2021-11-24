@@ -21,7 +21,6 @@ class CreateSubjectTeachersTable extends Migration
             $table->timestamps();
             $table->engine = 'InnoDB';
 
-
             $table->foreign('subject_grade_id')->references('id')->on('subject_grades');
             $table->foreign('teacher_id')->references('id')->on('teachers');
         });

@@ -32,7 +32,7 @@
                       </div>
                  <div class="col-lg-12">
                     <fieldset>
-                      <button type="submit" style="border-radius:20px;" id="form-submit" @click="send" class="btn btn-primary" >editar</button>
+                      <button type="submit" style="border-radius:20px;" id="form-submit" @click="send" class="btn btn-primary" >Actualizar</button>
                     </fieldset>
                   </div>
                 </div>

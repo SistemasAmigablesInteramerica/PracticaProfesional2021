@@ -31,3 +31,5 @@ class CreateSubjectsTable extends Migration
         Schema::dropIfExists('subjects');
     }
 }
+
+

@@ -41,3 +41,4 @@ class CreateStudentRelativesTable extends Migration
         Schema::dropIfExists('student_relatives');
     }
 }
+

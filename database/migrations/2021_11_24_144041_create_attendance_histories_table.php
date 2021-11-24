@@ -15,11 +15,12 @@ class CreateAttendanceHistoriesTable extends Migration
     {
         Schema::create('attendance_histories', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('check_in');
-            $table->dateTime('check_out');
+            $table->string('check_in');
+            $table->string('check_out');
+            $table->date('date');
             $table->bigInteger('student_id')->unsigned();
-            $table->bigInteger('subject_teacher_id')->nullable()->unsigned();
-            $table->bigInteger('teacher_id')->nullable()->unsigned();
+            $table->bigInteger('subject_teacher_id')->unsigned();
+            $table->bigInteger('teacher_id')->unsigned();
             $table->boolean('attended')->nullabe();
             $table->timestamps();
             $table->engine = 'InnoDB';
