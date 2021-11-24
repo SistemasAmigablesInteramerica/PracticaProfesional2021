@@ -47169,7 +47169,7 @@ var render = function () {
                         attrs: { type: "submit", id: "form-submit" },
                         on: { click: _vm.send },
                       },
-                      [_vm._v("editar")]
+                      [_vm._v("Actualizar")]
                     ),
                   ]),
                 ]),
@@ -47234,7 +47234,11 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "col-lg-4" }, [
                 _c("fieldset", [
+<<<<<<< HEAD
                   _c("label", [_vm._v("ID del estudiante:")]),
+=======
+                  _c("label", [_vm._v("Estudiante:")]),
+>>>>>>> refs/remotes/origin/main
                   _vm._v(" "),
                   _c(
                     "select",
@@ -47270,7 +47274,11 @@ var render = function () {
                     },
                     [
                       _c("option", { attrs: { disabled: "", value: "" } }, [
+<<<<<<< HEAD
                         _vm._v("ID del estudiante"),
+=======
+                        _vm._v("Estudiante"),
+>>>>>>> refs/remotes/origin/main
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.listStudent, function (student) {
@@ -47403,7 +47411,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
+<<<<<<< HEAD
       _c("h2", [_vm._v("Actualizar grado de materia y estudiante")]),
+=======
+      _c("h2", [_vm._v("Editar grado de materia y estudiante")]),
+>>>>>>> refs/remotes/origin/main
     ])
   },
 ]
@@ -52990,7 +53002,11 @@ var render = function () {
                               attrs: { type: "submit", id: "form-submit" },
                               on: { click: _vm.send },
                             },
+<<<<<<< HEAD
                             [_vm._v("Registrar")]
+=======
+                            [_vm._v("Actualizar")]
+>>>>>>> refs/remotes/origin/main
                           ),
                         ]
                       ),
@@ -53011,7 +53027,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h2", [_vm._v("Información del profesor")]),
+      _c("h2", [_vm._v("Editar información del profesor")]),
     ])
   },
 ]

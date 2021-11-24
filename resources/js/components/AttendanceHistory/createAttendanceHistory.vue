@@ -10,14 +10,20 @@
                       </div>
                           <div class="col-lg-6">
                           <fieldset>
+                            <label>Fecha de entrada:</label>
+                            <input type="date" v-model="attendancehistory.date" placeholder="Entrada">
+                          </fieldset>
+                        </div>
+                        <div class="col-lg-6">
+                          <fieldset>
                             <label>Hora de entrada:</label>
-                            <input type="datetime-local" v-model="attendancehistory.check_in" placeholder="Entrada">
+                            <input type="text" v-model="attendancehistory.check_in" placeholder="00:00">
                           </fieldset>
                         </div>
                           <div class="col-lg-6">
                           <fieldset>
                             <label>Hora de salida:</label>
-                            <input type="datetime-local" v-model="attendancehistory.check_out" placeholder="Salida">
+                            <input type="text" v-model="attendancehistory.check_out" placeholder="Salida">
                           </fieldset>
                         </div>
                           <div class="col-lg-4">
@@ -77,6 +83,7 @@
               name: '',
               check_in: '',
               check_out: '',
+              date: '',
               student_id: '',
               subject_teacher_id: '',
               teacher_id: '',
@@ -97,8 +104,10 @@
           axios.get('/list-teacher').then(response=>{
             this.listTeacher = response.data
           });
-        var Dates = new Date().toLocaleTimeString();
-        return this.attendancehistory.check_in = Dates
+        var Dates = new Date().toISOString().slice(0,10);
+        this.attendancehistory.date = Dates;
+        var Hour = new Date().toLocaleTimeString();
+        this.attendancehistory.check_in = Hour;
         },
 
         methods: {

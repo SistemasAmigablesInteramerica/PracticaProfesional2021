@@ -15,8 +15,8 @@ class CreateUserRolesTable extends Migration
     {
         Schema::create('user_roles', function (Blueprint $table) {
             $table->id();
-            $table->user_id();
-            $table->role_id();
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('role_id')->unsigned(); 
             $table->timestamps();
             $table->engine = 'InnoDB';
             
