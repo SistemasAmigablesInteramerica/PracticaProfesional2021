@@ -97,7 +97,7 @@
           axios.get('/list-teacher').then(response=>{
             this.listTeacher = response.data
           });
-        var Dates = new Date().toLocaleString();
+        var Dates = new Date().toLocaleTimeString();
         return this.attendancehistory.check_in = Dates
         },
 
