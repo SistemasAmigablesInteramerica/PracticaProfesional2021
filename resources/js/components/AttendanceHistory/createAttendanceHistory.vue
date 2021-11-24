@@ -4,7 +4,6 @@
         <div class="col-lg-9 col-md-9 col-sm-12">
           <div class="row" >
             <div class="col-lg-12">
-                
                   <div class="row" method="post" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;" >
                       <div class="col-lg-12" >
                         <h2>Asistencias</h2>
@@ -85,19 +84,21 @@
             },
             listStudent: [],
             listSubjectTeacher: [],
-            listTeacher: []
+            listTeacher: [],
           }
         },
         created(){
           axios.get('/list-student').then(response=>{
             this.listStudent = response.data
-          })
+          });
            axios.get('/list-subjectteacher').then(response=>{
             this.listSubjectTeacher = response.data
-          })
+          });
           axios.get('/list-teacher').then(response=>{
             this.listTeacher = response.data
-          })
+          });
+        var Dates = new Date().toLocaleString();
+        return this.attendancehistory.check_in = Dates
         },
 
         methods: {
@@ -111,7 +112,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'Se ha registrado con éxito.',
+                    text: 'Se ha registrado con éxito.',  
                 });
             }).catch(error => {
                     Swal.fire({

@@ -9,15 +9,12 @@
               <h6>Saludos</h6>
               <h2>Bienvenido a Fullpass Student</h2>
               <p>Pagina creada por: Christopher Alexander Ortiz Navarrete, y Luis Vicente Aranda López, durante la practica profesional 2021</p>
-              <div class="main-button-red">
-                  <div class="scroll-to-section"><a href="#contact">  </a></div>
-              </div>
           </div>
               </div>
             </div>
           </div>
       </div>
-  </section>
+  </section>  
   
 </template>
 
