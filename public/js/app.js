@@ -2132,9 +2132,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createAttendancehistory",
@@ -2147,8 +2144,8 @@ __webpack_require__.r(__webpack_exports__);
         name: '',
         check_in: '',
         check_out: '',
+        date: '',
         student_id: '',
-        subject_teacher_id: '',
         teacher_id: '',
         attended: ''
       },
@@ -2169,15 +2166,17 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/list-teacher').then(function (response) {
       _this.listTeacher = response.data;
     });
-    var Dates = new Date().toLocaleString();
-    return this.attendancehistory.check_in = Dates;
+    var Dates = new Date().toISOString().slice(0, 10);
+    this.attendancehistory.date = Dates;
+    var Hour = new Date().toLocaleTimeString();
+    this.attendancehistory.check_in = Hour;
   },
   methods: {
     send: function send() {
       var _this2 = this;
 
       axios.post('/store-attendancehistory', this.attendancehistory).then(function (response) {
-        _this2.attendancehistory.check_in = '', _this2.attendancehistory.check_out = '', _this2.attendancehistory.student_id = '', _this2.attendancehistory.subject_teacher_id = '', _this2.attendancehistory.teacher_id = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        _this2.attendancehistory.check_in = '', _this2.attendancehistory.check_out = '', _this2.attendancehistory.student_id = '', _this2.attendancehistory.teacher_id = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
           text: 'Se ha registrado con éxito.'
@@ -3679,38 +3678,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createStudent",
@@ -3824,33 +3791,6 @@ __webpack_require__.r(__webpack_exports__);
           icon: 'warning',
           title: 'Atención',
           text: 'El numero telefonico no puede estar vacío'
-        });
-        return false;
-      }
-
-      if (this.student.socioeconomic_status === '') {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-          icon: 'warning',
-          title: 'Atención',
-          text: 'El estado socioeconomico no puede estar vacío'
-        });
-        return false;
-      }
-
-      if (this.student.total_income_family === '') {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-          icon: 'warning',
-          title: 'Atención',
-          text: 'El ingreso de familia no puede estar vacío'
-        });
-        return false;
-      }
-
-      if (this.student.family_member_total === '') {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-          icon: 'warning',
-          title: 'Atención',
-          text: 'El total de miembros de familia no puede estar vacío'
         });
         return false;
       }
@@ -4643,6 +4583,7 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Datos cambiados',
           text: 'Los datos se han editado con éxito'
         });
+        window.location.href = '/lista-de-estudiantes';
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'error',
@@ -5419,6 +5360,7 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Datos cambiados',
           text: 'Los datos se han editado con éxito'
         });
+        window.location.href = '/lista-de-profesores';
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'error',
@@ -46198,6 +46140,37 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-6" }, [
                   _c("fieldset", [
+                    _c("label", [_vm._v("Fecha de entrada:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.attendancehistory.date,
+                          expression: "attendancehistory.date",
+                        },
+                      ],
+                      attrs: { type: "date", placeholder: "Entrada" },
+                      domProps: { value: _vm.attendancehistory.date },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(
+                            _vm.attendancehistory,
+                            "date",
+                            $event.target.value
+                          )
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6" }, [
+                  _c("fieldset", [
                     _c("label", [_vm._v("Hora de entrada:")]),
                     _vm._v(" "),
                     _c("input", {
@@ -46209,7 +46182,7 @@ var render = function () {
                           expression: "attendancehistory.check_in",
                         },
                       ],
-                      attrs: { type: "datetime-local", placeholder: "Entrada" },
+                      attrs: { type: "text", placeholder: "00:00" },
                       domProps: { value: _vm.attendancehistory.check_in },
                       on: {
                         input: function ($event) {
@@ -46240,7 +46213,7 @@ var render = function () {
                           expression: "attendancehistory.check_out",
                         },
                       ],
-                      attrs: { type: "datetime-local", placeholder: "Salida" },
+                      attrs: { type: "text", placeholder: "Salida" },
                       domProps: { value: _vm.attendancehistory.check_out },
                       on: {
                         input: function ($event) {
@@ -46311,68 +46284,6 @@ var render = function () {
                             [_vm._v(_vm._s(student.name))]
                           )
                         }),
-                      ],
-                      2
-                    ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4" }, [
-                  _c("fieldset", [
-                    _c("label", [_vm._v("Clase:")]),
-                    _vm._v(" "),
-                    _c(
-                      "select",
-                      {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.attendancehistory.subject_teacher_id,
-                            expression: "attendancehistory.subject_teacher_id",
-                          },
-                        ],
-                        staticClass: "form-control",
-                        on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.attendancehistory,
-                              "subject_teacher_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
-                        },
-                      },
-                      [
-                        _c(
-                          "option",
-                          { attrs: { selected: "", disabled: "", value: "" } },
-                          [_vm._v("Seleccione una clase")]
-                        ),
-                        _vm._v(" "),
-                        _vm._l(
-                          _vm.listSubjectTeacher,
-                          function (subjectteacher) {
-                            return _c(
-                              "option",
-                              {
-                                key: subjectteacher.id,
-                                domProps: { value: subjectteacher.id },
-                              },
-                              [_vm._v(_vm._s(subjectteacher.id))]
-                            )
-                          }
-                        ),
                       ],
                       2
                     ),
@@ -47234,11 +47145,7 @@ var render = function () {
               _vm._v(" "),
               _c("div", { staticClass: "col-lg-4" }, [
                 _c("fieldset", [
-<<<<<<< HEAD
-                  _c("label", [_vm._v("ID del estudiante:")]),
-=======
                   _c("label", [_vm._v("Estudiante:")]),
->>>>>>> refs/remotes/origin/main
                   _vm._v(" "),
                   _c(
                     "select",
@@ -47274,11 +47181,7 @@ var render = function () {
                     },
                     [
                       _c("option", { attrs: { disabled: "", value: "" } }, [
-<<<<<<< HEAD
-                        _vm._v("ID del estudiante"),
-=======
                         _vm._v("Estudiante"),
->>>>>>> refs/remotes/origin/main
                       ]),
                       _vm._v(" "),
                       _vm._l(_vm.listStudent, function (student) {
@@ -47411,11 +47314,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12" }, [
-<<<<<<< HEAD
-      _c("h2", [_vm._v("Actualizar grado de materia y estudiante")]),
-=======
       _c("h2", [_vm._v("Editar grado de materia y estudiante")]),
->>>>>>> refs/remotes/origin/main
     ])
   },
 ]
@@ -48997,178 +48896,6 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
-                      _c("fieldset", [
-                        _c("label", [_vm._v("Ingresos familiares:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.total_income_family,
-                              expression: "student.total_income_family",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "total_income_family",
-                            type: "text",
-                            placeholder: "₡ Total De Ingresos",
-                          },
-                          domProps: { value: _vm.student.total_income_family },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.student,
-                                "total_income_family",
-                                $event.target.value
-                              )
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
-                      _c("fieldset", [
-                        _c("label", [_vm._v("Total de miembros familiares:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.family_member_total,
-                              expression: "student.family_member_total",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "family_member_total",
-                            type: "text",
-                            placeholder: "/ Numero de Miembros Familiares =",
-                          },
-                          domProps: { value: _vm.student.family_member_total },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.student,
-                                "family_member_total",
-                                $event.target.value
-                              )
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
-                      _c("fieldset", [
-                        _c("label", [_vm._v("Total per capita:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.total_per_capita,
-                              expression: "student.total_per_capita",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "total_per_capita",
-                            type: "text",
-                            placeholder: " ₡ = Per Cápita",
-                          },
-                          domProps: { value: _vm.student.total_per_capita },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.student,
-                                "total_per_capita",
-                                $event.target.value
-                              )
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c("label", { attrs: { for: "socioeconomic_status" } }, [
-                        _vm._v("Estado Socioeconomico:"),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.socioeconomic_status,
-                              expression: "student.socioeconomic_status",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: { name: "socioeconomic_status" },
-                          on: {
-                            change: function ($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function (o) {
-                                  return o.selected
-                                })
-                                .map(function (o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.student,
-                                "socioeconomic_status",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
-                            },
-                          },
-                        },
-                        [
-                          _c("option", { attrs: { disabled: "", value: "" } }, [
-                            _vm._v(" Seleccione estado socioeconomico"),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            { attrs: { value: "extreme_poverty" } },
-                            [_vm._v("Pobreza extrema")]
-                          ),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "poverty" } }, [
-                            _vm._v("Pobreza"),
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "vulnerability" } }, [
-                            _vm._v("Vulberabilidad"),
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "not_poor" } }, [
-                            _vm._v("No pobre"),
-                          ]),
-                        ]
-                      ),
-                    ]),
-                    _vm._v(" "),
                     _vm._m(1),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-3" }, [
@@ -49348,63 +49075,6 @@ var render = function () {
                           },
                         }),
                       ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-3  form-check-inline" }, [
-                      _c("label", [_vm._v("Clasificó:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.clasification,
-                            expression: "student.clasification",
-                          },
-                        ],
-                        staticClass: "form-con",
-                        staticStyle: {
-                          width: "2em",
-                          height: "2em",
-                          "margin-top": ".25em",
-                          "vertical-align": "top",
-                          "border-radius": ".25em",
-                        },
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          checked: Array.isArray(_vm.student.clasification)
-                            ? _vm._i(_vm.student.clasification, null) > -1
-                            : _vm.student.clasification,
-                        },
-                        on: {
-                          change: function ($event) {
-                            var $$a = _vm.student.clasification,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.student,
-                                    "clasification",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.student,
-                                    "clasification",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.student, "clasification", $$c)
-                            }
-                          },
-                        },
-                      }),
                     ]),
                     _vm._v(" "),
                     _c(
@@ -53002,11 +52672,7 @@ var render = function () {
                               attrs: { type: "submit", id: "form-submit" },
                               on: { click: _vm.send },
                             },
-<<<<<<< HEAD
-                            [_vm._v("Registrar")]
-=======
                             [_vm._v("Actualizar")]
->>>>>>> refs/remotes/origin/main
                           ),
                         ]
                       ),

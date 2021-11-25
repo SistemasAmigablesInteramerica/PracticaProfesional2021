@@ -201,9 +201,6 @@ export default {
 
     },
 
-    mounted(){
-      this.student.total_per_capita = this.student.total_income_family / this.student.family_member_total
-    },
 
     methods:{
       send(){
@@ -312,13 +309,14 @@ export default {
             return false
           }
 
+
           axios.put('/update-student/' + this.idStudent, this.student).then(response=>{
             Swal.fire({
               icon: 'success',
               title: 'Datos cambiados',
               text: 'Los datos se han editado con éxito',
             });
-
+              window.location.href = '/lista-de-estudiantes'
           }).catch(error=>{
             Swal.fire({
               icon: 'error',

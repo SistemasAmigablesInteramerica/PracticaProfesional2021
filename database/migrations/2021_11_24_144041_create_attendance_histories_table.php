@@ -19,15 +19,14 @@ class CreateAttendanceHistoriesTable extends Migration
             $table->string('check_out');
             $table->date('date');
             $table->bigInteger('student_id')->unsigned();
-            $table->bigInteger('subject_teacher_id')->unsigned();
             $table->bigInteger('teacher_id')->unsigned();
-            $table->boolean('attended')->nullabe();
+            $table->boolean('attended')->nullable();
             $table->timestamps();
             $table->engine = 'InnoDB';
 
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->foreign('subject_teacher_id')->references('id')->on('subject_teachers');
+
         });
     }
 
