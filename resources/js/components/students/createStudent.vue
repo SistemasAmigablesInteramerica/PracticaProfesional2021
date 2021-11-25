@@ -63,34 +63,6 @@
                     <input type="file" v-on:change="student.salarial_constance" class="form-control" name="archivo" accept="image/*,.txt,.doc,.docx,.document,.pdf">
                     </fieldset>
                   </div>
-                  <div class="col-lg-4">
-                    <fieldset>
-                      <label>Ingresos familiares:</label>
-                    <input name="total_income_family" class="form-control" v-model="student.total_income_family" type="text"  placeholder="₡ Total De Ingresos">
-                    </fieldset> 
-                  </div>
-                  <div class="col-lg-4">
-                    <fieldset>
-                      <label>Total de miembros familiares:</label>
-                    <input name="family_member_total" class="form-control" v-model="student.family_member_total" type="text" placeholder="/ Numero de Miembros Familiares =">
-                    </fieldset> 
-                  </div>
-                  <div class="col-lg-4">
-                    <fieldset>
-                      <label>Total per capita:</label>
-                    <input name="total_per_capita" class="form-control" v-model="student.total_per_capita" type="text" placeholder=" ₡ = Per Cápita">
-                    </fieldset> 
-                  </div>
-                  <div class="col-lg-12">
-                    <label for="socioeconomic_status">Estado Socioeconomico:</label>
-                    <select name="socioeconomic_status" class="form-control" v-model="student.socioeconomic_status">
-                      <option disabled value=""> Seleccione estado socioeconomico</option>
-                      <option value="extreme_poverty">Pobreza extrema</option>
-                      <option value="poverty">Pobreza</option>
-                      <option value="vulnerability">Vulberabilidad</option>
-                      <option value="not_poor">No pobre</option>
-                    </select>
-                  </div>
                   <div>
                     <br>
                   <h2>Otros Ingresos Del Grupo Familiar</h2>
@@ -124,10 +96,6 @@
                       <label>Total de ingresos:</label>
                     <input name="total_income" class="form-control" v-model="student.total_income" type="text" placeholder="₡ Ingresos Totales">
                     </fieldset> 
-                  </div>
-                  <div class="col-lg-3  form-check-inline" >
-                    <label>Clasificó:</label>
-                    <input class="form-con" style="width: 2em; height: 2em; margin-top: .25em; vertical-align:top; border-radius:.25em" v-model="student.clasification" type="checkbox">
                   </div>
                   <div class="col-lg-12" style="text-align: center" >
                     <fieldset>
@@ -246,30 +214,6 @@ export default {
               icon: 'warning',
               title: 'Atención',
               text: 'El numero telefonico no puede estar vacío'
-            })
-            return false
-          }
-          if(this.student.socioeconomic_status === ''){
-            Swal.fire({
-              icon: 'warning',
-              title: 'Atención',
-              text: 'El estado socioeconomico no puede estar vacío'
-            })
-            return false
-          }
-          if(this.student.total_income_family === ''){
-            Swal.fire({
-              icon: 'warning',
-              title: 'Atención',
-              text: 'El ingreso de familia no puede estar vacío'
-            })
-            return false
-          }
-          if(this.student.family_member_total === ''){
-            Swal.fire({
-              icon: 'warning',
-              title: 'Atención',
-              text: 'El total de miembros de familia no puede estar vacío'
             })
             return false
           }

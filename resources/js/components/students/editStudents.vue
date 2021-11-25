@@ -200,6 +200,11 @@ export default {
       this.student.total_income = Students.total_income
 
     },
+
+    mounted(){
+      this.student.total_per_capita = this.student.total_income_family / this.student.family_member_total
+    },
+
     methods:{
       send(){
         if(this.student.name === ''){

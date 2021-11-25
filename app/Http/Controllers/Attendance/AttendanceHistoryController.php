@@ -27,7 +27,7 @@ class AttendanceHistoryController extends Controller
 
      public function edit($id)
      {
-         $attendance = AttendanceHistory::find($id)
+         $attendance = AttendanceHistory::find($id);
          return view ('attendance/edit-attendancehistory', compact('attendance'));
          
      }

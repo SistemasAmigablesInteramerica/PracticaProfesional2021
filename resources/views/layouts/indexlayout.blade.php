@@ -49,27 +49,34 @@
                                   <li><a href="{{asset('lista-de-profesores')}}">Ver docentes</a></li>
                               </ul>
                           </li>
-                          <li class="has-sub">  
-                              <a href="javascript:void(0)">Materias</a>
+                          <li class="has-sub">
+                              <a href="javascript:void(0)">Materias y secciones</a>
                               <ul class="sub-menu">
                                   <li><a href="{{asset('registro-de-materias')}}">Agregar materias</a></li>
-                                  <li><a href="{{asset('ver-materias')}}">Ver materias</a></li>
+                                  <li><a href="{{asset('lista-de-materias')}}">Ver materias</a></li>
                                   <li><a href="{{asset('asignar-materia-profesor')}}">Asignar docentes</a></li>
-                                  <li><a href="{{asset('ver-asignados')}}">Ver asignados</a></li>
-                              </ul>
-                          </li>
-                          <li class="has-sub">  
-                              <a href="javascript:void(0)">Secciones</a>
-                              <ul class="sub-menu">
+                                  <li><a href="{{asset('lista-de-materiasyprofesores')}}">Ver docentes asignados</a></li>
                                   <li><a href="{{asset('registro-de-secciones')}}">Agregar sección</a></li>
-                                  <li><a href="{{asset('ver-secciones')}}">Ver secciones</a></li>
+                                  <li><a href="{{asset('lista-de-secciones')}}">Ver secciones</a></li>
                                   <li><a href="{{asset('asignar-materia-grado')}}">Asignar materia</a></li>
-                                  <li><a href="{{asset('ver-materias')}}">Ver materias</a></li>
+                                  <li><a href="{{asset('lista-de-materiasygrados')}}">Ver materias asignados</a></li>
                                   <li><a href="{{asset('asignar-materia-estudiante')}}">Asignar estudiante</a></li>
                               </ul>
                           </li>
-                          <li><a href="{{asset('registro-de-asistencias')}}">Asistencia</a></li>
-                      </ul>        
+                          <li class="has-sub">
+                              <a href="javascript:void(0)">Asistencia</a>
+                              <ul class="sub-menu">
+                              <li><a href="{{asset('registro-de-asistencias')}}">Asistencia</a></li>
+                              <li><a href="{{asset('lista-de-de-asistencia')}}">Ver asistencias</a></li>
+                              </ul>
+                          </li>
+                          <li class="has-sub">
+                              <a href="javascript:void(0)">Formularios</a>
+                              <ul class="sub-menu">
+                              <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
+                              <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
+                              </ul>
+                          </li>        
                       <a class="menu-trigger">
                           <span>Menu</span>
                       </a>  

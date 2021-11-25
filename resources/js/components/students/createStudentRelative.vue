@@ -40,7 +40,7 @@
                     <label>Relación:</label>
                     <fieldset>
                       <input name="guardian_relation" class="form-control" v-model="StudentRelative.guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
-                    </fieldset>
+                    </fieldset> 
                   </div>  
                   <div class="col-lg-4">
                     <fieldset> 

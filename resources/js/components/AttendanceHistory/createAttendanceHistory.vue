@@ -4,21 +4,26 @@
         <div class="col-lg-9 col-md-9 col-sm-12">
           <div class="row" >
             <div class="col-lg-12">
-                
                   <div class="row" method="post" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;" >
                       <div class="col-lg-12" >
                         <h2>Asistencias</h2>
                       </div>
                           <div class="col-lg-6">
                           <fieldset>
+                            <label>Fecha de entrada:</label>
+                            <input type="date" v-model="attendancehistory.date" placeholder="Entrada">
+                          </fieldset>
+                        </div>
+                        <div class="col-lg-6">
+                          <fieldset>
                             <label>Hora de entrada:</label>
-                            <input type="datetime-local" v-model="attendancehistory.check_in" placeholder="Entrada">
+                            <input type="text" v-model="attendancehistory.check_in" placeholder="00:00">
                           </fieldset>
                         </div>
                           <div class="col-lg-6">
                           <fieldset>
                             <label>Hora de salida:</label>
-                            <input type="datetime-local" v-model="attendancehistory.check_out" placeholder="Salida">
+                            <input type="text" v-model="attendancehistory.check_out" placeholder="Salida">
                           </fieldset>
                         </div>
                           <div class="col-lg-4">
@@ -78,6 +83,7 @@
               name: '',
               check_in: '',
               check_out: '',
+              date: '',
               student_id: '',
               subject_teacher_id: '',
               teacher_id: '',
@@ -85,19 +91,23 @@
             },
             listStudent: [],
             listSubjectTeacher: [],
-            listTeacher: []
+            listTeacher: [],
           }
         },
         created(){
           axios.get('/list-student').then(response=>{
             this.listStudent = response.data
-          })
+          });
            axios.get('/list-subjectteacher').then(response=>{
             this.listSubjectTeacher = response.data
-          })
+          });
           axios.get('/list-teacher').then(response=>{
             this.listTeacher = response.data
-          })
+          });
+        var Dates = new Date().toISOString().slice(0,10);
+        this.attendancehistory.date = Dates;
+        var Hour = new Date().toLocaleTimeString();
+        this.attendancehistory.check_in = Hour;
         },
 
         methods: {
@@ -111,7 +121,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'Se ha registrado con éxito.',
+                    text: 'Se ha registrado con éxito.',  
                 });
             }).catch(error => {
                     Swal.fire({
