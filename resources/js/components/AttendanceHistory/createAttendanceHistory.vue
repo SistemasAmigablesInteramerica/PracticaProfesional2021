@@ -37,15 +37,6 @@
                         </div>
                           <div class="col-lg-4">
                           <fieldset>
-                            <label>Clase:</label>
-                            <select class="form-control" v-model="attendancehistory.subject_teacher_id">
-                              <option selected disabled value="">Seleccione una clase</option>
-                              <option v-for="subjectteacher in listSubjectTeacher" :value="subjectteacher.id" :key="subjectteacher.id">{{subjectteacher.id}}</option>
-                            </select>
-                          </fieldset>
-                          </div>
-                          <div class="col-lg-4">
-                          <fieldset>
                             <label>Profesor:</label>
                             <select class="form-control" v-model="attendancehistory.teacher_id">
                               <option selected disabled value="">Seleccione un profesor</option>
@@ -85,7 +76,6 @@
               check_out: '',
               date: '',
               student_id: '',
-              subject_teacher_id: '',
               teacher_id: '',
               attended: '',
             },
@@ -116,7 +106,6 @@
               this.attendancehistory.check_in = '',
               this.attendancehistory.check_out = '',
               this.attendancehistory.student_id = '',
-              this.attendancehistory.subject_teacher_id = '',
               this.attendancehistory.teacher_id = '',
               Swal.fire({
                     icon: 'success',

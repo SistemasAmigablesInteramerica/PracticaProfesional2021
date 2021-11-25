@@ -162,6 +162,7 @@ export default {
                     title: 'Datos cambiados',
                     text: 'Los datos se han editado con éxito'
                 });
+                window.location.href = '/lista-de-aspirante'
             }).catch(error=>{
                 Swal.fire({
                     icon:'error',
