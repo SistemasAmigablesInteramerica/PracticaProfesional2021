@@ -22,7 +22,7 @@ class PermissionsController extends Controller
       public function store(Request $request)
       {
           $permissions = new Permissions();
-          $permissions->fill($request->all());
+          $permissions->fill($request->all());      
           if($permissions->save()){
               return response()->json(['message'=>'Se guardo con exito','data'=> $permissions], 200);
           }

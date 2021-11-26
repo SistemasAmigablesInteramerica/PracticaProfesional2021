@@ -28,7 +28,8 @@
       <th>{{ student.phone_number }}</th>
       <th>{{ student.socioeconomic_status }}</th>
       <th>{{ student.total_per_capita }}</th>
-      <th>{{ student.clasification }}</th>
+      <th v-if="student.clasification === 1">Clasificó</th>
+      <th v-else>No Clasificó</th>
       <th>{{ student.total_income }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(student.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
