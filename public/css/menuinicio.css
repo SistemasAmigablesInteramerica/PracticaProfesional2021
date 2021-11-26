@@ -1350,21 +1350,6 @@ section.contact-us #contact h2 {
   font-weight: 700;
 }
 
-section.contact-us #contact input {
-  width: 100%;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #c7c7c7;
-  outline: none;
-  border: none;
-  box-shadow: none;
-  font-size: 13px;
-  font-weight: 500;
-  color: #7a7a7a;
-  padding: 0px 15px;
-  margin-bottom: 30px;
-  vertical-align: middle;
-}
 
 section.contact-us #contact textarea {
   width: 100%;
