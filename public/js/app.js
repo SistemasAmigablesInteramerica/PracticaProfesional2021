@@ -4044,6 +4044,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'index'
 });
@@ -50134,43 +50136,59 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "section",
+    {
+      staticClass: "section main-banner",
+      attrs: { id: "top", "data-section": "section1" },
+    },
+    [
+      _c(
+        "video",
+        {
+          attrs: { autoplay: "", muted: "", loop: "", id: "bg-video" },
+          domProps: { muted: true },
+        },
+        [
+          _c("source", {
+            attrs: {
+              src: "/images/videoinicio.mp4",
+              type: "video/mp4",
+              width: "320px",
+              height: "320px",
+            },
+          }),
+        ]
+      ),
+      _vm._v(" "),
+      _vm._m(0),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "section",
-      {
-        staticClass: "section main-banner",
-        attrs: { id: "top", "data-section": "section1" },
-      },
-      [
-        _c("img", { attrs: { src: "/images/Prueba.jpg" } }),
-        _vm._v(" "),
-        _c("div", { staticClass: "video-overlay header-text" }, [
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
-                _c("div", { staticClass: "caption" }, [
-                  _c("h6", [_vm._v("Saludos")]),
-                  _vm._v(" "),
-                  _c("h2", [_vm._v("Bienvenido a Fullpass Student")]),
-                  _vm._v(" "),
-                  _c("p", [
-                    _vm._v(
-                      "Pagina creada por: Christopher Alexander Ortiz Navarrete, y Luis Vicente Aranda López, durante la practica profesional 2021"
-                    ),
-                  ]),
-                ]),
+    return _c("div", { staticClass: "video-overlay header-text" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-12" }, [
+            _c("div", { staticClass: "caption" }, [
+              _c("h6", [_vm._v("Saludos")]),
+              _vm._v(" "),
+              _c("h2", [_vm._v("Bienvenido a Fullpass Student")]),
+              _vm._v(" "),
+              _c("p", [
+                _vm._v(
+                  "Pagina creada por: Christopher Alexander Ortiz Navarrete, y Luis Vicente Aranda López, durante la practica profesional 2021"
+                ),
               ]),
             ]),
           ]),
         ]),
-      ]
-    )
+      ]),
+    ])
   },
 ]
 render._withStripped = true

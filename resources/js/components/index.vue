@@ -1,6 +1,8 @@
 <template>
   <section class="section main-banner" id="top" data-section="section1" >
-          <img src="/images/Prueba.jpg" />
+        <video autoplay muted loop id="bg-video">
+          <source src="/images/videoinicio.mp4" type="video/mp4" width="320px" height="320px">
+        </video>  
       <div class="video-overlay header-text">
           <div class="container">
             <div class="row">
@@ -23,3 +25,4 @@ export default {
     name: 'index'
 }
 </script>
+
