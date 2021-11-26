@@ -183,7 +183,7 @@ export default {
                     title: 'Datos cambiados',
                     text: 'Los datos se han editado con éxito'
                 });
-                 window.location.href = '/lista-de-familiares'
+                 window.location.href = '/lista-de-familiares '
             }).catch(error =>{
                 Swal.fire({
                     icon: 'error',
