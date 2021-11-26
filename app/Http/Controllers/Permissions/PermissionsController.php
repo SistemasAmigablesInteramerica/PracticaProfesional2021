@@ -19,10 +19,8 @@ class PermissionsController extends Controller
       {
           return view('permissions/insert-permissionsinfo');
       }
-  
       public function store(Request $request)
       {
-  
           $permissions = new Permissions();
           $permissions->fill($request->all());
           if($permissions->save()){
