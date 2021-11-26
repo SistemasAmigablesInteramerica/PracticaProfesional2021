@@ -95,6 +95,7 @@
                     title: 'Datos registrados',
                     text: 'Se ha guardado con éxito.',
                 });
+                 window.location.href = '/lista-de-materiasygrados'
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',

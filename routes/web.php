@@ -1,6 +1,8 @@
 <?php 
 
 use App\Http\Controllers\Grades\GradeController; 
+use App\Http\Controllers\Roles\RolesController; 
+use App\Http\Controllers\Permissions\PermissionsController; 
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Subjects\SubjectController; 
 use App\Http\Controllers\Subjects\SubjectTeacherController; 
@@ -120,6 +122,24 @@ Route::get('/edit-gradesubjectstudent/{id}', [GradeSubjectStudentController::cla
 Route::post('/store-gradesubjectstudent', [GradeSubjectStudentController::class, 'store']);
 Route::put('/update-gradesubjectstudent/{id}', [GradeSubjectStudentController::class, 'update']);
 // Fin de rutas de asignar materia-estudiante
+
+// Inicio de rutas de roles
+Route::get('/crear-roles', [App\Http\Controllers\Roles\RolesController::class, 'create'])->name('insert-rolesinfo');
+Route::get('/lista-de-roles', [App\Http\Controllers\Roles\ListRolesController::class, 'create'])->name('list-rolesinfo');
+Route::get('/list-roles', [App\Http\Controllers\Roles\RolesController::class, 'list']);
+Route::get('/edit-roles/{id}', [RolesController::class, 'edit']);
+Route::post('/store-roles', [RolesController::class, 'store']);
+Route::put('/update-roles/{id}', [RolesController::class, 'update']);
+// Fin de rutas de roles
+
+// Inicio de rutas de roles
+Route::get('/crear-permisos', [App\Http\Controllers\Permissions\PermissionsController::class, 'create'])->name('insert-permissionsinfo');
+Route::get('/lista-de-permisos', [App\Http\Controllers\Permissions\ListPermissionsController::class, 'create'])->name('list-permissionsinfo');
+Route::get('/list-permissions', [App\Http\Controllers\Permissions\PermissionsController::class, 'list']);
+Route::get('/edit-permissions/{id}', [RolesController::class, 'edit']);
+Route::post('/store-permissions', [RolesController::class, 'store']);
+Route::put('/update-permissions/{id}', [RolesController::class, 'update']);
+// Fin de rutas de roles
 
 Auth::routes();
 
