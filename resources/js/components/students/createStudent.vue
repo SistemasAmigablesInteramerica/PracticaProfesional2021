@@ -97,6 +97,14 @@
                     <input name="total_income" class="form-control" v-model="student.total_income" type="text" placeholder="₡ Ingresos Totales">
                     </fieldset> 
                   </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                    <small>Declaro bajo juramento que toda la información contenida en este formulario es veraz y que cualquier falsedad me hará acreedor de la pérdida del beneficio solicitado, sin perjuicio de las responsabilidades legales que procedan. Así mismo, me comprometo a cumplir con los lineamientos de Programas de Equidad, reglamento de Transporte Estudiantil. En caso de incumplir la normat</small>
+                    <br>
+                      <label class="form-check-label">Acepto:</label>
+                    <input name="studentcheck" class="form-check-input" v-model="confirmation" type="checkbox">
+                    </fieldset> 
+                  </div>
                   <div class="col-lg-12" style="text-align: center" >
                     <fieldset>
                       <button type="submit" @click="send" class="btn btn-primary">Registrar</button>
@@ -139,8 +147,8 @@ export default {
                 rental_income: '',
                 others_income: '',
                 total_income: '',
-            }
-
+            },
+              confirmation: '',
         }
     },
     methods:{
@@ -225,7 +233,14 @@ export default {
             })
             return false
           }
-
+          if(this.confirmation === 'false' || this.confirmation == ''){
+            Swal.fire({
+              icon: 'warning',
+              title: 'Atención',
+              text: 'Debe aceptar los terminos y condiciones'
+            })
+            return false
+          }
             axios.post('/store-student', this.student).then(response => {
 
               this.student.name = '',

@@ -35,7 +35,7 @@ class PermissionsController extends Controller
           return view('Permissions/edit-permissions',compact('permissions'));
       }   
   
-      public function update(Request $request, $id)
+         public function update(Request $request, $id)
       {
           $permissions = Permission::where('id',$id)->update($request->all());
           return $permissions;
