@@ -21,7 +21,7 @@ class PermissionsController extends Controller
       }
       public function store(Request $request)
       {
-          $permissions = new Permissions();
+          $permissions = new Permission();
           $permissions->fill($request->all());
           if($permissions->save()){
               return response()->json(['message'=>'Se guardo con exito','data'=> $permissions], 200);
@@ -30,18 +30,18 @@ class PermissionsController extends Controller
       }
       public function edit($id) 
       {
-          $permissions = Permissions::find($id);
+          $permissions = Permission::find($id);
   
           return view('Permissions/edit-permissions',compact('permissions'));
       }   
   
       public function update(Request $request, $id)
       {
-          $permissions = Permissions::where('id',$id)->update($request->all());
+          $permissions = Permission::where('id',$id)->update($request->all());
           return $permissions;
       }
       public function list()
       {
-          return Permissions::all();
+          return Permission::all();
       }
 }
