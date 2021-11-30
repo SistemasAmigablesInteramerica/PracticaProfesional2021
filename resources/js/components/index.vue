@@ -1,7 +1,7 @@
 <template>
   <section class="section main-banner" id="top" data-section="section1" >
         <video autoplay muted loop id="bg-video">
-          <source src="/images/videoinicio.mp4" type="video/mp4" width="320px" height="320px">
+          <source src="/images/videoinicio.mp4" type="video/mp4">
         </video>  
       <div class="video-overlay header-text">
           <div class="container">
