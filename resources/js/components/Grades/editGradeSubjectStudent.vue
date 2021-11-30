@@ -107,6 +107,7 @@
                     title: 'Datos actualizados',
                     text: 'Se ha actualizado con éxito.',
                 });
+                 window.location.href = '/lista-de-materiasyestudiantes'
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',

@@ -85,6 +85,7 @@
                     title: 'Datos registrados',
                     text: 'El grado se ha cambiado con éxito.',
                 });
+                  window.location.href = '/lista-de-secciones'
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',

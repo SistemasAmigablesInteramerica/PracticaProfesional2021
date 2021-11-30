@@ -58,6 +58,7 @@
                     title: 'Datos registrados',
                     text: 'La materia se ha cambiado con éxito.',
                 });
+                 window.location.href = '/lista-de-materias'
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',

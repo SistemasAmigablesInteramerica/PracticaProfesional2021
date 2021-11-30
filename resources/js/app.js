@@ -23,6 +23,8 @@ Vue.component('createGrade', require("./components/Grades/createGrade.vue").defa
 Vue.component('createStudent', require("./components/students/createStudent.vue").default);
 Vue.component('createTeacher', require("./components/teachers/createTeacher.vue").default);
 Vue.component('createSubject', require("./components/Subjects/createSubject.vue").default);
+Vue.component('createRoles', require("./components/Roles/createRoles.vue").default);
+Vue.component('createPermissions', require("./components/Permissions/createPermissions.vue").default);
 Vue.component('createSubjectteacher', require("./components/Subjects/createSubjectteacher.vue").default);
 Vue.component('createSubjectgrade', require("./components/Subjects/createSubjectgrade.vue").default);
 Vue.component('createStudentrelative', require("./components/students/createStudentRelative.vue").default);
@@ -33,6 +35,8 @@ Vue.component('index', require("./components/index.vue").default);
 
 
 Vue.component('listsGrade', require("./components/Grades/listsGrade.vue").default);
+Vue.component('listRoles', require("./components/Roles/listRoles.vue").default);
+Vue.component('listPermissions', require("./components/Permissions/listPermissions.vue").default);
 Vue.component('listGradesubjectstudent', require("./components/Grades/listGradeSubjectStudent.vue").default);
 Vue.component('listSubjectgrade', require("./components/Subjects/listSubjectgrade.vue").default);
 Vue.component('listsSubjects', require("./components/Subjects/listsSubjects.vue").default);
@@ -43,6 +47,8 @@ Vue.component('listStudentrelative', require("./components/students/listStudentR
 Vue.component('listAttendancehistory', require("./components/AttendanceHistory/listAttendanceHistory.vue").default);
 
 Vue.component('editGrade', require("./components/Grades/editGrade.vue").default);
+Vue.component('editRoles', require("./components/Roles/editRoles.vue").default);
+Vue.component('editPermissions', require("./components/Permissions/editPermissions.vue").default);
 Vue.component('editGradesubjectstudent', require("./components/Grades/editGradeSubjectStudent.vue").default);
 Vue.component('editStudents', require("./components/students/editStudents.vue").default);
 Vue.component('editSubjectgrade', require("./components/Subjects/editSubjectgrade.vue").default);
