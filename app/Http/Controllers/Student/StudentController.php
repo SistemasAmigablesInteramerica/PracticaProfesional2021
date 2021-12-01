@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class StudentController extends Controller
 {
@@ -17,6 +19,7 @@ class StudentController extends Controller
 
     public function index()
     {
+        abort_if(Gate::denies('view-student') Response::'403', 'No tiene permiso para acceder a esta pagina');
         return view ('students/list-student');
     }
 

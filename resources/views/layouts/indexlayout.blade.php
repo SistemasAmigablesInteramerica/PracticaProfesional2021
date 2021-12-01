@@ -33,6 +33,7 @@
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav"> 
+                          
                           <li class="has-sub">
                               <a href="javascript:void(0)">Expedientes comedor</a>
                               <ul class="sub-menu">
@@ -105,6 +106,7 @@
                               @endif
                               </ul>
                           </li>        
+                          <a href="{{ route('login') }}">Iniciar sesion</a>
                       <a class="menu-trigger">
                           <span>Menu</span>
                       </a>  
