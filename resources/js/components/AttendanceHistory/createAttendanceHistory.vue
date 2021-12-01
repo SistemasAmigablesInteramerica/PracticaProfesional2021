@@ -10,7 +10,7 @@
                       </div>
                           <div class="col-lg-6">
                           <fieldset>
-                            <label>Fecha de entrada:</label>
+                            <label>Fecha de entrada:</label><br>
                             <input type="date" v-model="attendancehistory.date" placeholder="Entrada">
                           </fieldset>
                         </div>

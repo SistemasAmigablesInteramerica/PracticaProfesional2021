@@ -12,44 +12,51 @@
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Nombre del docente</label>
-                      <input name="names" v-model="teacher.names" type="text" id="name" placeholder="Nombre del docente" required="">
+                      <input name="names" v-model="teacher.names" class="form-control" type="text" id="name" placeholder="Nombre del docente" required="">
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
                     <label>Apellidos del docente</label>
-                    <input name="last_names" v-model="teacher.last_names" type="text" placeholder="Apellidos del docente" required="">
+                    <input name="last_names" v-model="teacher.last_names" class="form-control" type="text" placeholder="Apellidos del docente" required="">
                   </fieldset>
+                  <br>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Cedula del docente</label>
-                      <input name="identification" v-model="teacher.identification" type="number"  placeholder="No.Cédula" pattern="" required="">
+                      <input name="identification" v-model="teacher.identification" class="form-control" type="number"  placeholder="No.Cédula" pattern="" required="">
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                     <label for="Birthdate">Fecha de nacimiento:</label>
-                   <input name="birthdate" v-model="teacher.birthdate" type="date" placeholder="Fecha de Nacimiento" min="1995-01-01">  
+                   <input name="birthdate" v-model="teacher.birthdate" class="form-control" type="date" placeholder="Fecha de Nacimiento" min="1995-01-01">  
                   </fieldset>
+                  <br>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
                   <label for="Birthdate">Edad:</label>
-                      <input name="age" v-model="teacher.age" type="number" placeholder="Edad" required="">
+                      <input name="age" v-model="teacher.age" class="form-control" type="number" placeholder="Edad" required="">
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                       <label for="Especialidad">Especialidad:</label>
-                      <input name="specialty" v-model="teacher.speciality" type="text" placeholder="Especialidad del docente" pattern="" required="">
+                      <input name="specialty" v-model="teacher.speciality" class="form-control" type="text" placeholder="Especialidad del docente" pattern="" required="">
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                         <label for="email">Correro electronico:</label>
-                         <input type="email" v-model="teacher.email" id="email" name="email" placeholder="ejemplo@gmail.com">  
+                         <input class="form-control" type="email" v-model="teacher.email" id="email" name="email" placeholder="ejemplo@gmail.com">  
                     </fieldset>
+                    <br>
                    </div>
                    <div class="col-lg-4">
                     <fieldset>
@@ -60,17 +67,20 @@
                         <option value="Femenino">Femenino</option>
                         </select>
                     </fieldset>
+                    <br>
                    </div>
                   <div class="col-lg-4">
                     <fieldset>
                         <label for="contact_number">Número de telefono:</label>
-                         <input type="tel" v-model="teacher.contact_number" id="contact_number" name="contact_number" placeholder="7777-7777">  
+                         <input class="form-control" type="tel" v-model="teacher.contact_number" id="contact_number" name="contact_number" placeholder="7777-7777">  
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-12">
                     <fieldset style="text-align:center">  
                       <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Registrar</button>
                     </fieldset>
+                    <br>
                   </div>
                 </div>
             </div>

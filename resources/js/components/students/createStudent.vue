@@ -14,54 +14,63 @@
                       <label>Nombre completo:</label>
                       <input name="name" class="form-control" v-model="student.name" type="text" placeholder="Nombre Completo Del Estudiante">
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
                     <label>Nacionalidad:</label>
                     <input name="nationality" class="form-control" v-model="student.nationality" type="text" placeholder="Nacionalidad" >
                   </fieldset>
+                  <br>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Número de Cédula</label>
                       <input name="card" class="form-control" v-model="student.card" type="number" placeholder="Numero de Cédula">
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
                     <label for="Birthdate">Fecha de Nacimiento:</label>
                    <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">  
                   </fieldset>
+                  <br>
                   </div>  
                   <div class="col-lg-4">
                   <fieldset>
                   <label for="legal_guardian_name">Nombre del Encargado Legal:</label>
                       <input name="legal_guardian_name" class="form-control" v-model="student.legal_guardian_name" type="text" placeholder="Inserte el Nombre">
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                       <label for="legal_guardian_card">Cédula del encargado legal:</label>
                       <input name="legal_guardian_card" class="form-control" v-model="student.legal_guardian_card" type="number" placeholder="No.Cédula del encargado legal" pattern="">
                     </fieldset>
+                    <br>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                   <label for="phone_number">Telefono de domicilio:</label>
                     <input type="tel" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">  
                     </fieldset>
+                    <br>
                     </div>
                     <div class="col-lg-12">
                     <fieldset>
                       <label>Domicilio:</label>
                       <input name="place_residence" class="form-control" v-model="student.place_residence" type="text" placeholder="Direccion Del Domicilio">
                       </fieldset>
+                      <br>
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
                   <label for="archivo">Subir La Constancia Salarial:</label>
                     <input type="file" v-on:change="student.salarial_constance" class="form-control" name="archivo" accept="image/*,.txt,.doc,.docx,.document,.pdf">
                     </fieldset>
+                    <br>
                   </div>
                   <div>
                     <br>
@@ -72,30 +81,35 @@
                       <label>Asistencia financiera:</label>
                     <input name="financial_assistance" class="form-control" v-model="student.financial_assistance" type="text" placeholder="₡ Ayuda Financiera">
                     </fieldset> 
+                    <br>
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
                       <label>Asistencia voluntaria:</label>
                     <input class="form-control" v-model="student.voluntary_assistance" type="text" placeholder="₡ Ayuda Voluntaria">
                     </fieldset> 
+                    <br>
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
                       <label>Ingresos de renta:</label>
                     <input name="rental_income" class="form-control" v-model="student.rental_income" type="text" placeholder="₡ Arquileres">
                     </fieldset> 
+                    <br>
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
                       <label>Otros ingresos:</label>
                     <input name="others_income" class="form-control" v-model="student.others_income" type="text" placeholder="₡ Otros(Especifique)">
                     </fieldset> 
+                    <br>
                   </div>
                   <div class="col-lg-3">
                     <fieldset>
                       <label>Total de ingresos:</label>
                     <input name="total_income" class="form-control" v-model="student.total_income" type="text" placeholder="₡ Ingresos Totales">
                     </fieldset> 
+                    <br>
                   </div>
                   <div class="col-lg-12">
                     <fieldset>
@@ -104,11 +118,13 @@
                       <label class="form-check-label">Acepto:</label>
                     <input name="studentcheck" class="form-check-input" v-model="confirmation" type="checkbox">
                     </fieldset> 
+                    <br>
                   </div>
                   <div class="col-lg-12" style="text-align: center" >
                     <fieldset>
                       <button type="submit" @click="send" class="btn btn-primary">Registrar</button>
                     </fieldset>
+                    <br>
                   </div>
                 </div>
             </div>  
