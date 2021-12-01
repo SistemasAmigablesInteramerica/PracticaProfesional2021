@@ -9,16 +9,13 @@
                   <div class="col-lg-12">
                     <h2 >Crear permisos</h2>
                   </div>  
-                  <div class="col-lg-12">
-                     <fieldset>
-                     <label>Nombre del permiso: </label>
-                       <input type="text" class="form-control" v-model="permissions.title" placeholder="@Ejemplo: eliminar">
+                   <label>Nombre de el permiso: </label>
+                       <input type="text" class="form-control form-control-sm" v-model="permissions.title" placeholder="@Ejemplo: eliminar">
                      </fieldset>
-                   </div>
                    <div class="col-lg-12">
                      <fieldset>
                      <label>Descripción:</label>
-                       <input type="text" class="form-control" v-model="permissions.description">
+                       <input type="text" class="form-control" v-model="permissions.description" placeholder="Descripción">
                      </fieldset>
                          </div>
                    <div class="col-lg-12" style="text-align: center" >
@@ -35,6 +32,8 @@
 </section>
 </template>
 
+
+
 <script>
   import Swal from 'sweetalert2'
     export default {
@@ -45,7 +44,7 @@
             permissions: {
               title: '',
               description: '',
-            }
+            },
           }
         },
         methods: {
@@ -75,6 +74,7 @@
                     });
 
             })
+            
           }
         }
     }

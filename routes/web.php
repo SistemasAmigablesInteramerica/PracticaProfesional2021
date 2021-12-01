@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Grades\GradeController; 
 use App\Http\Controllers\Roles\RolesController; 
+use App\Http\Controllers\PermissionsRoles\PermissionsRolesController; 
 use App\Http\Controllers\Permissions\PermissionsController; 
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Subjects\SubjectController; 
@@ -140,6 +141,16 @@ Route::get('/edit-permissions/{id}', [PermissionsController::class, 'edit']);
 Route::post('/store-permissions', [PermissionsController::class, 'store']);
 Route::put('/update-permissions/{id}', [PermissionsController::class, 'update']);
 // Fin de rutas de roles
+
+// Inicio de rutas de asignar roles y permisos
+Route::get('/asignar-rolesypermisos', [App\Http\Controllers\PermissionsRoles\PermissionsRolesController::class, 'create'])->name('insert-permissionsrolesinfo');
+Route::get('/lista-de-rolesypermisos', [App\Http\Controllers\PermissionsRoles\ListPermissionsRolesController::class, 'create'])->name('list-permissionsinfo');
+Route::get('/list-permissionsroles', [App\Http\Controllers\PermissionsRoles\PermissionsRolesController::class, 'list']);
+Route::get('/edit-permissionsroles/{id}', [PermissionsRolesController::class, 'edit']);
+Route::post('/store-permissionsroles', [PermissionsRolesController::class, 'store']);
+Route::put('/update-permissionsroles/{id}', [PermissionsRolesController::class, 'update']);
+// Fin de rutas de asignar roles y permisos
+
 
 Auth::routes();
 
