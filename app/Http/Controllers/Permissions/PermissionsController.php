@@ -40,8 +40,8 @@ class PermissionsController extends Controller
           $permissions = Permission::where('id',$id)->update($request->all());
           return $permissions;
       }
-      public function list()
+      public function lists()
       {
-          return Permission::all();
+          return Permission::LabelSelect();
       }
 }

@@ -136,7 +136,7 @@ Route::put('/update-roles/{id}', [RolesController::class, 'update']);
 // Inicio de rutas de roles
 Route::get('/crear-permisos', [App\Http\Controllers\Permissions\PermissionsController::class, 'create'])->name('insert-permissionsinfo');
 Route::get('/lista-de-permisos', [App\Http\Controllers\Permissions\ListPermissionsController::class, 'create'])->name('list-permissionsinfo');
-Route::get('/list-permissions', [App\Http\Controllers\Permissions\PermissionsController::class, 'list']);
+Route::get('/list-permissions', [App\Http\Controllers\Permissions\PermissionsController::class, 'lists']);
 Route::get('/edit-permissions/{id}', [PermissionsController::class, 'edit']);
 Route::post('/store-permissions', [PermissionsController::class, 'store']);
 Route::put('/update-permissions/{id}', [PermissionsController::class, 'update']);

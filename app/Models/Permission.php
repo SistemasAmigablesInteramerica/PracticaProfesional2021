@@ -15,4 +15,18 @@ class Permission extends Model
     {
         return $this->hasMany(PermissionRoles::class, 'permission_id', 'id');  
     }
+    public function roles()
+    {
+        return $this->belongsToMany(Roles::class,'permission_roles','permission_id');
+    }
+    public static function LabelSelect()
+    {
+        $lists = self::all();
+        $result = [];
+
+            foreach ($lists As $list){
+                array_push($result, ['label'=>$list->title,'value'=>$list->id]);
+            }
+           return $result;  
+    }
 }

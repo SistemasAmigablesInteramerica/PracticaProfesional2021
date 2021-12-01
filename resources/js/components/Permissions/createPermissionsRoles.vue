@@ -18,17 +18,13 @@
                      </fieldset>
                   </div>   
                    <div class="col-lg-12">
-                     <fieldset>
                      <label>Asignar permiso:</label>
-                       <div class="col-lg-12 tag-input">
-                      <div v-for="permissions in listPermission" :key="permissions.id" class="tag-input__tag ">
-                        <span @click='removePermission(index)'>x</span>
-                        {{ permissions.title }}
-                      </div>
-                      <input type="text" v-model="permissionsroles.permission_id" placeholder="Permiso" class="tag-input__text" @keydown.enter='addPermission' @keydown.188='addPermission' />
+
+                       <v-select taggable class="form-control" :options="listPermission" multiple> </v-select> 
+                       
+                       <vue-selects :items="listPermission" @seleccionado="selectPerm"></vue-selects>
                     </div>
-                     </fieldset>
-                         </div>
+                         
                    <div class="col-lg-12" style=" padding-top:60px;text-align: center" >
                     <fieldset>
                       <button type="submit" @click="send" class="btn btn-primary">Registrar</button> 
@@ -45,28 +41,29 @@
 
 
 
-<script>
+<script> 
   import Swal from 'sweetalert2'
+  import vSelect from 'vue-select'
+  import vueSelects from './vueSelects'
     export default {
         name: "createPermissionsRoles",
-        components:{Swal},
+        components:{Swal, vSelect},
         data() {
           return {
             listPermission:[],
             listRoles: [],
             permissionsroles: {
               role_id: '',
-              permission_id: '',
+              permissions: [],
             },
           }
         }, 
             created() {
         axios.get('/list-roles').then(response =>{
-            this.listRoles =response.data
+            this.listRoles = response.data
         }),
           axios.get('/list-permissions').then(response =>{
             this.listPermission = response.data
-            console.log(this.listPermissions)
         })
     },
         methods: {
@@ -89,16 +86,19 @@
         this.removePermission(this.listPermission.length = 1)
       }
     },
+    selectPerm(id){
+      swal.fire('atención', JSON.stringify(id), 'info');
+    },
           send(){
 
             if(this.permissionsroles.role_id === ''){
               Swal.fire('Atención', 'Debe asignar un rol', 'warning')
               return false
             }
-            // if(this.permissionsroles.permission_id === ''){
-            //   Swal.fire('Atención', 'Debe asignar un permiso ', 'warning')
-            //   return false
-            // }
+            if(this.permissionsroles.permission_id === ''){
+              Swal.fire('Atención', 'Debe asignar un permiso ', 'warning')
+              return false
+            }
             axios.post('/store-permissionsroles', this.permissionsroles).then(response =>{
                 this.permissions.role_id = '',
                  this.permissions.Permission_id = '',

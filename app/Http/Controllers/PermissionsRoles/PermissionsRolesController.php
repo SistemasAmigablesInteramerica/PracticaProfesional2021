@@ -22,7 +22,7 @@ class PermissionsRolesController extends Controller
     public function store(Request $request)
     {
 
-        $permissionsroles = new PermissionsRoles();
+        $permissionsroles = new PermissionRoles();
         $permissionsroles->fill($request->all());
         if($permissionsroles->save()){
             return response()->json(['message'=>'Se guardo con exito','data'=> $permissionsroles], 200);
@@ -31,18 +31,18 @@ class PermissionsRolesController extends Controller
     }
     public function edit($id) 
     {
-        $permissionsroles = PermissionsRoles::find($id);
+        $permissionsroles = PermissionRoles::find($id);
 
         return view('permissionsroles/edit-permissionsroles',compact('permissionsroles'));
     }   
 
     public function update(Request $request, $id)
     {
-        $permissionsroles = PermissionsRoles::where('id',$id)->update($request->all());
+        $permissionsroles = PermissionRoles::where('id',$id)->update($request->all());
         return $permissionsroles;
     }
     public function list()
     {
-        return PermissionsRoles::all(); 
+        return PermissionRoles::all(); 
     }
 }
