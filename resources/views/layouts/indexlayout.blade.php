@@ -32,49 +32,77 @@
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
-                      <ul class="nav">
-                          <li class="has-sub">   
+                      <ul class="nav"> 
+                          <li class="has-sub">
                               <a href="javascript:void(0)">Expedientes comedor</a>
                               <ul class="sub-menu">
                                   <li><a href="{{asset('registro-de-estudiantes')}}">Agregar estudiante</a></li>
+                                  @if (Route::has('login'))
+                                  @auth
                                   <li><a href="{{asset('lista-de-estudiantes')}}">Ver expedientes</a></li>
+                                  @endauth
                                   <li><a href="{{asset('registro-de-familiares')}}">Agregar familiares</a></li>
+                                  @auth
                                   <li><a href="{{asset('lista-de-familiares')}}">Ver familiares</a></li>
+                                  @endauth
+                                  @endif
                               </ul>
                           </li>
-                          <li class="has-sub">  
+                          <li class="has-sub">
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
+                                  @if (Route::has('login'))
                                   <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
+                                  @auth
                                   <li><a href="{{asset('lista-de-profesores')}}">Ver docentes</a></li>
+                                  @endauth
+                                  @endif
                               </ul>
                           </li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Materias y secciones</a>
                               <ul class="sub-menu">
+                                  @if (Route::has('login'))
                                   <li><a href="{{asset('registro-de-materias')}}">Agregar materias</a></li>
+                                  @auth
                                   <li><a href="{{asset('lista-de-materias')}}">Ver materias</a></li>
+                                  @endauth
                                   <li><a href="{{asset('asignar-materia-profesor')}}">Asignar docentes</a></li>
+                                  @auth
                                   <li><a href="{{asset('lista-de-materiasyprofesores')}}">Ver docentes asignados</a></li>
+                                  @endauth
                                   <li><a href="{{asset('registro-de-secciones')}}">Agregar sección</a></li>
+                                  @auth
                                   <li><a href="{{asset('lista-de-secciones')}}">Ver secciones</a></li>
+                                  @endauth
                                   <li><a href="{{asset('asignar-materia-grado')}}">Asignar materia</a></li>
+                                  @auth
                                   <li><a href="{{asset('lista-de-materiasygrados')}}">Ver materias asignados</a></li>
+                                  @endauth
                                   <li><a href="{{asset('asignar-materia-estudiante')}}">Asignar estudiante</a></li>
+                                  @endif
                               </ul>
                           </li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Asistencia</a>
                               <ul class="sub-menu">
+                              @if (Route::has('login'))
                               <li><a href="{{asset('registro-de-asistencias')}}">Asistencia</a></li>
+                              @auth
                               <li><a href="{{asset('lista-de-de-asistencia')}}">Ver asistencias</a></li>
+                              @endauth
+                              @endif
                               </ul>
                           </li>
                           <li class="has-sub">
                               <a href="javascript:void(0)">Formularios</a>
                               <ul class="sub-menu">
+                              @if (Route::has('login'))
                               <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
+                              @auth
                               <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
+                              @endauth
+                              @endif
                               </ul>
                           </li>        
                       <a class="menu-trigger">
@@ -96,7 +124,7 @@
 </section>
 <section class="contact-us" id="contact">
     <div class="footer">
-      <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved. 
+      <p>Copyright © 2022 Sistemas amigables latinoamerica. All Rights Reserved. 
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
     </div>
 </section>

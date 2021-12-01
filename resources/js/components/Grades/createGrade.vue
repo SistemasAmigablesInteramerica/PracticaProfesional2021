@@ -21,7 +21,6 @@
                           <option value="12">12°</option>
                       </select>
                         </fieldset>
-                    </fieldset>
                   </div>
                   <div class="col-lg-6">
                     <fieldset>
