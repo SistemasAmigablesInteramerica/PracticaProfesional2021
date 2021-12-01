@@ -19,4 +19,14 @@ class PermissionRoles extends Model
     {
         return $this->belongsTo(Roles::class, 'role_id', 'id');  
     }
+    public static function labelSelect()
+    {
+        $lists = self::all();
+        $result = [];
+
+            foreach ($lists As $list){
+                array_push($result, ['label'=>$list->title,'value'=>$list->id]);
+            }
+           return $result;  
+    }
 }

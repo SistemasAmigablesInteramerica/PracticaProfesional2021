@@ -58,7 +58,7 @@ export default {
       viewList: false,
       nowList: 0,
       MultIds:[],
-      ids:''
+      ids:'',
     }
   },
   mounted() {
@@ -83,8 +83,13 @@ export default {
       } else {
         this.viewList = false;
       }
-    },
+    }, 
     selecctionItems(index) {
+      if(this.multiple === 'multiple'){
+        this.MultIds.push(this.results[index].value) 
+      }else{
+        this.ids = this.results[index].value
+      }
         const id = this.valueSelect(index)
       this.$emit('seleccionado',id );
       const select = this.results[index];

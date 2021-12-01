@@ -19,13 +19,10 @@
                   </div>   
                    <div class="col-lg-12">
                      <label>Asignar permiso:</label>
-
-                       <v-select taggable class="form-control" :options="listPermission" multiple> </v-select> 
-                       
-                       <vue-selects :items="listPermission" @seleccionado="selectPerm"></vue-selects>
+                       <v-select taggable multiple :options="listPermission" class="form-control"> </v-select>                       
                     </div>
                          
-                   <div class="col-lg-12" style=" padding-top:60px;text-align: center" >
+                   <div class="col-lg-12" style="padding-top:60px;text-align: center" >
                     <fieldset>
                       <button type="submit" @click="send" class="btn btn-primary">Registrar</button> 
                     </fieldset>
@@ -54,7 +51,7 @@
             listRoles: [],
             permissionsroles: {
               role_id: '',
-              permissions: [],
+              permission_id: [],
             },
           }
         }, 
