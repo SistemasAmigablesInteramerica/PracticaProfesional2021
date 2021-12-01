@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
-use Illuminate\Support\Facades\Gate;
-use Symfony\Component\HttpFoundation\Response;
 
 class StudentController extends Controller
 {
@@ -24,13 +22,7 @@ class StudentController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('registro-de-estudiantes'), Response:: HTTP_FORBIDDEN, 'No tiene los permisos para acceder a esta pagina');
         return view('students/insert-studentsinfo');
-    }
-
-    public function MESSAGE()
-    {
-        return view('403');
     }
 
     public function store(Request $request)
