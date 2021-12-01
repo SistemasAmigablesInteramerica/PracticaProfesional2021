@@ -13,23 +13,23 @@
                    <label>Asignar rol:</label>
                        <select class="form-control form-control-sm" v-model="permissionsroles.role_id">
                        <option disabled value="">Seleccionar un rol</option>
-                       <option v-for="roles in listRoles" :value="roles.id" key="roles.id"></option>
+                       <option v-for="roles in listRoles" :value="roles.id" key="roles_id">{{ roles.name }}</option>
                        </select>
                      </fieldset>
                   </div>   
                    <div class="col-lg-12">
                      <fieldset>
                      <label>Asignar permiso:</label>
-                       <div class="tag-input">
-                      <div v-for="permissions in listPermission" :key="permissions.id" class="tag-input__tag">
-                        <span>x</span>
+                       <div class="col-lg-12 tag-input">
+                      <div v-for="permissions in listPermission" :key="permissions.id" class="tag-input__tag ">
+                        <span @click='removePermission(index)'>x</span>
                         {{ permissions.title }}
                       </div>
-                      <input type="text" placeholder="Enter a Tag" class="tag-input__text" @keydown.enter='addPermissions' @keydown.188='addPermissions' />
+                      <input type="text" v-model="permissionsroles.permission_id" placeholder="Permiso" class="tag-input__text" @keydown.enter='addPermission' @keydown.188='addPermission' />
                     </div>
                      </fieldset>
                          </div>
-                   <div class="col-lg-12" style="text-align: center" >
+                   <div class="col-lg-12" style=" padding-top:60px;text-align: center" >
                     <fieldset>
                       <button type="submit" @click="send" class="btn btn-primary">Registrar</button> 
                     </fieldset>
@@ -52,7 +52,6 @@
         components:{Swal},
         data() {
           return {
-            tags: ['{{ permissions.title }}'],
             listPermission:[],
             listRoles: [],
             permissionsroles: {
@@ -65,13 +64,13 @@
         axios.get('/list-roles').then(response =>{
             this.listRoles =response.data
         }),
-          axios.get('list-permissions').then(response =>{
+          axios.get('/list-permissions').then(response =>{
             this.listPermission = response.data
             console.log(this.listPermissions)
         })
     },
         methods: {
-          addPermissions (event) {
+          addPermission (event) {
          if (event.code == 'Comma' || event.code == 'Enter'){   
         event.preventDefault()
         var val = event.target.value.trim()
@@ -82,31 +81,31 @@
         }
       }  
   },
-  removePermissions(index){
+  removePermission(index){
     this.listPermission.splice(index, 1)
   },
     removeLastPermissions (event) {
       if (event.target.value.length === 0){
-        this.removePermissions(this.listPermissions.length = 1)
+        this.removePermission(this.listPermission.length = 1)
       }
     },
           send(){
 
             if(this.permissionsroles.role_id === ''){
-              Swal.fire('Atención', 'Debe digitar un titulo', 'warning')
+              Swal.fire('Atención', 'Debe asignar un rol', 'warning')
               return false
             }
-            if(this.permissionsroles.permission_id === ''){
-              Swal.fire('Atención', 'Debe digitar una descripcion ', 'warning')
-              return false
-            }
+            // if(this.permissionsroles.permission_id === ''){
+            //   Swal.fire('Atención', 'Debe asignar un permiso ', 'warning')
+            //   return false
+            // }
             axios.post('/store-permissionsroles', this.permissionsroles).then(response =>{
                 this.permissions.role_id = '',
                  this.permissions.Permission_id = '',
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'El permiso se ha registrado con éxito.',
+                    text: 'El permiso se ha asignado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({
