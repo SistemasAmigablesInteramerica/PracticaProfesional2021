@@ -17,7 +17,7 @@ class Permission extends Model
     }
     public function roles()
     {
-        return $this->belongsToMany(Roles::class,'permission_roles','permission_id');
+        return $this->belongsToMany(Roles::class,'permission_roles','permission_id','role_id');
     }
     public static function LabelSelect()
     {
