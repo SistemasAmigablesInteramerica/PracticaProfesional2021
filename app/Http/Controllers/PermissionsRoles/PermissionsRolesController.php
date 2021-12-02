@@ -24,10 +24,9 @@ class PermissionsRolesController extends Controller
 
         $permissionsroles = new PermissionRoles();
         $permissionsroles->fill($request->all());
-        if($permissionsroles->save()){
-            return response()->json(['message'=>'Se guardo con exito','data'=> $permissionsroles], 200);
-        }
-        return response()->json(['message'=>'No se guardo la informacion', 'data'=> $permissionsroles], 471);
+        $permissionsroles->save;
+        return json_decode($permissionsroles);
+   
     }
     public function edit($id) 
     {

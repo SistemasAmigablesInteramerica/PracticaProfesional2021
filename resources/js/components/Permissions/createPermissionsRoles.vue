@@ -13,13 +13,12 @@
                    <label>Asignar rol:</label>
                        <select class="form-control form-control-sm" v-model="permissionsroles.role_id">
                        <option disabled value="">Seleccionar un rol</option>
-                       <option v-for="roles in listRoles" :value="roles.id" key="roles_id">{{ roles.name }}</option>
+                       <option v-for="roles in listRoles" :value="roles.id" :key="roles.id">{{ roles.name }}</option>
                        </select>
-                     </fieldset>
                   </div>   
                    <div class="col-lg-12">
                      <label>Asignar permiso:</label>
-                       <v-select taggable multiple :options="listPermission" class="form-control"> </v-select>                       
+                       <v-select taggable multiple v-model="permissionsroles.permission_id" :options="listPermission"> </v-select>                       
                     </div>
                          
                    <div class="col-lg-12" style="padding-top:60px;text-align: center" >
@@ -39,9 +38,10 @@
 
 
 <script> 
+import 'vue-select/dist/vue-select.css'
   import Swal from 'sweetalert2'
   import vSelect from 'vue-select'
-  import vueSelects from './vueSelects'
+
     export default {
         name: "createPermissionsRoles",
         components:{Swal, vSelect},
@@ -64,28 +64,7 @@
         })
     },
         methods: {
-          addPermission (event) {
-         if (event.code == 'Comma' || event.code == 'Enter'){   
-        event.preventDefault()
-        var val = event.target.value.trim()
 
-        if (val.length > 0) {
-          this.listPermission.push(val)
-          event.target.value = ''
-        }
-      }  
-  },
-  removePermission(index){
-    this.listPermission.splice(index, 1)
-  },
-    removeLastPermissions (event) {
-      if (event.target.value.length === 0){
-        this.removePermission(this.listPermission.length = 1)
-      }
-    },
-    selectPerm(id){
-      swal.fire('atención', JSON.stringify(id), 'info');
-    },
           send(){
 
             if(this.permissionsroles.role_id === ''){
