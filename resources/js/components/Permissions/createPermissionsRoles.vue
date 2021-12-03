@@ -18,7 +18,7 @@
                   </div>   
                    <div class="col-lg-12">
                      <label>Asignar permiso:</label>
-                       <v-select taggable multiple v-model="permissionsroles.permission_id" :options="listPermission"> </v-select>                       
+                       <v-select taggable multiple v-model="permissionsroles.permission_id" :reduce="listPermission => listPermission.value" :options="listPermission"> </v-select>                       
                     </div>
                          
                    <div class="col-lg-12" style="padding-top:60px;text-align: center" >
@@ -76,8 +76,8 @@ import 'vue-select/dist/vue-select.css'
               return false
             }
             axios.post('/store-permissionsroles', this.permissionsroles).then(response =>{
-                this.permissions.role_id = '',
-                 this.permissions.Permission_id = '',
+                this.permissionsroles.role_id = '',
+                thispermissionsroles.permission_id = '',
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
@@ -87,7 +87,7 @@ import 'vue-select/dist/vue-select.css'
                     Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Se ha encontrado un error.',
+                    text: 'Se ha encontrado un error pero se guarda igualmente',
                     });
 
             })

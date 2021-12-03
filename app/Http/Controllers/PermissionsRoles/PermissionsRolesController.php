@@ -21,13 +21,18 @@ class PermissionsRolesController extends Controller
 
     public function store(Request $request)
     {
+        $permissions_id = json_decode(json_encode($request ->permission_id), true);   
 
-        $permissionsroles = new PermissionRoles();
-        $permissionsroles->fill($request->all());
-        $permissionsroles->save;
-        return json_decode($permissionsroles);
-   
+        foreach($permissions_id as $r)
+        {
+            PermissionRoles::create([
+                'role_id' => $request['role_id'],
+                'permission_id' => $r,
+            ]);
+        }
+
     }
+    
     public function edit($id) 
     {
         $permissionsroles = PermissionRoles::find($id);
