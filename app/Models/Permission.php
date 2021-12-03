@@ -29,4 +29,5 @@ class Permission extends Model
             }
            return $result;  
     }
+    
 }

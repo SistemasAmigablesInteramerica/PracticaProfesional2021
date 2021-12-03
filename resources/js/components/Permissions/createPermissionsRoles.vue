@@ -77,7 +77,7 @@ import 'vue-select/dist/vue-select.css'
             }
             axios.post('/store-permissionsroles', this.permissionsroles).then(response =>{
                 this.permissionsroles.role_id = '',
-                thispermissionsroles.permission_id = '',
+                this.permissionsroles.permission_id = '',
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',

@@ -144,7 +144,7 @@ Route::put('/update-permissions/{id}', [PermissionsController::class, 'update'])
 
 // Inicio de rutas de asignar roles y permisos
 Route::get('/asignar-rolesypermisos', [App\Http\Controllers\PermissionsRoles\PermissionsRolesController::class, 'create'])->name('insert-permissionsrolesinfo');
-Route::get('/lista-de-rolesypermisos', [App\Http\Controllers\PermissionsRoles\ListPermissionsRolesController::class, 'create'])->name('list-permissionsinfo');
+Route::get('/lista-de-rolesypermisos', [App\Http\Controllers\PermissionsRoles\ListPermissionsRolesController::class, 'create'])->name('list-permissionsrolesinfo');
 Route::get('/list-permissionsroles', [App\Http\Controllers\PermissionsRoles\PermissionsRolesController::class, 'list']);
 Route::get('/edit-permissionsroles/{id}', [PermissionsRolesController::class, 'edit']);
 Route::post('/store-permissionsroles', [PermissionsRolesController::class, 'store']);
