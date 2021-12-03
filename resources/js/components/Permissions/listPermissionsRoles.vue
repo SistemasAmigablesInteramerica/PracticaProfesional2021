@@ -12,8 +12,8 @@
   <tbody>
     <tr v-for="(permissionroles, index) in listPermissionroles" :key="permissionsroles.id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ permissionsroles.role_id }}</th>
-      <th>{{ permissionsroles.permission_id }}</th>
+      <th>{{ permissionroles.role_id }}</th>
+      <th>{{ permissionroles.permission_id }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(permissionsroles.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
@@ -26,12 +26,12 @@ export default {
     name: 'listPermissionroles',
     data(){
         return{
-            listPermissionsroles:[],
+            listPermissionroles:[],
         }
     },
     created() {
         axios.get('list-permissionsroles').then(response =>{
-            this.listPermissionsroles = response.data
+            this.listPermissionroles = response.data
         })
     },
     methods: {
