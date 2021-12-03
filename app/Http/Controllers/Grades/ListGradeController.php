@@ -14,6 +14,7 @@ class ListGradeController extends Controller
 
     public function create()
     {
+        abort_if(Gate::denies('view-grade') Response::'403', 'No tiene permiso para acceder a esta pagina');
         return view('grades/lists-gradeinfo');
     }
 

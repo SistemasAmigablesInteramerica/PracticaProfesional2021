@@ -15,6 +15,7 @@ class ListEmploymentController extends Controller
 
     public function create()
     {
+        abort_if(Gate::denies('view-employment') Response::'403', 'No tiene permiso para acceder a esta pagina');
         return view('teachers/list-employmentinfo');
     }
 }

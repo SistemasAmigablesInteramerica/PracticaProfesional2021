@@ -19,12 +19,13 @@ class StudentController extends Controller
 
     public function index()
     {
-        abort_if(Gate::denies('view-student') Response::'403', 'No tiene permiso para acceder a esta pagina');
+        
         return view ('students/list-student');
     }
 
     public function create()
     {
+        abort_if(Gate::denies('create-student') Response::'403', 'No tiene permiso para acceder a esta pagina');
         return view('students/insert-studentsinfo');
     }
 

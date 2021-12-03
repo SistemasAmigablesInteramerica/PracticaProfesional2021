@@ -16,6 +16,7 @@ class GradeSubjectStudentController extends Controller
 
     public function create()
     {
+        abort_if(Gate::denies('create-gradesubjectstudent') Response::'403', 'No tiene permiso para acceder a esta pagina');
         return view('grades/insert-gradesubjectstudentinfo');
     }
 

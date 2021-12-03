@@ -16,7 +16,8 @@ class RolesController extends Controller
   
       public function create()
       {
-          return view('roles/insert-rolesinfo');
+        abort_if(Gate::denies('create-roles') Response::'403', 'No tiene permiso para acceder a esta pagina');
+        return view('roles/insert-rolesinfo');
       }
   
       public function store(Request $request)

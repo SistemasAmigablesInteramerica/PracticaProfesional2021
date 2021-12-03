@@ -17,7 +17,7 @@ class PermissionsController extends Controller
   
       public function create()
       {
-          return view('permissions/insert-permissionsinfo');
+        return view('permissions/insert-permissionsinfo');
       }
       public function store(Request $request)
       {
