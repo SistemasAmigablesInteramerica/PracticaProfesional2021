@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(permissionroles, index) in listPermissionroles" :key="permissionsroles.id">
+    <tr v-for="(permissionroles, index) in listPermissionroles" :key="permissionroles.roles.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ permissionroles.role_id }}</th>
       <th>{{ permissionroles.permission_id }}</th>
