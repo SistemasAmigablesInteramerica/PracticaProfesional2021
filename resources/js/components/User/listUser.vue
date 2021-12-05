@@ -6,7 +6,6 @@
       <th scope="col">Id</th>
       <th scope="col">Usuario</th>
       <th scope="col">Email</th>
-      <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +13,6 @@
       <th scope="row">{{ index +1 }}</th>
       <th>{{ user.name }}</th>
       <th>{{ user.email }}</th>
-      <td><a class="btm btm-info btm-se" :href="edit(user.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
     </table>

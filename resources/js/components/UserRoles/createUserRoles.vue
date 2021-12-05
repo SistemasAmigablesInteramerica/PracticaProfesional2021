@@ -7,14 +7,14 @@
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2 >Crear Roles</h2>
+                    <h2 >Asignar roles y usuarios</h2>
                   </div>  
                     <div class="col-lg-12">
                      <fieldset>
-                     <label>Usuario: </label>
+                     <label>Usuario:</label>
                        <select type="text" class="form-control form-control-sm" v-model="UserRoles.user_id">
                        <option disabled value="">Seleccionar usuario</option>
-                       <option v-for="users in listUsers" :value="users.id" :key="users.id">{{ users.name }}</option>
+                       <option v-for="user in listUser" :value="user.id" :key="user.id">{{ user.name }}</option>
                        </select>
                      </fieldset>
                    </div>
@@ -49,7 +49,7 @@
         data() {
           return {
               listUserRoles:[],
-              listUsers:[],
+              listUser:[],
               listRoles:[],
             UserRoles: {
               role_id:'',
@@ -61,8 +61,8 @@
         axios.get('/list-roles').then(response =>{
             this.listRoles = response.data
         }),
-          axios.get('/list-Users').then(response =>{
-            this.listUsers = response.data
+           axios.get('/list-user').then(response =>{
+            this.listUser = response.data
         })
     },
         methods: {

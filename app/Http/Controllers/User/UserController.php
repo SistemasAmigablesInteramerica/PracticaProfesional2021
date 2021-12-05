@@ -20,30 +20,20 @@ class UserController extends Controller
     //   return view('roles/insert-rolesinfo');
     // }
 
-    public function store(Request $request)
-    {
-
-        $user = new Users();
-        $user->fill($request->all());
-        if($user->save()){
-            return response()->json(['message'=>'Se guardo con exito','data'=> $user], 200);
-        }
-        return response()->json(['message'=>'No se guardo la informacion', 'data'=> $user], 471);
-    }
     public function edit($id) 
     {
-        $user = Users::find($id);
+        $user = User::find($id);
 
         return view('roles/edit-roles',compact('roles'));
     }   
 
     public function update(Request $request, $id)
     {
-        $user = Users::where('id',$id)->update($request->all());
+        $user = User::where('id',$id)->update($request->all());
         return $roles;
     }
     public function list()
     {
-        return Users::all();
+        return User::all();
     }
 }    
