@@ -9,7 +9,7 @@ use App\Models\UserRoles;
 
 class UserRolesController extends Controller
 {
-    //
+    // 
     public function __construct()
       {
   
@@ -40,7 +40,7 @@ class UserRolesController extends Controller
           $userroles = UserRoles::where('id',$id)->update($request->all());
           return $userroles;
       }
-      public function lists()
+      public function list()
       {
           return UserRoles::all();
       }

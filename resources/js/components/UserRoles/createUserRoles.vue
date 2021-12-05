@@ -12,24 +12,24 @@
                     <div class="col-lg-12">
                      <fieldset>
                      <label>Usuario:</label>
-                       <select type="text" class="form-control form-control-sm" v-model="UserRoles.user_id">
+                       <select type="text" class="form-control form-control-sm" v-model="userroles.user_id">
                        <option disabled value="">Seleccionar usuario</option>
                        <option v-for="user in listUser" :value="user.id" :key="user.id">{{ user.name }}</option>
                        </select>
                      </fieldset>
-                   </div>
+                   </div> 
                   <div class="col-lg-12">
                      <fieldset>
                      <label>Nombre de el rol: </label>
-                       <select type="text" class="form-control form-control-sm" v-model="UserRoles.role_id">
+                       <select type="text" class="form-control form-control-sm" v-model="userroles.role_id">
                        <option disabled value="">Seleccionar un rol</option>
                         <option v-for="roles in listRoles" :value="roles.id" :key="roles.id">{{ roles.name }}</option>
                        </select>
                      </fieldset>
                    </div>
-                   <div class="col-lg-12" style="text-align: center" >
+                   <div class="col-lg-12" style="text-align: center; padding-top:20px;" >
                     <fieldset>
-                      <button type="submit" @click="send" class="btn btn-primary">Registrar</button>
+                      <button type="submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>
                     </div>
                 </div>
@@ -48,10 +48,10 @@
         components:{Swal},
         data() {
           return {
-              listUserRoles:[],
+              listUserroles:[],
               listUser:[],
               listRoles:[],
-            UserRoles: {
+            userroles: {
               role_id:'',
               user_id:'',
             }
@@ -68,11 +68,11 @@
         methods: {
           send(){
 
-            if(this.UserRoles.role_id=== ''){
+            if(this.userroles.role_id=== ''){
               Swal.fire('Atención', 'Debe digitar un rol', 'warning')
               return false
             }
-            if(this.UserRoles.user_id === ''){
+            if(this.userroles.user_id === ''){
               Swal.fire('Atención', 'Debe digitar un rol', 'warning')
               return false
             }
