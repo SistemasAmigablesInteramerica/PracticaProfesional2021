@@ -6,14 +6,14 @@
       <th scope="col">Id</th>
       <th scope="col">Roles</th>
       <th scope="col">Permisos</th>
-      <th scope="col"></th>
+      <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(permissionroles, index) in listPermissionroles" :key="permissionroles.roles.id">
+    <tr v-for="(permissionsroles, index) in listPermissionroles" :key="permissionsroles.role_id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ permissionroles.role_id }}</th>
-      <th>{{ permissionroles.permission_id }}</th>
+      <th>{{ permissionsroles.role_id }}</th>
+      <th>{{ permissionsroles.permission_id }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(permissionsroles.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>

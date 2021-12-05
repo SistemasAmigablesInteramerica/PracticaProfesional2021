@@ -6,14 +6,14 @@
       <th scope="col">Id</th>
       <th scope="col">Permiso</th>
       <th scope="col">Descripción</th>
-      <th scope="col"></th>
+      <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(permissions, index) in listPermission" :key="permissions.id">
+    <tr v-for="(permissions, index) in listPermissions" :key="permissions.id">
       <th scope="row">{{ index +1 }}</th>
       <th>{{ permissions.label }}</th>
-      <th>{{ permissions.description }}</th>
+      <th>{{ permissions.description }}</th>  
       <td><a class="btm btm-info btm-se" :href="edit(permissions.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
@@ -22,16 +22,18 @@
 </template>
 
 <script>
+//Las descriciones no son aceptadas
 export default {
     name: 'listPermission',
     data(){
         return{
-            listPermission:[]
+            listPermissions:[],
+      
         }
     },
     created() {
         axios.get('list-permissions').then(response =>{
-            this.listPermission = response.data
+            this.listPermissions = response.data
             console.log(this.listPermissions)
         })
     },

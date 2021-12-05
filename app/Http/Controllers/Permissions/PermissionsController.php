@@ -45,3 +45,4 @@ class PermissionsController extends Controller
           return Permission::LabelSelect();
       }
 }
+//LabelSelect no me permite poner descripcion

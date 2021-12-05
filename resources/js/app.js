@@ -20,6 +20,7 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('createGrade', require("./components/Grades/createGrade.vue").default);
+Vue.component('createUserroles', require("./components/UserRoles/createUserRoles.vue").default);
 Vue.component('createStudent', require("./components/students/createStudent.vue").default);
 Vue.component('createTeacher', require("./components/teachers/createTeacher.vue").default);
 Vue.component('createSubject', require("./components/Subjects/createSubject.vue").default);
@@ -48,6 +49,7 @@ Vue.component('listEmployment', require("./components/teachers/listEmployment.vu
 Vue.component('listStudentrelative', require("./components/students/listStudentRelative.vue").default);
 Vue.component('listAttendancehistory', require("./components/AttendanceHistory/listAttendanceHistory.vue").default);
 
+Vue.component('editPermissionsroles', require("./components/Permissions/editPermissionsRoles.vue").default);
 Vue.component('editGrade', require("./components/Grades/editGrade.vue").default);
 Vue.component('editRoles', require("./components/Roles/editRoles.vue").default);
 Vue.component('editPermissions', require("./components/Permissions/editPermissions.vue").default);
