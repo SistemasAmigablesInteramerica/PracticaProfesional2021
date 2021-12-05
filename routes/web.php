@@ -1,6 +1,7 @@
 <?php 
 
 use App\Http\Controllers\Grades\GradeController; 
+use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Roles\RolesController; 
 use App\Http\Controllers\UserRoles\UserRolesController;
 use App\Http\Controllers\PermissionsRoles\PermissionsRolesController; 
@@ -160,6 +161,13 @@ Route::get('/edit-userroles/{id}', [UserRoles::class, 'edit']);
 Route::post('/store-userroles', [UserRoles::class, 'store']);
 Route::put('/update-userroles/{id}', [UserRoles::class, 'update']);
 // Fin de rutas de asignar roles y permisos
+
+// Inicio de rutas de usuarios
+
+Route::get('/lista-de-usuarios', [App\Http\Controllers\User\ListUserController::class, 'create'])->name('list-userinfo');
+Route::get('/list-user', [App\Http\Controllers\User\UserController::class, 'list']);
+
+// Fin de rutas de usuarios
 
 
 Auth::routes();

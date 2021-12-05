@@ -38,6 +38,7 @@ Vue.component('index', require("./components/index.vue").default);
 
 Vue.component('listsGrade', require("./components/Grades/listsGrade.vue").default);
 Vue.component('listRoles', require("./components/Roles/listRoles.vue").default);
+Vue.component('listUser', require("./components/User/listUser.vue").default);
 Vue.component('listPermissionsroles', require("./components/Permissions/listPermissionsRoles.vue").default);
 Vue.component('listPermissions', require("./components/Permissions/listPermissions.vue").default);
 Vue.component('listGradesubjectstudent', require("./components/Grades/listGradeSubjectStudent.vue").default);
