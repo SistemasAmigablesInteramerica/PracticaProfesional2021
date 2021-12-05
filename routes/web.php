@@ -142,6 +142,8 @@ Route::get('/list-permissions', [App\Http\Controllers\Permissions\PermissionsCon
 Route::get('/edit-permissions/{id}', [PermissionsController::class, 'edit']);
 Route::post('/store-permissions', [PermissionsController::class, 'store']);
 Route::put('/update-permissions/{id}', [PermissionsController::class, 'update']);
+Route::get('/list-permissions', [App\Http\Controllers\Permissions\PermissionsController::class, 'lista']);
+// No se que hice pero funciona por favor no lo toquen :v 
 // Fin de rutas de roles
  
 // Inicio de rutas de asignar roles y permisos
@@ -157,9 +159,9 @@ Route::put('/update-permissionsroles/{id}', [PermissionsRolesController::class, 
 Route::get('/asignar-usuariosyroles', [App\Http\Controllers\UserRoles\UserRolesController::class, 'create'])->name('insert-userrolesinfo');
 Route::get('/lista-de-usuariosyroles', [App\Http\Controllers\UserRoles\ListUserRolesController::class, 'create'])->name('list-userrolesinfo');
 Route::get('/list-userroles', [App\Http\Controllers\UserRoles\UserRolesController::class, 'list']);
-Route::get('/edit-userroles/{id}', [UserRoles::class, 'edit']);
-Route::post('/store-userroles', [UserRoles::class, 'store']);
-Route::put('/update-userroles/{id}', [UserRoles::class, 'update']);
+Route::get('/edit-userroles/{id}', [UserRolesController::class, 'edit']);
+Route::post('/store-userroles', [UserRolesController::class, 'store']);
+Route::put('/update-userroles/{id}', [UserRolesController::class, 'update']);
 // Fin de rutas de asignar roles y permisos
 
 // Inicio de rutas de usuarios

@@ -38,6 +38,7 @@ Vue.component('index', require("./components/index.vue").default);
 
 Vue.component('listsGrade', require("./components/Grades/listsGrade.vue").default);
 Vue.component('listRoles', require("./components/Roles/listRoles.vue").default);
+Vue.component('listUserroles', require("./components/UserRoles/listUserRoles.vue").default);
 Vue.component('listUser', require("./components/User/listUser.vue").default);
 Vue.component('listPermissionsroles', require("./components/Permissions/listPermissionsRoles.vue").default);
 Vue.component('listPermissions', require("./components/Permissions/listPermissions.vue").default);
@@ -53,6 +54,7 @@ Vue.component('listAttendancehistory', require("./components/AttendanceHistory/l
 Vue.component('editPermissionsroles', require("./components/Permissions/editPermissionsRoles.vue").default);
 Vue.component('editGrade', require("./components/Grades/editGrade.vue").default);
 Vue.component('editRoles', require("./components/Roles/editRoles.vue").default);
+Vue.component('editUserroles', require("./components/UserRoles/editUserRoles.vue").default);
 Vue.component('editPermissions', require("./components/Permissions/editPermissions.vue").default);
 Vue.component('editGradesubjectstudent', require("./components/Grades/editGradeSubjectStudent.vue").default);
 Vue.component('editStudents', require("./components/students/editStudents.vue").default);

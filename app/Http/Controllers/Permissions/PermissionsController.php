@@ -44,5 +44,9 @@ class PermissionsController extends Controller
       {
           return Permission::LabelSelect();
       }
+      public function lista()
+      {
+          return Permission::all();
+      }
 }
 //LabelSelect no me permite poner descripcion

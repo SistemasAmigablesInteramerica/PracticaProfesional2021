@@ -21,7 +21,7 @@
                        <input type="text" class="form-control" v-model="permissions.description">
                      </fieldset>
                          </div>
-                   <div class="col-lg-12" style="text-align: center" >
+                   <div class="col-lg-12" style="text-align: center; padding-top:20px;" >
                     <fieldset>
                       <button type="submit" @click="send" class="btn btn-primary">Editar</button> 
                     </fieldset>

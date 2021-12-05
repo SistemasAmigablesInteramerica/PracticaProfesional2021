@@ -12,7 +12,7 @@
   <tbody>
     <tr v-for="(permissions, index) in listPermissions" :key="permissions.id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ permissions.label }}</th>
+      <th>{{ permissions.title }}</th>
       <th>{{ permissions.description }}</th>  
       <td><a class="btm btm-info btm-se" :href="edit(permissions.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
@@ -20,7 +20,7 @@
     </table>
 </div>
 </template>
-
+ 
 <script>
 //Las descriciones no son aceptadas
 export default {
