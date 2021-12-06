@@ -92,6 +92,7 @@ import 'vue-select/dist/vue-select.css'
                     title: 'Datos registrados',
                     text: 'El permiso se ha asignado con éxito.',
                 });
+                 window.location.href = '/lista-de-rolesypermisos '
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',
