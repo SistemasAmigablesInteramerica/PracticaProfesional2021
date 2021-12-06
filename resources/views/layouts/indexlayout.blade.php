@@ -106,20 +106,20 @@
                           </li>
                           @endauth
                           @endif
-                          @if (Route::has('login'))
-                          @auth
+                          
                           <li class="has-sub">
                               <a href="javascript:void(0)">Formularios</a>
                               <ul class="sub-menu">
                               
                               <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
-                              
+                              @if (Route::has('login'))
+                              @auth
                               <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
-                              
+                              @endauth
+                              @endif
                               </ul>
                           </li>
-                          @endauth
-                          @endif      
+                                
                           <a href="{{ route('login') }}">Iniciar sesion</a>
                       <a class="menu-trigger">
                           <span>Menu</span>
