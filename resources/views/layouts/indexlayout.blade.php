@@ -124,14 +124,16 @@
                           @auth
                           <li class="has-sub">
                               <a href="javascript:void(0)">User Perm Rol</a>
-                              <ul class="sub-menu">
+                              <ul class="sub-menu"> 
                               
                               <li><a href="{{asset('crear-roles')}}">Crear roles</a></li>
                               <li><a href="{{asset('lista-de-roles')}}">Ver roles</a></li>
                               <li><a href="{{asset('asignar-rolesypermisos')}}">Asignar rol-permisos</a></li>
-                              <li><a href="{{asset('asignar-usuariosyroles')}}">Asigar rol-user</a></li>
-                              <li><a href="{{asset('crear-permisos')}}">crear permisos</a></li>
-                              <li><a href="{{asset('lista-de-permisos')}}">Asistencia</a></li>
+                              <li><a href="{{asset('asignar-usuariosyroles')}}">Asignar rol-user</a></li>
+                              <li><a href="{{asset('crear-permisos')}}">Crear permisos</a></li>
+                              <li><a href="{{asset('lista-de-permisos')}}">Ver permisos</a></li>
+                              <li><a href="{{asset('lista-de-rolesypermisos')}}">Ver rol-perm</a></li>
+                              <li><a href="{{asset('lista-de-usuariosyroles')}}">Ver rol-user</a></li>
                               
                               </ul>
                               
@@ -139,7 +141,7 @@
                           @endauth
                           @endif
                                 
-                          <a href="{{ route('login') }}">Iniciar sesion</a>
+                          <li><a href="{{ route('login') }}">Iniciar sesion</a></li>
                       <a class="menu-trigger">
                           <span>Menu</span>
                       </a>  
