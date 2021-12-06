@@ -16,7 +16,7 @@ class TeacherController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('create-teacher') Response::'403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create-teacher'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('teachers/insert-teacherinfo');
     }
 

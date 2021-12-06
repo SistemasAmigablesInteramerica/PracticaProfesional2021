@@ -9,7 +9,7 @@ use App\Models\UserRoles;
 
 class UserRolesController extends Controller
 {
-    // 
+    //
     public function __construct()
       {
   
@@ -27,20 +27,14 @@ class UserRolesController extends Controller
               return response()->json(['message'=>'Se guardo con exito','data'=> $userroles], 200);
           }
           return response()->json(['message'=>'No se guardo la informacion', 'data'=> $userroles], 471);
-      }
-      public function edit($id) 
-      {
-          $userroles = UserRoles::find($id);
-  
-          return view('userroles/edit-userroles',compact('userroles'));
-      }   
-  
+      } 
+
          public function update(Request $request, $id)
       {
           $userroles = UserRoles::where('id',$id)->update($request->all());
           return $userroles;
       }
-      public function list()
+      public function lists()
       {
           return UserRoles::all();
       }
