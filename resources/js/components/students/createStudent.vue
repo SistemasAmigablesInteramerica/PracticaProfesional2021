@@ -2,70 +2,70 @@
 <section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
-          <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
-            <div class="col-lg-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="row">
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Expediente Del Beneficiario Del Comedor Estudiantil</h2>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label>Nombre completo:</label>
                       <input name="name" class="form-control" v-model="student.name" type="text" placeholder="Nombre Completo Del Estudiante">
                     </fieldset>
                     <br>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                     <label>Nacionalidad:</label>
                     <input name="nationality" class="form-control" v-model="student.nationality" type="text" placeholder="Nacionalidad" >
                   </fieldset>
                   <br>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label>Número de Cédula</label>
                       <input name="card" class="form-control" v-model="student.card" type="number" placeholder="Numero de Cédula">
                     </fieldset>
                     <br>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                     <label for="Birthdate">Fecha de Nacimiento:</label>
                    <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">  
                   </fieldset>
                   <br>
                   </div>  
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                   <label for="legal_guardian_name">Nombre del Encargado Legal:</label>
                       <input name="legal_guardian_name" class="form-control" v-model="student.legal_guardian_name" type="text" placeholder="Inserte el Nombre">
                     </fieldset>
                     <br>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label for="legal_guardian_card">Cédula del encargado legal:</label>
                       <input name="legal_guardian_card" class="form-control" v-model="student.legal_guardian_card" type="number" placeholder="No.Cédula del encargado legal" pattern="">
                     </fieldset>
                     <br>
                   </div>
-                  <div class="col-lg-4">
+                  <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                   <label for="phone_number">Telefono de domicilio:</label>
                     <input type="tel" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">  
                     </fieldset>
                     <br>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label>Domicilio:</label>
                       <input name="place_residence" class="form-control" v-model="student.place_residence" type="text" placeholder="Direccion Del Domicilio">
                       </fieldset>
                       <br>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
                   <label for="archivo">Subir La Constancia Salarial:</label>
                     <input type="file" v-on:change="student.salarial_constance" class="form-control" name="archivo" accept="image/*,.txt,.doc,.docx,.document,.pdf">
@@ -76,42 +76,42 @@
                     <br>
                   <h2>Otros Ingresos Del Grupo Familiar</h2>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia financiera:</label>
                     <input name="financial_assistance" class="form-control" v-model="student.financial_assistance" type="text" placeholder="₡ Ayuda Financiera">
                     </fieldset> 
                     <br>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia voluntaria:</label>
                     <input class="form-control" v-model="student.voluntary_assistance" type="text" placeholder="₡ Ayuda Voluntaria">
                     </fieldset> 
                     <br>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Ingresos de renta:</label>
                     <input name="rental_income" class="form-control" v-model="student.rental_income" type="text" placeholder="₡ Arquileres">
                     </fieldset> 
                     <br>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Otros ingresos:</label>
                     <input name="others_income" class="form-control" v-model="student.others_income" type="text" placeholder="₡ Otros(Especifique)">
                     </fieldset> 
                     <br>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Total de ingresos:</label>
                     <input name="total_income" class="form-control" v-model="student.total_income" type="text" placeholder="₡ Ingresos Totales">
                     </fieldset> 
                     <br>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
                     <small>Declaro bajo juramento que toda la información contenida en este formulario es veraz y que cualquier falsedad me hará acreedor de la pérdida del beneficio solicitado, sin perjuicio de las responsabilidades legales que procedan. Así mismo, me comprometo a cumplir con los lineamientos de Programas de Equidad, reglamento de Transporte Estudiantil. En caso de incumplir la normat</small>
                     <br>
@@ -120,7 +120,7 @@
                     </fieldset> 
                     <br>
                   </div>
-                  <div class="col-lg-12" style="text-align: center" >
+                  <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center" >
                     <fieldset>
                       <button type="submit" @click="send" class="btn btn-primary">Registrar</button>
                     </fieldset>
