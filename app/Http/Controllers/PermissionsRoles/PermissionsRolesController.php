@@ -42,8 +42,21 @@ class PermissionsRolesController extends Controller
 
     public function update(Request $request, $id)
     {
-        $permissionsroles = PermissionRoles::where('id',$id)->update($request->all());
-        return $permissionsroles;
+        // $permissionsroles = PermissionRoles::where('id',$id)->update($request->all());
+        // return $permissionsroles;
+        $permissions_id = json_decode(json_encode($request ->permission_id), true);
+
+        foreach($permissions_id as $r)
+        {
+            PermissionRoles::where([
+                'role_id' => $request['role_id'],
+                'permission_id' => $r,
+            ]);
+        }
+    }
+    public function lists()
+    {
+        return Permission::LabelSelect();
     }
     public function list()
     {

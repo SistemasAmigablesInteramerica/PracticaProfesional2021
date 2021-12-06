@@ -142,7 +142,7 @@ Route::get('/list-permissions', [App\Http\Controllers\Permissions\PermissionsCon
 Route::get('/edit-permissions/{id}', [PermissionsController::class, 'edit']);
 Route::post('/store-permissions', [PermissionsController::class, 'store']);
 Route::put('/update-permissions/{id}', [PermissionsController::class, 'update']);
-Route::get('/list-permissions', [App\Http\Controllers\Permissions\PermissionsController::class, 'lista']);
+Route::get('/list-permission', [App\Http\Controllers\Permissions\PermissionsController::class, 'lista']);
 // No se que hice pero funciona por favor no lo toquen :v 
 // Fin de rutas de roles
  
@@ -153,6 +153,7 @@ Route::get('/list-permissionsroles', [App\Http\Controllers\PermissionsRoles\Perm
 Route::get('/edit-permissionsroles/{id}', [PermissionsRolesController::class, 'edit']);
 Route::post('/store-permissionsroles', [PermissionsRolesController::class, 'store']);
 Route::put('/update-permissionsroles/{id}', [PermissionsRolesController::class, 'update']);
+
 // Fin de rutas de asignar roles y permisos
 
 // Inicio de rutas de asignar roles y permisos

@@ -18,7 +18,7 @@
                   </div>   
                    <div class="col-lg-12">
                      <label>Asignar permiso:</label>
-                       <v-select taggable multiple v-model="permissionsroles.permission_id" placeholder="Seleccionar permisos" :reduce="listPermission => listPermission.value" :options="listPermission"> </v-select>                       
+                       <v-select taggable multiple  v-model="permissionsroles.permission_id" placeholder="Seleccionar permisos" :reduce="listPermission => listPermission.value" :options="this.listPermission"> </v-select>                       
                     </div>
                          
                    <div class="col-lg-12" style="padding-top:60px;text-align: center" >

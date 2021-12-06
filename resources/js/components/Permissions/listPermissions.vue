@@ -32,7 +32,11 @@ export default {
         }
     },
     created() {
-        axios.get('list-permissions').then(response =>{
+        axios.get('/list-permissions').then(response =>{
+            this.listPermissions = response.data
+            console.log(this.listPermissions)
+        })
+          axios.get('/list-permission').then(response =>{
             this.listPermissions = response.data
             console.log(this.listPermissions)
         })

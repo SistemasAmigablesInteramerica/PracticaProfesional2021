@@ -27,11 +27,16 @@ export default {
     data(){
         return{
             listPermissionroles:[],
+            listRoles: [],
         }
     },
     created() {
         axios.get('list-permissionsroles').then(response =>{
             this.listPermissionroles = response.data
+        })
+         axios.get('/list-roles').then(response =>{
+            this.listRoles =response.data
+            console.log(this.listRoles)
         })
     },
     methods: {
