@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StudentRelative;
 use App\Models\Student;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class StudentRelativeController extends Controller
 {
@@ -17,7 +19,7 @@ class StudentRelativeController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('create-relatives'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_relatives'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('students/insert-studentrelativesinfo');
     }
 

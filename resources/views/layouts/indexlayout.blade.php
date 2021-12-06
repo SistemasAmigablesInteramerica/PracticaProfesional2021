@@ -49,63 +49,96 @@
                                   @endif
                               </ul>
                           </li>
+                          @if (Route::has('login'))
+                          @auth
                           <li class="has-sub">
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  @if (Route::has('login'))
+                                  
                                   <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
-                                  @auth
+                                  
                                   <li><a href="{{asset('lista-de-profesores')}}">Ver docentes</a></li>
-                                  @endauth
-                                  @endif
+                                  
                               </ul>
                           </li>
+                          @endauth
+                          @endif
+                          @if (Route::has('login'))
+                          @auth
                           <li class="has-sub">
                               <a href="javascript:void(0)">Materias y secciones</a>
                               <ul class="sub-menu">
-                                  @if (Route::has('login'))
+                                  
                                   <li><a href="{{asset('registro-de-materias')}}">Agregar materias</a></li>
-                                  @auth
+                                  
                                   <li><a href="{{asset('lista-de-materias')}}">Ver materias</a></li>
-                                  @endauth
+                                  
                                   <li><a href="{{asset('asignar-materia-profesor')}}">Asignar docentes</a></li>
-                                  @auth
+                                  
                                   <li><a href="{{asset('lista-de-materiasyprofesores')}}">Ver docentes asignados</a></li>
-                                  @endauth
+                                  
                                   <li><a href="{{asset('registro-de-secciones')}}">Agregar sección</a></li>
-                                  @auth
+                                  
                                   <li><a href="{{asset('lista-de-secciones')}}">Ver secciones</a></li>
-                                  @endauth
+                                  
                                   <li><a href="{{asset('asignar-materia-grado')}}">Asignar materia</a></li>
-                                  @auth
+                                  
                                   <li><a href="{{asset('lista-de-materiasygrados')}}">Ver materias asignados</a></li>
-                                  @endauth
+                                  
                                   <li><a href="{{asset('asignar-materia-estudiante')}}">Asignar estudiante</a></li>
-                                  @endif
+                                  
                               </ul>
                           </li>
+                          @endauth
+                          @endif
+                          @if (Route::has('login'))
+                          @auth
                           <li class="has-sub">
                               <a href="javascript:void(0)">Asistencia</a>
                               <ul class="sub-menu">
-                              @if (Route::has('login'))
+                              
                               <li><a href="{{asset('registro-de-asistencias')}}">Asistencia</a></li>
-                              @auth
+                              
                               <li><a href="{{asset('lista-de-de-asistencia')}}">Ver asistencias</a></li>
-                              @endauth
-                              @endif
+                              
                               </ul>
+                              
                           </li>
+                          @endauth
+                          @endif
+                          
                           <li class="has-sub">
                               <a href="javascript:void(0)">Formularios</a>
                               <ul class="sub-menu">
-                              @if (Route::has('login'))
+                              
                               <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
+                              @if (Route::has('login'))
                               @auth
                               <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
                               @endauth
                               @endif
                               </ul>
-                          </li>        
+                          </li>
+
+                          @if (Route::has('login'))
+                          @auth
+                          <li class="has-sub">
+                              <a href="javascript:void(0)">User Perm Rol</a>
+                              <ul class="sub-menu">
+                              
+                              <li><a href="{{asset('crear-roles')}}">Crear roles</a></li>
+                              <li><a href="{{asset('ver-roles')}}">Ver roles</a></li>
+                              <li><a href="{{asset('asignar-rolesypermisos')}}">Asignar rol-permisos</a></li>
+                              <li><a href="{{asset('asignar-usuariosyroles')}}">Asigar rol-user</a></li>
+                              <li><a href="{{asset('crear-permisos')}}">crear permisos</a></li>
+                              <li><a href="{{asset('lista-de-permisos')}}">Asistencia</a></li>
+                              
+                              </ul>
+                              
+                          </li>
+                          @endauth
+                          @endif
+                                
                           <a href="{{ route('login') }}">Iniciar sesion</a>
                       <a class="menu-trigger">
                           <span>Menu</span>

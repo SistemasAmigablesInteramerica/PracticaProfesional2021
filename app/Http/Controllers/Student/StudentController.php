@@ -25,7 +25,6 @@ class StudentController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('create-student'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('students/insert-studentsinfo');
     }
 

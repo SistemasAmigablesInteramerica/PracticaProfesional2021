@@ -5,6 +5,8 @@ namespace App\Http\Controllers\teachers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Employment;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class EmploymentController extends Controller
 {
@@ -16,7 +18,6 @@ class EmploymentController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('create-employment'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('teachers/insert-employmentinfo');
     }
 

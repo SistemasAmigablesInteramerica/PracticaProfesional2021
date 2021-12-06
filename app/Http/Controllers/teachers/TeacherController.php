@@ -5,6 +5,8 @@ namespace App\Http\Controllers\teachers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class TeacherController extends Controller
 {
@@ -16,7 +18,7 @@ class TeacherController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('create-teacher'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_teacher'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('teachers/insert-teacherinfo');
     }
 

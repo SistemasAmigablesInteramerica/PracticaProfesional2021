@@ -5,6 +5,8 @@ namespace App\Http\Controllers\GradeSubjectStudent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\GradeSubjectStudent;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class GradeSubjectStudentController extends Controller
 {
@@ -16,7 +18,7 @@ class GradeSubjectStudentController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('create-gradesubjectstudent') Response::'403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_gradesubjectstudent') Response::'403', 'No tiene permiso para acceder a esta pagina');
         return view('grades/insert-gradesubjectstudentinfo');
     }
 

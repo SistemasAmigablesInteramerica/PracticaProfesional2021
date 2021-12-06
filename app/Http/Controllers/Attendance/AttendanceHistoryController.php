@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Attendance;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AttendanceHistory;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class AttendanceHistoryController extends Controller
 {
@@ -15,7 +17,7 @@ class AttendanceHistoryController extends Controller
      }
       public function create()
      {
-        abort_if(Gate::denies('view-attendance'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_attendance'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('attendance/insert-attendancehistory');
      }
      public function store(Request $request)

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Grades;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Grade;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class GradeController extends Controller
 {
@@ -15,7 +17,7 @@ class GradeController extends Controller
     }
      public function create()
     {
-        abort_if(Gate::denies('view-grade'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('view_grade'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('grades/insert-gradeinfo');
     }
     public function store(Request $request)

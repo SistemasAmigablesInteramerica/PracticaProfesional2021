@@ -5,6 +5,8 @@ namespace App\Http\Controllers\PermissionsRoles;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\PermissionRoles;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class PermissionsRolesController extends Controller
 {
@@ -16,6 +18,7 @@ class PermissionsRolesController extends Controller
 
     public function create()
     {
+        // abort_if(Gate::denies('create_permissionroles'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('permissionsroles/insert-permissionsrolesinfo');
     }
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Permissions;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Permission;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class PermissionsController extends Controller
@@ -17,6 +19,7 @@ class PermissionsController extends Controller
   
       public function create()
       {
+        // abort_if(Gate::denies('create_permissions'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('permissions/insert-permissionsinfo');
       }
       public function store(Request $request)

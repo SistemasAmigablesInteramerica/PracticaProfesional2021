@@ -6,6 +6,8 @@ namespace App\Http\Controllers\UserRoles;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserRoles;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserRolesController extends Controller
 {
@@ -17,6 +19,7 @@ class UserRolesController extends Controller
   
       public function create()
       {
+        abort_if(Gate::denies('create_userroles'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('userroles/insert-userrolesinfo');
       }
       public function store(Request $request)
