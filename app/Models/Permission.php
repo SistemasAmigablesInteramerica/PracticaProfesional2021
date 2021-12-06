@@ -13,15 +13,11 @@ class Permission extends Model
 
     public function permissionRoles()
     {
-<<<<<<< HEAD
-        return $this->hasMany(PermissionRole::class, 'permission_id', 'id');  
-=======
         return $this->hasMany(PermissionRoles::class, 'permission_id', 'id');
->>>>>>> refs/remotes/origin/main
     }
     public function roles()
     {
-        return $this->belongsToMany(Role::class,'permission_roles','permission_id','role_id');
+        return $this->belongsToMany(Role::class,'permission_role','permission_id','role_id');
     }
     public static function LabelSelect()
     {
