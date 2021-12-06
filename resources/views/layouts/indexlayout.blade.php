@@ -127,7 +127,7 @@
                               <ul class="sub-menu">
                               
                               <li><a href="{{asset('crear-roles')}}">Crear roles</a></li>
-                              <li><a href="{{asset('ver-roles')}}">Ver roles</a></li>
+                              <li><a href="{{asset('lista-de-roles')}}">Ver roles</a></li>
                               <li><a href="{{asset('asignar-rolesypermisos')}}">Asignar rol-permisos</a></li>
                               <li><a href="{{asset('asignar-usuariosyroles')}}">Asigar rol-user</a></li>
                               <li><a href="{{asset('crear-permisos')}}">crear permisos</a></li>
