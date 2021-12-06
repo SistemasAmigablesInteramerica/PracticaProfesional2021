@@ -2,13 +2,13 @@
    <section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-12">
-          <div class="row" style="min-height: 400px; border-radius: 20px;width: 100%;border: 20px solid white; background-color: white;">
-            <div class="col-lg-12">
-                  <div class="col-lg-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="row" style="min-height: 400px; border-radius: 20px;width: 100%;border: 20px solid white; background-color: white;margin-top:100px;">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Asignar docentes</h2>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
                     <label for="select">Docente:</label>
                           <select class="form-control form-control-sm" v-model="subjectteacher.teacher_id">
@@ -17,7 +17,7 @@
                           </select>
                     </fieldset> 
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                   <fieldset>
                       <label for="select">Materias:</label>
                          <select class="form-control form-control-sm" v-model="subjectteacher.subject_grade_id">
@@ -27,12 +27,12 @@
                   </fieldset>
                     </div>
                     <br>
-                    <div class="col-lg-12" >
+                    <div class="col-lg-12 col-md-12 col-sm-12" >
                     <fieldset>
                     <input v-model="subjectteacher.year" type="number" placeholder="Año">
                     </fieldset> 
                     </div>                
-                    <div class="col-lg-6">
+                    <div class="col-lg-12 col-md-12 col-sm-12" style="text-align:center;padding-top:60px;">
                     <fieldset>
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>

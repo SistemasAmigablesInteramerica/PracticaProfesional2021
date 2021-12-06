@@ -99,7 +99,7 @@
                               
                               <li><a href="{{asset('registro-de-asistencias')}}">Asistencia</a></li>
                               
-                              <li><a href="{{asset('lista-de-de-asistencia')}}">Ver asistencias</a></li>
+                              <li><a href="{{asset('lista-de-asistencia')}}">Ver asistencias</a></li>
                               
                               </ul>
                               
