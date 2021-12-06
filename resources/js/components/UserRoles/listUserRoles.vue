@@ -3,7 +3,7 @@
     <table class="table table-light table-md">
   <thead>
     <tr>
-      <th scope="col">Id</th>
+      <th scope="col">#</th>
       <th scope="col">Usuarios</th>
       <th scope="col">Rol</th>
       <th scope="col">Editar</th>

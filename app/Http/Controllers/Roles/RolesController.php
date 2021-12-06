@@ -24,11 +24,6 @@ class RolesController extends Controller
 
       public function store(Request $request)
       {
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> refs/remotes/origin/main
           $roles = new Role();
           $roles->fill($request->all());
           if($roles->save()){
@@ -39,11 +34,6 @@ class RolesController extends Controller
       public function edit($id)
       {
           $roles = Role::find($id);
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> refs/remotes/origin/main
           return view('roles/edit-roles',compact('roles'));
       }
 
@@ -54,11 +44,7 @@ class RolesController extends Controller
       }
       public function lists()
       {
-<<<<<<< HEAD
-          return Role::all();
-=======
           return Role::with('permissions')->get();
->>>>>>> refs/remotes/origin/main
       }
       public function selectRole($id)
       {
