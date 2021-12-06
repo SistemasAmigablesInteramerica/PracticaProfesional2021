@@ -131,7 +131,8 @@
                               <li><a href="{{asset('asignar-rolesypermisos')}}">Asignar rol-permisos</a></li>
                               <li><a href="{{asset('asignar-usuariosyroles')}}">Asigar rol-user</a></li>
                               <li><a href="{{asset('crear-permisos')}}">crear permisos</a></li>
-                              <li><a href="{{asset('lista-de-permisos')}}">Asistencia</a></li>
+                              <li><a href="{{asset('lista-de-permisos')}}">ver permisos</a></li>
+                              <li><a href="{{asset('lista-de-rolesypermisos')}}">ver rolesperm</a></li>
                               
                               </ul>
                               
