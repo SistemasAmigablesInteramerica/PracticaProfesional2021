@@ -14,11 +14,11 @@ class UserController extends Controller
 
     }
 
-    // public function create()
-    // {
-    //   // abort_if(Gate::denies('create-roles') Response::'403', 'No tiene permiso para acceder a esta pagina');
-    //   return view('roles/insert-rolesinfo');
-    // }
+     public function create()
+     {
+     abort_if(Gate::denies('create-roles'), '403', 'No tiene permiso para acceder a esta pagina');
+       return view('roles/insert-rolesinfo');
+     }
 
     public function edit($id) 
     {

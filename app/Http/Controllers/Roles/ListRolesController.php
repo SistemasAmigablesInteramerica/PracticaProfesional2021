@@ -15,7 +15,7 @@ class ListRolesController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('view-roles') Response::'403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('view-roles'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('roles/list-rolesinfo');
     }
 }
