@@ -44,9 +44,9 @@
           }
         },
         created(){
-         const Roles = JSON.parse(this.data_roles)
-         this.idRoles = Roles.id
-         this.roles.name = Roles.name
+         const Role = JSON.parse(this.data_roles)
+         this.idRoles = Role.id
+         this.roles.name = Role.name
         },
         methods: {
           send(){

@@ -161,7 +161,7 @@
 </section>
 <section class="contact-us" id="contact">
     <div class="footer">
-      <p>Copyright © 2022 Sistemas amigables latinoamerica. All Rights Reserved. 
+      <p>Copyright © 2022 Sistemas Amigables. All Rights Reserved. 
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
     </div>
 </section>

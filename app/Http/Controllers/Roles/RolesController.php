@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Roles;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Roles;
+use App\Models\Role;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -25,7 +25,7 @@ class RolesController extends Controller
       public function store(Request $request)
       {
   
-          $roles = new Roles();
+          $roles = new Role();
           $roles->fill($request->all());
           if($roles->save()){
               return response()->json(['message'=>'Se guardo con exito','data'=> $roles], 200);
@@ -34,19 +34,19 @@ class RolesController extends Controller
       }
       public function edit($id) 
       {
-          $roles = Roles::find($id);
+          $roles = Role::find($id);
   
           return view('roles/edit-roles',compact('roles'));
       }   
   
       public function update(Request $request, $id)
       {
-          $roles = Roles::where('id',$id)->update($request->all());
+          $roles = Role::where('id',$id)->update($request->all());
           return $roles;
       }
       public function list()
       {
-          return Roles::all();
+          return Role::all();
       }
     
 }

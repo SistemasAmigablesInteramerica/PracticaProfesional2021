@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PermissionRoles extends Model
+class PermissionRole extends Model
 {
     protected $table = 'permission_roles';
     protected $fillable = ['role_id','permission_id'];
@@ -17,7 +17,7 @@ class PermissionRoles extends Model
     }
     public function Roles()
     {
-        return $this->belongsTo(Roles::class, 'role_id', 'id');  
+        return $this->belongsTo(Role::class, 'role_id', 'id');  
     }
     public static function labelSelect()
     {
