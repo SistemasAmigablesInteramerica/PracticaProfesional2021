@@ -13,7 +13,7 @@ class Permission extends Model
 
     public function permissionRoles()
     {
-        return $this->hasMany(PermissionRoles::class, 'permission_id', 'id');
+        return $this->hasMany(PermissionRole::class, 'permission_id', 'id');
     }
     public function roles()
     {

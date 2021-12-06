@@ -22,7 +22,7 @@ class CreatePermissionRolesTable extends Migration
 
 
             $table->foreign('role_id')->references('id')->on('roles');
-            $table->foreign('permission_id')->references('id')->on('permission');
+            $table->foreign('permission_id')->references('id')->on('permissions');
         });
     }
 
