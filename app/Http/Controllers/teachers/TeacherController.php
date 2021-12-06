@@ -5,6 +5,8 @@ namespace App\Http\Controllers\teachers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class TeacherController extends Controller
 {

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Subjects;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Subject;
-
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class SubjectController extends Controller
 {

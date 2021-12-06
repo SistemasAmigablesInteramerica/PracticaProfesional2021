@@ -4,6 +4,8 @@ namespace App\Http\Controllers\GradeSubjectStudent;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class ListGradeSubjectStudentController extends Controller
 {

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Subjects;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SubjectGrade;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class SubjectGradeController extends Controller
 {

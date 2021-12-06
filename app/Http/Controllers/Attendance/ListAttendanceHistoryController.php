@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Attendance;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class ListAttendanceHistoryController extends Controller
 {

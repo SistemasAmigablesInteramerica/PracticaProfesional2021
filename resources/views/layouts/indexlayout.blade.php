@@ -119,6 +119,25 @@
                               @endif
                               </ul>
                           </li>
+
+                          @if (Route::has('login'))
+                          @auth
+                          <li class="has-sub">
+                              <a href="javascript:void(0)">User Perm Rol</a>
+                              <ul class="sub-menu">
+                              
+                              <li><a href="{{asset('crear-roles')}}">Crear roles</a></li>
+                              <li><a href="{{asset('ver-roles')}}">Ver roles</a></li>
+                              <li><a href="{{asset('asignar-rolesypermisos')}}">Asignar rol-permisos</a></li>
+                              <li><a href="{{asset('asignar-usuariosyroles')}}">Asigar rol-user</a></li>
+                              <li><a href="{{asset('crear-permisos')}}">crear permisos</a></li>
+                              <li><a href="{{asset('lista-de-permisos')}}">Asistencia</a></li>
+                              
+                              </ul>
+                              
+                          </li>
+                          @endauth
+                          @endif
                                 
                           <a href="{{ route('login') }}">Iniciar sesion</a>
                       <a class="menu-trigger">

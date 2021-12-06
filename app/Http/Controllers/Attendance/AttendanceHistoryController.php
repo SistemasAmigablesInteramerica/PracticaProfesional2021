@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Attendance;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\AttendanceHistory;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class AttendanceHistoryController extends Controller
 {

@@ -6,6 +6,8 @@ namespace App\Http\Controllers\UserRoles;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserRoles;
+use Illuminate\Support\Facades\Gate;
+use Symfony\Component\HttpFoundation\Response;
 
 class UserRolesController extends Controller
 {
