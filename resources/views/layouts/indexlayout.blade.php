@@ -75,7 +75,7 @@
                                   
                                   <li><a href="{{asset('asignar-materia-profesor')}}">Asignar docentes</a></li>
                                   
-                                  <li><a href="{{asset('lista-de-materiasyprofesores')}}">Ver docentes asignados</a></li>
+                                  <li><a href="{{asset('lista-de-materiasyprofesores')}}">Ver doc. asig.</a></li>
                                   
                                   <li><a href="{{asset('registro-de-secciones')}}">Agregar sección</a></li>
                                   
@@ -83,7 +83,7 @@
                                   
                                   <li><a href="{{asset('asignar-materia-grado')}}">Asignar materia</a></li>
                                   
-                                  <li><a href="{{asset('lista-de-materiasygrados')}}">Ver materias asignados</a></li>
+                                  <li><a href="{{asset('lista-de-materiasygrados')}}">Ver mat. asig.</a></li>
                                   
                                   <li><a href="{{asset('asignar-materia-estudiante')}}">Asignar estudiante</a></li>
                                   

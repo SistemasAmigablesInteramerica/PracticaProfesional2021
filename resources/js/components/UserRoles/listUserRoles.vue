@@ -12,8 +12,10 @@
   <tbody>
     <tr v-for="(userroles, index) in listUserRoles" :key="userroles.id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ userroles.user_id }}</th>
-      <th>{{ userroles.role_id }}</th>
+      <th>{{ userroles.name }}</th>
+      <th>
+        <label v-for="roles of userroles.roles" :key="roles.id">{{roles.name}}</label>
+      </th>
       <td><a class="btm btm-info btm-se" :href="edit(userroles.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
