@@ -10,7 +10,8 @@
                     <h2 >Crear permisos</h2>
                   </div>  
                    <label>Nombre de el permiso: </label>
-                       <input type="text" class="form-control form-control-sm" v-model="permissions.title" placeholder="@Ejemplo: eliminar">
+                   <fieldset>
+                       <input type="text" class="form-control form-control-sm" v-model="permissions.title" placeholder="@Ejemplo: edit_form">
                      </fieldset>
                    <div class="col-lg-12">
                      <fieldset>
@@ -18,9 +19,9 @@
                        <input type="text" class="form-control" v-model="permissions.description" placeholder="Descripción">
                      </fieldset>
                          </div>
-                   <div class="col-lg-12" style="text-align: center; padding-top:20px;" >
+                   <div class="col-lg-12" style="text-align:center;padding-top:60px;" >
                     <fieldset>
-                      <button type="submit" @click="send" class="btn btn-primary">Registrar</button> 
+                      <button type="submit" @click="send" class="btn btn-primary">Agregar</button> 
                     </fieldset>
                     </div>
                 </div>

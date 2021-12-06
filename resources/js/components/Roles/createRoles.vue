@@ -15,9 +15,9 @@
                        <input type="text" class="form-control" v-model="roles.name" placeholder="@Ejemplo: Administrador">
                      </fieldset>
                    </div>
-                   <div class="col-lg-12" style="text-align: center" >
+                   <div class="col-lg-12" style="text-align:center;padding-top:60px;" >
                     <fieldset>
-                      <button type="submit" @click="send" class="btn btn-primary">Registrar</button>
+                      <button type="submit" @click="send" class="btn btn-primary">Agregar</button>
                     </fieldset>
                     </div>
                 </div>
