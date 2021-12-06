@@ -17,6 +17,7 @@ class UserRolesController extends Controller
   
       public function create()
       {
+        abort_if(Gate::denies('create_userroles'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('userroles/insert-userrolesinfo');
       }
       public function store(Request $request)
