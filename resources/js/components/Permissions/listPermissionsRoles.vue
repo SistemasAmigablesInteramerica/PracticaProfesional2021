@@ -3,17 +3,19 @@
     <table class="table table-light table-md">
   <thead>
     <tr>
-      <th scope="col">Id</th>
+      <th scope="col">#</th>
       <th scope="col">Roles</th>
       <th scope="col">Permisos</th>
       <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(permissionsroles, index) in listPermissionroles" :key="permissionsroles.role_id">
-      <th scope="row">{{ index +1 }}</th>
-      <th>{{ permissionsroles.role_id }}</th>
-      <th>{{ permissionsroles.permission_id }}</th>
+    <tr v-for="(permissionsroles, index) in listRoles" :key="permissionsroles.role_id">
+      <th scope="row">{{ index + 1 }}</th>
+      <th>{{ permissionsroles.name }}</th>
+        <th>
+            <label class="label label-success p-1" v-for="permission of permissionsroles.permissions">{{ permission.title }}, </label>
+        </th>
       <td><a class="btm btm-info btm-se" :href="edit(permissionsroles.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
@@ -31,9 +33,6 @@ export default {
         }
     },
     created() {
-        axios.get('list-permissionsroles').then(response =>{
-            this.listPermissionroles = response.data
-        })
          axios.get('/list-roles').then(response =>{
             this.listRoles =response.data
             console.log(this.listRoles)
@@ -45,4 +44,4 @@ export default {
       }
     },
 }
-</script> 
+</script>
