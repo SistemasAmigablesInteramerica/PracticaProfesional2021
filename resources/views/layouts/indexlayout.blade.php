@@ -139,7 +139,7 @@
                           @endauth
                           @endif
                                 
-                          <a href="{{ route('login') }}">Iniciar sesion</a>
+                          <li><a href="{{ route('login') }}">Iniciar sesion</a></li>
                       <a class="menu-trigger">
                           <span>Menu</span>
                       </a>  
