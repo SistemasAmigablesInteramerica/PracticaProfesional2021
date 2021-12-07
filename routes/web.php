@@ -160,7 +160,7 @@ Route::put('/update-permissionsroles/{id}', [PermissionsRolesController::class, 
 // Inicio de rutas de asignar roles y permisos
 Route::get('/asignar-usuariosyroles', [App\Http\Controllers\UserRoles\UserRolesController::class, 'create'])->name('insert-userrolesinfo');
 Route::get('/lista-de-usuariosyroles', [App\Http\Controllers\UserRoles\ListUserRolesController::class, 'create'])->name('list-userrolesinfo');
-Route::get('/list-userroles', [App\Http\Controllers\UserRoles\UserRolesController::class, 'list']);
+Route::get('/list-userroles', [App\Http\Controllers\UserRoles\UserRolesController::class, 'lists']);
 Route::get('/edit-userroles/{id}', [UserRolesController::class, 'edit']);
 Route::post('/store-userroles', [UserRolesController::class, 'store']);
 Route::put('/update-userroles/{id}', [UserRolesController::class, 'update']);

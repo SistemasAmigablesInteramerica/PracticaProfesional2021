@@ -6,6 +6,7 @@ namespace App\Http\Controllers\UserRoles;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\UserRole;
+use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -39,6 +40,6 @@ class UserRolesController extends Controller
       }
       public function lists()
       {
-          return UserRole::all();
+        return User::with('roles')->get();
       }
 }
