@@ -14,11 +14,6 @@ class UserRole extends Model
     public function roles()
     {
         return $this->belongsTo(Role::class, 'role_id', 'id');
-<<<<<<< HEAD:app/Models/UserRoles.php
- 
-=======
-
->>>>>>> refs/remotes/origin/main:app/Models/UserRole.php
     }
     public function User()
     {
