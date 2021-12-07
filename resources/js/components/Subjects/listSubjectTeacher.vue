@@ -13,9 +13,9 @@
   <tbody>
     <tr v-for="(subjectteacher, index) in listSubjectTeacher" :key="subjectteacher.id">
       <th scope="row">{{ index +1 }}</th>
-        <th>{{ subjectteacher.subject_grade_id  }}</th>
+      <th>{{ subjectteacher.subject_grade_id  }}</th>
       <th> 
-      <label v-for="teacher of subjectteacher.teacher" :key="teacher.id">{{ teacher.name }}</label>
+      <label v-for="teacher of subjectteacher.teacher" :key="teacher.id">{{ subjectteacher.teacher.names }}</label>
       </th>
       
       <td><a class="btm btm-info btm-se" :href="edit(subjectteacher.id)"><span class="fa fa-edit"></span></a></td>
@@ -34,11 +34,11 @@ export default {
         }
     },
     created() {
-        axios.get('list-subjectteacher').then(response =>{
+        axios.get('/list-subjectteacher').then(response =>{
             this.listSubjectTeacher = response.data
             console.log(this.listSubjectTeacher)
         })
-
+      
     },
        methods: {
       edit(id){
