@@ -29,8 +29,20 @@ class SubjectTeacherController extends Controller
         }
         return response()->json(['message'=>'No se guardo la materia', 'data'=> $subjectteacher], 421);
     }
+    public function edit($id) 
+    {
+        $subjectteacher = SubjectTeacher::find($id);
+
+        return view('subjects/edit-subjectteacher',compact('subjectteacher'));
+    }   
+    public function update(Request $request, $id)
+    {
+        $subjectteacher = SubjectTeacher::where('id',$id)->update($request->all());
+        return $subjectteacher;
+    }    
     public function list()
     {
         return SubjectTeacher::with('teacher')->get();
-      }
+    }
+    
 }

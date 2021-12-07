@@ -114,6 +114,7 @@ Route::get('/list-subjectteacher', [App\Http\Controllers\Subjects\SubjectTeacher
 Route::get('/edit-subjectteacher/{id}', [SubjectTeacherController::class, 'edit']);
 Route::post('/store-subjectteacher', [SubjectTeacherController::class, 'store']);
 Route::put('/update-subjectteacher/{id}', [SubjectTeacherController::class, 'update']);
+Route::get('/list-subjectteacher', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'lists']);
 // Fin de rutas de asignar materia-profesor
 
 
