@@ -68,8 +68,8 @@ import 'vue-select/dist/vue-select.css'
             axios.get('/select-role/'+id).then(response =>{
               const permisssions = response.data.permissions
               if(permisssions.length > 0){
-              permisssions.forEach(permission=>{
-                this.permissionsRoles.permissions.push(permission.id)
+              permisssions.forEach(permissions=>{
+                this.permissionsRoles.permissions.push(permissions.id)
               })
               }else{
                 this.permissionsRoles.permissions=[]

@@ -14,7 +14,7 @@
       <th scope="row">{{ index + 1 }}</th>
       <th>{{ permissionsroles.name }}</th>
         <th>
-            <label class="label label-success p-1" v-for="permission of permissionsroles.permissions">{{ permission.title }}, </label>
+            <label class="label label-success p-1" v-for="permissions of permissionsroles.permissions">{{ permissions.title }}, </label>
         </th>
       <td><a class="btm btm-info btm-se" :href="edit(permissionsroles.id)"><span class="fa fa-edit"></span></a></td>
     </tr>

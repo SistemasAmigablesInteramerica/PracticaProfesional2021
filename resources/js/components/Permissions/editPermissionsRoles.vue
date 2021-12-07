@@ -57,8 +57,8 @@ import 'vue-select/dist/vue-select.css'
                 this.editRole = JSON.parse(this.data_role)
 console.log(this.editRole)
                 this.permissionsRoles.role_id = this.editRole.id
-              this.editRole.permissions.forEach(permission => {
-                this.permissionsRoles.permissions.push(permission.id)
+              this.editRole.permissions.forEach(permissions => {
+                this.permissionsRoles.permissions.push(permissions.id)
               })
 
 
