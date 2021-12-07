@@ -2,28 +2,24 @@
 <section id="contact" style="min-height: 125px; border-radius: 20px;width: 65%;border: 10px solid white; background-color: white;">
         <div class="container" >
       <div class="row">
-        <div class="col-lg-9 col-md-9">  
+        <div class="col-lg-9 col-md-9">
           <div class="row" >
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12">
                     <h2 >Asignar roles y permisos</h2>
-                  </div>  
+                  </div>
                   <div class="col-lg-12">
-                   <label>Asignar rol:</label>
-                       <select class="form-control form-control-sm" v-model="permissionsroles.role_id">
-                       <option disabled value="">Seleccionar un rol</option>
-                       <option v-for="roles in listRoles" :value="roles.id" :key="roles.id">{{ roles.name }}</option>
-                       </select>
-                  </div>   
+                   <label>Asignar rol: {{editRole.name}}</label>
+                  </div>
                    <div class="col-lg-12">
                      <label>Asignar permiso:</label>
-                       <v-select taggable multiple v-model="permissionsroles.permission_id" placeholder="Seleccionar permisos" :reduce="listPermission => listPermission.value" :options="listPermission"> </v-select>                       
+                       <v-select taggable multiple v-model="permissionsRoles.permissions" placeholder="Seleccionar permisos" :reduce="listPermission => listPermission.value" :options="listPermission"> </v-select>
                     </div>
-                         
+
                    <div class="col-lg-12" style="padding-top:60px;text-align: center" >
                     <fieldset>
-                      <button type="submit" @click="send" class="btn btn-primary">Asignar</button> 
+                      <button type="submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>
                     </div>
                 </div>
@@ -35,9 +31,9 @@
 </section>
 </template>
 
- 
 
-<script> 
+
+<script>
 import 'vue-select/dist/vue-select.css'
   import Swal from 'sweetalert2'
   import vSelect from 'vue-select'
@@ -45,29 +41,28 @@ import 'vue-select/dist/vue-select.css'
     export default {
         name: "editPermissionsRoles",
         components:{Swal, vSelect},
-        props:['data_permissionsroles'],
+        props:['data_role'],
         data() {
           return {
             listPermission:[],
-            listRoles: [],
+            editRole: '',
             listPermissionsRoles:[],
-            permissionsroles: {
+            permissionsRoles: {
               role_id: '',
-              permission_id: [],
+              permissions: [],
             },
-            idPermissionsroles:'',
           }
-        }, 
+        },
             created() {
-                const permissionsroles = JSON.parse(this.data_permissionsroles)
-                this.idPermissionsroles = permissionsroles.id
-                this.permissionsroles.role_id = permissionsroles.role_id 
-                this.permissionsroles.permission_id = permissionsroles.permission_id
+                this.editRole = JSON.parse(this.data_role)
+console.log(this.editRole)
+                this.permissionsRoles.role_id = this.editRole.id
+              this.editRole.permissions.forEach(permission => {
+                this.permissionsRoles.permissions.push(permission.id)
+              })
 
-        axios.get('/list-roles').then(response =>{
-            this.listRoles = response.data
-              console.log(this.listRoles) 
-        }),
+
+
           axios.get('/list-permissions').then(response =>{
             this.listPermission = response.data
         })
@@ -76,23 +71,22 @@ import 'vue-select/dist/vue-select.css'
 
           send(){
 
-            if(this.permissionsroles.role_id === ''){
+            if(this.permissionsRoles.role_id === ''){
               Swal.fire('Atención', 'Debe asignar un rol', 'warning')
               return false
             }
-            if(this.permissionsroles.permission_id === ''){
+            if(this.permissionsRoles.permission_id === ''){
               Swal.fire('Atención', 'Debe asignar un permiso ', 'warning')
               return false
             }
-            axios.put('/update-permissionsroles/'+ this.idPermissionsroles, this.permissionsroles).then(response =>{
-                this.permissionsroles.role_id = '',
-                this.permissionsroles.permission_id = '',
+            axios.put('/update-permissionsroles/'+ this.editRole.id, this.permissionsRoles).then(response =>{
+
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
                     text: 'El permiso se ha asignado con éxito.',
                 });
-                 window.location.href = '/lista-de-rolesypermisos '
+               //  window.location.href = '/lista-de-rolesypermisos '
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',
@@ -101,12 +95,12 @@ import 'vue-select/dist/vue-select.css'
                     });
 
             })
-            
+
           }
         }
     }
 
-</script>  
+</script>
 
 <style scoped>
   .tag-input {

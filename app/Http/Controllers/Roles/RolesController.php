@@ -13,18 +13,22 @@ class RolesController extends Controller
       //
       public function __construct()
       {
-  
+
       }
-  
+
       public function create()
       {
         // abort_if(Gate::denies('create_roles'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('roles/insert-rolesinfo');
       }
-  
+
       public function store(Request $request)
       {
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> refs/remotes/origin/main
           $roles = new Role();
           $roles->fill($request->all());
           if($roles->save()){
@@ -32,21 +36,33 @@ class RolesController extends Controller
           }
           return response()->json(['message'=>'No se guardo la informacion', 'data'=> $roles], 471);
       }
-      public function edit($id) 
+      public function edit($id)
       {
           $roles = Role::find($id);
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> refs/remotes/origin/main
           return view('roles/edit-roles',compact('roles'));
-      }   
-  
+      }
+
       public function update(Request $request, $id)
       {
           $roles = Role::where('id',$id)->update($request->all());
           return $roles;
       }
-      public function list()
+      public function lists()
       {
+<<<<<<< HEAD
           return Role::all();
+=======
+          return Role::with('permissions')->get();
+>>>>>>> refs/remotes/origin/main
       }
-    
+      public function selectRole($id)
+      {
+          return Role::with('permissions')->find($id);
+      }
+
 }
