@@ -17,11 +17,7 @@ class PermissionRole extends Model
     }
     public function role()
     {
-<<<<<<< HEAD:app/Models/PermissionRole.php
-        return $this->belongsTo(Role::class, 'role_id', 'id');  
-=======
         return $this->belongsTo(Role::class, 'role_id', 'id');
->>>>>>> refs/remotes/origin/main:app/Models/PermissionRoles.php
     }
     public static function labelSelect()
     {
