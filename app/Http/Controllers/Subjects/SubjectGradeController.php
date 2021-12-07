@@ -40,7 +40,7 @@ class SubjectGradeController extends Controller
         $subjectgrade = SubjectGrade::where('id',$id)->update($request->all());
         return $subjectgrade;
     }
-    public function list(){
+    public function lists(){
         return SubjectGrade::all();
     }
 }

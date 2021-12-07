@@ -71,9 +71,11 @@
         }, 
         created() {
             const SubjectTeacher = JSON.parse(this.data_subjectteacher)
-           this.idSubjectTeacher = subjectteacher.id
-           this.Subjectteachers.teacher_id = subjectteacher.teacher_id
-           this.Subjectteachers.subject_grade_id = subjectteacher.subject_grade_id 
+           this.idSubjectTeacher = SubjectTeacher.id
+           this.subjectteacher.teacher_id = SubjectTeacher.teacher_id
+           this.subjectteacher.subject_grade_id = SubjectTeacher.subject_grade_id 
+            this.subjectteacher.year = SubjectTeacher.year
+
 
             axios.get('/lists-subjects').then(response=>{
             this.listsSubjects = response.data
@@ -84,12 +86,13 @@
         },
         methods: {
           send(){
-            axios.put('/update-subjectteacher/'+ this.idSubjectTeacher, this.Subjectteachers).then(response =>{
+            axios.put('/update-subjectteacher/'+ this.idSubjectTeacher, this.subjectteacher).then(response =>{
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
                     text: 'El docente se ha asignado con éxito.',
                 });
+                 window.location.href = '/lista-de-materiasyprofesores'
             }).catch(error => {
                     Swal.fire({
                     icon: 'error',
