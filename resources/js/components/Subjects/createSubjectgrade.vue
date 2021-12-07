@@ -3,13 +3,13 @@
   <section class="contact-us" id="contact">       
     <div class="container">
       <div class="row">
-        <div class="col-lg-9">
-          <div class="row" style="min-height: 350px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
-            <div class="col-lg-12">
-                  <div class="col-lg-12">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="row" style="min-height: 350px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Asignar materia a un grado</h2>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                   <fieldset>
                      <label>Materias:</label>
                     <select class="form-select form-select-sm" v-model="subjectgrade.subject_id">
@@ -18,7 +18,7 @@
                     </select>
                   </fieldset>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                   <fieldset>
                       <label>Grados:</label>
                       <select class="form-select form-select-sm" v-model="subjectgrade.grade_id" >
@@ -28,8 +28,8 @@
                   </fieldset>
                     </div>
                     <br>
-                <div class="col-lg-12">
-                    <fieldset>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset style="text-align:center; padding-top:35px;">
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>
                   </div>
