@@ -20,8 +20,10 @@
                   <div class="col-lg-12 col-md-12 col-sm-12">
                   <fieldset>
                       <label for="select">Materias:</label>
-                         <input class="form-control form-control-sm" v-model="subjectteacher.grade_id">
-                       
+                          <select class="form-control form-control-sm" v-model="subjectteacher.subject_grade_id">
+                          <option disabled value="">Seleccione una materia:</option>
+                          <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
+                         </select>
                   </fieldset>
                     </div>
                     <br>
