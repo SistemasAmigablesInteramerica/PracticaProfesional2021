@@ -3,7 +3,7 @@
       <div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
   <thead>
     <tr>
-      <th scope="col">Id</th>
+      <th scope="col">#</th>
       <th scope="col">Correo electronico:</th>
       <th scope="col">Nombre</th>
       <th scope="col">Especialidad</th>

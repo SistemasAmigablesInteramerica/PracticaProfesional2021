@@ -14,13 +14,13 @@
                   <div class="col-lg-4">
                     <fieldset>
                       <label>Correo electronico:</label>
-                      <input name="email" v-model="employment.email" type="text" placeholder="Correo electronico">
+                      <input name="email" class="form-control" v-model="employment.email" type="text" placeholder="Correo electronico">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
                     <label>Nombre completo</label>
-                    <input name="name" v-model="employment.name" type="text"  placeholder="Nombre completo">
+                    <input name="name" class="form-control" v-model="employment.name" type="text"  placeholder="Nombre completo">
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
@@ -40,25 +40,25 @@
                   <div class="col-lg-4">
                     <fieldset>
                         <label for="card">Cédula:</label>
-                         <input type="number" v-model="employment.card" id="card" name="card" placeholder="Cédula">  
+                         <input type="number" class="form-control" v-model="employment.card" id="card" name="card" placeholder="Cédula">  
                     </fieldset>
                    </div>
                   <div class="col-lg-4">
                     <fieldset>
                     <label for="phone_number">Télefono:</label>
-                   <input name="phone_number" v-model="employment.phone_number" type="number" id="phone_number" placeholder="2777-0000">  
+                   <input name="phone_number" class="form-control" v-model="employment.phone_number" type="number" id="phone_number" placeholder="2777-0000">  
                   </fieldset>
                   </div>
                   <div class="col-lg-4">
                   <fieldset>
                   <label for="place_residence">Dirección exacta:</label>
-                      <input name="place_residence" v-model="employment.place_residence" type="text" id="place_residence" placeholder="Lugar de residencia">
+                      <input name="place_residence" class="form-control" v-model="employment.place_residence" type="text" id="place_residence" placeholder="Lugar de residencia">
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                       <label for="titles">Titulos y capacitaciones:</label>
-                      <input name="titles" v-model="employment.titles" type="text" id="titles" placeholder="Títulos y capacitaciones">
+                      <input name="titles" class="form-control" v-model="employment.titles" type="text" id="titles" placeholder="Títulos y capacitaciones">
                     </fieldset>
                   </div>
                    <div class="col-lg-4">
@@ -76,13 +76,13 @@
                   <div class="col-lg-4">
                     <fieldset>
                         <label for="contact_number">Condiciones del trabajo solicitado:</label>
-                         <input type="text" v-model="employment.conditions" id="conditions" name="conditions" placeholder="Condiciones del trabajo solicitado">  
+                         <input class="form-control" type="text" v-model="employment.conditions" id="conditions" name="conditions" placeholder="Condiciones del trabajo solicitado">  
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
                     <fieldset>
                         <label for="contact_number">Lugares donde le gustaría trabajar:</label>
-                         <input type="text" v-model="employment.place_likeness" id="place_likeness" name="place_likeness" placeholder="Lugares donde le gustaría trabajar">  
+                         <input class="form-control" type="text" v-model="employment.place_likeness" id="place_likeness" name="place_likeness" placeholder="Lugares donde le gustaría trabajar">  
                     </fieldset>
                   </div>
                   <div class="col-lg-4">
