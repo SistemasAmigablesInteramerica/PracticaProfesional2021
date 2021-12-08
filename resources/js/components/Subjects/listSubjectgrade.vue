@@ -13,7 +13,7 @@
     <tr v-for="(subjectgrade, index) in listSubjectgrade" :key="subjectgrade.id">
       <th scope="row">{{ index +1 }}</th>
       <th>
-        <label v-for="subject of subjectgrade" :key="subject.id">{{subject.name}}</label>
+        <label v-for="subjects of subjectgrade" :key="subject.id">{{subjects.name}}</label>
       </th>
       <th>
         <label v-for="grades of subjectgrade" :key="grades.id">{{grades.grade}}</label>

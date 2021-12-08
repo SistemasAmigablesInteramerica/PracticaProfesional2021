@@ -42,7 +42,7 @@ class SubjectTeacherController extends Controller
     }    
     public function list()
     {
-        return SubjectTeacher::with('teacher')->get();
+        return SubjectTeacher::all();
     }
     
 }
