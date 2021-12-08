@@ -1,22 +1,22 @@
 <template>
-<section id="contact" style="min-height: 125px; border-radius: 20px;width: 65%;border: 10px solid white; background-color: white;">
+<section id="contact" style="min-height: 125px; border-radius: 20px;width: 65%;border: 10px solid white; background-color: white;margin-top:100px;">
         <div class="container" >
       <div class="row">
-        <div class="col-lg-9 col-md-9">  
+        <div class="col-lg-12 col-md-12 col-sm-12">  
           <div class="row" >
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="row">
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2 >Actualizar Roles</h2>
                   </div>  
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                      <fieldset>
                      <label>Nombre de el rol: </label>
                        <input type="text" class="form-control" v-model="roles.name" placeholder="@Ejemplo: Administrador">
                      </fieldset>
                    </div>
-                   <div class="col-lg-12" style="text-align: center" >
-                    <fieldset>
+                   <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset style="text-align:center; padding-top:35px;">
                       <button type="submit" @click="send" class="btn btn-primary">Editar</button>
                     </fieldset>
                     </div>

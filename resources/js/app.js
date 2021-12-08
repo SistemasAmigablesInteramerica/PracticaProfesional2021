@@ -64,6 +64,7 @@ Vue.component('editSubject', require("./components/Subjects/editSubject.vue").de
 Vue.component('editSubjectteacher', require("./components/Subjects/editSubjectTeacher.vue").default);
 Vue.component('editTeacher', require("./components/teachers/editTeacher.vue").default);
 Vue.component('editStudentrelative', require("./components/students/editStudentRelative.vue").default);
+// Vue.component('editEmployment', require("./components/UserRoles/editEmployment.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -16,7 +16,7 @@
       <th scope="col">Condiciones del trabajo solicitado</th>
       <th scope="col">Lugares donde le gustaría trabajar</th>
       <th scope="col">Egresado o miembro de la comunidad</th>
-      <th scope="col">Acción</th>
+      <th scope="col">Acciónes</th>
     </tr> 
   </thead>
   <tbody>

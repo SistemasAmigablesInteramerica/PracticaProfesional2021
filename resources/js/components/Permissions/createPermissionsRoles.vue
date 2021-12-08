@@ -2,7 +2,7 @@
 <section id="contact" style="min-height: 125px; border-radius: 20px;width: 65%;border: 10px solid white; background-color: white;margin-top:100px;">
         <div class="container" >
       <div class="row">
-        <div class="col-lg-9 col-md-9">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row" >
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="row">

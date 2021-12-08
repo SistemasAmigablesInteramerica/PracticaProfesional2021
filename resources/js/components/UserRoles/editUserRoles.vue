@@ -1,15 +1,15 @@
 <template>
-<section id="contact" style="min-height: 125px; border-radius: 20px;width: 65%;border: 10px solid white; background-color: white;">
+<section id="contact" style="min-height: 125px; border-radius: 20px;width: 65%;border: 10px solid white; background-color: white;margin-top:100px;">
         <div class="container" >
       <div class="row">
-        <div class="col-lg-9 col-md-9">  
+        <div class="col-lg-12 col-md-12 col-sm-12">  
           <div class="row" >
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="row">
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2 >Actualizar roles y usuarios</h2>
                   </div>  
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                      <fieldset>
                      <label>Usuario:</label>
                        <select type="text" class="form-control form-control-sm" v-model="userroles.user_id">
@@ -18,7 +18,7 @@
                        </select>
                      </fieldset>
                    </div> 
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                      <fieldset>
                      <label>Nombre de el rol: </label>
                        <select type="text" class="form-control form-control-sm" v-model="userroles.role_id">
@@ -27,9 +27,9 @@
                        </select>
                      </fieldset>
                    </div>
-                   <div class="col-lg-12" style="text-align: center; padding-top:20px;" >
-                    <fieldset>
-                      <button type="submit" @click="send" class="btn btn-primary">Actualizado</button>
+                   <div class="col-lg-12 col-md-12 col-sm-12"  >
+                    <fieldset style="text-align: center; padding-top:20px;">
+                      <button type="submit" @click="send" class="btn btn-primary">Actualizar</button>
                     </fieldset>
                     </div>
                 </div>
