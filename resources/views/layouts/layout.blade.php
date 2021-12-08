@@ -50,18 +50,23 @@
                               </ul>
                           </li>
                           @if (Route::has('login'))
-                          @auth
+                          
                           <li class="has-sub">
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  
+                                  @auth
                                   <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
                                   
                                   <li><a href="{{asset('lista-de-profesores')}}">Ver docentes</a></li>
+                                  @endauth
+                                  <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
+                                  @auth
+                                  <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
+                                  @endauth
                                   
                               </ul>
                           </li>
-                          @endauth
+                          
                           @endif
                           @if (Route::has('login'))
                           @auth
@@ -106,23 +111,27 @@
                           </li>
                           @endauth
                           @endif
-                          
+                          @if (Route::has('login'))
+                          @auth
                           <li class="has-sub">
-                              <a href="javascript:void(0)">Formularios</a>
-                              <ul class="sub-menu">
+                              <a href="javascript:void(0)">User Perm Rol</a>
+                              <ul class="sub-menu"> 
                               
-                              <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
-                              @if (Route::has('login'))
-                              @auth
-                              <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
-                              @endauth
-                              @endif
+                              <li><a href="{{asset('crear-roles')}}">Crear roles</a></li>
+                              <li><a href="{{asset('lista-de-roles')}}">Ver roles</a></li>
+                              <li><a href="{{asset('asignar-rolesypermisos')}}">Asignar rol-permisos</a></li>
+                              <li><a href="{{asset('asignar-usuariosyroles')}}">Asignar rol-user</a></li>
+                              <li><a href="{{asset('crear-permisos')}}">Crear permisos</a></li>
+                              <li><a href="{{asset('lista-de-permisos')}}">Ver permisos</a></li>
+                              <li><a href="{{asset('lista-de-rolesypermisos')}}">Ver rol-perm</a></li>
+                              <li><a href="{{asset('lista-de-usuariosyroles')}}">Ver rol-user</a></li>
+                              
                               </ul>
+                              
                           </li>
+                          @endauth
+                          @endif
 
-                          
-                          
-                          
                       </ul>
                       <a class="menu-trigger">
                           <span>Menu</span>
