@@ -50,18 +50,23 @@
                               </ul>
                           </li>
                           @if (Route::has('login'))
-                          @auth
+                          
                           <li class="has-sub">
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
-                                  
+                                  @auth
                                   <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
                                   
                                   <li><a href="{{asset('lista-de-profesores')}}">Ver docentes</a></li>
+                                  @endauth
+                                  <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
+                                  @auth
+                                  <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
+                                  @endauth
                                   
                               </ul>
                           </li>
-                          @endauth
+                          
                           @endif
                           @if (Route::has('login'))
                           @auth
@@ -106,23 +111,7 @@
                           </li>
                           @endauth
                           @endif
-                          
-                          <li class="has-sub">
-                              <a href="javascript:void(0)">Formularios</a>
-                              <ul class="sub-menu">
-                              
-                              <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
-                              @if (Route::has('login'))
-                              @auth
-                              <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
-                              @endauth
-                              @endif
-                              </ul>
-                          </li>
 
-                          
-                          
-                          
                       </ul>
                       <a class="menu-trigger">
                           <span>Menu</span>
