@@ -7,7 +7,7 @@
       <th scope="col">Curso Lectivo</th>
       <th scope="col">Materia</th>
       <th scope="col">ID del Estudiante</th>
-      <th scope="col">Editar</th>
+      <th scope="col">Acciónes</th>
     </tr>
   </thead>
   <tbody>

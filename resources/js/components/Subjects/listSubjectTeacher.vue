@@ -7,7 +7,7 @@
          <th scope="col">Materia</th>
             <th scope="col">Profesor</th>
          
-      <th scope="col">Editar</th>
+      <th scope="col">Acciónes</th>
     </tr>
   </thead>
   <tbody>

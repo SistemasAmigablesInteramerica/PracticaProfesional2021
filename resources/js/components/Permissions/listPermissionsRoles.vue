@@ -6,7 +6,7 @@
       <th scope="col">#</th>
       <th scope="col">Roles</th>
       <th scope="col">Permisos</th>
-      <th scope="col">Editar</th>
+      <th scope="col">Acciónes</th>
     </tr>
   </thead>
   <tbody>

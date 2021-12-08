@@ -13,7 +13,7 @@
       <th scope="col">Correo eletornico</th>
       <th scope="col">Genero</th>
       <th scope="col">Numero de telefono</th>
-      <th scope="col">Acción</th>
+      <th scope="col">Acciónes</th>
 
     </tr>
   </thead>
