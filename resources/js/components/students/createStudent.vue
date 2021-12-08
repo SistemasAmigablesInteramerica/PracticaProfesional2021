@@ -30,35 +30,35 @@
                     </fieldset>
                     <br>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
                     <label for="Birthdate">Fecha de Nacimiento:</label>
                    <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">  
                   </fieldset>
-                  <br>
+                      <br>
                   </div>  
                   <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                   <label for="legal_guardian_name">Nombre del Encargado Legal:</label>
                       <input name="legal_guardian_name" class="form-control" v-model="student.legal_guardian_name" type="text" placeholder="Inserte el Nombre">
                     </fieldset>
-                    <br>
+                        <br>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label for="legal_guardian_card">Cédula del encargado legal:</label>
                       <input name="legal_guardian_card" class="form-control" v-model="student.legal_guardian_card" type="number" placeholder="No.Cédula del encargado legal" pattern="">
                     </fieldset>
-                    <br>
+                       <br>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                   <label for="phone_number">Telefono de domicilio:</label>
                     <input type="tel" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">  
                     </fieldset>
-                    <br>
+                            <br>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
                       <label>Domicilio:</label>
                       <input name="place_residence" class="form-control" v-model="student.place_residence" type="text" placeholder="Direccion Del Domicilio">
@@ -120,8 +120,8 @@
                     </fieldset> 
                     <br>
                   </div>
-                  <div class="col-lg-12 col-md-12 col-sm-12" style="text-align: center" >
-                    <fieldset>
+                  <div class="col-lg-12 col-md-12 col-sm-12" >
+                    <fieldset  style="text-align: center">
                       <button type="submit" @click="send" class="btn btn-primary">Registrar</button>
                     </fieldset>
                     <br>

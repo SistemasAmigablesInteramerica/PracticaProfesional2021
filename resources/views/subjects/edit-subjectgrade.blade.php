@@ -1,5 +1,5 @@
 @extends('layouts.layout')
 
 @section('content')
-<edit-subjectteacher data_subjectteacher="{{json_encode($subjectteacher)}}"></edit-subjectteacher>
+<edit-subjectgrade data_subjectgrade="{{json_encode($subjectgrade)}}"></edit-subjectgrade>
 @endsection

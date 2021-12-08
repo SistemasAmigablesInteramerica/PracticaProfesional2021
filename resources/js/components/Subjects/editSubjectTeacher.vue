@@ -32,8 +32,8 @@
                     <input v-model="subjectteacher.year" class="form-control form-control-sm" type="number" placeholder="Año">
                     </fieldset> 
                     </div>                
-                    <div class="col-lg-12 col-md-12 col-sm-12" style="text-align:center;padding-top:60px;">
-                    <fieldset>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <fieldset  style="text-align:center;padding-top:60px;">
                       <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Actualizar</button>
                     </fieldset>
                     <small style="color:#9e1205;">*Para asignar un docente debe agregar los datos de seccion y asignar la materia.*</small>
