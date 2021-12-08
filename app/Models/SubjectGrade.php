@@ -12,7 +12,7 @@ class SubjectGrade extends Model
     protected $fillable = ['grade_id', 'subject_id']; 
     use HasFactory;
 
-    public function grade()
+    public function grades()
     {
     return $this->belongsTo(Grade::class, 'grade_id', 'id');
     }

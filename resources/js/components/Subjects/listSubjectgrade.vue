@@ -12,8 +12,12 @@
   <tbody>
     <tr v-for="(subjectgrade, index) in listSubjectgrade" :key="subjectgrade.id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ subjectgrade.subject_id }}</th>
-      <th>{{ subjectgrade.grade_id }}</th>
+      <th>
+        <label class="label label-success" v-for="subject of subjectgrade" :key="subject.id">{{subject.name}}</label>
+      </th>
+      <th>
+        <label class="label label-success" v-for="grades of subjectgrade" :key="grades.id">{{grades.name}}</label>
+      </th>
       <td><a class="btm btm-info btm-se" :href="edit(subjectgrade.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
@@ -30,8 +34,9 @@ export default {
         }
     },
     created() {
-        axios.get('list-subjectgrade').then(response =>{
+        axios.get('/list-subjectgrade').then(response =>{
             this.listSubjectgrade = response.data
+            console.log(this.listSubjectgrade)
         })
     },
        methods: {

@@ -40,8 +40,9 @@ class SubjectGradeController extends Controller
         $subjectgrade = SubjectGrade::where('id',$id)->update($request->all());
         return $subjectgrade;
     }
-    public function list(){
-        return SubjectGrade::all();
+    public function list()
+    {
+        return SubjectGrade::with('grades', 'subject')->get();
     }
 }
  
