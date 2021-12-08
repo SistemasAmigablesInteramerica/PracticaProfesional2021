@@ -1,24 +1,24 @@
  <template>
-<section id="contact" style="min-height: 125px; border-radius: 20px;width: 65%;border: 10px solid white; background-color: white;">
+<section id="contact" style="min-height: 125px; border-radius: 20px;width: 65%;border: 10px solid white; background-color: white;margin-top:100px;">
         <div class="container" >
       <div class="row">
-        <div class="col-lg-9 col-md-9">
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row" >
-            <div class="col-lg-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="row">
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2 >Asignar roles y permisos</h2>
                   </div>
-                  <div class="col-lg-12">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
                    <label>Asignar rol: {{editRole.name}}</label>
                   </div>
-                   <div class="col-lg-12">
+                   <div class="col-lg-12 col-md-12 col-sm-12">
                      <label>Asignar permiso:</label>
                        <v-select taggable multiple v-model="permissionsRoles.permissions" placeholder="Seleccionar permisos" :reduce="listPermission => listPermission.value" :options="listPermission"> </v-select>
                     </div>
 
-                   <div class="col-lg-12" style="padding-top:60px;text-align: center" >
-                    <fieldset>
+                   <div class="col-lg-12 col-md-12 col-sm-12"  >
+                    <fieldset style="padding-top:60px;text-align: center">
                       <button type="submit" @click="send" class="btn btn-primary">Asignar</button>
                     </fieldset>
                     </div>

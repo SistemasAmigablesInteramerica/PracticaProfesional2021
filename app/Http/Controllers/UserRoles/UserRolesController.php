@@ -32,7 +32,11 @@ class UserRolesController extends Controller
           }
           return response()->json(['message'=>'No se guardo la informacion', 'data'=> $userroles], 471);
       }
-
+      public function edit($id)
+      {
+          $userroles = UserRole::find($id);
+          return view('userroles/edit-userroles',compact('userroles'));
+      }
          public function update(Request $request, $id)
       {
           $userroles = UserRole::where('id',$id)->update($request->all());

@@ -9,7 +9,7 @@
       <th scope="col">Estudiante</th>  
       <th scope="col">Materia</th>
       <th scope="col">Asistió</th>
-      <th scope="col">Acción</th>
+      <th scope="col">Acciónes</th> 
     </tr>
   </thead>
   <tbody>

@@ -14,7 +14,7 @@
       <th scope="col">Total per capita</th>
       <th scope="col">Clasificó</th>
       <th scope="col">Ingresos totales</th>
-      <th scope="col">Acción</th>
+      <th scope="col">Acciónes</th>
     </tr>
   </thead>
   <tbody>

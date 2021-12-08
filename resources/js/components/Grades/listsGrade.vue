@@ -6,7 +6,7 @@
       <th scope="col">#</th>
       <th scope="col">Grado</th>
       <th scope="col">Sección</th>
-      <th scope="col"></th>
+      <th scope="col">Acciónes</th>
     </tr>
   </thead>
   <tbody>

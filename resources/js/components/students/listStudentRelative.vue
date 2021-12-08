@@ -13,7 +13,7 @@
       <th scope="col">Recibe ayuda financiera</th>
       <th scope="col">Total de ayuda financiera</th>
       <th scope="col">Salario del familiar</th>
-      <th scope="col">Acción</th>
+      <th scope="col">Acciónes</th>
 
     </tr>
   </thead>
