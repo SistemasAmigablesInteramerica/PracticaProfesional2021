@@ -2132,6 +2132,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createAttendancehistory",
@@ -2323,7 +2324,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createGrade",
@@ -2340,6 +2340,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     send: function send() {
+      var _this = this;
+
       if (this.grades.name === '') {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atención', 'Debe digitar un grado', 'warning');
         return false;
@@ -2351,7 +2353,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       axios.post('/store-grade', this.grades).then(function (response) {
-        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        _this.grades.name = '', _this.grades.section = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
           text: 'El grado se ha registrado con éxito.'
@@ -2514,7 +2516,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
-//
 //
 //
 //
@@ -3717,7 +3718,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createSubject",
@@ -3733,12 +3733,15 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     send: function send() {
+      var _this = this;
+
       if (this.subjects.name === '') {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atención', 'Debe digitar una materia', 'warning');
         return false;
       }
 
       axios.post('/store-subject', this.subjects).then(function (response) {
+        _this.subjects.name = '';
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
@@ -3770,7 +3773,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
-//
 //
 //
 //
@@ -3958,6 +3960,7 @@ __webpack_require__.r(__webpack_exports__);
         subject_grade_id: '',
         year: ''
       },
+      listSubjectTeacher: [],
       listsSubjects: [],
       listTeacher: []
     };
@@ -4035,7 +4038,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createSubject",
@@ -4083,6 +4085,125 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "createSubjectteacher",
+  props: ['data_subjectteacher'],
+  components: {
+    Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
+  },
+  data: function data() {
+    return {
+      subjectteacher: {
+        teacher_id: '',
+        subject_grade_id: '',
+        year: ''
+      },
+      idSubjectTeacher: '',
+      listSubjectTeacher: [],
+      listsSubjects: [],
+      listTeacher: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    var SubjectTeacher = JSON.parse(this.data_subjectteacher);
+    this.idSubjectTeacher = SubjectTeacher.id;
+    this.subjectteacher.teacher_id = SubjectTeacher.teacher_id;
+    this.subjectteacher.subject_grade_id = SubjectTeacher.subject_grade_id;
+    this.subjectteacher.year = SubjectTeacher.year;
+    axios.get('/lists-subjects').then(function (response) {
+      _this.listsSubjects = response.data;
+    });
+    axios.get('/list-teacher').then(function (response) {
+      _this.listTeacher = response.data;
+    });
+  },
+  methods: {
+    send: function send() {
+      axios.put('/update-subjectteacher/' + this.idSubjectTeacher, this.subjectteacher).then(function (response) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'success',
+          title: 'Datos registrados',
+          text: 'El docente se ha asignado con éxito.'
+        });
+        window.location.href = '/lista-de-materiasyprofesores';
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Se ha encontrado un error.'
+        });
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/editSubjectgrade.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/editSubjectgrade.vue?vue&type=script&lang=js& ***!
@@ -4096,11 +4217,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
-var _name$components$data;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
 //
 //
 //
@@ -4144,8 +4260,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_name$components$data = {
-  name: "createSubjectgrade",
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "editSubjectgrade",
+  props: ['data_subjectgrade'],
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
@@ -4155,63 +4272,65 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         grade_id: '',
         subject_id: ''
       },
-      idSubjectGrade: ''
+      idSubjectGrade: '',
+      listsSubjects: [],
+      listsGrades: []
     };
   },
   created: function created() {
-    var subjectgrade = JSON.parse(this.data_subjectgrade);
-    this.idSubjectGrade = subjectgrade.id;
-    this.subjectgrades.subject_id = subjectgrade.subject_id;
-    this.subjectgrades.grade_id = subjectgrade.grade_id;
-  }
-}, _defineProperty(_name$components$data, "created", function created() {
-  var _this = this;
+    var _this = this;
 
-  axios.get('/lists-subjects').then(function (response) {
-    _this.listsSubjects = response.data;
-  });
-  axios.get('/lists-grades').then(function (response) {
-    _this.listsGrades = response.data;
-  });
-}), _defineProperty(_name$components$data, "methods", {
-  send: function send() {
-    var _this2 = this;
-
-    if (this.subjectgrade.grade_id === '') {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-        icon: 'warning',
-        title: 'Atención',
-        text: 'El grado no puede estar vacío'
-      });
-      return false;
-    }
-
-    if (this.subjectgrade.subject_id === '') {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-        icon: 'warning',
-        title: 'Atención',
-        text: 'La materia no puede estar vacía'
-      });
-      return false;
-    }
-
-    axios.put('/update-subjectgrade/' + this.idSubjectGrade, this.subjectgrades).then(function (response) {
-      _this2.subjectgrade.grade_id = '', _this2.subjectgrade.subject_id = '';
-      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-        icon: 'success',
-        title: 'Datos registrados',
-        text: 'Se ha guardado con éxito.'
-      });
-      window.location.href = '/lista-de-materiasygrados';
-    })["catch"](function (error) {
-      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Se ha encontrado un error.'
-      });
+    var subjectgrades = JSON.parse(this.data_subjectgrade);
+    this.idSubjectGrade = subjectgrades.id;
+    this.subjectgrade.subject_id = subjectgrades.subject_id;
+    this.subjectgrade.grade_id = subjectgrades.grade_id;
+    axios.get('/lists-subjects').then(function (response) {
+      _this.listsSubjects = response.data;
     });
+    axios.get('/lists-grades').then(function (response) {
+      _this.listsGrades = response.data;
+    });
+  },
+  methods: {
+    send: function send() {
+      var _this2 = this;
+
+      if (this.subjectgrade.grade_id === '') {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'warning',
+          title: 'Atención',
+          text: 'El grado no puede estar vacío'
+        });
+        return false;
+      }
+
+      if (this.subjectgrade.subject_id === '') {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'warning',
+          title: 'Atención',
+          text: 'La materia no puede estar vacía'
+        });
+        return false;
+      }
+
+      axios.put('/update-subjectgrade/' + this.idSubjectGrade, this.subjectgrade).then(function (response) {
+        _this2.subjectgrade.grade_id = '', _this2.subjectgrade.subject_id = '';
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'success',
+          title: 'Datos registrados',
+          text: 'Se ha guardado con éxito.'
+        });
+        window.location.href = '/lista-de-materiasygrados';
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Se ha encontrado un error.'
+        });
+      });
+    }
   }
-}), _name$components$data);
+});
 
 /***/ }),
 
@@ -5389,7 +5508,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'editStudentrelative',
@@ -5522,6 +5640,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -6865,6 +6990,7 @@ Vue.component('editGradesubjectstudent', (__webpack_require__(/*! ./components/G
 Vue.component('editStudents', (__webpack_require__(/*! ./components/students/editStudents.vue */ "./resources/js/components/students/editStudents.vue")["default"]));
 Vue.component('editSubjectgrade', (__webpack_require__(/*! ./components/Subjects/editSubjectgrade.vue */ "./resources/js/components/Subjects/editSubjectgrade.vue")["default"]));
 Vue.component('editSubject', (__webpack_require__(/*! ./components/Subjects/editSubject.vue */ "./resources/js/components/Subjects/editSubject.vue")["default"]));
+Vue.component('editSubjectteacher', (__webpack_require__(/*! ./components/Subjects/editSubjectTeacher.vue */ "./resources/js/components/Subjects/editSubjectTeacher.vue")["default"]));
 Vue.component('editTeacher', (__webpack_require__(/*! ./components/teachers/editTeacher.vue */ "./resources/js/components/teachers/editTeacher.vue")["default"]));
 Vue.component('editStudentrelative', (__webpack_require__(/*! ./components/students/editStudentRelative.vue */ "./resources/js/components/students/editStudentRelative.vue")["default"]));
 /**
@@ -46786,6 +46912,45 @@ component.options.__file = "resources/js/components/Subjects/editSubject.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/Subjects/editSubjectTeacher.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/components/Subjects/editSubjectTeacher.vue ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _editSubjectTeacher_vue_vue_type_template_id_5932c8ed___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editSubjectTeacher.vue?vue&type=template&id=5932c8ed& */ "./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=template&id=5932c8ed&");
+/* harmony import */ var _editSubjectTeacher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editSubjectTeacher.vue?vue&type=script&lang=js& */ "./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _editSubjectTeacher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _editSubjectTeacher_vue_vue_type_template_id_5932c8ed___WEBPACK_IMPORTED_MODULE_0__.render,
+  _editSubjectTeacher_vue_vue_type_template_id_5932c8ed___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Subjects/editSubjectTeacher.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/Subjects/editSubjectgrade.vue":
 /*!***************************************************************!*\
   !*** ./resources/js/components/Subjects/editSubjectgrade.vue ***!
@@ -47902,6 +48067,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editSubjectTeacher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./editSubjectTeacher.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editSubjectTeacher_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/components/Subjects/editSubjectgrade.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************!*\
   !*** ./resources/js/components/Subjects/editSubjectgrade.vue?vue&type=script&lang=js& ***!
@@ -48605,6 +48786,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=template&id=5932c8ed&":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=template&id=5932c8ed& ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editSubjectTeacher_vue_vue_type_template_id_5932c8ed___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editSubjectTeacher_vue_vue_type_template_id_5932c8ed___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editSubjectTeacher_vue_vue_type_template_id_5932c8ed___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./editSubjectTeacher.vue?vue&type=template&id=5932c8ed& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=template&id=5932c8ed&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Subjects/editSubjectgrade.vue?vue&type=template&id=1d5cdb42&":
 /*!**********************************************************************************************!*\
   !*** ./resources/js/components/Subjects/editSubjectgrade.vue?vue&type=template&id=1d5cdb42& ***!
@@ -48965,9 +49163,9 @@ var render = function () {
     "section",
     { staticClass: "contact-us", attrs: { id: "contact" } },
     [
-      _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
+      _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -48978,13 +49176,14 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
+                  "margin-top": "100px",
                 },
                 attrs: { method: "post" },
               },
               [
                 _vm._m(0),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Fecha de entrada:")]),
                     _c("br"),
@@ -48998,6 +49197,7 @@ var render = function () {
                           expression: "attendancehistory.date",
                         },
                       ],
+                      staticClass: "form-control",
                       attrs: { type: "date", placeholder: "Entrada" },
                       domProps: { value: _vm.attendancehistory.date },
                       on: {
@@ -49016,7 +49216,7 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Hora de entrada:")]),
                     _vm._v(" "),
@@ -49029,6 +49229,7 @@ var render = function () {
                           expression: "attendancehistory.check_in",
                         },
                       ],
+                      staticClass: "form-control",
                       attrs: { type: "text", placeholder: "00:00" },
                       domProps: { value: _vm.attendancehistory.check_in },
                       on: {
@@ -49047,7 +49248,7 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Hora de salida:")]),
                     _vm._v(" "),
@@ -49060,6 +49261,7 @@ var render = function () {
                           expression: "attendancehistory.check_out",
                         },
                       ],
+                      staticClass: "form-control",
                       attrs: { type: "text", placeholder: "Salida" },
                       domProps: { value: _vm.attendancehistory.check_out },
                       on: {
@@ -49078,7 +49280,7 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Estudiante:")]),
                     _vm._v(" "),
@@ -49137,7 +49339,7 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-4" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Profesor:")]),
                     _vm._v(" "),
@@ -49194,67 +49396,77 @@ var render = function () {
                       2
                     ),
                   ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c("label", [_vm._v("Asistió:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.attendancehistory.attended,
-                            expression: "attendancehistory.attended",
-                          },
-                        ],
-                        staticStyle: {
-                          width: "2em",
-                          height: "2em",
-                          "margin-top": ".25em",
-                          "vertical-align": "top",
-                          "border-radius": ".25em",
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                  _c("fieldset", { staticStyle: { "margin-left": "50%" } }, [
+                    _c("label", [_vm._v("Asistió:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.attendancehistory.attended,
+                          expression: "attendancehistory.attended",
                         },
-                        attrs: { type: "checkbox", placeholder: "Atendio" },
-                        domProps: {
-                          checked: Array.isArray(_vm.attendancehistory.attended)
-                            ? _vm._i(_vm.attendancehistory.attended, null) > -1
-                            : _vm.attendancehistory.attended,
-                        },
-                        on: {
-                          change: function ($event) {
-                            var $$a = _vm.attendancehistory.attended,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.attendancehistory,
-                                    "attended",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.attendancehistory,
-                                    "attended",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
+                      ],
+                      staticClass: "form-check",
+                      staticStyle: {
+                        width: "2em",
+                        height: "2em",
+                        "margin-top": ".25em",
+                        "vertical-align": "top",
+                        "border-radius": ".25em",
+                      },
+                      attrs: { type: "checkbox", placeholder: "Atendio" },
+                      domProps: {
+                        checked: Array.isArray(_vm.attendancehistory.attended)
+                          ? _vm._i(_vm.attendancehistory.attended, null) > -1
+                          : _vm.attendancehistory.attended,
+                      },
+                      on: {
+                        change: function ($event) {
+                          var $$a = _vm.attendancehistory.attended,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                _vm.$set(
+                                  _vm.attendancehistory,
+                                  "attended",
+                                  $$a.concat([$$v])
+                                )
                             } else {
-                              _vm.$set(_vm.attendancehistory, "attended", $$c)
+                              $$i > -1 &&
+                                _vm.$set(
+                                  _vm.attendancehistory,
+                                  "attended",
+                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                )
                             }
-                          },
+                          } else {
+                            _vm.$set(_vm.attendancehistory, "attended", $$c)
+                          }
                         },
-                      }),
-                    ]),
+                      },
+                    }),
                   ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-4" }, [
-                    _c("fieldset", [
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                  _c(
+                    "fieldset",
+                    {
+                      staticStyle: {
+                        "text-align": "center",
+                        "padding-top": "60px",
+                      },
+                    },
+                    [
                       _c(
                         "button",
                         {
@@ -49264,8 +49476,8 @@ var render = function () {
                         },
                         [_vm._v("Agregar")]
                       ),
-                    ]),
-                  ]),
+                    ]
+                  ),
                 ]),
               ]
             ),
@@ -49280,7 +49492,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Asistencias")]),
     ])
   },
@@ -49396,9 +49608,9 @@ var render = function () {
     "section",
     { staticClass: "contact-us", attrs: { id: "contact" } },
     [
-      _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
+      _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -49409,14 +49621,13 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
-                  position: "relative",
-                  left: "180px",
+                  "margin-top": "100px",
                 },
               },
               [
                 _vm._m(0),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Grados:")]),
                     _vm._v(" "),
@@ -49479,7 +49690,7 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Secciónes:")]),
                     _vm._v(" "),
@@ -49541,19 +49752,27 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12" }, [
-                  _c("fieldset", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        staticStyle: { "border-radius": "20px" },
-                        attrs: { type: "submit", id: "form-submit" },
-                        on: { click: _vm.send },
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                  _c(
+                    "fieldset",
+                    {
+                      staticStyle: {
+                        "text-align": "center",
+                        "padding-top": "35px",
                       },
-                      [_vm._v("Registrar")]
-                    ),
-                  ]),
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit", id: "form-submit" },
+                          on: { click: _vm.send },
+                        },
+                        [_vm._v("Agregar")]
+                      ),
+                    ]
+                  ),
                 ]),
               ]
             ),
@@ -49568,9 +49787,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12", attrs: { method: "post" } }, [
-      _c("h2", [_vm._v("Agregar nueva sección")]),
-    ])
+    return _c(
+      "div",
+      {
+        staticClass: "col-lg-12 col-md-12 col-sm-12",
+        attrs: { method: "post" },
+      },
+      [_c("h2", [_vm._v("Agregar nueva sección")])]
+    )
   },
 ]
 render._withStripped = true
@@ -49604,17 +49828,18 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
       attrs: { id: "contact" },
     },
     [
-      _c("div", { staticClass: "col-lg-12" }, [
+      _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c("div", { staticClass: "row" }, [
               _vm._m(0),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4" }, [
+              _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                 _c("fieldset", [
                   _c("label", [_vm._v("ID del estudiante:")]),
                   _vm._v(" "),
@@ -49668,7 +49893,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4" }, [
+              _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                 _c("fieldset", [
                   _c("label", [_vm._v("Materias:")]),
                   _vm._v(" "),
@@ -49725,7 +49950,7 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-4" }, [
+              _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                 _c("fieldset", [
                   _c("label", [_vm._v("Curso lectivo:")]),
                   _vm._v(" "),
@@ -49738,6 +49963,7 @@ var render = function () {
                         expression: "gradesubjectstudent.year",
                       },
                     ],
+                    staticClass: "form-control",
                     attrs: { type: "text", placeholder: "Año" },
                     domProps: { value: _vm.gradesubjectstudent.year },
                     on: {
@@ -49756,18 +49982,27 @@ var render = function () {
                 ]),
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "col-lg-12" }, [
-                _c("fieldset", [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary",
-                      attrs: { type: "submit", id: "form-submit" },
-                      on: { click: _vm.send },
+              _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                _c(
+                  "fieldset",
+                  {
+                    staticStyle: {
+                      "text-align": "center",
+                      "padding-top": "35px",
                     },
-                    [_vm._v("Asignar")]
-                  ),
-                ]),
+                  },
+                  [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "submit", id: "form-submit" },
+                        on: { click: _vm.send },
+                      },
+                      [_vm._v("Asignar")]
+                    ),
+                  ]
+                ),
               ]),
             ]),
           ]),
@@ -49781,7 +50016,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Asignar grado a materia y estudiante")]),
     ])
   },
@@ -49812,9 +50047,9 @@ var render = function () {
     "section",
     { staticClass: "contact-us", attrs: { id: "contact" } },
     [
-      _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-12" }, [
+      _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-12" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -49825,14 +50060,13 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
-                  position: "relative",
-                  left: "180px",
+                  "margin-top": "100px",
                 },
               },
               [
                 _vm._m(0),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Grados:")]),
                     _vm._v(" "),
@@ -49859,7 +50093,7 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6" }, [
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
                     _c("label", [_vm._v("Secciónes:")]),
                     _vm._v(" "),
@@ -49917,19 +50151,27 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12" }, [
-                  _c("fieldset", [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        staticStyle: { "border-radius": "20px" },
-                        attrs: { type: "submit", id: "form-submit" },
-                        on: { click: _vm.send },
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                  _c(
+                    "fieldset",
+                    {
+                      staticStyle: {
+                        "text-align": "center",
+                        "padding-top": "35px",
                       },
-                      [_vm._v("Actualizar")]
-                    ),
-                  ]),
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit", id: "form-submit" },
+                          on: { click: _vm.send },
+                        },
+                        [_vm._v("Actualizar")]
+                      ),
+                    ]
+                  ),
                 ]),
               ]
             ),
@@ -51200,17 +51442,16 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-lg-12 col-md-12 col-sm-12",
-                      staticStyle: {
-                        "text-align": "center",
-                        "padding-top": "60px",
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c(
+                      "fieldset",
+                      {
+                        staticStyle: {
+                          "text-align": "center",
+                          "padding-top": "60px",
+                        },
                       },
-                    },
-                    [
-                      _c("fieldset", [
+                      [
                         _c(
                           "button",
                           {
@@ -51220,9 +51461,9 @@ var render = function () {
                           },
                           [_vm._v("Agregar")]
                         ),
-                      ]),
-                    ]
-                  ),
+                      ]
+                    ),
+                  ]),
                 ]),
               ]),
             ]),
@@ -51465,7 +51706,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-9" }, [
             _c(
               "div",
               {
@@ -51477,12 +51718,13 @@ var render = function () {
                   border: "20px solid white",
                   "background-color": "white",
                   left: "180px",
+                  "margin-top": "100px",
                 },
               },
               [
                 _vm._m(0),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("fieldset", [
                     _c("label", [
                       _vm._v("Materias: "),
@@ -51514,21 +51756,27 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12" }, [
-                  _c("fieldset", [
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        staticStyle: { "border-radius": "20px" },
-                        attrs: { type: "submit", id: "form-submit" },
-                        on: { click: _vm.send },
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                  _c(
+                    "fieldset",
+                    {
+                      staticStyle: {
+                        "text-align": "center",
+                        "padding-top": "35px",
                       },
-                      [_vm._v("Agregar")]
-                    ),
-                  ]),
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit", id: "form-submit" },
+                          on: { click: _vm.send },
+                        },
+                        [_vm._v("Agregar")]
+                      ),
+                    ]
+                  ),
                 ]),
               ]
             ),
@@ -51543,7 +51791,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Agregar Materias")]),
     ])
   },
@@ -51576,7 +51824,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -51587,13 +51835,14 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
+                  "margin-top": "100px",
                 },
               },
               [
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Materias:")]),
                       _vm._v(" "),
@@ -51638,7 +51887,7 @@ var render = function () {
                             return _c(
                               "option",
                               {
-                                key: "subject_id",
+                                key: subject.id,
                                 domProps: { value: subject.id },
                               },
                               [_vm._v(_vm._s(subject.name))]
@@ -51650,7 +51899,7 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Grados:")]),
                       _vm._v(" "),
@@ -51694,10 +51943,7 @@ var render = function () {
                           _vm._l(_vm.listsGrades, function (grade) {
                             return _c(
                               "option",
-                              {
-                                key: "grade_id",
-                                domProps: { value: grade.id },
-                              },
+                              { key: grade.id, domProps: { value: grade.id } },
                               [_vm._v(_vm._s(grade.name))]
                             )
                           }),
@@ -51709,18 +51955,27 @@ var render = function () {
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "submit", id: "form-submit" },
-                          on: { click: _vm.send },
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c(
+                      "fieldset",
+                      {
+                        staticStyle: {
+                          "text-align": "center",
+                          "padding-top": "35px",
                         },
-                        [_vm._v("Asignar")]
-                      ),
-                    ]),
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit", id: "form-submit" },
+                            on: { click: _vm.send },
+                          },
+                          [_vm._v("Asignar")]
+                        ),
+                      ]
+                    ),
                   ]),
                 ]),
               ]
@@ -51736,7 +51991,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Asignar materia a un grado")]),
     ])
   },
@@ -52012,7 +52267,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-9 col-md-9 col-sm-9" }, [
             _c(
               "div",
               {
@@ -52024,12 +52279,13 @@ var render = function () {
                   border: "20px solid white",
                   "background-color": "white",
                   left: "180px",
+                  "margin-top": "100px",
                 },
               },
               [
                 _vm._m(0),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("fieldset", [
                     _c("label", [
                       _vm._v("Materias: "),
@@ -52058,20 +52314,269 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12" }, [
-                  _c("fieldset", [
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        staticStyle: { "border-radius": "20px" },
-                        attrs: { type: "submit", id: "form-submit" },
-                        on: { click: _vm.send },
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                  _c(
+                    "fieldset",
+                    {
+                      staticStyle: {
+                        "text-align": "center",
+                        "padding-top": "35px",
                       },
-                      [_vm._v("Agregar")]
+                    },
+                    [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-primary",
+                          attrs: { type: "submit", id: "form-submit" },
+                          on: { click: _vm.send },
+                        },
+                        [_vm._v("Agregar")]
+                      ),
+                    ]
+                  ),
+                ]),
+              ]
+            ),
+          ]),
+        ]),
+      ]),
+    ]
+  )
+}
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+      _c("h2", [_vm._v("Agregar Materias")]),
+    ])
+  },
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=template&id=5932c8ed&":
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/Subjects/editSubjectTeacher.vue?vue&type=template&id=5932c8ed& ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    { staticClass: "contact-us", attrs: { id: "contact" } },
+    [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+            _c(
+              "div",
+              {
+                staticClass: "row",
+                staticStyle: {
+                  "min-height": "400px",
+                  "border-radius": "20px",
+                  width: "100%",
+                  border: "20px solid white",
+                  "background-color": "white",
+                  "margin-top": "100px",
+                },
+              },
+              [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c("fieldset", [
+                      _c("label", { attrs: { for: "select" } }, [
+                        _vm._v("Docente:"),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.subjectteacher.teacher_id,
+                              expression: "subjectteacher.teacher_id",
+                            },
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.subjectteacher,
+                                "teacher_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { disabled: "", value: "" } }, [
+                            _vm._v("Seleccione un Docente:"),
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.listTeacher, function (teacher) {
+                            return _c(
+                              "option",
+                              {
+                                key: teacher.id,
+                                domProps: { value: teacher.id },
+                              },
+                              [_vm._v(_vm._s(teacher.names))]
+                            )
+                          }),
+                        ],
+                        2
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c("fieldset", [
+                      _c("label", { attrs: { for: "select" } }, [
+                        _vm._v("Materias:"),
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "select",
+                        {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.subjectteacher.subject_grade_id,
+                              expression: "subjectteacher.subject_grade_id",
+                            },
+                          ],
+                          staticClass: "form-control form-control-sm",
+                          on: {
+                            change: function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.subjectteacher,
+                                "subject_grade_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                          },
+                        },
+                        [
+                          _c("option", { attrs: { disabled: "", value: "" } }, [
+                            _vm._v("Seleccione una materia:"),
+                          ]),
+                          _vm._v(" "),
+                          _vm._l(_vm.listsSubjects, function (subject) {
+                            return _c(
+                              "option",
+                              {
+                                key: subject.id,
+                                domProps: { value: subject.id },
+                              },
+                              [_vm._v(_vm._s(subject.name))]
+                            )
+                          }),
+                        ],
+                        2
+                      ),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c("fieldset", [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.subjectteacher.year,
+                            expression: "subjectteacher.year",
+                          },
+                        ],
+                        staticClass: "form-control form-control-sm",
+                        attrs: { type: "number", placeholder: "Año" },
+                        domProps: { value: _vm.subjectteacher.year },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(
+                              _vm.subjectteacher,
+                              "year",
+                              $event.target.value
+                            )
+                          },
+                        },
+                      }),
+                    ]),
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c(
+                      "fieldset",
+                      {
+                        staticStyle: {
+                          "text-align": "center",
+                          "padding-top": "60px",
+                        },
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit", id: "form-submit" },
+                            on: { click: _vm.send },
+                          },
+                          [_vm._v("Actualizar")]
+                        ),
+                      ]
                     ),
+                    _vm._v(" "),
+                    _c("small", { staticStyle: { color: "#9e1205" } }, [
+                      _vm._v(
+                        "*Para asignar un docente debe agregar los datos de seccion y asignar la materia.*"
+                      ),
+                    ]),
                   ]),
                 ]),
               ]
@@ -52087,8 +52592,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h2", [_vm._v("Agregar Materias")]),
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+      _c("h2", [_vm._v("Editar docentes")]),
     ])
   },
 ]
@@ -52120,7 +52625,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -52131,13 +52636,14 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
+                  "margin-top": "100px",
                 },
               },
               [
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Materias:")]),
                       _vm._v(" "),
@@ -52178,13 +52684,23 @@ var render = function () {
                             _vm._v("Seleccione una materia:"),
                           ]),
                           _vm._v(" "),
-                          _c("option"),
-                        ]
+                          _vm._l(_vm.listsSubjects, function (subject) {
+                            return _c(
+                              "option",
+                              {
+                                key: subject.id,
+                                domProps: { value: subject.id },
+                              },
+                              [_vm._v(_vm._s(subject.name))]
+                            )
+                          }),
+                        ],
+                        2
                       ),
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Grados:")]),
                       _vm._v(" "),
@@ -52224,25 +52740,43 @@ var render = function () {
                           _c("option", { attrs: { disabled: "", value: "" } }, [
                             _vm._v("Seleccione un grado:"),
                           ]),
-                        ]
+                          _vm._v(" "),
+                          _vm._l(_vm.listsGrades, function (grade) {
+                            return _c(
+                              "option",
+                              { key: grade.id, domProps: { value: grade.id } },
+                              [_vm._v(_vm._s(grade.name))]
+                            )
+                          }),
+                        ],
+                        2
                       ),
                     ]),
                   ]),
                   _vm._v(" "),
                   _c("br"),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
-                    _c("fieldset", [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-primary",
-                          attrs: { type: "submit", id: "form-submit" },
-                          on: { click: _vm.send },
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c(
+                      "fieldset",
+                      {
+                        staticStyle: {
+                          "text-align": "center",
+                          "padding-top": "35px",
                         },
-                        [_vm._v("Asignar")]
-                      ),
-                    ]),
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-primary",
+                            attrs: { type: "submit", id: "form-submit" },
+                            on: { click: _vm.send },
+                          },
+                          [_vm._v("Asignar")]
+                        ),
+                      ]
+                    ),
                   ]),
                 ]),
               ]
@@ -52258,8 +52792,8 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
-      _c("h2", [_vm._v("Asignar materia a un grado")]),
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+      _c("h2", [_vm._v("Editar materia a un grado")]),
     ])
   },
 ]
@@ -53304,45 +53838,49 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
-                      _c("fieldset", [
-                        _c("label", { attrs: { for: "Birthdate" } }, [
-                          _vm._v("Fecha de Nacimiento:"),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c("fieldset", [
+                          _c("label", { attrs: { for: "Birthdate" } }, [
+                            _vm._v("Fecha de Nacimiento:"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.student.birthdate,
+                                expression: "student.birthdate",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "birthdate",
+                              type: "date",
+                              placeholder: "Fecha de Nacimiento",
+                            },
+                            domProps: { value: _vm.student.birthdate },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.student,
+                                  "birthdate",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.birthdate,
-                              expression: "student.birthdate",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "birthdate",
-                            type: "date",
-                            placeholder: "Fecha de Nacimiento",
-                          },
-                          domProps: { value: _vm.student.birthdate },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.student,
-                                "birthdate",
-                                $event.target.value
-                              )
-                            },
-                          },
-                        }),
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                    ]),
+                        _c("br"),
+                      ]
+                    ),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
@@ -53465,43 +54003,47 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
-                      _c("fieldset", [
-                        _c("label", [_vm._v("Domicilio:")]),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c("fieldset", [
+                          _c("label", [_vm._v("Domicilio:")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.student.place_residence,
+                                expression: "student.place_residence",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "place_residence",
+                              type: "text",
+                              placeholder: "Direccion Del Domicilio",
+                            },
+                            domProps: { value: _vm.student.place_residence },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.student,
+                                  "place_residence",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
+                        ]),
                         _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.place_residence,
-                              expression: "student.place_residence",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "place_residence",
-                            type: "text",
-                            placeholder: "Direccion Del Domicilio",
-                          },
-                          domProps: { value: _vm.student.place_residence },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.student,
-                                "place_residence",
-                                $event.target.value
-                              )
-                            },
-                          },
-                        }),
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                    ]),
+                        _c("br"),
+                      ]
+                    ),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -53782,22 +54324,23 @@ var render = function () {
                     _vm._v(" "),
                     _c(
                       "div",
-                      {
-                        staticClass: "col-lg-12 col-md-12 col-sm-12",
-                        staticStyle: { "text-align": "center" },
-                      },
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
                       [
-                        _c("fieldset", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit" },
-                              on: { click: _vm.send },
-                            },
-                            [_vm._v("Registrar")]
-                          ),
-                        ]),
+                        _c(
+                          "fieldset",
+                          { staticStyle: { "text-align": "center" } },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "submit" },
+                                on: { click: _vm.send },
+                              },
+                              [_vm._v("Registrar")]
+                            ),
+                          ]
+                        ),
                         _vm._v(" "),
                         _c("br"),
                       ]
@@ -53860,7 +54403,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -53879,7 +54422,7 @@ var render = function () {
                   _c("div", { staticClass: "row" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Estudiante:")]),
                         _vm._v(" "),
@@ -53894,7 +54437,7 @@ var render = function () {
                                 expression: "StudentRelative.student_id",
                               },
                             ],
-                            staticClass: "form-control",
+                            staticClass: "form-control form-control-sm",
                             on: {
                               change: function ($event) {
                                 var $$selectedVal = Array.prototype.filter
@@ -53938,7 +54481,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre:")]),
                         _vm._v(" "),
@@ -53977,7 +54520,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Actividad laboral:")]),
                         _vm._v(" "),
@@ -54016,7 +54559,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Cédula:")]),
                         _vm._v(" "),
@@ -54056,7 +54599,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("label", [_vm._v("Relación:")]),
                       _vm._v(" "),
                       _c("fieldset", [
@@ -54095,7 +54638,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Escolaridad:")]),
                         _vm._v(" "),
@@ -54132,7 +54675,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("br"),
                         _vm._v(" "),
@@ -54149,8 +54692,8 @@ var render = function () {
                             },
                           ],
                           staticStyle: {
-                            width: "1em",
-                            height: "1em",
+                            width: "1.5em",
+                            height: "1.5em",
                             "margin-top": ".25em",
                             "vertical-align": "top",
                             "border-radius": ".25em",
@@ -54208,7 +54751,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Total de ayuda finaciera:")]),
                         _vm._v(" "),
@@ -54247,7 +54790,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Salario:")]),
                         _vm._v(" "),
@@ -54286,25 +54829,34 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c("br"),
-                      _vm._v(" "),
-                      _c(
-                        "fieldset",
-                        { staticStyle: { "text-align": "center" } },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit", id: "form-submit" },
-                              on: { click: _vm.send },
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c("br"),
+                        _vm._v(" "),
+                        _c(
+                          "fieldset",
+                          {
+                            staticStyle: {
+                              "text-align": "center",
+                              "padding-top": "60px",
                             },
-                            [_vm._v("Registrar")]
-                          ),
-                        ]
-                      ),
-                    ]),
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "submit", id: "form-submit" },
+                                on: { click: _vm.send },
+                              },
+                              [_vm._v("Registrar")]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
                   ]),
                 ]),
               ]
@@ -54320,7 +54872,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Agregar familiar de estudiante")]),
     ])
   },
@@ -54353,7 +54905,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -54364,14 +54916,15 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
+                  "margin-top": "100px",
                 },
               },
               [
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("div", { staticClass: "row" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Estudiante:")]),
                         _vm._v(" "),
@@ -54430,7 +54983,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre:")]),
                         _vm._v(" "),
@@ -54469,7 +55022,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Actividad laboral:")]),
                         _vm._v(" "),
@@ -54508,7 +55061,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Cédula:")]),
                         _vm._v(" "),
@@ -54548,7 +55101,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("label", [_vm._v("Relación:")]),
                       _vm._v(" "),
                       _c("fieldset", [
@@ -54587,7 +55140,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Escolaridad:")]),
                         _vm._v(" "),
@@ -54624,7 +55177,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("br"),
                         _vm._v(" "),
@@ -54700,7 +55253,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Total de ayuda finaciera:")]),
                         _vm._v(" "),
@@ -54739,7 +55292,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Salario:")]),
                         _vm._v(" "),
@@ -54778,25 +55331,32 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c("br"),
-                      _vm._v(" "),
-                      _c(
-                        "fieldset",
-                        { staticStyle: { "text-align": "center" } },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit", id: "form-submit" },
-                              on: { click: _vm.send },
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c(
+                          "fieldset",
+                          {
+                            staticStyle: {
+                              "text-align": "center",
+                              "padding-top": "60px",
                             },
-                            [_vm._v("Actualizar")]
-                          ),
-                        ]
-                      ),
-                    ]),
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "submit", id: "form-submit" },
+                                on: { click: _vm.send },
+                              },
+                              [_vm._v("Actualizar")]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
                   ]),
                 ]),
               ]
@@ -54812,7 +55372,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Editar familiar de estudiante")]),
     ])
   },
@@ -54845,7 +55405,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -54856,14 +55416,15 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
+                  "margin-top": "100px",
                 },
               },
               [
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("div", { staticClass: "row" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre completo:")]),
                         _vm._v(" "),
@@ -54895,7 +55456,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nacionalidad:")]),
                         _vm._v(" "),
@@ -54931,7 +55492,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Número de Cédula")]),
                         _vm._v(" "),
@@ -54961,47 +55522,55 @@ var render = function () {
                           },
                         }),
                       ]),
+                      _vm._v(" "),
+                      _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c("fieldset", [
-                        _c("label", { attrs: { for: "Birthdate" } }, [
-                          _vm._v("Fecha de Nacimiento:"),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c("fieldset", [
+                          _c("label", { attrs: { for: "Birthdate" } }, [
+                            _vm._v("Fecha de Nacimiento:"),
+                          ]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.student.birthdate,
+                                expression: "student.birthdate",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "birthdate",
+                              type: "date",
+                              placeholder: "Fecha de Nacimiento",
+                            },
+                            domProps: { value: _vm.student.birthdate },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.student,
+                                  "birthdate",
+                                  $event.target.value
+                                )
+                              },
+                            },
+                          }),
                         ]),
                         _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.birthdate,
-                              expression: "student.birthdate",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "birthdate",
-                            type: "date",
-                            placeholder: "Fecha de Nacimiento",
-                          },
-                          domProps: { value: _vm.student.birthdate },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.student,
-                                "birthdate",
-                                $event.target.value
-                              )
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
+                        _c("br"),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "legal_guardian_name" } }, [
                           _vm._v("Nombre del Encargado Legal:"),
@@ -55037,9 +55606,11 @@ var render = function () {
                           },
                         }),
                       ]),
+                      _vm._v(" "),
+                      _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "legal_guardian_card" } }, [
                           _vm._v("Cédula del encargado legal:"),
@@ -55076,9 +55647,11 @@ var render = function () {
                           },
                         }),
                       ]),
+                      _vm._v(" "),
+                      _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "phone_number" } }, [
                           _vm._v("Telefono de domicilio:"),
@@ -55114,45 +55687,51 @@ var render = function () {
                           },
                         }),
                       ]),
+                      _vm._v(" "),
+                      _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c("fieldset", [
-                        _c("label", [_vm._v("Domicilio:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.place_residence,
-                              expression: "student.place_residence",
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c("fieldset", [
+                          _c("label", [_vm._v("Domicilio:")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.student.place_residence,
+                                expression: "student.place_residence",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              name: "place_residence",
+                              type: "text",
+                              placeholder: "Direccion Del Domicilio",
                             },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "place_residence",
-                            type: "text",
-                            placeholder: "Direccion Del Domicilio",
-                          },
-                          domProps: { value: _vm.student.place_residence },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.student,
-                                "place_residence",
-                                $event.target.value
-                              )
+                            domProps: { value: _vm.student.place_residence },
+                            on: {
+                              input: function ($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.student,
+                                  "place_residence",
+                                  $event.target.value
+                                )
+                              },
                             },
-                          },
-                        }),
-                      ]),
-                    ]),
+                          }),
+                        ]),
+                      ]
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-3" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Ingresos familiares:")]),
                         _vm._v(" "),
@@ -55188,7 +55767,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-3" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Total de miembros familiares:")]),
                         _vm._v(" "),
@@ -55224,7 +55803,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-3" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Total per capita:")]),
                         _vm._v(" "),
@@ -55260,73 +55839,83 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c("label", { attrs: { for: "socioeconomic_status" } }, [
-                        _vm._v("Estado Socioeconomico:"),
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.socioeconomic_status,
-                              expression: "student.socioeconomic_status",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: { name: "socioeconomic_status" },
-                          on: {
-                            change: function ($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function (o) {
-                                  return o.selected
-                                })
-                                .map(function (o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.$set(
-                                _vm.student,
-                                "socioeconomic_status",
-                                $event.target.multiple
-                                  ? $$selectedVal
-                                  : $$selectedVal[0]
-                              )
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c(
+                          "label",
+                          { attrs: { for: "socioeconomic_status" } },
+                          [_vm._v("Estado Socioeconomico:")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.student.socioeconomic_status,
+                                expression: "student.socioeconomic_status",
+                              },
+                            ],
+                            staticClass: "form-control",
+                            attrs: { name: "socioeconomic_status" },
+                            on: {
+                              change: function ($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function (o) {
+                                    return o.selected
+                                  })
+                                  .map(function (o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.$set(
+                                  _vm.student,
+                                  "socioeconomic_status",
+                                  $event.target.multiple
+                                    ? $$selectedVal
+                                    : $$selectedVal[0]
+                                )
+                              },
                             },
                           },
-                        },
-                        [
-                          _c("option", { attrs: { disabled: "", value: "" } }, [
-                            _vm._v(" Seleccione estado socioeconomico"),
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "option",
-                            { attrs: { value: "extreme_poverty" } },
-                            [_vm._v("Pobreza extrema")]
-                          ),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "poverty" } }, [
-                            _vm._v("Pobreza"),
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "vulnerability" } }, [
-                            _vm._v("Vulberabilidad"),
-                          ]),
-                          _vm._v(" "),
-                          _c("option", { attrs: { value: "not_poor" } }, [
-                            _vm._v("No pobre"),
-                          ]),
-                        ]
-                      ),
-                    ]),
+                          [
+                            _c(
+                              "option",
+                              { attrs: { disabled: "", value: "" } },
+                              [_vm._v(" Seleccione estado socioeconomico")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "extreme_poverty" } },
+                              [_vm._v("Pobreza extrema")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "poverty" } }, [
+                              _vm._v("Pobreza"),
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "option",
+                              { attrs: { value: "vulnerability" } },
+                              [_vm._v("Vulberabilidad")]
+                            ),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "not_poor" } }, [
+                              _vm._v("No pobre"),
+                            ]),
+                          ]
+                        ),
+                      ]
+                    ),
                     _vm._v(" "),
                     _vm._m(1),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-3" }, [
+                    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-3" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Asistencia financiera:")]),
                         _vm._v(" "),
@@ -55362,7 +55951,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-3" }, [
+                    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-3" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Asistencia voluntaria:")]),
                         _vm._v(" "),
@@ -55397,7 +55986,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-3" }, [
+                    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-3" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Ingresos de renta:")]),
                         _vm._v(" "),
@@ -55433,7 +56022,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-3" }, [
+                    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-3" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Otros ingresos:")]),
                         _vm._v(" "),
@@ -55469,7 +56058,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-3" }, [
+                    _c("div", { staticClass: "col-lg-3 col-md-3 col-sm-3" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Total de ingresos:")]),
                         _vm._v(" "),
@@ -55505,81 +56094,98 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-3  form-check-inline" }, [
-                      _c("label", [_vm._v("Clasificó:")]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.student.clasification,
-                            expression: "student.clasification",
-                          },
-                        ],
-                        staticClass: "form-con",
-                        staticStyle: {
-                          width: "2em",
-                          height: "2em",
-                          "margin-top": ".25em",
-                          "vertical-align": "top",
-                          "border-radius": ".25em",
-                        },
-                        attrs: { type: "checkbox" },
-                        domProps: {
-                          checked: Array.isArray(_vm.student.clasification)
-                            ? _vm._i(_vm.student.clasification, null) > -1
-                            : _vm.student.clasification,
-                        },
-                        on: {
-                          change: function ($event) {
-                            var $$a = _vm.student.clasification,
-                              $$el = $event.target,
-                              $$c = $$el.checked ? true : false
-                            if (Array.isArray($$a)) {
-                              var $$v = null,
-                                $$i = _vm._i($$a, $$v)
-                              if ($$el.checked) {
-                                $$i < 0 &&
-                                  _vm.$set(
-                                    _vm.student,
-                                    "clasification",
-                                    $$a.concat([$$v])
-                                  )
-                              } else {
-                                $$i > -1 &&
-                                  _vm.$set(
-                                    _vm.student,
-                                    "clasification",
-                                    $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                  )
-                              }
-                            } else {
-                              _vm.$set(_vm.student, "clasification", $$c)
-                            }
-                          },
-                        },
-                      }),
-                    ]),
-                    _vm._v(" "),
                     _c(
                       "div",
                       {
-                        staticClass: "col-lg-12",
-                        staticStyle: { "text-align": "center" },
+                        staticClass:
+                          "col-lg-3 col-md-3 col-sm-3  form-check-inline",
                       },
                       [
                         _c("fieldset", [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit" },
-                              on: { click: _vm.send },
+                          _c("label", [_vm._v("Clasificó:")]),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.student.clasification,
+                                expression: "student.clasification",
+                              },
+                            ],
+                            staticClass: "form-con",
+                            staticStyle: {
+                              width: "2em",
+                              height: "2em",
+                              "margin-top": ".27em",
+                              "vertical-align": "top",
+                              "border-radius": ".25em",
                             },
-                            [_vm._v("Actualizar")]
-                          ),
+                            attrs: { type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(_vm.student.clasification)
+                                ? _vm._i(_vm.student.clasification, null) > -1
+                                : _vm.student.clasification,
+                            },
+                            on: {
+                              change: function ($event) {
+                                var $$a = _vm.student.clasification,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        _vm.student,
+                                        "clasification",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        _vm.student,
+                                        "clasification",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(_vm.student, "clasification", $$c)
+                                }
+                              },
+                            },
+                          }),
                         ]),
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c(
+                          "fieldset",
+                          {
+                            staticStyle: {
+                              "text-align": "center",
+                              "padding-top": "35px",
+                            },
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "submit" },
+                                on: { click: _vm.send },
+                              },
+                              [_vm._v("Actualizar")]
+                            ),
+                          ]
+                        ),
                       ]
                     ),
                   ]),
@@ -55597,7 +56203,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [
         _vm._v("Editar Expediente del beneficiario del comedor estudiantil"),
       ]),
@@ -55646,6 +56252,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -55886,7 +56493,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -55897,14 +56504,15 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
+                  "margin-top": "100px",
                 },
               },
               [
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("div", { staticClass: "row" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Correo electronico:")]),
                         _vm._v(" "),
@@ -55940,7 +56548,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre completo")]),
                         _vm._v(" "),
@@ -55976,7 +56584,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Especialidad:")]),
                         _vm._v(" "),
@@ -56057,7 +56665,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "card" } }, [
                           _vm._v("Cédula:"),
@@ -56096,7 +56704,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "phone_number" } }, [
                           _vm._v("Télefono:"),
@@ -56135,7 +56743,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "place_residence" } }, [
                           _vm._v("Dirección exacta:"),
@@ -56174,7 +56782,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "titles" } }, [
                           _vm._v("Titulos y capacitaciones:"),
@@ -56213,7 +56821,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Trabaja actualmente")]),
                         _vm._v(" "),
@@ -56273,10 +56881,10 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [
-                          _vm._v("registrado en buscoempleocr.com"),
+                          _vm._v("Registrado en buscoempleocr.com"),
                         ]),
                         _vm._v(" "),
                         _c("input", {
@@ -56335,7 +56943,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "contact_number" } }, [
                           _vm._v("Condiciones del trabajo solicitado:"),
@@ -56374,7 +56982,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "contact_number" } }, [
                           _vm._v("Lugares donde le gustaría trabajar:"),
@@ -56413,7 +57021,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [
                           _vm._v(
@@ -56482,23 +57090,32 @@ var render = function () {
                     _vm._v(" "),
                     _vm._m(1),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c(
-                        "fieldset",
-                        { staticStyle: { "text-align": "center" } },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit", id: "form-submit" },
-                              on: { click: _vm.send },
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c(
+                          "fieldset",
+                          {
+                            staticStyle: {
+                              "text-align": "center",
+                              "padding-top": "60px",
                             },
-                            [_vm._v("Registrar")]
-                          ),
-                        ]
-                      ),
-                    ]),
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "submit", id: "form-submit" },
+                                on: { click: _vm.send },
+                              },
+                              [_vm._v("Registrar")]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
                   ]),
                 ]),
               ]
@@ -56514,7 +57131,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Formulario de intermediación de empleo")]),
       _vm._v(" "),
       _c("p", [
@@ -56567,7 +57184,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
@@ -56578,14 +57195,15 @@ var render = function () {
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
+                  "margin-top": "100px",
                 },
               },
               [
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("div", { staticClass: "row" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre del docente")]),
                         _vm._v(" "),
@@ -56625,7 +57243,7 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Apellidos del docente")]),
                         _vm._v(" "),
@@ -56664,7 +57282,7 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Cedula del docente")]),
                         _vm._v(" "),
@@ -56704,7 +57322,7 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "Birthdate" } }, [
                           _vm._v("Fecha de nacimiento:"),
@@ -56745,7 +57363,7 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "Birthdate" } }, [
                           _vm._v("Edad:"),
@@ -56782,7 +57400,7 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "Especialidad" } }, [
                           _vm._v("Especialidad:"),
@@ -56824,7 +57442,7 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "email" } }, [
                           _vm._v("Correro electronico:"),
@@ -56865,7 +57483,7 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "gender" } }, [
                           _vm._v("Genero:"),
@@ -56924,7 +57542,7 @@ var render = function () {
                       _c("br"),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "contact_number" } }, [
                           _vm._v("Número de telefono:"),
@@ -56944,7 +57562,7 @@ var render = function () {
                             type: "tel",
                             id: "contact_number",
                             name: "contact_number",
-                            placeholder: "7777-7777",
+                            placeholder: "77777777",
                           },
                           domProps: { value: _vm.teacher.contact_number },
                           on: {
@@ -56968,7 +57586,12 @@ var render = function () {
                     _c("div", { staticClass: "col-lg-12" }, [
                       _c(
                         "fieldset",
-                        { staticStyle: { "text-align": "center" } },
+                        {
+                          staticStyle: {
+                            "text-align": "center",
+                            "padding-top": "35px",
+                          },
+                        },
                         [
                           _c(
                             "button",
@@ -56999,7 +57622,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Información del profesor")]),
     ])
   },
@@ -57032,25 +57655,26 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c(
               "div",
               {
                 staticClass: "row",
                 staticStyle: {
-                  "min-height": "470px",
+                  "min-height": "450px",
                   "border-radius": "20px",
                   width: "100%",
                   border: "10px solid white",
                   "background-color": "white",
+                  "margin-top": "100px",
                 },
               },
               [
-                _c("div", { staticClass: "col-lg-12" }, [
+                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("div", { staticClass: "row" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre del docente")]),
                         _vm._v(" "),
@@ -57063,6 +57687,7 @@ var render = function () {
                               expression: "teacher.names",
                             },
                           ],
+                          staticClass: "form-control",
                           attrs: {
                             name: "names",
                             type: "text",
@@ -57087,7 +57712,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Apellidos del docente")]),
                         _vm._v(" "),
@@ -57100,6 +57725,7 @@ var render = function () {
                               expression: "teacher.last_names",
                             },
                           ],
+                          staticClass: "form-control",
                           attrs: {
                             name: "last_names",
                             type: "text",
@@ -57123,7 +57749,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Cedula del docente")]),
                         _vm._v(" "),
@@ -57136,6 +57762,7 @@ var render = function () {
                               expression: "teacher.identification",
                             },
                           ],
+                          staticClass: "form-control",
                           attrs: {
                             name: "identification",
                             type: "number",
@@ -57160,7 +57787,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "Birthdate" } }, [
                           _vm._v("Fecha de nacimiento:"),
@@ -57175,6 +57802,7 @@ var render = function () {
                               expression: "teacher.birthdate",
                             },
                           ],
+                          staticClass: "form-control",
                           attrs: {
                             name: "birthdate",
                             type: "date",
@@ -57198,7 +57826,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "Birthdate" } }, [
                           _vm._v("Edad:"),
@@ -57213,6 +57841,7 @@ var render = function () {
                               expression: "teacher.age",
                             },
                           ],
+                          staticClass: "form-control",
                           attrs: {
                             name: "age",
                             type: "number",
@@ -57232,7 +57861,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "Especialidad" } }, [
                           _vm._v("Especialidad:"),
@@ -57247,6 +57876,7 @@ var render = function () {
                               expression: "teacher.speciality",
                             },
                           ],
+                          staticClass: "form-control",
                           attrs: {
                             name: "specialty",
                             type: "text",
@@ -57271,7 +57901,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "email" } }, [
                           _vm._v("Correro electronico:"),
@@ -57286,6 +57916,7 @@ var render = function () {
                               expression: "teacher.email",
                             },
                           ],
+                          staticClass: "form-control",
                           attrs: {
                             type: "email",
                             id: "email",
@@ -57309,7 +57940,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "gender" } }, [
                           _vm._v("Genero:"),
@@ -57366,7 +57997,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4" }, [
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
                         _c("label", { attrs: { for: "contact_number" } }, [
                           _vm._v("Número de telefono:"),
@@ -57381,6 +58012,7 @@ var render = function () {
                               expression: "teacher.contact_number",
                             },
                           ],
+                          staticClass: "form-control",
                           attrs: {
                             type: "tel",
                             id: "contact_number",
@@ -57404,23 +58036,32 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-12" }, [
-                      _c(
-                        "fieldset",
-                        { staticStyle: { "text-align": "center" } },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit", id: "form-submit" },
-                              on: { click: _vm.send },
+                    _c(
+                      "div",
+                      { staticClass: "col-lg-12 col-md-12 col-sm-12" },
+                      [
+                        _c(
+                          "fieldset",
+                          {
+                            staticStyle: {
+                              "text-align": "center",
+                              "padding-top": "70px",
                             },
-                            [_vm._v("Actualizar")]
-                          ),
-                        ]
-                      ),
-                    ]),
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-primary",
+                                attrs: { type: "submit", id: "form-submit" },
+                                on: { click: _vm.send },
+                              },
+                              [_vm._v("Actualizar")]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
                   ]),
                 ]),
               ]
@@ -57436,7 +58077,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Editar información del profesor")]),
     ])
   },

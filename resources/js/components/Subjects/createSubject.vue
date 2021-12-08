@@ -44,6 +44,7 @@
               return false
             }
             axios.post('/store-subject', this.subjects).then(response =>{
+                this.subjects.name = ''
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',

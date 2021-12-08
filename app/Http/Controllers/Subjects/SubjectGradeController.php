@@ -33,7 +33,7 @@ class SubjectGradeController extends Controller
     {
         $subjectgrade = SubjectGrade::find($id);
 
-        return view('subjects/edit-subjectgrade',compact('subjectgrade'));
+        return view('subjects/edit-subjectgrade', compact('subjectgrade'));
     }   
     public function update(Request $request, $id)
     {

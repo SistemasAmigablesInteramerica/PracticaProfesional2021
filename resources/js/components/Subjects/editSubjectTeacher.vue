@@ -13,7 +13,7 @@
                     <label for="select">Docente:</label>
                           <select class="form-control form-control-sm" v-model="subjectteacher.teacher_id">
                             <option disabled value="">Seleccione un Docente:</option>
-                             <option v-for="teacher in listTeacher" :value="teacher.id" key="teacher_id" >{{teacher.names}}</option>
+                             <option v-for="teacher in listTeacher" :value="teacher.id" :key="teacher.id" >{{teacher.names}}</option>
                           </select>
                     </fieldset> 
                   </div>
@@ -22,7 +22,7 @@
                       <label for="select">Materias:</label>
                           <select class="form-control form-control-sm" v-model="subjectteacher.subject_grade_id">
                           <option disabled value="">Seleccione una materia:</option>
-                          <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
+                          <option v-for="subject in listsSubjects" :value="subject.id" :key="subject.id" >{{subject.name}}</option>
                          </select>
                   </fieldset>
                     </div>

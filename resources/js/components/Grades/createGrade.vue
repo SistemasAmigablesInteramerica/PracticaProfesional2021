@@ -76,6 +76,8 @@
             }
 
             axios.post('/store-grade', this.grades).then(response =>{
+              this.grades.name = '',
+              this.grades.section = '',
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
