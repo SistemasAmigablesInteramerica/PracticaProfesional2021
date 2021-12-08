@@ -14,20 +14,24 @@ class SubjectGrade extends Model
 
     public function grades()
     {
-    return $this->belongsTo(Grade::class, 'grade_id', 'id');
+     return $this->belongsTo(Grade::class, 'grade_id', 'id');
     }
-        public function subject()
+
+    public function subject()
     {   
-    return $this->belongsTo(Subject::class, 'subject_id', 'id');
+        return $this->belongsTo(Subject::class, 'subject_id', 'id');
     }
+
     public function gradeSubjectStudent()
     {   
-    return $this->hasMany(GradeSubjectStudent::class, 'subject_grade_id', 'id');  
+        return $this->hasMany(GradeSubjectStudent::class, 'subject_grade_id', 'id');  
     }
+
     public function subjectTeacher()
     {
-    return $this->hasMany(SubjectTeacher::class, 'subject_grade_id', 'id');
+        return $this->hasMany(SubjectTeacher::class, 'subject_grade_id', 'id');
     }
+
 }
 
     

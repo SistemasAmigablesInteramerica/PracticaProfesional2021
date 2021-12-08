@@ -42,7 +42,8 @@ class SubjectGradeController extends Controller
     }
     public function list()
     {
-        return SubjectGrade::with('grades', 'subject')->get();
+        return  SubjectGrade::with(['subject', 'grades'])->get();
+        
     }
 }
  

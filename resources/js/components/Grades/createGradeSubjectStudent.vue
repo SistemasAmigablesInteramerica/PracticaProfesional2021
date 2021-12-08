@@ -21,7 +21,7 @@
                     <label>Materias:</label>
                      <select class="form-control" v-model="gradesubjectstudent.subject_grade_id">
                         <option disabled value="">Escoger materia</option>
-                       <option v-for="subject in listsSubjects" :value="subject.id" key="subject_id" >{{subject.name}}</option>
+                       <option v-for="subject in listsSubjects" :value="subject.id" :key="subject.id" >{{subject.name}}</option>
                       </select> 
                     </fieldset>
                  </div>

@@ -13,7 +13,7 @@ class Subject extends Model
     use HasFactory;
     public function subjectGrade()
     {
-        return $this->hasMany(SubjectGrade::class, 'subject_id', 'id');
+        return $this->belongsto(SubjectGrade::class, 'subject_id', 'id');
     }
 }
     

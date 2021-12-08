@@ -10,7 +10,7 @@
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <fieldset>
                     <label>Grados:</label>
-                      <select class="form-control form-control-sm" v-model="grades.name">
+                      <select class="form-control form-control-sm" v-model="grades.grade">
                           <option disabled value="">Seleccione una grado</option>
                           <option value="7">7°</option>
                           <option value="8">8°</option>
@@ -58,7 +58,7 @@
         data() {
           return {
             grades: {
-              name: '',
+              grade: '',
               section: '',
             }
           }
@@ -66,7 +66,7 @@
         methods: {
           send(){
 
-            if(this.grades.name === ''){
+            if(this.grades.grade === ''){
               Swal.fire('Atención', 'Debe digitar un grado', 'warning')
               return false
             }
@@ -76,7 +76,7 @@
             }
 
             axios.post('/store-grade', this.grades).then(response =>{
-              this.grades.name = '',
+              this.grades.grade = '',
               this.grades.section = '',
               Swal.fire({
                     icon: 'success',

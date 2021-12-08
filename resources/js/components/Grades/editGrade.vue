@@ -10,14 +10,13 @@
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <fieldset>
                     <label>Grados:</label>
-                      <input class="form-control form-control-sm" v-model="grades.name">
+                      <input class="form-control form-control-sm" v-model="grades.grade">
                         </fieldset>
-                    </fieldset>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <fieldset>
                      <label>Secciónes:</label>
-                        <select class="form-control form-control-sm" v-model="grades.section" id="name" required="">
+                        <select class="form-control form-control-sm" v-model="grades.section" required="">
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -53,7 +52,7 @@
         data() {
           return {
             grades: {
-              name: '',
+              grade: '',
               section: '',
             },
             idGrade:''
@@ -63,13 +62,13 @@
           console.log('probando', this.data_grade)
             const grade = JSON.parse(this.data_grade)
           this.idGrade = grade.id 
-          this.grades.name = grade.name
+          this.grades.grade = grade.grade
           this.grades.section = grade.section
         },
         methods: {
           send(){
 
-            if(this.grades.name === ''){
+            if(this.grades.grade === ''){
               Swal.fire('Atención', 'Debe digitar un grado', 'warning')
               return false
             }
