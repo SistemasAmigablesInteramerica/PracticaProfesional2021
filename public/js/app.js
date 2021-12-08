@@ -4261,7 +4261,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "createSubjectgrade",
+  name: "editSubjectgrade",
   props: ['data_subjectgrade'],
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
@@ -4278,14 +4278,22 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   created: function created() {
+    var _this = this;
+
     var subjectgrades = JSON.parse(this.data_subjectgrade);
     this.idSubjectGrade = subjectgrades.id;
     this.subjectgrade.subject_id = subjectgrades.subject_id;
     this.subjectgrade.grade_id = subjectgrades.grade_id;
+    axios.get('/lists-subjects').then(function (response) {
+      _this.listsSubjects = response.data;
+    });
+    axios.get('/lists-grades').then(function (response) {
+      _this.listsGrades = response.data;
+    });
   },
   methods: {
     send: function send() {
-      var _this = this;
+      var _this2 = this;
 
       if (this.subjectgrade.grade_id === '') {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -4305,8 +4313,8 @@ __webpack_require__.r(__webpack_exports__);
         return false;
       }
 
-      axios.put('/update-subjectgrade/' + this.idSubjectGrade, this.subjectgrades).then(function (response) {
-        _this.subjectgrade.grade_id = '', _this.subjectgrade.subject_id = '';
+      axios.put('/update-subjectgrade/' + this.idSubjectGrade, this.subjectgrade).then(function (response) {
+        _this2.subjectgrade.grade_id = '', _this2.subjectgrade.subject_id = '';
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
@@ -52785,7 +52793,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
-      _c("h2", [_vm._v("Asignar materia a un grado")]),
+      _c("h2", [_vm._v("Editar materia a un grado")]),
     ])
   },
 ]
