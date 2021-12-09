@@ -110,7 +110,7 @@ Route::put('/update-subjectgrade/{id}', [SubjectGradeController::class, 'update'
 // Inicio de rutas de asignar materia-profesor
 Route::get('/asignar-materia-profesor', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'create'])->name('insert-subjectteacherinfo');
 Route::get('/lista-de-materiasyprofesores', [App\Http\Controllers\Subjects\ListSubjectTeacherController::class, 'create'])->name('list-subjectteacherinfo');
-Route::get('/list-subjectteacher', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'list']);
+Route::get('/list-subjectteacher', [App\Http\Controllers\Subjects\SubjectTeacherController::class, 'lists']);
 Route::get('/edit-subjectteacher/{id}', [SubjectTeacherController::class, 'edit']);
 Route::post('/store-subjectteacher', [SubjectTeacherController::class, 'store']);
 Route::put('/update-subjectteacher/{id}', [SubjectTeacherController::class, 'update']);

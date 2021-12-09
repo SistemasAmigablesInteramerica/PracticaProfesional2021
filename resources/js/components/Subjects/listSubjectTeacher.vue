@@ -4,18 +4,20 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-         <th scope="col">Materia</th>
-            <th scope="col">Profesor</th>
+         <th scope="col">Profesor</th>
+            <th scope="col">Grados y Materias</th>
       <th scope="col">Acciónes</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(subjectteacher, index) in listSubjectTeacher" :key="subjectteacher.id">
+    <tr v-for="(teacher, index) in listSubjectTeacher" :key="teacher.id">
       <th scope="row">{{ index +1 }}</th>
-      <th v-for="subjects of listsSubjects" :key="subjects.id">{{subjects.name}}</th>
+      <th >{{teacher.names}}</th>
 
-      <th v-for="teacher of listteacher" :key="teacher.id"> {{teacher.names}}</th>
-      <td><a class="btm btm-info btm-se" :href="edit(subjectteacher.id)"><span class="fa fa-edit"></span></a></td>
+      <th ><label v-for="relation of teacher.subject_grades" class="label label-primary p-1">{{relation.grades.name}}: {{relation.subject.name}}</label>
+
+      </th>
+      <td><a class="btm btm-info btm-se" :href="edit(teacher.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
     </table>
@@ -30,7 +32,7 @@ export default {
             listSubjectTeacher: [],
             listsSubjects: [],
             listteacher:[],
-            
+
         }
     },
     created() {
@@ -48,7 +50,7 @@ export default {
        methods: {
       edit(id){
         return '/edit-subjectteacher/' + id
-      }  
+      }
     },
 }
-</script> 
+</script>
