@@ -20,7 +20,7 @@
 
 </head>
 <body>
-
+{{Auth::user()}}
 <header class="header-area header-sticky">
       <div class="container">
           <div class="row">
@@ -133,9 +133,15 @@
                           </li>
                           @endauth
                           @endif
-                          @guest
-                          <li><a href="{{ route('login') }}">Iniciar sesion</a></li>
-                          @endguest
+
+                        <li>
+
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
+
+                        </li>
+
+
                       <a class="menu-trigger">
                           <span>Menu</span>
                       </a>
@@ -249,5 +255,4 @@
 </section>
 <script src="{{asset('js/app.js')}}" defer></script>
 </body>
-
 </html>
