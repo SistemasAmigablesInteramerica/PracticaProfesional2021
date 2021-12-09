@@ -1,6 +1,6 @@
  <template>
 
-  <section class="contact-us" id="contact">       
+  <section class="contact-us" id="contact">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
@@ -23,7 +23,7 @@
                       <label>Grados:</label>
                       <select class="form-select form-select-sm" v-model="subjectgrade.grade_id" >
                         <option disabled value="">Seleccione un grado:</option>
-                        <option v-for="grade in listsGrades" :value="grade.id" :key="grade.id">{{grade.grade}} - {{grade.section}}</option>
+                        <option v-for="grade in listsGrades" :value="grade.id" :key="grade.id">{{grade.name}} - {{grade.section}}</option>
                       </select>
                   </fieldset>
                     </div>
@@ -40,7 +40,7 @@
     </div>
   </section>
 </template>
- 
+
  <script>
 import Swal from 'sweetalert2'
 export default {
