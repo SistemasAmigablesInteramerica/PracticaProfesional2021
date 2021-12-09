@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Teacher extends Model
 {
-    
+
     protected $table = 'teachers';
     protected $fillable = ['names', 'last_names', 'identification', 'birthdate', 'age', 'speciality', 'email', 'gender', 'contact_number'];
 
@@ -17,10 +17,9 @@ class Teacher extends Model
     {
         return $this->hasMany(AttendanceHistory::class, 'teacher_id', 'id');
     }
-    public function subjectTeacher()
+    public function subjectGrades()
     {
-        return $this->hasMany(SubjectTeacher::class, 'teacher_id', 'id');
+        return $this->belongsToMany(SubjectGrade::class, 'subject_teachers','teacher_id', 'subject_grade_id');
     }
 }
 
-    
