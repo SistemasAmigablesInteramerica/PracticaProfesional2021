@@ -16,7 +16,7 @@
         <label v-for="subjects of subjectgrade" :key="subjects.id">{{subjects.name}}</label>
       </th>
       <th>
-        <label v-for="grades of subjectgrade" :key="grades.id">{{grades.grade}}</label>
+        <label>{{grades.name}}</label>
       </th>
       <td><a class="btm btm-info btm-se" :href="edit(subjectgrade.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
@@ -42,7 +42,7 @@ export default {
        methods: {
       edit(id){
         return '/edit-subjectgrade/' + id
-      }  
+      }
     },
 }
-</script> 
+</script>

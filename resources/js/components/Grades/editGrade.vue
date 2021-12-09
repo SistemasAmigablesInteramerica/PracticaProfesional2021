@@ -34,7 +34,7 @@
                     </fieldset>
                   </div>
                 </div>
-             
+
             </div>
           </div>
         </div>
@@ -61,8 +61,8 @@
         created() {
           console.log('probando', this.data_grade)
             const grade = JSON.parse(this.data_grade)
-          this.idGrade = grade.id 
-          this.grades.grade = grade.grade
+          this.idGrade = grade.id
+          this.grades.name = grade.name
           this.grades.section = grade.section
         },
         methods: {
@@ -96,4 +96,4 @@
         }
     }
 
-</script>  
+</script>

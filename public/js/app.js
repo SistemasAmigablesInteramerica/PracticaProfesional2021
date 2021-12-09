@@ -2132,7 +2132,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createAttendancehistory",
@@ -2333,7 +2332,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       grades: {
-        name: '',
+        grade: '',
         section: ''
       }
     };
@@ -2342,7 +2341,7 @@ __webpack_require__.r(__webpack_exports__);
     send: function send() {
       var _this = this;
 
-      if (this.grades.name === '') {
+      if (this.grades.grade === '') {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atención', 'Debe digitar un grado', 'warning');
         return false;
       }
@@ -2353,7 +2352,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       axios.post('/store-grade', this.grades).then(function (response) {
-        _this.grades.name = '', _this.grades.section = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        _this.grades.grade = '', _this.grades.section = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
           text: 'El grado se ha registrado con éxito.'
@@ -2559,7 +2558,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createGrade",
@@ -2570,7 +2568,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       grades: {
-        name: '',
+        grade: '',
         section: ''
       },
       idGrade: ''
@@ -2585,7 +2583,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     send: function send() {
-      if (this.grades.name === '') {
+      if (this.grades.grade === '') {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atención', 'Debe digitar un grado', 'warning');
         return false;
       }
@@ -4369,14 +4367,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'listSubjectTeacher',
   data: function data() {
     return {
-      listSubjectTeacher: []
+      listSubjectTeacher: [],
+      listsSubjects: [],
+      listteacher: []
     };
   },
   created: function created() {
@@ -4385,6 +4382,12 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/list-subjectteacher').then(function (response) {
       _this.listSubjectTeacher = response.data;
       console.log(_this.listSubjectTeacher);
+    });
+    axios.get('lists-subjects').then(function (response) {
+      _this.listsSubjects = response.data;
+    });
+    axios.get('list-teacher').then(function (response) {
+      _this.listteacher = response.data;
     });
   },
   methods: {
@@ -4430,6 +4433,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'listSubjectgrade',
   data: function data() {
@@ -4440,8 +4447,9 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get('list-subjectgrade').then(function (response) {
+    axios.get('/list-subjectgrade').then(function (response) {
       _this.listSubjectgrade = response.data;
+      console.log(_this.subject);
     });
   },
   methods: {
@@ -6992,7 +7000,8 @@ Vue.component('editSubjectgrade', (__webpack_require__(/*! ./components/Subjects
 Vue.component('editSubject', (__webpack_require__(/*! ./components/Subjects/editSubject.vue */ "./resources/js/components/Subjects/editSubject.vue")["default"]));
 Vue.component('editSubjectteacher', (__webpack_require__(/*! ./components/Subjects/editSubjectTeacher.vue */ "./resources/js/components/Subjects/editSubjectTeacher.vue")["default"]));
 Vue.component('editTeacher', (__webpack_require__(/*! ./components/teachers/editTeacher.vue */ "./resources/js/components/teachers/editTeacher.vue")["default"]));
-Vue.component('editStudentrelative', (__webpack_require__(/*! ./components/students/editStudentRelative.vue */ "./resources/js/components/students/editStudentRelative.vue")["default"]));
+Vue.component('editStudentrelative', (__webpack_require__(/*! ./components/students/editStudentRelative.vue */ "./resources/js/components/students/editStudentRelative.vue")["default"])); // Vue.component('editEmployment', require("./components/UserRoles/editEmployment.vue").default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49577,7 +49586,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Asistió")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acción")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -49638,8 +49647,8 @@ var render = function () {
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.grades.name,
-                            expression: "grades.name",
+                            value: _vm.grades.grade,
+                            expression: "grades.grade",
                           },
                         ],
                         staticClass: "form-control form-control-sm",
@@ -49655,7 +49664,7 @@ var render = function () {
                               })
                             _vm.$set(
                               _vm.grades,
-                              "name",
+                              "grade",
                               $event.target.multiple
                                 ? $$selectedVal
                                 : $$selectedVal[0]
@@ -49937,10 +49946,7 @@ var render = function () {
                       _vm._l(_vm.listsSubjects, function (subject) {
                         return _c(
                           "option",
-                          {
-                            key: "subject_id",
-                            domProps: { value: subject.id },
-                          },
+                          { key: subject.id, domProps: { value: subject.id } },
                           [_vm._v(_vm._s(subject.name))]
                         )
                       }),
@@ -50075,18 +50081,18 @@ var render = function () {
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.grades.name,
-                          expression: "grades.name",
+                          value: _vm.grades.grade,
+                          expression: "grades.grade",
                         },
                       ],
                       staticClass: "form-control form-control-sm",
-                      domProps: { value: _vm.grades.name },
+                      domProps: { value: _vm.grades.grade },
                       on: {
                         input: function ($event) {
                           if ($event.target.composing) {
                             return
                           }
-                          _vm.$set(_vm.grades, "name", $event.target.value)
+                          _vm.$set(_vm.grades, "grade", $event.target.value)
                         },
                       },
                     }),
@@ -50109,7 +50115,7 @@ var render = function () {
                           },
                         ],
                         staticClass: "form-control form-control-sm",
-                        attrs: { id: "name", required: "" },
+                        attrs: { required: "" },
                         on: {
                           change: function ($event) {
                             var $$selectedVal = Array.prototype.filter
@@ -50497,7 +50503,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("ID del Estudiante")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -50548,7 +50554,7 @@ var render = function () {
                 _vm._v(_vm._s(index + 1)),
               ]),
               _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(grades.name) + "°")]),
+              _c("th", [_vm._v(_vm._s(grades.grade) + "°")]),
               _vm._v(" "),
               _c("th", [_vm._v(_vm._s(grades.section))]),
               _vm._v(" "),
@@ -50583,7 +50589,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Sección")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -50779,7 +50785,7 @@ var render = function () {
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9 col-md-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c("div", { staticClass: "row" }, [
               _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                 _c("div", { staticClass: "row" }, [
@@ -50945,19 +50951,20 @@ var render = function () {
         width: "65%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
       attrs: { id: "contact" },
     },
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9 col-md-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                 _c("div", { staticClass: "row" }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Nombre de el permiso: ")]),
                       _vm._v(" "),
@@ -50992,7 +50999,7 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Descripción:")]),
                       _vm._v(" "),
@@ -51024,17 +51031,16 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-lg-12",
-                      staticStyle: {
-                        "text-align": "center",
-                        "padding-top": "20px",
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c(
+                      "fieldset",
+                      {
+                        staticStyle: {
+                          "text-align": "center",
+                          "padding-top": "20px",
+                        },
                       },
-                    },
-                    [
-                      _c("fieldset", [
+                      [
                         _c(
                           "button",
                           {
@@ -51044,9 +51050,9 @@ var render = function () {
                           },
                           [_vm._v("Editar")]
                         ),
-                      ]),
-                    ]
-                  ),
+                      ]
+                    ),
+                  ]),
                 ]),
               ]),
             ]),
@@ -51061,7 +51067,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Editar permiso")]),
     ])
   },
@@ -51097,19 +51103,20 @@ var render = function () {
         width: "65%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
       attrs: { id: "contact" },
     },
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9 col-md-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                 _c("div", { staticClass: "row" }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("label", [
                       _vm._v("Asignar rol: " + _vm._s(_vm.editRole.name)),
                     ]),
@@ -51117,7 +51124,7 @@ var render = function () {
                   _vm._v(" "),
                   _c(
                     "div",
-                    { staticClass: "col-lg-12" },
+                    { staticClass: "col-lg-12 col-md-12 col-sm-12" },
                     [
                       _c("label", [_vm._v("Asignar permiso:")]),
                       _vm._v(" "),
@@ -51143,17 +51150,16 @@ var render = function () {
                     1
                   ),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-lg-12",
-                      staticStyle: {
-                        "padding-top": "60px",
-                        "text-align": "center",
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c(
+                      "fieldset",
+                      {
+                        staticStyle: {
+                          "padding-top": "60px",
+                          "text-align": "center",
+                        },
                       },
-                    },
-                    [
-                      _c("fieldset", [
+                      [
                         _c(
                           "button",
                           {
@@ -51163,9 +51169,9 @@ var render = function () {
                           },
                           [_vm._v("Asignar")]
                         ),
-                      ]),
-                    ]
-                  ),
+                      ]
+                    ),
+                  ]),
                 ]),
               ]),
             ]),
@@ -51180,7 +51186,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Asignar roles y permisos")]),
     ])
   },
@@ -51266,7 +51272,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripción")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -51362,7 +51368,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Permisos")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -51514,19 +51520,20 @@ var render = function () {
         width: "65%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
       attrs: { id: "contact" },
     },
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9 col-md-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                 _c("div", { staticClass: "row" }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Nombre de el rol: ")]),
                       _vm._v(" "),
@@ -51557,14 +51564,16 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-lg-12",
-                      staticStyle: { "text-align": "center" },
-                    },
-                    [
-                      _c("fieldset", [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c(
+                      "fieldset",
+                      {
+                        staticStyle: {
+                          "text-align": "center",
+                          "padding-top": "35px",
+                        },
+                      },
+                      [
                         _c(
                           "button",
                           {
@@ -51574,9 +51583,9 @@ var render = function () {
                           },
                           [_vm._v("Editar")]
                         ),
-                      ]),
-                    ]
-                  ),
+                      ]
+                    ),
+                  ]),
                 ]),
               ]),
             ]),
@@ -51591,7 +51600,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Actualizar Roles")]),
     ])
   },
@@ -51673,7 +51682,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Roles")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -51944,7 +51953,13 @@ var render = function () {
                             return _c(
                               "option",
                               { key: grade.id, domProps: { value: grade.id } },
-                              [_vm._v(_vm._s(grade.name))]
+                              [
+                                _vm._v(
+                                  _vm._s(grade.name) +
+                                    " - " +
+                                    _vm._s(grade.section)
+                                ),
+                              ]
                             )
                           }),
                         ],
@@ -51981,6 +51996,7 @@ var render = function () {
               ]
             ),
           ]),
+          _vm._v("e\n    "),
         ]),
       ]),
     ]
@@ -52089,7 +52105,7 @@ var render = function () {
                             return _c(
                               "option",
                               {
-                                key: "teacher_id",
+                                key: teacher.id,
                                 domProps: { value: teacher.id },
                               },
                               [_vm._v(_vm._s(teacher.names))]
@@ -52148,7 +52164,7 @@ var render = function () {
                             return _c(
                               "option",
                               {
-                                key: "subject_id",
+                                key: subject.id,
                                 domProps: { value: subject.id },
                               },
                               [_vm._v(_vm._s(subject.name))]
@@ -52745,7 +52761,13 @@ var render = function () {
                             return _c(
                               "option",
                               { key: grade.id, domProps: { value: grade.id } },
-                              [_vm._v(_vm._s(grade.name))]
+                              [
+                                _vm._v(
+                                  _vm._s(grade.name) +
+                                    " - " +
+                                    _vm._s(grade.section)
+                                ),
+                              ]
                             )
                           }),
                         ],
@@ -52838,34 +52860,39 @@ var render = function () {
         _c(
           "tbody",
           _vm._l(_vm.listSubjectTeacher, function (subjectteacher, index) {
-            return _c("tr", { key: subjectteacher.id }, [
-              _c("th", { attrs: { scope: "row" } }, [
-                _vm._v(_vm._s(index + 1)),
-              ]),
-              _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(subjectteacher.subject_grade_id))]),
-              _vm._v(" "),
-              _c(
-                "th",
-                _vm._l(subjectteacher.teacher, function (teacher) {
-                  return _c("label", { key: teacher.id }, [
-                    _vm._v(_vm._s(subjectteacher.teacher.names)),
+            return _c(
+              "tr",
+              { key: subjectteacher.id },
+              [
+                _c("th", { attrs: { scope: "row" } }, [
+                  _vm._v(_vm._s(index + 1)),
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.listsSubjects, function (subjects) {
+                  return _c("th", { key: subjects.id }, [
+                    _vm._v(_vm._s(subjects.name)),
                   ])
                 }),
-                0
-              ),
-              _vm._v(" "),
-              _c("td", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "btm btm-info btm-se",
-                    attrs: { href: _vm.edit(subjectteacher.id) },
-                  },
-                  [_c("span", { staticClass: "fa fa-edit" })]
-                ),
-              ]),
-            ])
+                _vm._v(" "),
+                _vm._l(_vm.listteacher, function (teacher) {
+                  return _c("th", { key: teacher.id }, [
+                    _vm._v(" " + _vm._s(teacher.names)),
+                  ])
+                }),
+                _vm._v(" "),
+                _c("td", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btm btm-info btm-se",
+                      attrs: { href: _vm.edit(subjectteacher.id) },
+                    },
+                    [_c("span", { staticClass: "fa fa-edit" })]
+                  ),
+                ]),
+              ],
+              2
+            )
           }),
           0
         ),
@@ -52886,7 +52913,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Profesor")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -52937,9 +52964,25 @@ var render = function () {
                 _vm._v(_vm._s(index + 1)),
               ]),
               _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(subjectgrade.subject_id))]),
+              _c(
+                "th",
+                _vm._l(subjectgrade, function (subjects) {
+                  return _c("label", { key: subjects.id }, [
+                    _vm._v(_vm._s(subjects.name)),
+                  ])
+                }),
+                0
+              ),
               _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(subjectgrade.grade_id))]),
+              _c(
+                "th",
+                _vm._l(subjectgrade, function (grades) {
+                  return _c("label", { key: grades.id }, [
+                    _vm._v(_vm._s(grades.grade)),
+                  ])
+                }),
+                0
+              ),
               _vm._v(" "),
               _c("td", [
                 _c(
@@ -53054,7 +53097,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Materias")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -53090,19 +53133,20 @@ var render = function () {
         width: "65%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
       attrs: { id: "contact" },
     },
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9 col-md-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                 _c("div", { staticClass: "row" }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Usuario:")]),
                       _vm._v(" "),
@@ -53157,7 +53201,7 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Nombre de el rol: ")]),
                       _vm._v(" "),
@@ -53215,7 +53259,7 @@ var render = function () {
                   _c(
                     "div",
                     {
-                      staticClass: "col-lg-12",
+                      staticClass: "col-lg-12 col-md-12 col-sm-12",
                       staticStyle: {
                         "text-align": "center",
                         "padding-top": "20px",
@@ -53249,7 +53293,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Asignar roles y usuarios")]),
     ])
   },
@@ -53285,19 +53329,20 @@ var render = function () {
         width: "65%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
       attrs: { id: "contact" },
     },
     [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-lg-9 col-md-9" }, [
+          _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                 _c("div", { staticClass: "row" }, [
                   _vm._m(0),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Usuario:")]),
                       _vm._v(" "),
@@ -53352,7 +53397,7 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "col-lg-12" }, [
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                     _c("fieldset", [
                       _c("label", [_vm._v("Nombre de el rol: ")]),
                       _vm._v(" "),
@@ -53407,17 +53452,16 @@ var render = function () {
                     ]),
                   ]),
                   _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "col-lg-12",
-                      staticStyle: {
-                        "text-align": "center",
-                        "padding-top": "20px",
+                  _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
+                    _c(
+                      "fieldset",
+                      {
+                        staticStyle: {
+                          "text-align": "center",
+                          "padding-top": "20px",
+                        },
                       },
-                    },
-                    [
-                      _c("fieldset", [
+                      [
                         _c(
                           "button",
                           {
@@ -53425,11 +53469,11 @@ var render = function () {
                             attrs: { type: "submit" },
                             on: { click: _vm.send },
                           },
-                          [_vm._v("Actualizado")]
+                          [_vm._v("Actualizar")]
                         ),
-                      ]),
-                    ]
-                  ),
+                      ]
+                    ),
+                  ]),
                 ]),
               ]),
             ]),
@@ -53444,7 +53488,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-12" }, [
+    return _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
       _c("h2", [_vm._v("Actualizar roles y usuarios")]),
     ])
   },
@@ -53538,7 +53582,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Rol")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Editar")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -56340,7 +56384,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Ingresos totales")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acción")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -56460,7 +56504,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Salario del familiar")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acción")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -58211,7 +58255,7 @@ var staticRenderFns = [
           _vm._v("Egresado o miembro de la comunidad"),
         ]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acción")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
@@ -58325,7 +58369,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Numero de telefono")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acción")]),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
     ])
   },
