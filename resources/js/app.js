@@ -33,7 +33,6 @@ Vue.component('createStudentrelative', require("./components/students/createStud
 Vue.component('createAttendancehistory', require("./components/AttendanceHistory/createAttendanceHistory.vue").default);
 Vue.component('createGradesubjectstudent', require("./components/Grades/createGradesubjectstudent.vue").default);
 Vue.component('createEmployment', require("./components/teachers/createEmployment.vue").default);
-Vue.component('index', require("./components/index.vue").default);
 
 
 Vue.component('listsGrade', require("./components/Grades/listsGrade.vue").default);
@@ -73,6 +72,6 @@ Vue.component('editStudentrelative', require("./components/students/editStudentR
  */
 
 
-const app = new Vue({  
+const app = new Vue({
     el: '#app',
 });
