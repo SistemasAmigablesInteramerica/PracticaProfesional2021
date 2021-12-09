@@ -20,7 +20,6 @@
 
 </head>
 <body>
-{{Auth::user()}}
 <header class="header-area header-sticky">
       <div class="container">
           <div class="row">
@@ -134,12 +133,14 @@
                           @endauth
                           @endif
 
+                          @auth
                         <li>
 
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> {{ __('Logout') }} </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none"> @csrf </form>
 
                         </li>
+                        @endauth
 
 
                       <a class="menu-trigger">
@@ -166,13 +167,15 @@
         <div class="col-lg-12">
           <div class="caption">
           <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+          <div class="row justify-content-center ">
+        <div class="col-lg-12">
+            <div class="card ">
+            @guest
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}" style="min-height: 300px; border-radius: 20px;width: 100%;border: 20px solid white; background-color: white">
+              
+                    <form method="POST" action="{{ route('login') }}" style="min-height: 300px; border-radius: 50px;width: 100%;border: 20px solid white; background-color: white">
                         @csrf
 
                         <div class="form-group row">
@@ -229,10 +232,12 @@
                             </div>
                         </div>
                     </form>
+                    @endguest
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
     </div>
     <div class="col-lg-9 col-md-9 col-sm-12">
