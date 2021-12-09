@@ -23,7 +23,7 @@
                       <label>Grados:</label>
                       <select class="form-select form-select-sm" v-model="subjectgrade.grade_id" >
                         <option disabled value="">Seleccione un grado:</option>
-                        <option v-for="grade in listsGrades" :value="grade.id" :key="grade.id">{{grade.grade}}</option>
+                        <option v-for="grade in listsGrades" :value="grade.id" :key="grade.id">{{grade.grade}} - {{grade.section}}</option>
                       </select>
                   </fieldset>
                     </div>
@@ -35,7 +35,7 @@
                   </div>
             </div>
           </div>
-        </div>
+        </div>e
       </div>
     </div>
   </section>
