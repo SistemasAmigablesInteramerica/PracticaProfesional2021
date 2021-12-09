@@ -37,6 +37,6 @@ class AttendanceHistoryController extends Controller
 
     public function list()
     {
-        return AttendanceHistory::all();
+        return AttendanceHistory::with('student','teacher')->get();
     }
 }

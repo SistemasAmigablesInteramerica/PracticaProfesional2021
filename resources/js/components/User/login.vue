@@ -2,12 +2,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Iniciar Sesion
+                <div class="card-header">Iniciar Sesion</div>
+                    <div style="min-height: 250px; border-radius: 20px;width: 100%;border: 40px solid white; background-color: white;margin-top:20px;" >
 
-                </div>
-                    <div style="min-height: 250px; border-radius: 20px;width: 100%;border: 40px solid white; background-color: white;margin-top:20px;">
-
-                        <div class="form-group row">
+                        <div class="form-group row" >
                             <label for="email" class="col-md-4 col-form-label text-md-right ">Correo electronico:</label>
 
                             <div class="col-md-6">
