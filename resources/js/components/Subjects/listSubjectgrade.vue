@@ -4,21 +4,19 @@
   <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Grados</th>
       <th scope="col">Materias</th>
-       <th scope="col">Grados</th>
       <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
-    <tr v-for="(subjectgrade, index) in listSubjectgrade" :key="subjectgrade.id">
-      <th scope="row">{{ index +1 }}</th>
+    <tr v-for="(grades, index) in listSubjectgrade" :key="grades.id">
+      <th sc ope="row">{{ index +1 }}</th>
+      <th>{{grades.grades.name}}-{{grades.grades.section}}</th>
       <th>
-        <label v-for="subjects of subjectgrade" :key="subjects.id">{{subjects.name}}</label>
+        <label v-for="relation of listSubjectgrade" class= "label label-primary p-1">{{relation.subject.name}}, </label>
       </th>
-      <th>
-        <label>{{grades.name}}</label>
-      </th>
-      <td><a class="btm btm-info btm-se" :href="edit(subjectgrade.id)"><span class="fa fa-edit"></span></a></td>
+      <td><a class="btm btm-info btm-se" :href="edit(grades.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
   </tbody>
     </table>

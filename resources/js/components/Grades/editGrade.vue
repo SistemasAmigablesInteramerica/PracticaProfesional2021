@@ -10,7 +10,7 @@
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <fieldset>
                     <label>Grados:</label>
-                      <input class="form-control form-control-sm" v-model="grades.grade">
+                      <input class="form-control form-control-sm" v-model="grades.name">
                         </fieldset>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6">
@@ -52,7 +52,7 @@
         data() {
           return {
             grades: {
-              grade: '',
+              name: '',
               section: '',
             },
             idGrade:''
@@ -68,7 +68,7 @@
         methods: {
           send(){
 
-            if(this.grades.grade === ''){
+            if(this.grades.name === ''){
               Swal.fire('Atención', 'Debe digitar un grado', 'warning')
               return false
             }
