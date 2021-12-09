@@ -178,7 +178,7 @@
                     <form method="POST" action="{{ route('login') }}" style="min-height: 300px; border-radius: 50px;width: 100%;border: 20px solid white; background-color: white">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="form-group row col-lg-12">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -191,8 +191,8 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
+                                        <br>
+                        <div class="form-group row col-lg-12">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -205,11 +205,11 @@
                                 @enderror
                             </div>
                         </div>
-
+                                <br>
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-control form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Remember Me') }}
@@ -217,7 +217,7 @@
                                 </div>
                             </div>
                         </div>
-
+                            <br>
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
