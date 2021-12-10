@@ -1,15 +1,15 @@
 <template>
-<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
     <table class="table table-light table-md">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Entrada</th>
       <th scope="col">Salida</th>
-      <th scope="col">Estudiante</th>  
-      <th scope="col">Docente</th>  
+      <th scope="col">Estudiante</th>
+      <th scope="col">Docente</th>
       <th scope="col">Asistió</th>
-      <th scope="col">Acciónes</th> 
+      <th scope="col">Acciónes</th>
     </tr>
   </thead>
   <tbody>

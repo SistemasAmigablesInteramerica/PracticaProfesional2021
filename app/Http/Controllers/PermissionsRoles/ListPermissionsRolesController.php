@@ -14,7 +14,7 @@ class ListPermissionsRolesController extends Controller
     {
 
     }
- 
+
     public function create()
     {
         abort_if(Gate::denies('view_permissionroles'), Response::HTTP_FORBIDDEN, 'No tiene permiso para acceder a esta pagina');

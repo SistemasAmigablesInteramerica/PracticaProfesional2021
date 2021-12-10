@@ -1,5 +1,5 @@
 <template>
-<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
     <table class="table table-light table-md">
   <thead>
     <tr>
@@ -7,7 +7,7 @@
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">Cédula</th>
-      <th scope="col">Fecha de nacimiento</th>  
+      <th scope="col">Fecha de nacimiento</th>
       <th scope="col">Edad</th>
       <th scope="col">Especialidad</th>
       <th scope="col">Correo eletornico</th>
@@ -30,7 +30,7 @@
       <th>{{ teacher.gender }}</th>
       <th>{{ teacher.contact_number }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(teacher.id)"><span class="fa fa-edit"></span></a></td>
-     
+
     </tr>
   </tbody>
     </table>
@@ -56,6 +56,6 @@ export default {
         return "/edit-teacher/" + id
       }
     }
-    
+
 }
 </script>

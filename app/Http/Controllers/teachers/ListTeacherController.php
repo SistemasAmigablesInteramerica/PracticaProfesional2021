@@ -19,5 +19,5 @@ class ListTeacherController extends Controller
     {
         abort_if(Gate::denies('view_teacher'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('teachers/list-teacherinfo');
-    }   
+    }
 }

@@ -16,11 +16,12 @@ class PermissionRoleDataTableSeeder extends Seeder
     public function run()
     {
         //
-        $permissions = Permission::find($id);
+
+        $permission=Permission::all();
+        $permission->id();
 
         foreach($permissions AS $permission){
         PermissionRole::create(['role_id'=>'1', 'permission_id'=>$permission]);
         }
-        return $permissions;
     }
 }

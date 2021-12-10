@@ -12,7 +12,7 @@ class ListEmploymentController extends Controller
     //
     public function __construct()
     {
-        
+
     }
 
     public function create()
@@ -21,4 +21,3 @@ class ListEmploymentController extends Controller
         return view('teachers/list-employmentinfo');
     }
 }
-    

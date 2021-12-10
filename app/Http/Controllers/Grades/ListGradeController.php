@@ -20,6 +20,6 @@ class ListGradeController extends Controller
         return view('grades/lists-gradeinfo');
     }
 
-    
+
 }
 
