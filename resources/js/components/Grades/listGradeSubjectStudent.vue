@@ -1,5 +1,5 @@
 <template>
-<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
     <table class="table table-light table-md">
   <thead>
     <tr>
@@ -22,7 +22,7 @@
     </table>
 </div>
 </template>
- 
+
 <script>
 export default {
     name: 'listGradeSubjectStudent',
@@ -34,7 +34,7 @@ export default {
     created() {
         axios.get('list-gradesubjectstudent').then(response =>{
             this.listGradesubjectstudent = response.data
-           
+
         })
     },
     methods: {
@@ -43,4 +43,4 @@ export default {
       }
     },
 }
-</script> 
+</script>

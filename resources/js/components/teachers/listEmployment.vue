@@ -1,13 +1,13 @@
 <template>
     <table class="table table-light table-md">
-      <div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+      <div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Correo electronico:</th>
       <th scope="col">Nombre</th>
       <th scope="col">Especialidad</th>
-      <th scope="col">Cédula</th>  
+      <th scope="col">Cédula</th>
       <th scope="col">Numero de telefono</th>
       <th scope="col">Domicilio:</th>
       <th scope="col">Titulos y capacitaciones</th>
@@ -17,7 +17,7 @@
       <th scope="col">Lugares donde le gustaría trabajar</th>
       <th scope="col">Egresado o miembro de la comunidad</th>
       <th scope="col">Acciónes</th>
-    </tr> 
+    </tr>
   </thead>
   <tbody>
     <tr v-for="(employment, index) in listEmployment" :key="employment.id">
@@ -39,7 +39,7 @@
   </tbody>
   </div>
     </table>
-  
+
 </template>
 
 <script>
@@ -60,7 +60,7 @@ export default {
       edit(id){
         return "/edit-employment/" + id
       }
-      
+
     }
 }
 </script>

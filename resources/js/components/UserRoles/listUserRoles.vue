@@ -1,5 +1,5 @@
 <template>
-<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;">
+<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
     <table class="table table-light table-md">
   <thead>
     <tr>
@@ -35,7 +35,7 @@ export default {
         axios.get('/list-userroles').then(response =>{
             this.listUserRoles =response.data
             console.log(this.listUserRoles)
-            
+
         })
     },
     methods:{

@@ -1,5 +1,5 @@
 <template>
-<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 50%;border: 10px solid white; background-color: white;">
+<div class="table-responsive-sm" style="min-height: 400px; border-radius: 20px;width: 50%;border: 10px solid white; background-color: white;margin-top:100px;">
     <table class="table table-light table-md">
   <thead>
     <tr>

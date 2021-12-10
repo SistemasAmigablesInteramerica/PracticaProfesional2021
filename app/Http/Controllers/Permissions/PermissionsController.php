@@ -14,9 +14,9 @@ class PermissionsController extends Controller
     //
     public function __construct()
       {
-  
+
       }
-  
+
       public function create()
       {
         abort_if(Gate::denies('create_permissions'), '403', 'No tiene permiso para acceder a esta pagina');
@@ -31,14 +31,14 @@ class PermissionsController extends Controller
           }
           return response()->json(['message'=>'No se guardo la informacion', 'data'=> $permissions], 471);
       }
-      public function edit($id) 
+      public function edit($id)
       {
         abort_if(Gate::denies('edit_permissions'), '403', 'No tiene permiso para acceder a esta pagina');
           $permissions = Permission::find($id);
-  
+
           return view('Permissions/edit-permissions',compact('permissions'));
-      }   
-  
+      }
+
          public function update(Request $request, $id)
       {
           $permissions = Permission::where('id',$id)->update($request->all());

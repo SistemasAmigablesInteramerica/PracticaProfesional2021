@@ -14,7 +14,11 @@ class PermissionDataTableSeeder extends Seeder
      */
     public function run()
     {
-        $permissions = ['edit_permissionroles','create_roles','create_permissions'];
+        $permissions = ['create_attendance','view_attendance','create_grade','edit_grade', 'view_grade', 'create_gradesubjectstudent',
+        'edit_gradesubjectstudent','view_gradesubjectstudent','create_permissions','edit_permissions','view_permissions','create_permissionroles','edit_permissionroles',
+        'view_permissionroles','create_roles','edit_roles','view_roles','edit_student','edit_relatives','view_student','view_relatives','create_subject','edit_subject',
+        'view_subjects','create_subjectgrade','edit_subjectgrade','view_subjectgrade','create_subjecteacher','edit_subjecteacher','view_subjects','view_employment',
+        'create_teacher','edit_teacher','view_teacher','create_user','edit_user','view_user','create_userroles','edit_userroles','view_userroles'];
 
         foreach ($permissions AS $permission){
             Permission::create(['title'=>$permission,'description'=>$permission]);
