@@ -20,7 +20,7 @@ class UserRolesController extends Controller
 
       public function create()
       {
-        // abort_if(Gate::denies('create_userroles'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_userroles'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('userroles/insert-userrolesinfo');
       }
       public function store(Request $request)
@@ -34,7 +34,7 @@ class UserRolesController extends Controller
       }
       public function edit($id)
       {
-              // abort_if(Gate::denies('edit_userroles'), '403', 'No tiene permiso para acceder a esta pagina');
+              abort_if(Gate::denies('edit_userroles'), '403', 'No tiene permiso para acceder a esta pagina');
           $userroles = UserRole::find($id);
           return view('userroles/edit-userroles',compact('userroles'));
       }
