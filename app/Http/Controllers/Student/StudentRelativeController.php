@@ -47,6 +47,6 @@ class StudentRelativeController extends Controller
 
     public function list()
     {
-        return StudentRelative::all();
+        return StudentRelative::with('student')->get();
     }
 }

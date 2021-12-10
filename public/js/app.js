@@ -56276,7 +56276,15 @@ var render = function () {
                 _vm._v(_vm._s(index + 1)),
               ]),
               _vm._v(" "),
-              _c("th", [_vm._v(_vm._s(StudentRelative.student_id))]),
+              _c(
+                "th",
+                _vm._l(_vm.listStudentrelative, function (relation) {
+                  return _c("label", { key: relation.id }, [
+                    _vm._v(_vm._s(relation.student.name)),
+                  ])
+                }),
+                0
+              ),
               _vm._v(" "),
               _c("th", [_vm._v(_vm._s(StudentRelative.guardian_name))]),
               _vm._v(" "),
@@ -56321,7 +56329,9 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
         _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Id del estudiante")]),
+        _c("th", { attrs: { scope: "col" } }, [
+          _vm._v("Nombre del estudiante"),
+        ]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre del familiar")]),
         _vm._v(" "),

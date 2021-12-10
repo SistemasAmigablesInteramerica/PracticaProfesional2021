@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Id del estudiante</th>
+      <th scope="col">Nombre del estudiante</th>
       <th scope="col">Nombre del familiar</th>
       <th scope="col">Profesion del familar</th>
       <th scope="col">Cédula del familiar</th>
@@ -20,7 +20,7 @@
   <tbody>
     <tr v-for="(StudentRelative, index) in  listStudentrelative" :key="StudentRelative.id">
       <th scope="row">{{ index +1 }}</th>
-      <th>{{ StudentRelative.student_id }}</th>
+      <th><label v-for="relation of listStudentrelative" :key="relation.id" >{{ relation.student.name}}</label></th>
       <th>{{ StudentRelative.guardian_name }}</th>
       <th>{{ StudentRelative.guardian_profession }}</th>
       <th>{{ StudentRelative.guardian_card }}</th>
@@ -31,7 +31,7 @@
       <th>{{ StudentRelative.guardian_salary }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(StudentRelative.id)"><span class="fa fa-edit"></span></a></td>
 
-     
+
     </tr>
   </tbody>
     </table>
@@ -57,6 +57,6 @@ export default {
         return '/edit-studentrelative/' + id
       }
     }
-    
+
 }
 </script>
