@@ -17,7 +17,7 @@ class AttendanceHistoryController extends Controller
      }
       public function create()
      {
-        // abort_if(Gate::denies('create_attendance'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_attendance'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('attendance/insert-attendancehistory');
      }
      public function store(Request $request)

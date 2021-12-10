@@ -16,7 +16,7 @@ class ListSubjectGradeController extends Controller
     }
     public function create()
     {
-        // abort_if(Gate::denies('view_subjectgrade'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('view_subjectgrade'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('subjects/list-subjectgrade');
     }
 }

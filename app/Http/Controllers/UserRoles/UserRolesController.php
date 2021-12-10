@@ -34,6 +34,7 @@ class UserRolesController extends Controller
       }
       public function edit($id)
       {
+              // abort_if(Gate::denies('edit_userroles'), '403', 'No tiene permiso para acceder a esta pagina');
           $userroles = UserRole::find($id);
           return view('userroles/edit-userroles',compact('userroles'));
       }

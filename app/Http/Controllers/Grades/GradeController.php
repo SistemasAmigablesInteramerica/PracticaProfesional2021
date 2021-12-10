@@ -17,7 +17,7 @@ class GradeController extends Controller
     }
      public function create()
     {
-        // abort_if(Gate::denies('view_grade'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_grade'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('grades/insert-gradeinfo');
     }
     public function store(Request $request)
@@ -31,6 +31,7 @@ class GradeController extends Controller
     }
     public function edit($id) 
     {
+        abort_if(Gate::denies('edit_grade'), '403', 'No tiene permiso para acceder a esta pagina');
         $grade = Grade::find($id);
 
         return view('grades/edit-grade',compact('grade'));

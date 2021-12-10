@@ -17,7 +17,7 @@ class SubjectGradeController extends Controller
     }
      public function create()
     {
-        // abort_if(Gate::denies('create_subjectgrade'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_subjectgrade'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('subjects/insert-subjectgradeinfo');
     }
     public function store(Request $request)
@@ -31,6 +31,7 @@ class SubjectGradeController extends Controller
     }
     public function edit($id) 
     {
+        abort_if(Gate::denies('edit_subjectgrade'), '403', 'No tiene permiso para acceder a esta pagina');
         $subjectgrade = SubjectGrade::find($id);
 
         return view('subjects/edit-subjectgrade', compact('subjectgrade'));

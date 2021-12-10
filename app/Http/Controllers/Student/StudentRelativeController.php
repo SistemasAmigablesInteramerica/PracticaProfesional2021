@@ -33,6 +33,7 @@ class StudentRelativeController extends Controller
 
     public function edit($id)
     {
+            abort_if(Gate::denies('edit_relatives'), '403', 'No tiene permiso para acceder a esta pagina');
         $studentRelative = StudentRelative::find($id);
         return view('students/edit-StudentRelative', compact('studentRelative'));
     }

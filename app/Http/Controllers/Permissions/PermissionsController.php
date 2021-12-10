@@ -33,6 +33,7 @@ class PermissionsController extends Controller
       }
       public function edit($id) 
       {
+        abort_if(Gate::denies('edit_permissions'), '403', 'No tiene permiso para acceder a esta pagina');
           $permissions = Permission::find($id);
   
           return view('Permissions/edit-permissions',compact('permissions'));

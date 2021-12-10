@@ -38,6 +38,7 @@ class StudentController extends Controller
 
     public function edit($id)
     {
+        abort_if(Gate::denies('edit_student'), '403', 'No tiene permiso para acceder a esta pagina');
         $student = Student::find($id);
         return view ('students/edit-student', compact('student'));
     }

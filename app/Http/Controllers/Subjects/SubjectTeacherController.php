@@ -18,7 +18,7 @@ class SubjectTeacherController extends Controller
     }
      public function create()
     {
-        // abort_if(Gate::denies('create_subjecteacher'), '403', 'No tiene permiso para acceder a esta pagina');
+        abort_if(Gate::denies('create_subjecteacher'), '403', 'No tiene permiso para acceder a esta pagina');
         return view('subjects/insert-subjectteacherinfo');
     }
     public function store(Request $request)
@@ -32,6 +32,7 @@ class SubjectTeacherController extends Controller
     }
     public function edit($id)
     {
+        abort_if(Gate::denies('edit_subjecteacher'), '403', 'No tiene permiso para acceder a esta pagina');
         $subjectteacher = SubjectTeacher::find($id);
 
         return view('subjects/edit-subjectteacher',compact('subjectteacher'));
