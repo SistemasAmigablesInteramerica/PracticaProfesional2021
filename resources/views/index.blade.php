@@ -25,12 +25,12 @@
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
+                      <!-- ***** Aqui se pone el logo ***** -->
                       <a href="{{asset('/')}}" class="logo">
                           Fullpass Students
                       </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
+                      <!-- ***** Fin de logo ***** -->
+                      <!-- ***** Header con los botones ***** -->
                       <ul class="nav">
 
                           <li class="has-sub">
@@ -48,8 +48,8 @@
                                   @endif
                               </ul>
                           </li>
-                          @if (Route::has('login'))
 
+                          @if (Route::has('login'))
                           <li class="has-sub">
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
@@ -74,22 +74,15 @@
                               <ul class="sub-menu">
 
                                   <li><a href="{{asset('registro-de-materias')}}">Agregar materias</a></li>
-
                                   <li><a href="{{asset('lista-de-materias')}}">Ver materias</a></li>
-
                                   <li><a href="{{asset('asignar-materia-profesor')}}">Asignar docentes</a></li>
-
                                   <li><a href="{{asset('lista-de-materiasyprofesores')}}">Ver doc. asig.</a></li>
-
                                   <li><a href="{{asset('registro-de-secciones')}}">Agregar sección</a></li>
-
                                   <li><a href="{{asset('lista-de-secciones')}}">Ver secciones</a></li>
-
                                   <li><a href="{{asset('asignar-materia-grado')}}">Asignar materia</a></li>
-
                                   <li><a href="{{asset('lista-de-materiasygrados')}}">Ver mat. asig.</a></li>
-
-                                  <li><a href="{{asset('asignar-materia-estudiante')}}">Asignar estudiante</a></li>
+                                  <li><a href="{{asset('asignar-materia-estudiante')}}">Asignar materia est.</a></li>
+                                  <li><a href="{{asset('/lista-de-materiasyestudiantes')}}">Ver materia est.</a></li>
 
                               </ul>
                           </li>
@@ -102,7 +95,6 @@
                               <ul class="sub-menu">
 
                               <li><a href="{{asset('registro-de-asistencias')}}">Asistencia</a></li>
-
                               <li><a href="{{asset('lista-de-asistencia')}}">Ver asistencias</a></li>
 
                               </ul>
@@ -146,7 +138,7 @@
                       <a class="menu-trigger">
                           <span>Menu</span>
                       </a>
-                      <!-- ***** Menu End ***** -->
+                      <!-- ***** Fin de menu con botones ***** -->
                   </nav>
               </div>
           </div>
@@ -156,26 +148,40 @@
 <section class="contact-us" id="app">
 <div class="container">
     <div class="row">
+        {{-- inicio de video --}}
     <section class="section main-banner" id="top" data-section="section1" >
   <video autoplay muted loop id="bg-video">
     <source src="/images/videoinicio.mp4" type="video/mp4">
   </video>
-
+        {{-- Fin de video --}}
 <div class="video-overlay header-text">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="caption">
+              @auth
+              {{-- Aqui se escribe el mensaje que sale en la pagina principal despues de iniciar sesión --}}
+
+                    <h6>Hola {{Auth::user()->name}}<h6>
+                    <h2>Bienvenido a FullPass</h2>
+                    <p></p>
+
+
+              @endauth
+
+              {{-- Aqui inicia el form de iniciar sesión --}}
+            @guest
           <div class="container">
           <div class="row justify-content-center ">
         <div class="col-lg-12">
-            <div class="card ">
-            @guest
+            <div class="card" style="left: 50%; right:50%">
+
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-              
-                    <form method="POST" action="{{ route('login') }}" style="min-height: 300px; border-radius: 50px;width: 100%;border: 20px solid white; background-color: white">
+
+                    <form method="POST" action="{{ route('login') }}" style="min-height: 300px; border-radius: 50px;width: 100%;border: 20px solid white; background-color: whi
+">
                         @csrf
 
                         <div class="form-group row col-lg-12">
@@ -233,6 +239,7 @@
                         </div>
                     </form>
                     @endguest
+                    {{-- Aqui termina el form de iniciar sesión --}}
                 </div>
             </div>
         </div>

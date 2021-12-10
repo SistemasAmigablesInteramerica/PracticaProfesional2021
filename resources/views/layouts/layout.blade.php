@@ -26,12 +26,12 @@
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Logo Start ***** -->
+                      <!-- ***** Aqui va el logot ***** -->
                       <a href="{{asset('/')}}" class="logo">
                           Fullpass Students
                       </a>
-                      <!-- ***** Logo End ***** -->
-                      <!-- ***** Menu Start ***** -->
+                      <!-- ***** Fin de logo ***** -->
+                      <!-- ***** Inicio de botones ***** -->
                       <ul class="nav">
                           <li><a href="/">Menu principal</a></li>
                           <li class="has-sub">
@@ -50,48 +50,41 @@
                               </ul>
                           </li>
                           @if (Route::has('login'))
-                          
+
                           <li class="has-sub">
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
                                   @auth
                                   <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
-                                  
+
                                   <li><a href="{{asset('lista-de-profesores')}}">Ver docentes</a></li>
                                   @endauth
                                   <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
                                   @auth
                                   <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
                                   @endauth
-                                  
+
                               </ul>
                           </li>
-                          
+
                           @endif
                           @if (Route::has('login'))
                           @auth
                           <li class="has-sub">
                               <a href="javascript:void(0)">Materias y secciones</a>
                               <ul class="sub-menu">
-                                  
+
                                   <li><a href="{{asset('registro-de-materias')}}">Agregar materias</a></li>
-                                  
                                   <li><a href="{{asset('lista-de-materias')}}">Ver materias</a></li>
-                                  
                                   <li><a href="{{asset('asignar-materia-profesor')}}">Asignar docentes</a></li>
-                                  
                                   <li><a href="{{asset('lista-de-materiasyprofesores')}}">Ver doc. asig.</a></li>
-                                  
                                   <li><a href="{{asset('registro-de-secciones')}}">Agregar sección</a></li>
-                                  
                                   <li><a href="{{asset('lista-de-secciones')}}">Ver secciones</a></li>
-                                  
                                   <li><a href="{{asset('asignar-materia-grado')}}">Asignar materia</a></li>
-                                  
                                   <li><a href="{{asset('lista-de-materiasygrados')}}">Ver mat. asig.</a></li>
-                                  
                                   <li><a href="{{asset('asignar-materia-estudiante')}}">Asignar estudiante</a></li>
-                                  
+                                  <li><a href="{{asset('/lista-de-materiasyestudiantes')}}">Ver materia est.</a></li>
+
                               </ul>
                           </li>
                           @endauth
@@ -101,13 +94,13 @@
                           <li class="has-sub">
                               <a href="javascript:void(0)">Asistencia</a>
                               <ul class="sub-menu">
-                              
+
                               <li><a href="{{asset('registro-de-asistencias')}}">Asistencia</a></li>
-                              
+
                               <li><a href="{{asset('lista-de-asistencia')}}">Ver asistencias</a></li>
-                              
+
                               </ul>
-                              
+
                           </li>
                           @endauth
                           @endif
@@ -115,8 +108,8 @@
                           @auth
                           <li class="has-sub">
                               <a href="javascript:void(0)">User Perm Rol</a>
-                              <ul class="sub-menu"> 
-                              
+                              <ul class="sub-menu">
+
                               <li><a href="{{asset('crear-roles')}}">Crear roles</a></li>
                               <li><a href="{{asset('lista-de-roles')}}">Ver roles</a></li>
                               <li><a href="{{asset('asignar-rolesypermisos')}}">Asignar rol-permisos</a></li>
@@ -125,9 +118,9 @@
                               <li><a href="{{asset('lista-de-permisos')}}">Ver permisos</a></li>
                               <li><a href="{{asset('lista-de-rolesypermisos')}}">Ver rol-perm</a></li>
                               <li><a href="{{asset('lista-de-usuariosyroles')}}">Ver rol-user</a></li>
-                              
+
                               </ul>
-                              
+
                           </li>
                           @endauth
                           @endif
@@ -136,13 +129,13 @@
                       <a class="menu-trigger">
                           <span>Menu</span>
                       </a>
-                      <!-- ***** Menu End ***** -->
+                      <!-- ***** Fin de botones ***** -->
                   </nav>
               </div>
           </div>
       </div>
   </header>
-  
+
 <section class="contact-us" id="app">
 <div class="container">
     <div class="row">
@@ -152,11 +145,11 @@
 </section>
 <section class="contact-us" id="contact">
     <div class="footer">
-      <p>Copyright © 2022 Sistemas Amigables. All Rights Reserved. 
+      <p>Copyright © 2022 Sistemas Amigables. All Rights Reserved.
           <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
     </div>
 </section>
 <script src="{{asset('js/app.js')}}" defer></script>
 </body>
 
-</html>    
+</html>
