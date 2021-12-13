@@ -18,7 +18,7 @@
       <th>{{ attendancehistory.check_in }}</th>
       <th>{{ attendancehistory.check_out }}</th>
       <th>
-      <label v-for="relation of listAttendancehistory" class="label label-primary p-1">{{relation.student.name}}</label>
+      <label class="label label-primary p-1">{{attendancehistory.student.name}}</label>
       </th>
       <th>{{ attendancehistory.teacher.names }}</th>
       <th v-if="attendancehistory.attended === 1">Atendio</th>

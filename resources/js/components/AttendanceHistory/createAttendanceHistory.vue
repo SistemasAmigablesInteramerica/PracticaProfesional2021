@@ -1,5 +1,5 @@
 <template>
-      
+
 <section class="contact-us" id="contact">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row" >
@@ -55,12 +55,12 @@
                               <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Agregar</button>
                             </fieldset>
                        </div>
-                    </div>        
+                    </div>
               </div>
            </div>
         </div>
 </section>
- 
+
 </template>
 
 <script>
@@ -82,6 +82,7 @@
             listStudent: [],
             listSubjectTeacher: [],
             listTeacher: [],
+            listAttendancehistory: [],
           }
         },
         created(){
@@ -94,13 +95,31 @@
           axios.get('/list-teacher').then(response=>{
             this.listTeacher = response.data
           });
+          axios.get('/list-attendanceHistory').then(response=>{
+            this.listAttendancehistory = response.data
+          });
         var Dates = new Date().toISOString().slice(0,10);
         this.attendancehistory.date = Dates;
         var Hour = new Date().toLocaleTimeString();
         this.attendancehistory.check_in = Hour;
+
         },
 
         methods: {
+            StudentFind(){
+
+                if(attendancehistory.name === listAttendancehistory.student.name && Dates === listAttendancehistory.attendancehistory.date){
+                    Swal.fire({
+                        title: 'Error',
+                        icon: 'error',
+                        text: 'El estudiante se encuentra en el comedor'
+                    }).then((result)=>{
+                        if (result.isConfirmed){
+                            this.attendancehistory.student_id = ''
+                        }
+                    })
+                }
+            },
           send(){
             axios.post('/store-attendancehistory', this.attendancehistory).then(response =>{
               this.attendancehistory.check_in = '',
@@ -110,7 +129,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'Se ha registrado con éxito.',  
+                    text: 'Se ha registrado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({
