@@ -48,9 +48,14 @@ class StudentController extends Controller
         return Student::where('card', $card)->get();
     }
 
-    public function findname($name)
+    public function findid($id)
     {
-        return Student::where('name', $name)->get();
+        return Student::where('id', $id)->get();
+    }
+
+    public function findcode($code)
+    {
+        return Student::where('code', $code)->get();
     }
 
     public function update(Request $request, $id)

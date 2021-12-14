@@ -2159,12 +2159,14 @@ __webpack_require__.r(__webpack_exports__);
       listSubjectTeacher: [],
       listTeacher: [],
       listAttendancehistory: [],
-      card: ''
+      card: '',
+      code: ''
     };
   },
   created: function created() {
     var _this = this;
 
+    // llama las listas del select
     axios.get('/list-student').then(function (response) {
       _this.listStudent = response.data;
     });
@@ -2176,26 +2178,55 @@ __webpack_require__.r(__webpack_exports__);
     });
     axios.get('/list-attendanceHistory').then(function (response) {
       _this.listAttendancehistory = response.data;
-    });
+    }); //   fin de llamar select
+    // Consiguen la fecha y hora actual
+
     var Dates = new Date().toISOString().slice(0, 10);
     this.attendancehistory.date = Dates;
     var Hour = new Date().toLocaleTimeString();
-    this.attendancehistory.check_in = Hour;
+    this.attendancehistory.check_in = Hour; // Fin de esos
+
+    console.log();
   },
   methods: {
-    StudentName: function StudentName() {},
-    StudentCard: function StudentCard() {
+    // Estos codigos sirve para autocompletar los datos del estudiantes utilizando 3 metodos diferentes, un codigo, el nombre, o la cedula.
+    StudentCode: function StudentCode() {
       var _this2 = this;
 
-      axios.get('/lista-studentcard/' + this.card).then(function (response) {
+      axios.get('/lista-studentcode/' + this.code).then(function (response) {
         response.data.forEach(function (student) {
-          console.log(student.name);
+          console.log(student.code);
+          _this2.card = student.card;
           _this2.attendancehistory.student_id = student.id;
         });
       });
     },
-    StudentFind: function StudentFind() {
+    StudentName: function StudentName() {
       var _this3 = this;
+
+      axios.get('/lista-studentid/' + this.attendancehistory.student_id).then(function (response) {
+        response.data.forEach(function (student) {
+          console.log(student.card);
+          _this3.card = student.card;
+          _this3.code = student.code;
+        });
+      });
+    },
+    StudentCard: function StudentCard() {
+      var _this4 = this;
+
+      axios.get('/lista-studentcard/' + this.card).then(function (response) {
+        response.data.forEach(function (student) {
+          console.log(student.name);
+          _this4.attendancehistory.student_id = student.id;
+          _this4.code = student.code;
+        });
+      });
+    },
+    // Fin de los codigos esos
+    // Esta cosa no sirve, ayuda!!!!!
+    StudentFind: function StudentFind() {
+      var _this5 = this;
 
       if (attendancehistory.name === listAttendancehistory.student.name && Dates === listAttendancehistory.attendancehistory.date) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -2204,16 +2235,16 @@ __webpack_require__.r(__webpack_exports__);
           text: 'El estudiante se encuentra en el comedor'
         }).then(function (result) {
           if (result.isConfirmed) {
-            _this3.attendancehistory.student_id = '';
+            _this5.attendancehistory.student_id = '';
           }
         });
       }
     },
     send: function send() {
-      var _this4 = this;
+      var _this6 = this;
 
       axios.post('/store-attendancehistory', this.attendancehistory).then(function (response) {
-        _this4.attendancehistory.check_in = '', _this4.attendancehistory.check_out = '', _this4.attendancehistory.student_id = '', _this4.attendancehistory.teacher_id = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        _this6.attendancehistory.check_in = '', _this6.attendancehistory.check_out = '', _this6.attendancehistory.student_id = '', _this6.attendancehistory.teacher_id = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
           text: 'Se ha registrado con éxito.'
@@ -49414,59 +49445,29 @@ var render = function () {
                   ]),
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
-                  _c("fieldset", { staticStyle: { "margin-left": "50%" } }, [
-                    _c("label", [_vm._v("Asistió:")]),
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
+                  _c("fieldset", [
+                    _c("label", [_vm._v("Codigo:")]),
                     _vm._v(" "),
                     _c("input", {
                       directives: [
                         {
                           name: "model",
                           rawName: "v-model",
-                          value: _vm.attendancehistory.attended,
-                          expression: "attendancehistory.attended",
+                          value: _vm.code,
+                          expression: "code",
                         },
                       ],
-                      staticClass: "form-check",
-                      staticStyle: {
-                        width: "2em",
-                        height: "2em",
-                        "margin-top": ".25em",
-                        "vertical-align": "top",
-                        "border-radius": ".25em",
-                      },
-                      attrs: { type: "checkbox", placeholder: "Atendio" },
-                      domProps: {
-                        checked: Array.isArray(_vm.attendancehistory.attended)
-                          ? _vm._i(_vm.attendancehistory.attended, null) > -1
-                          : _vm.attendancehistory.attended,
-                      },
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Salida" },
+                      domProps: { value: _vm.code },
                       on: {
-                        change: function ($event) {
-                          var $$a = _vm.attendancehistory.attended,
-                            $$el = $event.target,
-                            $$c = $$el.checked ? true : false
-                          if (Array.isArray($$a)) {
-                            var $$v = null,
-                              $$i = _vm._i($$a, $$v)
-                            if ($$el.checked) {
-                              $$i < 0 &&
-                                _vm.$set(
-                                  _vm.attendancehistory,
-                                  "attended",
-                                  $$a.concat([$$v])
-                                )
-                            } else {
-                              $$i > -1 &&
-                                _vm.$set(
-                                  _vm.attendancehistory,
-                                  "attended",
-                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
-                                )
-                            }
-                          } else {
-                            _vm.$set(_vm.attendancehistory, "attended", $$c)
+                        change: _vm.StudentCode,
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
                           }
+                          _vm.code = $event.target.value
                         },
                       },
                     }),
