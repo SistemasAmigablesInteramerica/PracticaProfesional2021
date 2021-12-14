@@ -43,6 +43,16 @@ class StudentController extends Controller
         return view ('students/edit-student', compact('student'));
     }
 
+    public function findcard($card)
+    {
+        return Student::where('card', $card)->get();
+    }
+
+    public function findname($name)
+    {
+        return Student::where('name', $name)->get();
+    }
+
     public function update(Request $request, $id)
     {
         $student = Student::where('id', $id)->update($request->all());

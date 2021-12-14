@@ -2132,6 +2132,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createAttendancehistory",
@@ -2151,7 +2157,9 @@ __webpack_require__.r(__webpack_exports__);
       },
       listStudent: [],
       listSubjectTeacher: [],
-      listTeacher: []
+      listTeacher: [],
+      listAttendancehistory: [],
+      card: ''
     };
   },
   created: function created() {
@@ -2166,17 +2174,46 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/list-teacher').then(function (response) {
       _this.listTeacher = response.data;
     });
+    axios.get('/list-attendanceHistory').then(function (response) {
+      _this.listAttendancehistory = response.data;
+    });
     var Dates = new Date().toISOString().slice(0, 10);
     this.attendancehistory.date = Dates;
     var Hour = new Date().toLocaleTimeString();
     this.attendancehistory.check_in = Hour;
   },
   methods: {
-    send: function send() {
+    StudentName: function StudentName() {},
+    StudentCard: function StudentCard() {
       var _this2 = this;
 
+      axios.get('/lista-studentcard/' + this.card).then(function (response) {
+        response.data.forEach(function (student) {
+          console.log(student.name);
+          _this2.attendancehistory.student_id = student.id;
+        });
+      });
+    },
+    StudentFind: function StudentFind() {
+      var _this3 = this;
+
+      if (attendancehistory.name === listAttendancehistory.student.name && Dates === listAttendancehistory.attendancehistory.date) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          title: 'Error',
+          icon: 'error',
+          text: 'El estudiante se encuentra en el comedor'
+        }).then(function (result) {
+          if (result.isConfirmed) {
+            _this3.attendancehistory.student_id = '';
+          }
+        });
+      }
+    },
+    send: function send() {
+      var _this4 = this;
+
       axios.post('/store-attendancehistory', this.attendancehistory).then(function (response) {
-        _this2.attendancehistory.check_in = '', _this2.attendancehistory.check_out = '', _this2.attendancehistory.student_id = '', _this2.attendancehistory.teacher_id = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        _this4.attendancehistory.check_in = '', _this4.attendancehistory.check_out = '', _this4.attendancehistory.student_id = '', _this4.attendancehistory.teacher_id = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
           text: 'Se ha registrado con éxito.'
@@ -5021,6 +5058,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createStudent",
@@ -5046,16 +5084,21 @@ __webpack_require__.r(__webpack_exports__);
         family_member_total: '',
         total_per_capita: '',
         clasification: '',
-        financial_assistance: '',
-        voluntary_assistance: '',
-        rental_income: '',
-        others_income: '',
-        total_income: ''
+        financial_assistance: 0,
+        voluntary_assistance: 0,
+        rental_income: 0,
+        others_income: 0,
+        total_income: 0
       },
-      confirmation: ''
+      confirmation: '',
+      ItemsNameFile: '',
+      formData: ''
     };
   },
   methods: {
+    sumTotalIncome: function sumTotalIncome() {
+      this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance) + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income);
+    },
     send: function send() {
       var _this = this;
 
@@ -5169,6 +5212,50 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Error',
           text: 'Se ha encontrado un error.'
         });
+      });
+    },
+    onUploadFile: function onUploadFile(e) {
+      this.formDataFile = new FormData();
+      var files = e.target.files || e.dataTransfer.files;
+      var fileSizes = 0;
+
+      for (var filein in files) {
+        if (!isNaN(fileIn)) {
+          this.ItemNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
+
+          if (this.bytesToSize(files[fileIn].size) > 5) {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atencion', 'El archivo es muy grande solo se permite menor a 5MB', 'warning');
+            return false;
+          }
+
+          if (this.student.card === '') {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atencion', 'Debe agregar el numero de cédula primero', 'warning');
+            return false;
+          }
+
+          fileSizes = files[fileIn].size;
+          this.formData.append("itemsfile", this.ItemsNameFile);
+          this.formData.append("card", this.student.card);
+          console.log(files[fileIn]);
+        }
+      }
+
+      this.uploadFile();
+    },
+    bytesToSize: function bytesToSize(bytes) {
+      var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+      if (bytes === 0) return "n/a";
+      var i = parseInt(Math.floor(Math.log(Bytes) / Math.log(1024)));
+      if (i === 0) return bytes + " " + sizes[i];
+      return (bytes / Math.pow(1024, i)).toFixed(2) + " " + sizes[i];
+    },
+    uploadFile: function uploadFile() {
+      var _this2 = this;
+
+      axios.post("sysconfig bussines/upload-file-logo", this.formDataFile).then(function (response) {
+        _this2.data.file_logo = response.data;
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('!Oooo', 'No se puede procesar la imagen', 'error');
       });
     }
   }
@@ -49194,23 +49281,26 @@ var render = function () {
                         ],
                         staticClass: "form-control",
                         on: {
-                          change: function ($event) {
-                            var $$selectedVal = Array.prototype.filter
-                              .call($event.target.options, function (o) {
-                                return o.selected
-                              })
-                              .map(function (o) {
-                                var val = "_value" in o ? o._value : o.value
-                                return val
-                              })
-                            _vm.$set(
-                              _vm.attendancehistory,
-                              "student_id",
-                              $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            )
-                          },
+                          change: [
+                            function ($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function (o) {
+                                  return o.selected
+                                })
+                                .map(function (o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.$set(
+                                _vm.attendancehistory,
+                                "student_id",
+                                $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              )
+                            },
+                            _vm.StudentName,
+                          ],
                         },
                       },
                       [
@@ -49233,6 +49323,35 @@ var render = function () {
                       ],
                       2
                     ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
+                  _c("fieldset", [
+                    _c("label", [_vm._v("Cedula:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.card,
+                          expression: "card",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Salida" },
+                      domProps: { value: _vm.card },
+                      on: {
+                        change: _vm.StudentCard,
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.card = $event.target.value
+                        },
+                      },
+                    }),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -49426,6 +49545,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -49446,17 +49566,11 @@ var render = function () {
                 _vm._v(" "),
                 _c("th", [_vm._v(_vm._s(attendancehistory.check_out))]),
                 _vm._v(" "),
-                _c(
-                  "th",
-                  _vm._l(_vm.listAttendancehistory, function (relation) {
-                    return _c(
-                      "label",
-                      { staticClass: "label label-primary p-1" },
-                      [_vm._v(_vm._s(relation.student.name))]
-                    )
-                  }),
-                  0
-                ),
+                _c("th", [
+                  _c("label", { staticClass: "label label-primary p-1" }, [
+                    _vm._v(_vm._s(attendancehistory.student.name)),
+                  ]),
+                ]),
                 _vm._v(" "),
                 _c("th", [_vm._v(_vm._s(attendancehistory.teacher.names))]),
                 _vm._v(" "),
@@ -50352,6 +50466,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -50447,6 +50562,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -51130,6 +51246,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -51216,6 +51333,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -51544,6 +51662,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -52758,6 +52877,7 @@ var render = function () {
         width: "50%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -52860,6 +52980,7 @@ var render = function () {
         width: "50%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -52962,6 +53083,7 @@ var render = function () {
         width: "50%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -53435,6 +53557,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -53529,6 +53652,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -53728,9 +53852,7 @@ var render = function () {
                       { staticClass: "col-lg-12 col-md-12 col-sm-12" },
                       [
                         _c("fieldset", [
-                          _c("label", { attrs: { for: "Birthdate" } }, [
-                            _vm._v("Fecha de Nacimiento:"),
-                          ]),
+                          _c("label", [_vm._v("Fecha de Nacimiento:")]),
                           _vm._v(" "),
                           _c("input", {
                             directives: [
@@ -53769,9 +53891,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
-                        _c("label", { attrs: { for: "legal_guardian_name" } }, [
-                          _vm._v("Nombre del Encargado Legal:"),
-                        ]),
+                        _c("label", [_vm._v("Nombre del Encargado Legal:")]),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -53809,9 +53929,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
-                        _c("label", { attrs: { for: "legal_guardian_card" } }, [
-                          _vm._v("Cédula del encargado legal:"),
-                        ]),
+                        _c("label", [_vm._v("Cédula del encargado legal:")]),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -53850,9 +53968,7 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
-                        _c("label", { attrs: { for: "phone_number" } }, [
-                          _vm._v("Telefono de domicilio:"),
-                        ]),
+                        _c("label", [_vm._v("Telefono de domicilio:")]),
                         _vm._v(" "),
                         _c("input", {
                           directives: [
@@ -53935,7 +54051,7 @@ var render = function () {
                       { staticClass: "col-lg-12 col-md-12 col-sm-12" },
                       [
                         _c("fieldset", [
-                          _c("label", { attrs: { for: "archivo" } }, [
+                          _c("label", [
                             _vm._v("Subir La Constancia Salarial:"),
                           ]),
                           _vm._v(" "),
@@ -53943,11 +54059,13 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               type: "file",
-                              name: "archivo",
+                              name: "fileitems",
                               accept: "image/*,.txt,.doc,.docx,.document,.pdf",
                             },
-                            on: { change: _vm.student.salarial_constance },
+                            on: { change: _vm.onUploadFile },
                           }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(_vm.ItemsNameFile))]),
                         ]),
                         _vm._v(" "),
                         _c("br"),
@@ -53972,11 +54090,12 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             name: "financial_assistance",
-                            type: "text",
+                            type: "number",
                             placeholder: "₡ Ayuda Financiera",
                           },
                           domProps: { value: _vm.student.financial_assistance },
                           on: {
+                            change: _vm.sumTotalIncome,
                             input: function ($event) {
                               if ($event.target.composing) {
                                 return
@@ -54009,11 +54128,12 @@ var render = function () {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
+                            type: "number",
                             placeholder: "₡ Ayuda Voluntaria",
                           },
                           domProps: { value: _vm.student.voluntary_assistance },
                           on: {
+                            change: _vm.sumTotalIncome,
                             input: function ($event) {
                               if ($event.target.composing) {
                                 return
@@ -54047,11 +54167,12 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             name: "rental_income",
-                            type: "text",
+                            type: "number",
                             placeholder: "₡ Arquileres",
                           },
                           domProps: { value: _vm.student.rental_income },
                           on: {
+                            change: _vm.sumTotalIncome,
                             input: function ($event) {
                               if ($event.target.composing) {
                                 return
@@ -54085,11 +54206,12 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             name: "others_income",
-                            type: "text",
+                            type: "number",
                             placeholder: "₡ Otros(Especifique)",
                           },
                           domProps: { value: _vm.student.others_income },
                           on: {
+                            change: _vm.sumTotalIncome,
                             input: function ($event) {
                               if ($event.target.composing) {
                                 return
@@ -54123,7 +54245,8 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             name: "total_income",
-                            type: "text",
+                            type: "number",
+                            readonly: "",
                             placeholder: "₡ Ingresos Totales",
                           },
                           domProps: { value: _vm.student.total_income },
@@ -56262,6 +56385,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -58010,6 +58134,7 @@ var render = function () {
           width: "100%",
           border: "10px solid white",
           "background-color": "white",
+          "margin-top": "100px",
         },
       },
       [
@@ -58143,6 +58268,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -70406,7 +70532,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
