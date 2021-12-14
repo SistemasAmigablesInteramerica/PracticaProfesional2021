@@ -32,29 +32,29 @@
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                    <label for="Birthdate">Fecha de Nacimiento:</label>
-                   <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">  
+                    <label>Fecha de Nacimiento:</label>
+                   <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">
                   </fieldset>
                       <br>
-                  </div>  
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
-                  <label for="legal_guardian_name">Nombre del Encargado Legal:</label>
+                  <label>Nombre del Encargado Legal:</label>
                       <input name="legal_guardian_name" class="form-control" v-model="student.legal_guardian_name" type="text" placeholder="Inserte el Nombre">
                     </fieldset>
                         <br>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
-                      <label for="legal_guardian_card">Cédula del encargado legal:</label>
+                      <label>Cédula del encargado legal:</label>
                       <input name="legal_guardian_card" class="form-control" v-model="student.legal_guardian_card" type="number" placeholder="No.Cédula del encargado legal" pattern="">
                     </fieldset>
                        <br>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
-                  <label for="phone_number">Telefono de domicilio:</label>
-                    <input type="tel" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">  
+                  <label>Telefono de domicilio:</label>
+                    <input type="tel" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">
                     </fieldset>
                             <br>
                     </div>
@@ -67,8 +67,9 @@
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                  <label for="archivo">Subir La Constancia Salarial:</label>
-                    <input type="file" v-on:change="student.salarial_constance" class="form-control" name="archivo" accept="image/*,.txt,.doc,.docx,.document,.pdf">
+                  <label>Subir La Constancia Salarial:</label>
+                    <input class="form-control" type="file" @change="onUploadFile" name="fileitems" accept="image/*,.txt,.doc,.docx,.document,.pdf">
+                    <span>{{ItemsNameFile}}</span>
                     </fieldset>
                     <br>
                   </div>
@@ -79,36 +80,36 @@
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia financiera:</label>
-                    <input name="financial_assistance" class="form-control" v-model="student.financial_assistance" type="text" placeholder="₡ Ayuda Financiera">
-                    </fieldset> 
+                    <input name="financial_assistance" class="form-control" @change="sumTotalIncome" v-model="student.financial_assistance" type="number" placeholder="₡ Ayuda Financiera">
+                    </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia voluntaria:</label>
-                    <input class="form-control" v-model="student.voluntary_assistance" type="text" placeholder="₡ Ayuda Voluntaria">
-                    </fieldset> 
+                    <input class="form-control" @change="sumTotalIncome" v-model="student.voluntary_assistance" type="number" placeholder="₡ Ayuda Voluntaria">
+                    </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Ingresos de renta:</label>
-                    <input name="rental_income" class="form-control" v-model="student.rental_income" type="text" placeholder="₡ Arquileres">
-                    </fieldset> 
+                    <input name="rental_income" class="form-control" @change="sumTotalIncome" v-model="student.rental_income" type="number" placeholder="₡ Arquileres">
+                    </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Otros ingresos:</label>
-                    <input name="others_income" class="form-control" v-model="student.others_income" type="text" placeholder="₡ Otros(Especifique)">
-                    </fieldset> 
+                    <input name="others_income" class="form-control" @change="sumTotalIncome" v-model="student.others_income" type="number" placeholder="₡ Otros(Especifique)">
+                    </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Total de ingresos:</label>
-                    <input name="total_income" class="form-control" v-model="student.total_income" type="text" placeholder="₡ Ingresos Totales">
-                    </fieldset> 
+                    <input name="total_income" class="form-control" v-model="student.total_income" type="number" readonly placeholder="₡ Ingresos Totales">
+                    </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
@@ -117,7 +118,7 @@
                     <br>
                       <label class="form-check-label">Acepto:</label>
                     <input name="studentcheck" class="form-check-input" v-model="confirmation" type="checkbox">
-                    </fieldset> 
+                    </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12" >
@@ -127,7 +128,7 @@
                     <br>
                   </div>
                 </div>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
@@ -147,7 +148,7 @@ export default {
                 name: '',
                 nationality: '',
                 birthdate: '',
-                card: '',   
+                card: '',
                 salarial_constance: '',
                 legal_guardian_name: '',
                 legal_guardian_card: '',
@@ -158,17 +159,23 @@ export default {
                 family_member_total: '',
                 total_per_capita: '',
                 clasification: '',
-                financial_assistance: '',
-                voluntary_assistance: '',
-                rental_income: '',
-                others_income: '',
-                total_income: '',
+                financial_assistance: 0,
+                voluntary_assistance: 0,
+                rental_income: 0,
+                others_income: 0,
+                total_income: 0,
             },
               confirmation: '',
+              ItemsNameFile:'',
+              formData:''
         }
     },
     methods:{
+        sumTotalIncome(){
+            this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance) + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income)
+        },
         send() {
+
           if(this.student.name === ''){
             Swal.fire({
               icon: 'warning',
@@ -294,7 +301,54 @@ export default {
                     text: 'Se ha encontrado un error.',
                 });
             })
-        }
+
+
+        },
+       onUploadFile(e){
+            this.formDataFile = new FormData();
+            let files = e.target.files || e.dataTransfer.files;
+            let fileSizes = 0;
+            for(let filein in files){
+                if (!isNaN(fileIn)){
+                    this.ItemNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
+                    if(this.bytesToSize(files[fileIn].size) > 5 ) {
+                          Swal.fire('Atencion', 'El archivo es muy grande solo se permite menor a 5MB', 'warning');
+                          return false;
+                    }
+                     if(this.student.card === '') {
+                          Swal.fire('Atencion', 'Debe agregar el numero de cédula primero', 'warning');
+                          return false;
+                    }
+                    fileSizes = files[fileIn].size;
+                    this.formData.append("itemsfile", this.ItemsNameFile);
+                    this.formData.append("card", this.student.card);
+                    console.log(files[fileIn]);
+                }
+            }
+            this.uploadFile();
+        },
+        bytesToSize(bytes){
+        const sizes = [
+            "Bytes",
+            "KB",
+            "MB",
+            "GB",
+            "TB"
+        ];
+        if (bytes === 0) return "n/a";
+        let i = parseInt(Math.floor(Math.log(Bytes) / Math.log(1024)));
+        if (i === 0) return bytes + " " + sizes[i];
+        return (bytes / Math.pow(1024, i)).toFixed(2) + " " + sizes[i];
+        },
+        uploadFile(){
+          axios.post("sysconfig bussines/upload-file-logo", this.formDataFile)
+          .then(response => {
+            this.data.file_logo = response.data;
+          }).catch(function (error) {
+            Swal.fire('!Oooo', 'No se puede procesar la imagen', 'error');
+          });
+        },
+
     }
 
 }

@@ -18,7 +18,7 @@ class UserDataTableSeeder extends Seeder
     {
         //
 
-        User::create(['name' => 'SuperAdministrador', 'email' => 'fullpass@gmail.com' ,  'password' => hash::make('rootfullpass1234')]);
+        User::create(['name' => 'SuperAdministrador', 'email' => 'fullpass@gmail.com' ,  'password' => hash::make('12345678')]);
     }
 
 }
