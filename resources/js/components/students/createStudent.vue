@@ -69,7 +69,7 @@
                     <fieldset>
                   <label>Subir La Constancia Salarial:</label>
                     <input class="form-control" type="file" @change="onUploadFile" name="fileitems" accept="image/*,.txt,.doc,.docx,.document,.pdf">
-                    <span>{{ItemsNameFile}}</span>
+                    <span>{{itemsNameFile}}</span>
                     </fieldset>
                     <br>
                   </div>
@@ -166,7 +166,7 @@ export default {
                 total_income: 0,
             },
               confirmation: '',
-              ItemsNameFile:'',
+              itemsNameFile:'',
               formData:''
         }
     },
@@ -308,9 +308,10 @@ export default {
             this.formDataFile = new FormData();
             let files = e.target.files || e.dataTransfer.files;
             let fileSizes = 0;
-            for(let filein in files){
+            for(let fileIn in files){
                 if (!isNaN(fileIn)){
-                    this.ItemNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
+                    this.itemsNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
+
                     if(this.bytesToSize(files[fileIn].size) > 5 ) {
                           Swal.fire('Atencion', 'El archivo es muy grande solo se permite menor a 5MB', 'warning');
                           return false;
@@ -320,8 +321,8 @@ export default {
                           return false;
                     }
                     fileSizes = files[fileIn].size;
-                    this.formData.append("itemsfile", this.ItemsNameFile);
-                    this.formData.append("card", this.student.card);
+                    this.formDataFile.append("itemsFile", this.itemsNameFile);
+                    this.formDataFile.append("card", this.student.card);
                     console.log(files[fileIn]);
                 }
             }
@@ -336,14 +337,15 @@ export default {
             "TB"
         ];
         if (bytes === 0) return "n/a";
-        let i = parseInt(Math.floor(Math.log(Bytes) / Math.log(1024)));
+        let i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
         if (i === 0) return bytes + " " + sizes[i];
         return (bytes / Math.pow(1024, i)).toFixed(2) + " " + sizes[i];
         },
         uploadFile(){
-          axios.post("sysconfig bussines/upload-file-logo", this.formDataFile)
+          axios.post("/upload-file-salarial_constance", this.formDataFile)
           .then(response => {
-            this.data.file_logo = response.data;
+            this.student.salarial_constance = response.data;
+
           }).catch(function (error) {
             Swal.fire('!Oooo', 'No se puede procesar la imagen', 'error');
           });
