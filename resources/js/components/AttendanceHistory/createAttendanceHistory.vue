@@ -29,10 +29,16 @@
                           <div class="col-lg-6 col-md-6 col-sm-6">
                           <fieldset>
                             <label>Estudiante:</label>
-                            <select class="form-control" v-model="attendancehistory.student_id">
+                            <select class="form-control" @change="StudentName" v-model="attendancehistory.student_id">
                               <option selected disabled value="">Seleccione un estudiante</option>
                               <option v-for="student in listStudent" :value="student.id" :key="student.id">{{student.name}}</option>
                             </select>
+                          </fieldset>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                          <fieldset>
+                            <label>Cedula:</label>
+                            <input class="form-control" type="text" @change="StudentCard" v-model="card" placeholder="Salida">
                           </fieldset>
                         </div>
                           <div class="col-lg-6 col-md-6 col-sm-6">
@@ -83,6 +89,7 @@
             listSubjectTeacher: [],
             listTeacher: [],
             listAttendancehistory: [],
+            card: '',
           }
         },
         created(){
@@ -106,6 +113,22 @@
         },
 
         methods: {
+
+            StudentName(){
+
+            },
+
+            StudentCard(){
+                axios.get('/lista-studentcard/' + this.card).then(response=>{
+                    response.data.forEach(student => {
+                        console.log(student.name)
+                        this.attendancehistory.student_id = student.id
+                    });
+
+
+                })
+            },
+
             StudentFind(){
 
                 if(attendancehistory.name === listAttendancehistory.student.name && Dates === listAttendancehistory.attendancehistory.date){

@@ -34,6 +34,9 @@ Route::get('/registro-de-estudiantes', [App\Http\Controllers\Student\StudentCont
 Route::get('/lista-de-estudiantes', [App\Http\Controllers\Student\ListStudentController::class, 'create'])->name('list-studentsinfo');
 Route::get('/edit-student/{id}', [App\Http\Controllers\Student\StudentController::class, 'edit']);
 Route::get('/list-student', [App\Http\Controllers\Student\StudentController::class, 'list']);
+Route::get('/lista-studentcard/{card}', [App\Http\Controllers\Student\StudentController::class, 'findcard']);
+Route::get('/lista-studentname/{name}', [App\Http\Controllers\Student\StudentController::class, 'findname']);
+Route::post('/upload-file-salarial_constance', [StudentController::class, 'uploadFile']);
 Route::post('/store-student', [StudentController::class, 'store']);
 Route::put('/update-student/{id}', [StudentController::class, 'update']);
 // Fin de rutas de estudiantes
