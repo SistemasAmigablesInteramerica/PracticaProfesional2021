@@ -26,7 +26,10 @@
       <th>{{ student.legal_guardian_name }}</th>
       <th>{{ student.place_residence }}</th>
       <th>{{ student.phone_number }}</th>
-      <th>{{ student.socioeconomic_status }}</th>
+      <th v-if="student.socioeconomic_status === 'extreme_poverty'">Pobreza extrema</th>
+       <th v-if="student.socioeconomic_status === 'poverty'">Pobreza</th>
+        <th v-if="student.socioeconomic_status === 'vulnerability'">Vulberabilidad</th>
+         <th v-if="student.socioeconomic_status === 'not_poor'">No pobre</th>
       <th>{{ student.total_per_capita }}</th>
       <th v-if="student.clasification === 1">Clasificó</th>
       <th v-else>No Clasificó</th>
@@ -59,3 +62,4 @@ export default {
     }
 }
 </script>
+
