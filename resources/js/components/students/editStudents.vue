@@ -11,6 +11,13 @@
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
+                      <label>Número de Cédula</label>
+                      <input name="card" class="form-control" @change="consultCard" v-model="student.card" type="number" placeholder="Numero de Cédula">
+                    </fieldset>
+                    <br>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <fieldset>
                       <label>Nombre completo:</label>
                       <input name="name" class="form-control" v-model="student.name" type="text" placeholder="Nombre Completo Del Estudiante">
                     </fieldset>
@@ -20,13 +27,6 @@
                     <label>Nacionalidad:</label>
                     <input name="nationality" class="form-control" v-model="student.nationality" type="text" placeholder="Nacionalidad" >
                   </fieldset>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <fieldset>
-                      <label>Número de Cédula</label>
-                      <input name="card" class="form-control" v-model="student.card" type="number" placeholder="Numero de Cédula">
-                    </fieldset>
-                    <br>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
@@ -103,35 +103,35 @@
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia financiera:</label>
-                    <input name="financial_assistance" class="form-control" v-model="student.financial_assistance" type="text" placeholder="₡ Ayuda Financiera">
+                    <input name="financial_assistance" class="form-control" @change="sumTotalIncome" v-model="student.financial_assistance" type="number" placeholder="₡ Ayuda Financiera">
                     </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia voluntaria:</label>
-                    <input class="form-control" v-model="student.voluntary_assistance" type="text" placeholder="₡ Ayuda Voluntaria">
+                    <input class="form-control" @change="sumTotalIncome" v-model="student.voluntary_assistance" type="number" placeholder="₡ Ayuda Voluntaria">
                     </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Ingresos de renta:</label>
-                    <input name="rental_income" class="form-control" v-model="student.rental_income" type="text" placeholder="₡ Arquileres">
+                    <input name="rental_income" class="form-control" @change="sumTotalIncome" v-model="student.rental_income" type="number" placeholder="₡ Arquileres">
                     </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Otros ingresos:</label>
-                    <input name="others_income" class="form-control" v-model="student.others_income" type="text" placeholder="₡ Otros(Especifique)">
+                    <input name="others_income" class="form-control" @change="sumTotalIncome" v-model="student.others_income" type="number" placeholder="₡ Otros(Especifique)">
                     </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Total de ingresos:</label>
-                    <input name="total_income" class="form-control" v-model="student.total_income" type="text" placeholder="₡ Ingresos Totales">
+                    <input name="total_income" class="form-control" v-model="student.total_income" type="number" readonly placeholder="₡ Ingresos Totales">
                     </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3  form-check-inline" >
-                     <fieldset>
+                     <fieldset style=" padding-top:25px;">
                     <label>Clasificó:</label>
                     <input class="form-con" style="width: 2em; height: 2em; margin-top: .27em; vertical-align:top; border-radius:.25em" v-model="student.clasification" type="checkbox">
                        </fieldset>
@@ -210,8 +210,35 @@ export default {
 
 
     methods:{
+         sumTotalIncome(){
+            this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance) + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income)
+        },
         divIncome(){
              this.student.total_per_capita = parseFloat(this.student.total_income_family) / parseFloat(this.student.family_member_total)
+        },
+        consultCard(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.card)
+            .then(response => {
+
+
+                self.student.name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
+        },
+          consultCard2(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.legal_guardian_card)
+            .then(response => {
+
+
+                self.student.legal_guardian_name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
         },
       send(){
         if(this.student.name === ''){

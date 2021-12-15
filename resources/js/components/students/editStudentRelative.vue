@@ -2,13 +2,13 @@
 <section class="contact-us" id="contact">
         <div class="container">
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">  
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row" style="min-height: 320spx; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Editar familiar de estudiante</h2>
-                  </div>  
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label>Estudiante:</label>
@@ -27,7 +27,7 @@
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label>Actividad laboral:</label>
-                      <input name="guaridan_profession" class="form-control" v-model="StudentRelative.guaridan_profession" type="text" id="guaridan_profession" placeholder="Empleo del familiar">
+                      <input name="guaridan_profession" class="form-control" v-model="StudentRelative.guardian_profession" type="text" id="guaridan_profession" placeholder="Empleo del familiar">
                     </fieldset>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
@@ -41,9 +41,9 @@
                     <fieldset>
                       <input name="guardian_relation" class="form-control" v-model="StudentRelative.guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
                     </fieldset>
-                  </div>  
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
-                    <fieldset> 
+                    <fieldset>
                       <label>Escolaridad:</label>
                       <input name="scholarship" class="form-control" v-model="StudentRelative.scholarship" type="text" id="scholarship"  placeholder="Escolaridad">
                     </fieldset>
@@ -54,7 +54,7 @@
                   <label>Recibe ayuda financiera</label>
                   <input style="width: 1em; height: 1em; margin-top: .25em; vertical-align:top; border-radius:.25em" v-model="StudentRelative.guardian_receives_aid" type="checkbox" value="guardian_receives_aid">
                   </fieldset>
-                </div>  
+                </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                     <label>Total de ayuda finaciera:</label>
@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import Swal from 'sweetalert2' 
+import Swal from 'sweetalert2'
 export default {
     name: 'editStudentrelative',
     props:[
@@ -192,6 +192,6 @@ export default {
             })
         }
     }
-    
+
 }
 </script>
