@@ -23,7 +23,7 @@
       <th>{{ attendancehistory.teacher.names }}</th>
       <th v-if="attendancehistory.attended === 1">Atendio</th>
       <th v-else>No Atendio</th>
-     <th></th>
+     <td><a class="btn btn-danger btn-se" @click="CheckOut(attendancehistory.id)"><span class="fa fa-sign-out"></span></a></td>
     </tr>
   </tbody>
     </table>
@@ -31,22 +31,53 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 export default {
     name: 'listAttendancehistory',
+    components: {Swal},
     data(){
         return{
             listAttendancehistory: [],
+            Hours: '',
+            Attendance: [],
         }
+
     },
+
     created(){
-        axios.get('list-attendanceHistory').then(response=>{
+        axios.get('/list-attendanceHistory').then(response=>{
             this.listAttendancehistory = response.data
         })
     },
+
     methods:{
-      edit(id){
-        return '/edit-attendancehistory/' + id
-      }
+
+      CheckOut(id)
+      {
+        axios.get('/check-attendancehistory/' + id).then(response=>{
+            response.data.forEach(attendance => {
+            var Hour = new Date().toLocaleTimeString()
+            attendance.check_out = Hour
+            console.log(attendance)
+            axios.put('/update-attendancehistory/' + id, Object.assign({}, attendance, {created_at: undefined}, {updated_at: undefined})).then(response=>{
+                this.attendancehistory.check_out = attendance.check_out
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Prueba',
+                    title: 'Exito'
+                })
+            }).catch(error=>{
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Prueba',
+                    title: 'Error'
+                })
+            })
+            });
+
+        })
+      },
+
     }
 }
 </script>

@@ -94,7 +94,7 @@ Route::put('/update-studentrelative/{id}', [StudentRelativeController::class, 'u
 // Inicio de rutas de Asistencia
 Route::get('/registro-de-asistencias', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'create'])->name('insert-attendancehistory');
 Route::get('/list-attendanceHistory', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'list']);
-Route::get('/edit-attendancehistory/{id}', [AttendanceHistoryController::class, 'edit']);
+Route::get('/check-attendancehistory/{id}', [AttendanceHistoryController::class, 'check']);
 Route::get('/attendance-auth', function(){
     return Auth::user();
 });

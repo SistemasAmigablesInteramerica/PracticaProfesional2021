@@ -26,6 +26,12 @@
                             <input class="form-control" type="text" v-model="attendancehistory.check_out" placeholder="Salida">
                           </fieldset>
                         </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                          <fieldset>
+                            <label>Cedula:</label>
+                            <input class="form-control" type="text" @change="StudentCard" v-model="card" placeholder="Salida">
+                          </fieldset>
+                        </div>
                           <div class="col-lg-6 col-md-6 col-sm-6">
                           <fieldset>
                             <label>Estudiante:</label>
@@ -33,12 +39,6 @@
                               <option selected disabled value="">Seleccione un estudiante</option>
                               <option v-for="student in listStudent" :value="student.id" :key="student.id">{{student.name}}</option>
                             </select>
-                          </fieldset>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                          <fieldset>
-                            <label>Cedula:</label>
-                            <input class="form-control" type="text" @change="StudentCard" v-model="card" placeholder="Salida">
                           </fieldset>
                         </div>
                           <div class="col-lg-6 col-md-6 col-sm-6">
@@ -109,20 +109,30 @@
           });
         //   fin de llamar select
 
-        // Consiguen la fecha y hora actual
-        var Dates = new Date().toISOString().slice(0,10);
-        this.attendancehistory.date = Dates;
-        var Hour = new Date().toLocaleTimeString();
-        this.attendancehistory.check_in = Hour;
-        // Fin de esos
+        },
 
-        console.log()
+        mounted() {
+
+            //  Ejecuta la funcion GetHour cada segundo
+            window.setInterval(() => {
+                this.GetHour();
+            }, 1000);
 
         },
 
         methods: {
 
-                // Estos codigos sirve para autocompletar los datos del estudiantes utilizando 3 metodos diferentes, un codigo, el nombre, o la cedula.
+            // Consiguen la fecha y hora actual
+            GetHour()
+            {
+
+                var Dates = new Date().toISOString().slice(0,10);
+                this.attendancehistory.date = Dates;
+                var Hour = new Date().toLocaleTimeString();
+                this.attendancehistory.check_in = Hour;
+            },
+
+            // Estos codigos sirve para autocompletar los datos del estudiantes utilizando 3 metodos diferentes, un codigo, el nombre, o la cedula.
             StudentCode(){
                 axios.get('/lista-studentcode/' + this.code).then(response=>{
                     response.data.forEach(student=>{

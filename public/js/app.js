@@ -2179,54 +2179,61 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/list-attendanceHistory').then(function (response) {
       _this.listAttendancehistory = response.data;
     }); //   fin de llamar select
-    // Consiguen la fecha y hora actual
+  },
+  mounted: function mounted() {
+    var _this2 = this;
 
-    var Dates = new Date().toISOString().slice(0, 10);
-    this.attendancehistory.date = Dates;
-    var Hour = new Date().toLocaleTimeString();
-    this.attendancehistory.check_in = Hour; // Fin de esos
-
-    console.log();
+    //  Ejecuta la funcion GetHour cada segundo
+    window.setInterval(function () {
+      _this2.GetHour();
+    }, 1000);
   },
   methods: {
+    // Consiguen la fecha y hora actual
+    GetHour: function GetHour() {
+      var Dates = new Date().toISOString().slice(0, 10);
+      this.attendancehistory.date = Dates;
+      var Hour = new Date().toLocaleTimeString();
+      this.attendancehistory.check_in = Hour;
+    },
     // Estos codigos sirve para autocompletar los datos del estudiantes utilizando 3 metodos diferentes, un codigo, el nombre, o la cedula.
     StudentCode: function StudentCode() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get('/lista-studentcode/' + this.code).then(function (response) {
         response.data.forEach(function (student) {
           console.log(student.code);
-          _this2.card = student.card;
-          _this2.attendancehistory.student_id = student.id;
+          _this3.card = student.card;
+          _this3.attendancehistory.student_id = student.id;
         });
       });
     },
     StudentName: function StudentName() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('/lista-studentid/' + this.attendancehistory.student_id).then(function (response) {
         response.data.forEach(function (student) {
           console.log(student.card);
-          _this3.card = student.card;
-          _this3.code = student.code;
+          _this4.card = student.card;
+          _this4.code = student.code;
         });
       });
     },
     StudentCard: function StudentCard() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get('/lista-studentcard/' + this.card).then(function (response) {
         response.data.forEach(function (student) {
           console.log(student.name);
-          _this4.attendancehistory.student_id = student.id;
-          _this4.code = student.code;
+          _this5.attendancehistory.student_id = student.id;
+          _this5.code = student.code;
         });
       });
     },
     // Fin de los codigos esos
     // Esta cosa no sirve, ayuda!!!!!
     StudentFind: function StudentFind() {
-      var _this5 = this;
+      var _this6 = this;
 
       if (attendancehistory.name === listAttendancehistory.student.name && Dates === listAttendancehistory.attendancehistory.date) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -2235,16 +2242,16 @@ __webpack_require__.r(__webpack_exports__);
           text: 'El estudiante se encuentra en el comedor'
         }).then(function (result) {
           if (result.isConfirmed) {
-            _this5.attendancehistory.student_id = '';
+            _this6.attendancehistory.student_id = '';
           }
         });
       }
     },
     send: function send() {
-      var _this6 = this;
+      var _this7 = this;
 
       axios.post('/store-attendancehistory', this.attendancehistory).then(function (response) {
-        _this6.attendancehistory.check_in = '', _this6.attendancehistory.check_out = '', _this6.attendancehistory.student_id = '', _this6.attendancehistory.teacher_id = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        _this7.attendancehistory.check_in = '', _this7.attendancehistory.check_out = '', _this7.attendancehistory.student_id = '', _this7.attendancehistory.teacher_id = '', sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
           icon: 'success',
           title: 'Datos registrados',
           text: 'Se ha registrado con éxito.'
@@ -2273,6 +2280,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2305,23 +2314,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'listAttendancehistory',
+  components: {
+    Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
+  },
   data: function data() {
     return {
-      listAttendancehistory: []
+      listAttendancehistory: [],
+      Hours: '',
+      Attendance: []
     };
   },
   created: function created() {
     var _this = this;
 
-    axios.get('list-attendanceHistory').then(function (response) {
+    axios.get('/list-attendanceHistory').then(function (response) {
       _this.listAttendancehistory = response.data;
     });
   },
   methods: {
-    edit: function edit(id) {
-      return '/edit-attendancehistory/' + id;
+    CheckOut: function CheckOut(id) {
+      var _this2 = this;
+
+      axios.get('/check-attendancehistory/' + id).then(function (response) {
+        response.data.forEach(function (attendance) {
+          var Hour = new Date().toLocaleTimeString();
+          attendance.check_out = Hour;
+          console.log(attendance);
+          axios.put('/update-attendancehistory/' + id, Object.assign({}, attendance, {
+            created_at: undefined
+          }, {
+            updated_at: undefined
+          })).then(function (response) {
+            _this2.attendancehistory.check_out = attendance.check_out;
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              icon: 'success',
+              text: 'Prueba',
+              title: 'Exito'
+            });
+          })["catch"](function (error) {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+              icon: 'error',
+              text: 'Prueba',
+              title: 'Error'
+            });
+          });
+        });
+      });
     }
   }
 });
@@ -5122,7 +5163,7 @@ __webpack_require__.r(__webpack_exports__);
         total_income: 0
       },
       confirmation: '',
-      ItemsNameFile: '',
+      itemsNameFile: '',
       formData: ''
     };
   },
@@ -5250,9 +5291,9 @@ __webpack_require__.r(__webpack_exports__);
       var files = e.target.files || e.dataTransfer.files;
       var fileSizes = 0;
 
-      for (var filein in files) {
+      for (var fileIn in files) {
         if (!isNaN(fileIn)) {
-          this.ItemNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
+          this.itemsNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
 
           if (this.bytesToSize(files[fileIn].size) > 5) {
             sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atencion', 'El archivo es muy grande solo se permite menor a 5MB', 'warning');
@@ -5265,8 +5306,8 @@ __webpack_require__.r(__webpack_exports__);
           }
 
           fileSizes = files[fileIn].size;
-          this.formData.append("itemsfile", this.ItemsNameFile);
-          this.formData.append("card", this.student.card);
+          this.formDataFile.append("itemsFile", this.itemsNameFile);
+          this.formDataFile.append("card", this.student.card);
           console.log(files[fileIn]);
         }
       }
@@ -5276,15 +5317,15 @@ __webpack_require__.r(__webpack_exports__);
     bytesToSize: function bytesToSize(bytes) {
       var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
       if (bytes === 0) return "n/a";
-      var i = parseInt(Math.floor(Math.log(Bytes) / Math.log(1024)));
+      var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
       if (i === 0) return bytes + " " + sizes[i];
       return (bytes / Math.pow(1024, i)).toFixed(2) + " " + sizes[i];
     },
     uploadFile: function uploadFile() {
       var _this2 = this;
 
-      axios.post("sysconfig bussines/upload-file-logo", this.formDataFile).then(function (response) {
-        _this2.data.file_logo = response.data;
+      axios.post("/upload-file-salarial_constance", this.formDataFile).then(function (response) {
+        _this2.student.salarial_constance = response.data;
       })["catch"](function (error) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('!Oooo', 'No se puede procesar la imagen', 'error');
       });
@@ -49297,6 +49338,35 @@ var render = function () {
                 _vm._v(" "),
                 _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                   _c("fieldset", [
+                    _c("label", [_vm._v("Cedula:")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.card,
+                          expression: "card",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Salida" },
+                      domProps: { value: _vm.card },
+                      on: {
+                        change: _vm.StudentCard,
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.card = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
+                  _c("fieldset", [
                     _c("label", [_vm._v("Estudiante:")]),
                     _vm._v(" "),
                     _c(
@@ -49354,35 +49424,6 @@ var render = function () {
                       ],
                       2
                     ),
-                  ]),
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
-                  _c("fieldset", [
-                    _c("label", [_vm._v("Cedula:")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.card,
-                          expression: "card",
-                        },
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "text", placeholder: "Salida" },
-                      domProps: { value: _vm.card },
-                      on: {
-                        change: _vm.StudentCard,
-                        input: function ($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.card = $event.target.value
-                        },
-                      },
-                    }),
                   ]),
                 ]),
                 _vm._v(" "),
@@ -49579,7 +49620,20 @@ var render = function () {
                   ? _c("th", [_vm._v("Atendio")])
                   : _c("th", [_vm._v("No Atendio")]),
                 _vm._v(" "),
-                _c("th"),
+                _c("td", [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-danger btn-se",
+                      on: {
+                        click: function ($event) {
+                          return _vm.CheckOut(attendancehistory.id)
+                        },
+                      },
+                    },
+                    [_c("span", { staticClass: "fa fa-sign-out" })]
+                  ),
+                ]),
               ])
             }
           ),
@@ -54066,7 +54120,7 @@ var render = function () {
                             on: { change: _vm.onUploadFile },
                           }),
                           _vm._v(" "),
-                          _c("span", [_vm._v(_vm._s(_vm.ItemsNameFile))]),
+                          _c("span", [_vm._v(_vm._s(_vm.itemsNameFile))]),
                         ]),
                         _vm._v(" "),
                         _c("br"),
