@@ -9,6 +9,13 @@
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Expediente Del Beneficiario Del Comedor Estudiantil</h2>
                   </div>
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                    <fieldset>
+                      <label>Número de Cédula</label>
+                      <input name="card" class="form-control" @change="consultCard" v-model="student.card" type="number" placeholder="Numero de Cédula">
+                    </fieldset>
+                    <br>
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label>Nombre completo:</label>
@@ -23,13 +30,6 @@
                   </fieldset>
                   <br>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <fieldset>
-                      <label>Número de Cédula</label>
-                      <input name="card" class="form-control" v-model="student.card" type="number" placeholder="Numero de Cédula">
-                    </fieldset>
-                    <br>
-                  </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
                     <label>Fecha de Nacimiento:</label>
@@ -37,19 +37,19 @@
                   </fieldset>
                       <br>
                   </div>
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                    <fieldset>
+                      <label>Cédula del encargado legal:</label>
+                      <input name="legal_guardian_card" class="form-control"  @change="consultCard2" v-model="student.legal_guardian_card" type="number" placeholder="No.Cédula del encargado legal" pattern="">
+                    </fieldset>
+                       <br>
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                   <label>Nombre del Encargado Legal:</label>
                       <input name="legal_guardian_name" class="form-control" v-model="student.legal_guardian_name" type="text" placeholder="Inserte el Nombre">
                     </fieldset>
                         <br>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <fieldset>
-                      <label>Cédula del encargado legal:</label>
-                      <input name="legal_guardian_card" class="form-control" v-model="student.legal_guardian_card" type="number" placeholder="No.Cédula del encargado legal" pattern="">
-                    </fieldset>
-                       <br>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
@@ -173,6 +173,30 @@ export default {
     methods:{
         sumTotalIncome(){
             this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance) + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income)
+        },
+        consultCard(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.card)
+            .then(response => {
+
+
+                self.student.name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
+        },
+          consultCard2(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.legal_guardian_card)
+            .then(response => {
+
+
+                self.student.legal_guardian_name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
         },
         send() {
 
@@ -312,7 +336,7 @@ export default {
                 if (!isNaN(fileIn)){
                     this.itemsNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
 
-                    if(this.bytesToSize(files[fileIn].size) > 5 ) {
+                    if(this.bytesToSize(files[fileIn].size) > 5242880 ) {
                           Swal.fire('Atencion', 'El archivo es muy grande solo se permite menor a 5MB', 'warning');
                           return false;
                     }
