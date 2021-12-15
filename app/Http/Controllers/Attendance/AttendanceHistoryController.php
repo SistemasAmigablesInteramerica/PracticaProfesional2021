@@ -13,7 +13,7 @@ class AttendanceHistoryController extends Controller
      //
      Public function __construct()
      {
-         
+
      }
       public function create()
      {
@@ -28,11 +28,16 @@ class AttendanceHistoryController extends Controller
         return $attendance;
      }
 
+     public function auth()
+     {
+        return Auth::user();
+     }
+
      public function edit($id)
      {
          $attendance = AttendanceHistory::find($id);
          return view ('attendance/edit-attendancehistory', compact('attendance'));
-         
+
      }
 
     public function list()
