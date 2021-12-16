@@ -9,7 +9,13 @@
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Editar familiar de estudiante</h2>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                  <fieldset>
+                    <label>Cédula del estudiante:</label>
+                    <input class="form-control" @change="StudentCard" v-model="card" type="number" placeholder="Cedula del estudiante" min="1">
+                  </fieldset>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                     <fieldset>
                       <label>Estudiante:</label>
                         <select class="form-control" v-model="StudentRelative.student_id">
@@ -18,7 +24,13 @@
                         </select>
                     </fieldset>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                     <div class="col-lg-6 col-md-6 col-sm-6">
+                  <fieldset>
+                    <label>Cédula del familiar:</label>
+                    <input name="guardian_card" class="form-control" v-model="StudentRelative.guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
+                  </fieldset>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                     <fieldset>
                       <label>Nombre:</label>
                       <input name="guardian_name" class="form-control" v-model="StudentRelative.guardian_name" type="text" id="guardian_name" placeholder="Nombre del familiar">
@@ -29,12 +41,6 @@
                       <label>Actividad laboral:</label>
                       <input name="guaridan_profession" class="form-control" v-model="StudentRelative.guardian_profession" type="text" id="guaridan_profession" placeholder="Empleo del familiar">
                     </fieldset>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                  <fieldset>
-                    <label>Cédula:</label>
-                    <input name="guardian_card" class="form-control" v-model="StudentRelative.guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
-                  </fieldset>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <label>Relación:</label>
@@ -126,6 +132,14 @@ export default {
 
     },
     methods: {
+            StudentCard(){
+                axios.get('/lista-studentcard/' + this.card).then(response=>{
+                    response.data.forEach(student => {
+                        console.log(student.name)
+                        this.StudentRelative.student_id = student.id
+                    });
+                })
+            },
         send(){
             if(this.StudentRelative.student_id === ''){
                 Swal.fire({

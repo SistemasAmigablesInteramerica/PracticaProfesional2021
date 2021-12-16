@@ -12,7 +12,7 @@
                   <div class="col-lg-6 col-md-6 col-sm-6">
                   <fieldset>
                     <label>Cédula del estudiante:</label>
-                    <input class="form-control" @change="StudentCard" v-model="card" type="number" id="guardian_card"  placeholder="Cedula del estudiante" min="1">
+                    <input class="form-control" @change="StudentCard" v-model="card" type="number" placeholder="Cedula del estudiante" min="1">
                   </fieldset>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6">
@@ -24,13 +24,13 @@
                         </select>
                     </fieldset>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                   <fieldset>
                     <label>Cédula del familiar:</label>
                     <input name="guardian_card" class="form-control" @change="consultCard" v-model="StudentRelative.guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
                   </fieldset>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                     <fieldset>
                       <label>Nombre:</label>
                       <input name="guardian_name" class="form-control" v-model="StudentRelative.guardian_name" type="text" id="guardian_name" placeholder="Nombre del familiar">
