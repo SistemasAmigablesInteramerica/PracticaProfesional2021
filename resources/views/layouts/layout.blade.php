@@ -32,8 +32,10 @@
                       <ul class="nav">
                           <li><a href="/">Menu principal</a></li>
                           <li class="has-sub">
+
                               <a href="javascript:void(0)">Expedientes comedor</a>
                               <ul class="sub-menu">
+                                  @can('create_student')
                                   <li><a href="{{asset('registro-de-estudiantes')}}">Agregar estudiante</a></li>
                                   @if (Route::has('login'))
                                   @auth
@@ -44,6 +46,7 @@
                                   <li><a href="{{asset('lista-de-familiares')}}">Ver familiares</a></li>
                                   @endauth
                                   @endif
+                                  @endcan
                               </ul>
                           </li>
                           @if (Route::has('login'))
@@ -51,6 +54,7 @@
                           <li class="has-sub">
                               <a href="javascript:void(0)">Docentes</a>
                               <ul class="sub-menu">
+                                  @can('create_teacher')
                                   @auth
                                   <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
 
@@ -60,7 +64,7 @@
                                   @auth
                                   <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
                                   @endauth
-
+                                  @endcan
                               </ul>
                           </li>
 
