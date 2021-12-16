@@ -5,7 +5,7 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row" style="min-height: 550px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
             <div class="col-lg-12 col-md-12 col-sm-12">
-                <div class="row">
+                <div class="row"> {{dataStudent}}
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Expediente Del Beneficiario Del Comedor Estudiantil</h2>
                   </div>
@@ -141,7 +141,7 @@
 export default {
     name: "createStudent",
     components: {Swal},
-
+    props: ['student'],
     data() {
         return {
             student: {
@@ -170,6 +170,11 @@ export default {
               formData:''
         }
     },
+  computed:{
+    dataStudent(){
+      return JSON.parse(this.student)
+    }
+  },
     methods:{
         sumTotalIncome(){
             this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance) + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income)

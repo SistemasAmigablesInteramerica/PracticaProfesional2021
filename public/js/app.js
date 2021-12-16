@@ -5118,6 +5118,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
+  props: ['student'],
   data: function data() {
     return {
       student: {
@@ -5147,6 +5148,11 @@ __webpack_require__.r(__webpack_exports__);
       itemsNameFile: '',
       formData: ''
     };
+  },
+  computed: {
+    dataStudent: function dataStudent() {
+      return JSON.parse(this.student);
+    }
   },
   methods: {
     sumTotalIncome: function sumTotalIncome() {
@@ -53859,6 +53865,9 @@ var render = function () {
               [
                 _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("div", { staticClass: "row" }, [
+                    _vm._v(
+                      " " + _vm._s(_vm.dataStudent) + "\n                  "
+                    ),
                     _vm._m(0),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
