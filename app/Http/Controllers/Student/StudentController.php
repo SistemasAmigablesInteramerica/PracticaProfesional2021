@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Student;
 
+use App\Entities\Config\Sysconf;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
@@ -19,7 +20,7 @@ class StudentController extends Controller
 
     public function index()
     {
-        
+
         return view ('students/list-student');
     }
 
@@ -52,6 +53,17 @@ class StudentController extends Controller
     public function list()
     {
         return Student::all();
+    }
+
+    public function uploadFile(Request $request)
+    {
+        if($request->hasFile('itemsFile'))
+        {
+            $file = $request->file('itemsFile');
+            $name = $file->getClientOriginalName();
+            $file->storeAs('constancias/', $name);
+            return response()->json('constancias/'. $name, 200);
+        }
     }
 
 }

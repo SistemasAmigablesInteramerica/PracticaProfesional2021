@@ -36,6 +36,7 @@ Route::get('/edit-student/{id}', [App\Http\Controllers\Student\StudentController
 Route::get('/list-student', [App\Http\Controllers\Student\StudentController::class, 'list']);
 Route::post('/store-student', [StudentController::class, 'store']);
 Route::put('/update-student/{id}', [StudentController::class, 'update']);
+Route::post('/upload-file-constants', [StudentController::class, 'uploadFile']);
 // Fin de rutas de estudiantes
 
 

@@ -5021,6 +5021,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "createStudent",
@@ -5046,16 +5048,31 @@ __webpack_require__.r(__webpack_exports__);
         family_member_total: '',
         total_per_capita: '',
         clasification: '',
-        financial_assistance: '',
-        voluntary_assistance: '',
-        rental_income: '',
-        others_income: '',
-        total_income: ''
+        financial_assistance: 0,
+        voluntary_assistance: 0,
+        rental_income: 0,
+        others_income: 0,
+        total_income: 0
       },
-      confirmation: ''
+      confirmation: '',
+      itemsNameFile: '',
+      formData: ''
     };
   },
   methods: {
+    sumTotalIncome: function sumTotalIncome() {
+      this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance) + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income);
+    },
+    consultCard: function consultCard(event) {
+      var self = this;
+      axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.card).then(function (response) {
+        //self.data.type_of_cedula = response.data.tipoIdentificacion;
+        self.student.name = response.data.nombre;
+      })["catch"](function (error) {
+        var self = this;
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default()("!Ooop", error.response.data.message, "error");
+      });
+    },
     send: function send() {
       var _this = this;
 
@@ -5169,6 +5186,50 @@ __webpack_require__.r(__webpack_exports__);
           title: 'Error',
           text: 'Se ha encontrado un error.'
         });
+      });
+    },
+    onUploadFile: function onUploadFile(e) {
+      this.formDataFile = new FormData();
+      var files = e.target.files || e.dataTransfer.files;
+      var fileSizes = 0;
+
+      for (var fileIn in files) {
+        if (!isNaN(fileIn)) {
+          this.itemsNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
+
+          if (files[fileIn].size > 5242880) {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atención', 'El archivo es muy grande solo se permite menor a 5MB', 'warning');
+            return false;
+          }
+
+          if (this.student.card === '') {
+            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('Atención', 'Debe agregar el número de cédula primero', 'warning');
+            return false;
+          }
+
+          fileSizes = files[fileIn].size;
+          this.formDataFile.append("itemsFile", this.itemsNameFile);
+          this.formDataFile.append("card", this.student.card);
+          console.log(files[fileIn]);
+        }
+      }
+
+      this.uploadFile();
+    },
+    bytesToSize: function bytesToSize(bytes) {
+      var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+      if (bytes === 0) return "n/a";
+      var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+      if (i === 0) return bytes + " " + sizes[i];
+      return (bytes / Math.pow(1024, i)).toFixed(2) + " " + sizes[i];
+    },
+    uploadFile: function uploadFile() {
+      var _this2 = this;
+
+      axios.post("/upload-file-constants", this.formDataFile).then(function (response) {
+        _this2.student.salarial_constance = response.data;
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire('!Ooop', 'No se puedo Procesar la imagen', 'error');
       });
     }
   }
@@ -49426,6 +49487,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -50352,6 +50414,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -50447,6 +50510,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -51130,6 +51194,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -51216,6 +51281,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -51544,6 +51610,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -52758,6 +52825,7 @@ var render = function () {
         width: "50%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -52860,6 +52928,7 @@ var render = function () {
         width: "50%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -52962,6 +53031,7 @@ var render = function () {
         width: "50%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -53435,6 +53505,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -53529,6 +53600,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -53619,6 +53691,41 @@ var render = function () {
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
                       _c("fieldset", [
+                        _c("label", [_vm._v("Número de Cédula")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.student.card,
+                              expression: "student.card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "card",
+                            type: "number",
+                            placeholder: "Numero de Cédula",
+                          },
+                          domProps: { value: _vm.student.card },
+                          on: {
+                            change: _vm.consultCard,
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(_vm.student, "card", $event.target.value)
+                            },
+                          },
+                        }),
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                      _c("fieldset", [
                         _c("label", [_vm._v("Nombre completo:")]),
                         _vm._v(" "),
                         _c("input", {
@@ -53681,40 +53788,6 @@ var render = function () {
                                 "nationality",
                                 $event.target.value
                               )
-                            },
-                          },
-                        }),
-                      ]),
-                      _vm._v(" "),
-                      _c("br"),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
-                      _c("fieldset", [
-                        _c("label", [_vm._v("Número de Cédula")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.student.card,
-                              expression: "student.card",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "card",
-                            type: "number",
-                            placeholder: "Numero de Cédula",
-                          },
-                          domProps: { value: _vm.student.card },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(_vm.student, "card", $event.target.value)
                             },
                           },
                         }),
@@ -53866,6 +53939,7 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             type: "tel",
+                            id: "phone_number",
                             name: "phone_number",
                             placeholder: "2777-0000",
                           },
@@ -53943,11 +54017,13 @@ var render = function () {
                             staticClass: "form-control",
                             attrs: {
                               type: "file",
-                              name: "archivo",
+                              name: "fileitems",
                               accept: "image/*,.txt,.doc,.docx,.document,.pdf",
                             },
-                            on: { change: _vm.student.salarial_constance },
+                            on: { change: _vm.onUploadFile },
                           }),
+                          _vm._v(" "),
+                          _c("span", [_vm._v(_vm._s(_vm.itemsNameFile))]),
                         ]),
                         _vm._v(" "),
                         _c("br"),
@@ -53972,11 +54048,12 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             name: "financial_assistance",
-                            type: "text",
+                            type: "number",
                             placeholder: "₡ Ayuda Financiera",
                           },
                           domProps: { value: _vm.student.financial_assistance },
                           on: {
+                            change: _vm.sumTotalIncome,
                             input: function ($event) {
                               if ($event.target.composing) {
                                 return
@@ -54009,11 +54086,12 @@ var render = function () {
                           ],
                           staticClass: "form-control",
                           attrs: {
-                            type: "text",
+                            type: "number",
                             placeholder: "₡ Ayuda Voluntaria",
                           },
                           domProps: { value: _vm.student.voluntary_assistance },
                           on: {
+                            change: _vm.sumTotalIncome,
                             input: function ($event) {
                               if ($event.target.composing) {
                                 return
@@ -54047,11 +54125,12 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             name: "rental_income",
-                            type: "text",
+                            type: "number",
                             placeholder: "₡ Arquileres",
                           },
                           domProps: { value: _vm.student.rental_income },
                           on: {
+                            change: _vm.sumTotalIncome,
                             input: function ($event) {
                               if ($event.target.composing) {
                                 return
@@ -54085,11 +54164,12 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             name: "others_income",
-                            type: "text",
+                            type: "number",
                             placeholder: "₡ Otros(Especifique)",
                           },
                           domProps: { value: _vm.student.others_income },
                           on: {
+                            change: _vm.sumTotalIncome,
                             input: function ($event) {
                               if ($event.target.composing) {
                                 return
@@ -54123,7 +54203,8 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             name: "total_income",
-                            type: "text",
+                            type: "number",
+                            readonly: "",
                             placeholder: "₡ Ingresos Totales",
                           },
                           domProps: { value: _vm.student.total_income },
@@ -56262,6 +56343,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -58010,6 +58092,7 @@ var render = function () {
           width: "100%",
           border: "10px solid white",
           "background-color": "white",
+          "margin-top": "100px",
         },
       },
       [
@@ -58143,6 +58226,7 @@ var render = function () {
         width: "100%",
         border: "10px solid white",
         "background-color": "white",
+        "margin-top": "100px",
       },
     },
     [
@@ -70406,7 +70490,7 @@ Vue.compile = compileToFunctions;
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"W:\\\\aplicaciones\\\\laragon\\\\www\\\\PracticaProfesional2021","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\laragon\\\\www\\\\FullPassStudent"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\laragon\\\\www\\\\FullPassStudent","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

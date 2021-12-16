@@ -25,10 +25,7 @@
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Aqui se pone el logo ***** -->
-                      <a href="{{asset('/')}}" class="logo">
-                          Fullpass Students
-                      </a>
+
                       <!-- ***** Fin de logo ***** -->
                       <!-- ***** Header con los botones ***** -->
                       <ul class="nav">
@@ -51,22 +48,36 @@
 
                           @if (Route::has('login'))
                           <li class="has-sub">
-                              <a href="javascript:void(0)">Docentes</a>
+                              <a href="javascript:void(0)">Empleos</a>
                               <ul class="sub-menu">
+                                    @guest
+                                  <li><a href="#loginSession">iniciar Sesión</a></li>
+                                  <li><a href="{{route('register')}}">Registrar</a></li>
+                                  @endguest
                                   @auth
-                                  <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
-
-                                  <li><a href="{{asset('lista-de-profesores')}}">Ver docentes</a></li>
-                                  @endauth
-                                  <li><a href="{{asset('registro-de-empleos')}}">Formulario de empleo</a></li>
-                                  @auth
-                                  <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
+                                      <li><a href="{{asset('formulario')}}">ver empleos</a></li>
+                                      <li><a href="{{asset('lista-de-aspirante')}}">ver empleos</a></li>
                                   @endauth
 
                               </ul>
                           </li>
 
                           @endif
+
+                          @auth
+                          <li class="has-sub">
+                              <a href="javascript:void(0)">Docentes</a>
+                              <ul class="sub-menu">
+
+                                  <li><a href="{{asset('registro-de-profesores')}}">Agregar docentes</a></li>
+
+                                  <li><a href="{{asset('lista-de-profesores')}}">Ver docentes</a></li>
+
+
+                              </ul>
+                          </li>
+
+                          @endauth
                           @if (Route::has('login'))
                           @auth
                           <li class="has-sub">
@@ -180,7 +191,7 @@
 
                 <div class="card-body">
 
-                    <form method="POST" action="{{ route('login') }}" style="min-height: 300px; border-radius: 50px;width: 100%;border: 20px solid white; background-color: whi
+                    <form id="loginSession" method="POST" action="{{ route('login') }}" style="min-height: 300px; border-radius: 50px;width: 100%;border: 20px solid white; background-color: whi
 ">
                         @csrf
 

@@ -26,10 +26,7 @@
           <div class="row">
               <div class="col-12">
                   <nav class="main-nav">
-                      <!-- ***** Aqui va el logot ***** -->
-                      <a href="{{asset('/')}}" class="logo">
-                          Fullpass Students
-                      </a>
+
                       <!-- ***** Fin de logo ***** -->
                       <!-- ***** Inicio de botones ***** -->
                       <ul class="nav">

@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\PermissionRole;
 use Illuminate\Database\Seeder;
-use App\Models\PermissionsRole;
 use App\Models\Permission;
 
 class PermissionRoleDataTableSeeder extends Seeder
@@ -17,11 +17,11 @@ class PermissionRoleDataTableSeeder extends Seeder
     {
         //
 
-        $permission=Permission::all();
-        $permission->id();
+        $permissions =Permission::all();
+
 
         foreach($permissions AS $permission){
-        PermissionRole::create(['role_id'=>'1', 'permission_id'=>$permission]);
+        PermissionRole::create(['role_id'=>'1', 'permission_id'=>$permission->id]);
         }
     }
 }
