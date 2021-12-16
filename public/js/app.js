@@ -2311,9 +2311,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'listAttendancehistory',
@@ -5681,6 +5678,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'editStudentrelative',
@@ -5725,6 +5728,16 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    StudentCard: function StudentCard() {
+      var _this2 = this;
+
+      axios.get('/lista-studentcard/' + this.card).then(function (response) {
+        response.data.forEach(function (student) {
+          console.log(student.name);
+          _this2.StudentRelative.student_id = student.id;
+        });
+      });
+    },
     send: function send() {
       if (this.StudentRelative.student_id === '') {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -49687,10 +49700,6 @@ var render = function () {
                 _vm._v(" "),
                 _c("th", [_vm._v(_vm._s(attendancehistory.teacher.names))]),
                 _vm._v(" "),
-                attendancehistory.attended === 1
-                  ? _c("th", [_vm._v("Atendio")])
-                  : _c("th", [_vm._v("No Atendio")]),
-                _vm._v(" "),
                 _c("td", [
                   _c(
                     "a",
@@ -49730,8 +49739,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estudiante")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Docente")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Asistió")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
@@ -54574,7 +54581,6 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             type: "number",
-                            id: "guardian_card",
                             placeholder: "Cedula del estudiante",
                             min: "1",
                           },
@@ -54651,7 +54657,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Cédula del familiar:")]),
                         _vm._v(" "),
@@ -54692,7 +54698,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre:")]),
                         _vm._v(" "),
@@ -55095,7 +55101,40 @@ var render = function () {
                   _c("div", { staticClass: "row" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
+                      _c("fieldset", [
+                        _c("label", [_vm._v("Cédula del estudiante:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.card,
+                              expression: "card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "number",
+                            placeholder: "Cedula del estudiante",
+                            min: "1",
+                          },
+                          domProps: { value: _vm.card },
+                          on: {
+                            change: _vm.StudentCard,
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.card = $event.target.value
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Estudiante:")]),
                         _vm._v(" "),
@@ -55154,7 +55193,47 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
+                      _c("fieldset", [
+                        _c("label", [_vm._v("Cédula del familiar:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.StudentRelative.guardian_card,
+                              expression: "StudentRelative.guardian_card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "guardian_card",
+                            type: "number",
+                            id: "guardian_card",
+                            placeholder: "Cedula del familiar",
+                            min: "1",
+                          },
+                          domProps: {
+                            value: _vm.StudentRelative.guardian_card,
+                          },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.StudentRelative,
+                                "guardian_card",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre:")]),
                         _vm._v(" "),
@@ -55224,46 +55303,6 @@ var render = function () {
                               _vm.$set(
                                 _vm.StudentRelative,
                                 "guardian_profession",
-                                $event.target.value
-                              )
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
-                      _c("fieldset", [
-                        _c("label", [_vm._v("Cédula:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.StudentRelative.guardian_card,
-                              expression: "StudentRelative.guardian_card",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "guardian_card",
-                            type: "number",
-                            id: "guardian_card",
-                            placeholder: "Cedula del familiar",
-                            min: "1",
-                          },
-                          domProps: {
-                            value: _vm.StudentRelative.guardian_card,
-                          },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.StudentRelative,
-                                "guardian_card",
                                 $event.target.value
                               )
                             },
