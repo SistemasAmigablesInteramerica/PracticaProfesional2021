@@ -20,13 +20,14 @@
   <tbody>
     <tr v-for="(StudentRelative, index) in  listStudentrelative" :key="StudentRelative.id">
       <th scope="row">{{ index +1 }}</th>
-      <th><label v-for="relation of listStudentrelative" :key="relation.id" >{{ relation.student.name}}</label></th>
+      <th><label>{{StudentRelative.student.name}}</label></th>
       <th>{{ StudentRelative.guardian_name }}</th>
       <th>{{ StudentRelative.guardian_profession }}</th>
       <th>{{ StudentRelative.guardian_card }}</th>
       <th>{{ StudentRelative.guardian_relation }}</th>
       <th>{{ StudentRelative.scholarship }}</th>
-      <th>{{ StudentRelative.guardian_receives_aid }}</th>
+      <th v-if="StudentRelative.guardian_receives_aid === 1">Si</th>
+      <th v-else>No</th>
       <th>{{ StudentRelative.guardian_aid_total }}</th>
       <th>{{ StudentRelative.guardian_salary }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(StudentRelative.id)"><span class="fa fa-edit"></span></a></td>

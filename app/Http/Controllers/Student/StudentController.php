@@ -44,6 +44,21 @@ class StudentController extends Controller
         return view ('students/edit-student', compact('student'));
     }
 
+    public function findcard($card)
+    {
+        return Student::where('card', $card)->get();
+    }
+
+    public function findid($id)
+    {
+        return Student::where('id', $id)->get();
+    }
+
+    public function findcode($code)
+    {
+        return Student::where('code', $code)->get();
+    }
+
     public function update(Request $request, $id)
     {
         $student = Student::where('id', $id)->update($request->all());
@@ -53,6 +68,16 @@ class StudentController extends Controller
     public function list()
     {
         return Student::all();
+    }
+    public function uploadFile(Request $request)
+    {
+        if($request->hasFile('itemsFile'))
+        {
+            $file = $request->file('itemsFile');
+            $name = $file->getClientOriginalName();
+            $file->storeAs('constancias/', $name);
+            return response()->json('constancias/'. $name, 200);
+        }
     }
 
     public function uploadFile(Request $request)

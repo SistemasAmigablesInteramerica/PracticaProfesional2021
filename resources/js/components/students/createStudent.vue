@@ -9,14 +9,13 @@
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Expediente Del Beneficiario Del Comedor Estudiantil</h2>
                   </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <fieldset>
-                            <label>Número de Cédula</label>
-                            <input name="card" class="form-control" @change="consultCard" v-model="student.card" type="number" placeholder="Numero de Cédula">
-                        </fieldset>
-                        <br>
-                    </div>
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                    <fieldset>
+                      <label>Número de Cédula</label>
+                      <input name="card" class="form-control" @change="consultCard" v-model="student.card" type="number" placeholder="Numero de Cédula">
+                    </fieldset>
+                    <br>
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label>Nombre completo:</label>
@@ -33,29 +32,29 @@
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                    <label for="Birthdate">Fecha de Nacimiento:</label>
+                    <label>Fecha de Nacimiento:</label>
                    <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">
                   </fieldset>
                       <br>
                   </div>
+                     <div class="col-lg-4 col-md-4 col-sm-4">
+                    <fieldset>
+                      <label>Cédula del encargado legal:</label>
+                      <input name="legal_guardian_card" class="form-control"  @change="consultCard2" v-model="student.legal_guardian_card" type="number" placeholder="No.Cédula del encargado legal" pattern="">
+                    </fieldset>
+                       <br>
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
-                  <label for="legal_guardian_name">Nombre del Encargado Legal:</label>
+                  <label>Nombre del Encargado Legal:</label>
                       <input name="legal_guardian_name" class="form-control" v-model="student.legal_guardian_name" type="text" placeholder="Inserte el Nombre">
                     </fieldset>
                         <br>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
-                      <label for="legal_guardian_card">Cédula del encargado legal:</label>
-                      <input name="legal_guardian_card" class="form-control" v-model="student.legal_guardian_card" type="number" placeholder="No.Cédula del encargado legal" pattern="">
-                    </fieldset>
-                       <br>
-                  </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <fieldset>
-                  <label for="phone_number">Telefono de domicilio:</label>
-                    <input type="tel" id="phone_number" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">
+                  <label>Telefono de domicilio:</label>
+                    <input type="tel" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">
                     </fieldset>
                             <br>
                     </div>
@@ -68,9 +67,9 @@
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
-                  <label for="archivo">Subir La Constancia Salarial:</label>
-                    <input type="file" @change="onUploadFile" class="form-control" name="fileitems" accept="image/*,.txt,.doc,.docx,.document,.pdf">
-                        <span>{{itemsNameFile}}</span>
+                  <label>Subir La Constancia Salarial:</label>
+                    <input class="form-control" type="file" @change="onUploadFile" name="fileitems" accept="image/*,.txt,.doc,.docx,.document,.pdf">
+                    <span>{{itemsNameFile}}</span>
                     </fieldset>
                     <br>
                   </div>
@@ -88,21 +87,21 @@
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia voluntaria:</label>
-                    <input class="form-control" v-model="student.voluntary_assistance"  @change="sumTotalIncome" type="number" placeholder="₡ Ayuda Voluntaria">
+                    <input class="form-control" @change="sumTotalIncome" v-model="student.voluntary_assistance" type="number" placeholder="₡ Ayuda Voluntaria">
                     </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Ingresos de renta:</label>
-                    <input name="rental_income" class="form-control"  @change="sumTotalIncome" v-model="student.rental_income" type="number" placeholder="₡ Arquileres">
+                    <input name="rental_income" class="form-control" @change="sumTotalIncome" v-model="student.rental_income" type="number" placeholder="₡ Arquileres">
                     </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Otros ingresos:</label>
-                    <input name="others_income" class="form-control"  @change="sumTotalIncome" v-model="student.others_income" type="number" placeholder="₡ Otros(Especifique)">
+                    <input name="others_income" class="form-control" @change="sumTotalIncome" v-model="student.others_income" type="number" placeholder="₡ Otros(Especifique)">
                     </fieldset>
                     <br>
                   </div>
@@ -167,28 +166,40 @@ export default {
                 total_income: 0,
             },
               confirmation: '',
-          itemsNameFile:'',
-          formData:''
+              itemsNameFile:'',
+              formData:''
         }
     },
     methods:{
-      sumTotalIncome(){
-        this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance)   + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income)
-      },
+        sumTotalIncome(){
+            this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance) + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income)
+        },
+        consultCard(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.card)
+            .then(response => {
 
-      consultCard(event) {
-        let self = this;
-        axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.card)
-        .then(response => {
 
-          //self.data.type_of_cedula = response.data.tipoIdentificacion;
-          self.student.name = response.data.nombre;
-        }).catch(function (error) {
-          var self = this;
-          Swal("!Ooop", error.response.data.message, "error");
-        });
-      },
+                self.student.name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
+        },
+          consultCard2(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.legal_guardian_card)
+            .then(response => {
+
+
+                self.student.legal_guardian_name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
+        },
         send() {
+
           if(this.student.name === ''){
             Swal.fire({
               icon: 'warning',
@@ -315,56 +326,52 @@ export default {
                 });
             })
         },
-      onUploadFile(e){
-        this.formDataFile = new FormData();
-        let files = e.target.files || e.dataTransfer.files;
+       onUploadFile(e){
+            this.formDataFile = new FormData();
+            let files = e.target.files || e.dataTransfer.files;
+            let fileSizes = 0;
+            for(let fileIn in files){
+                if (!isNaN(fileIn)){
+                    this.itemsNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
 
-        let fileSizes = 0;
-        for (let fileIn in files) {
-          if (!isNaN(fileIn)) {
-            this.itemsNameFile = e.target.files[fileIn] || e.dataTransfer.files[fileIn];
-
-            if(files[fileIn].size > 5242880 ){
-              Swal.fire('Atención','El archivo es muy grande solo se permite menor a 5MB','warning');
-              return false;
+                    if(this.bytesToSize(files[fileIn].size) > 5242880 ) {
+                          Swal.fire('Atencion', 'El archivo es muy grande solo se permite menor a 5MB', 'warning');
+                          return false;
+                    }
+                     if(this.student.card === '') {
+                          Swal.fire('Atencion', 'Debe agregar el numero de cédula primero', 'warning');
+                          return false;
+                    }
+                    fileSizes = files[fileIn].size;
+                    this.formDataFile.append("itemsFile", this.itemsNameFile);
+                    this.formDataFile.append("card", this.student.card);
+                    console.log(files[fileIn]);
+                }
             }
-            if(this.student.card === '' ){
-              Swal.fire('Atención','Debe agregar el número de cédula primero','warning');
-              return false;
-            }
-            fileSizes = files[fileIn].size;
-            this.formDataFile.append("itemsFile", this.itemsNameFile);
-            this.formDataFile.append("card", this.student.card);
-            console.log(files[fileIn]);
-          }
-        }
-        this.uploadFile();
-      },
-      bytesToSize(bytes) {
+            this.uploadFile();
+        },
+        bytesToSize(bytes){
         const sizes = [
-          "Bytes",
-          "KB",
-          "MB",
-          "GB",
-          "TB"
+            "Bytes",
+            "KB",
+            "MB",
+            "GB",
+            "TB"
         ];
         if (bytes === 0) return "n/a";
         let i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
         if (i === 0) return bytes + " " + sizes[i];
         return (bytes / Math.pow(1024, i)).toFixed(2) + " " + sizes[i];
-      },
-      uploadFile() {
+        },
+        uploadFile(){
+          axios.post("/upload-file-salarial_constance", this.formDataFile)
+          .then(response => {
+            this.student.salarial_constance = response.data;
 
-        axios.post("/upload-file-constants", this.formDataFile)
-        .then(response => {
-          this.student.salarial_constance = response.data;
-
-        }).catch(function (error) {
-
-          Swal.fire('!Ooop', 'No se puedo Procesar la imagen', 'error');
-
-        });
-      },
+          }).catch(function (error) {
+            Swal.fire('!Oooo', 'No se puede procesar la imagen', 'error');
+          });
+        },
     }
 
 }

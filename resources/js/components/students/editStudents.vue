@@ -11,6 +11,13 @@
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
+                      <label>Número de Cédula</label>
+                      <input name="card" class="form-control" @change="consultCard" v-model="student.card" type="number" placeholder="Numero de Cédula">
+                    </fieldset>
+                    <br>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                    <fieldset>
                       <label>Nombre completo:</label>
                       <input name="name" class="form-control" v-model="student.name" type="text" placeholder="Nombre Completo Del Estudiante">
                     </fieldset>
@@ -21,20 +28,13 @@
                     <input name="nationality" class="form-control" v-model="student.nationality" type="text" placeholder="Nacionalidad" >
                   </fieldset>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                    <fieldset>
-                      <label>Número de Cédula</label>
-                      <input name="card" class="form-control" v-model="student.card" type="number" placeholder="Numero de Cédula">
-                    </fieldset>
-                    <br>
-                  </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <fieldset>
                     <label for="Birthdate">Fecha de Nacimiento:</label>
-                   <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">  
+                   <input name="birthdate" class="form-control" v-model="student.birthdate" type="date" placeholder="Fecha de Nacimiento">
                   </fieldset>
                   <br>
-                  </div>  
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                   <label for="legal_guardian_name">Nombre del Encargado Legal:</label>
@@ -52,7 +52,7 @@
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                   <label for="phone_number">Telefono de domicilio:</label>
-                    <input type="tel" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">  
+                    <input type="tel" class="form-control" v-model="student.phone_number" name="phone_number" placeholder="2777-0000">
                     </fieldset>
                     <br>
                     </div>
@@ -71,20 +71,20 @@
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Ingresos familiares:</label>
-                    <input name="total_income_family" class="form-control" v-model="student.total_income_family" type="text"  placeholder="₡ Total De Ingresos">
-                    </fieldset> 
+                    <input name="total_income_family" class="form-control" @change="divIncome" v-model="student.total_income_family" type="number"  placeholder="₡ Total De Ingresos">
+                    </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Total de miembros familiares:</label>
-                    <input name="family_member_total" class="form-control" v-model="student.family_member_total" type="text" placeholder="/ Numero de Miembros Familiares =">
-                    </fieldset> 
+                    <input name="family_member_total" class="form-control" @change="divIncome" v-model="student.family_member_total" type="number" placeholder="/ Numero de Miembros Familiares =">
+                    </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Total per capita:</label>
-                    <input name="total_per_capita" class="form-control" v-model="student.total_per_capita" type="text" placeholder=" ₡ = Per Cápita">
-                    </fieldset> 
+                    <input name="total_per_capita" class="form-control" @change="divIncome" v-model="student.total_per_capita" readonly type="number" placeholder=" ₡ = Per Cápita">
+                    </fieldset>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <label for="socioeconomic_status">Estado Socioeconomico:</label>
@@ -103,35 +103,35 @@
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia financiera:</label>
-                    <input name="financial_assistance" class="form-control" v-model="student.financial_assistance" type="text" placeholder="₡ Ayuda Financiera">
-                    </fieldset> 
+                    <input name="financial_assistance" class="form-control" @change="sumTotalIncome" v-model="student.financial_assistance" type="number" placeholder="₡ Ayuda Financiera">
+                    </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Asistencia voluntaria:</label>
-                    <input class="form-control" v-model="student.voluntary_assistance" type="text" placeholder="₡ Ayuda Voluntaria">
-                    </fieldset> 
+                    <input class="form-control" @change="sumTotalIncome" v-model="student.voluntary_assistance" type="number" placeholder="₡ Ayuda Voluntaria">
+                    </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Ingresos de renta:</label>
-                    <input name="rental_income" class="form-control" v-model="student.rental_income" type="text" placeholder="₡ Arquileres">
-                    </fieldset> 
+                    <input name="rental_income" class="form-control" @change="sumTotalIncome" v-model="student.rental_income" type="number" placeholder="₡ Arquileres">
+                    </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Otros ingresos:</label>
-                    <input name="others_income" class="form-control" v-model="student.others_income" type="text" placeholder="₡ Otros(Especifique)">
-                    </fieldset> 
+                    <input name="others_income" class="form-control" @change="sumTotalIncome" v-model="student.others_income" type="number" placeholder="₡ Otros(Especifique)">
+                    </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3">
                     <fieldset>
                       <label>Total de ingresos:</label>
-                    <input name="total_income" class="form-control" v-model="student.total_income" type="text" placeholder="₡ Ingresos Totales">
-                    </fieldset> 
+                    <input name="total_income" class="form-control" v-model="student.total_income" type="number" readonly placeholder="₡ Ingresos Totales">
+                    </fieldset>
                   </div>
                   <div class="col-lg-3 col-md-3 col-sm-3  form-check-inline" >
-                     <fieldset>
+                     <fieldset style=" padding-top:25px;">
                     <label>Clasificó:</label>
                     <input class="form-con" style="width: 2em; height: 2em; margin-top: .27em; vertical-align:top; border-radius:.25em" v-model="student.clasification" type="checkbox">
                        </fieldset>
@@ -142,7 +142,7 @@
                     </fieldset>
                   </div>
                 </div>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
@@ -156,14 +156,14 @@ export default {
     name: 'editStudents',
     components: {Swal},
     props:['data_student'],
-    
+
     data(){
       return{
         student: {
                 name: '',
                 nationality: '',
                 birthdate: '',
-                card: '',   
+                card: '',
                 salarial_constance: '',
                 legal_guardian_name: '',
                 legal_guardian_card: '',
@@ -181,8 +181,8 @@ export default {
                 total_income: '',
             },
             idStudent: ''
-      } 
-    },  
+      }
+    },
     created(){
       const Students = JSON.parse(this.data_student)
       this.idStudent = Students.id
@@ -210,6 +210,36 @@ export default {
 
 
     methods:{
+         sumTotalIncome(){
+            this.student.total_income = parseFloat(this.student.financial_assistance) + parseFloat(this.student.voluntary_assistance) + parseFloat(this.student.rental_income) + parseFloat(this.student.others_income)
+        },
+        divIncome(){
+             this.student.total_per_capita = parseFloat(this.student.total_income_family) / parseFloat(this.student.family_member_total)
+        },
+        consultCard(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.card)
+            .then(response => {
+
+
+                self.student.name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
+        },
+          consultCard2(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.student.legal_guardian_card)
+            .then(response => {
+
+
+                self.student.legal_guardian_name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
+        },
       send(){
         if(this.student.name === ''){
             Swal.fire({

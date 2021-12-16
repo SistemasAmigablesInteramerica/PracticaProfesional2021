@@ -34,6 +34,10 @@ Route::get('/registro-de-estudiantes', [App\Http\Controllers\Student\StudentCont
 Route::get('/lista-de-estudiantes', [App\Http\Controllers\Student\ListStudentController::class, 'create'])->name('list-studentsinfo');
 Route::get('/edit-student/{id}', [App\Http\Controllers\Student\StudentController::class, 'edit']);
 Route::get('/list-student', [App\Http\Controllers\Student\StudentController::class, 'list']);
+Route::get('/lista-studentcard/{card}', [App\Http\Controllers\Student\StudentController::class, 'findcard']);
+Route::get('/lista-studentid/{id}', [App\Http\Controllers\Student\StudentController::class, 'findid']);
+Route::get('/lista-studentcode/{code}', [App\Http\Controllers\Student\StudentController::class, 'findcode']);
+Route::post('/upload-file-salarial_constance', [StudentController::class, 'uploadFile']);
 Route::post('/store-student', [StudentController::class, 'store']);
 Route::put('/update-student/{id}', [StudentController::class, 'update']);
 Route::post('/upload-file-constants', [StudentController::class, 'uploadFile']);
@@ -91,7 +95,10 @@ Route::put('/update-studentrelative/{id}', [StudentRelativeController::class, 'u
 // Inicio de rutas de Asistencia
 Route::get('/registro-de-asistencias', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'create'])->name('insert-attendancehistory');
 Route::get('/list-attendanceHistory', [App\Http\Controllers\Attendance\AttendanceHistoryController::class, 'list']);
-Route::get('/edit-attendancehistory/{id}', [AttendanceHistoryController::class, 'edit']);
+Route::get('/check-attendancehistory/{id}', [AttendanceHistoryController::class, 'check']);
+Route::get('/attendance-auth', function(){
+    return Auth::user();
+});
 Route::get('/lista-de-asistencia', [App\Http\Controllers\Attendance\ListAttendanceHistoryController::class, 'create'])->name('list-attendancehistoryinfo');
 Route::post('/store-attendancehistory', [AttendanceHistoryController::class, 'store']);
 Route::put('/update-attendancehistory/{id}', [AttendanceHistoryController::class, 'update']);

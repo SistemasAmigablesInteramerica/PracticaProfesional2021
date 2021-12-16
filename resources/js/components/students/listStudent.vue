@@ -8,7 +8,6 @@
       <th scope="col">Nacionalidad</th>
       <th scope="col">Cédula</th>
       <th scope="col">Nombre del encargado legal</th>
-      <th scope="col">Luga de residencia</th>
       <th scope="col">Número de telefono</th>
       <th scope="col">Estado socioeconomico</th>
       <th scope="col">Total per capita</th>
@@ -24,12 +23,14 @@
       <th>{{ student.nationality }}</th>
       <th>{{ student.card }}</th>
       <th>{{ student.legal_guardian_name }}</th>
-      <th>{{ student.place_residence }}</th>
       <th>{{ student.phone_number }}</th>
-      <th>{{ student.socioeconomic_status }}</th>
+      <th v-if="student.socioeconomic_status === 'extreme_poverty'">Pobreza extrema</th>
+       <th v-if="student.socioeconomic_status === 'poverty'">Pobreza</th>
+        <th v-if="student.socioeconomic_status === 'vulnerability'">Vulberabilidad</th>
+         <th v-if="student.socioeconomic_status === 'not_poor'">No pobre</th>
       <th>{{ student.total_per_capita }}</th>
-      <th v-if="student.clasification === 1">Clasificó</th>
-      <th v-else>No Clasificó</th>
+      <th v-if="student.clasification === 1">Si</th>
+      <th v-else>No</th>
       <th>{{ student.total_income }}</th>
       <td><a class="btm btm-info btm-se" :href="edit(student.id)"><span class="fa fa-edit"></span></a></td>
     </tr>
@@ -59,3 +60,4 @@ export default {
     }
 }
 </script>
+

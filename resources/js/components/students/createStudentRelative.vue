@@ -2,21 +2,33 @@
 <section class="contact-us" id="contact">
         <div class="container">
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">  
+        <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row" style="min-height: 320px; border-radius: 20px;width: 100%;border: 10px solid white; background-color: white;margin-top:100px;">
             <div class="col-lg-12">
                 <div class="row">
                   <div class="col-lg-12 col-md-12 col-sm-12">
                     <h2>Agregar familiar de estudiante</h2>
-                  </div>  
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                  <fieldset>
+                    <label>Cédula del estudiante:</label>
+                    <input class="form-control" @change="StudentCard" v-model="card" type="number" id="guardian_card"  placeholder="Cedula del estudiante" min="1">
+                  </fieldset>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                     <fieldset>
                       <label>Estudiante:</label>
-                        <select class="form-control form-control-sm" v-model="StudentRelative.student_id">
-                        <option disabled value="">Seleccione estudiante</option>
+                        <select class="form-control" v-model="StudentRelative.student_id" >
+                        <option disabled value="" >Seleccione estudiante</option>
                         <option v-for="student in listStudent" :value="student.id" :key="student.id">{{ student.name }}</option>
                         </select>
                     </fieldset>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-sm-4">
+                  <fieldset>
+                    <label>Cédula del familiar:</label>
+                    <input name="guardian_card" class="form-control" @change="consultCard" v-model="StudentRelative.guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
+                  </fieldset>
                   </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
@@ -30,20 +42,15 @@
                       <input name="guaridan_profession" class="form-control" v-model="StudentRelative.guardian_profession" type="text" id="guaridan_profession" placeholder="Empleo del familiar">
                     </fieldset>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
-                  <fieldset>
-                    <label>Cédula:</label>
-                    <input name="guardian_card" class="form-control" v-model="StudentRelative.guardian_card" type="number" id="guardian_card"  placeholder="Cedula del familiar" min="1">
-                  </fieldset>
-                  </div>
+
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <label>Relación:</label>
                     <fieldset>
                       <input name="guardian_relation" class="form-control" v-model="StudentRelative.guardian_relation" type="text" id="guardian_relation"  placeholder="Parentesco del familiar">
-                    </fieldset> 
-                  </div>  
+                    </fieldset>
+                  </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
-                    <fieldset> 
+                    <fieldset>
                       <label>Escolaridad:</label>
                       <input name="scholarship" class="form-control" v-model="StudentRelative.scholarship" type="text" id="scholarship"  placeholder="Escolaridad">
                     </fieldset>
@@ -54,7 +61,7 @@
                   <label>Recibe ayuda financiera</label>
                   <input style="width: 1.5em; height: 1.5em; margin-top: .25em; vertical-align:top; border-radius:.25em" v-model="StudentRelative.guardian_receives_aid" type="checkbox" value="guardian_receives_aid">
                   </fieldset>
-                </div>  
+                </div>
                   <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                     <label>Total de ayuda finaciera:</label>
@@ -93,7 +100,7 @@ export default {
             StudentRelative: {
                 student_id: '',
                 guardian_name: '',
-                guaridan_profession: '',
+                guardian_profession: '',
                 guardian_card: '',
                 guardian_relation: '',
                 scholarship: '',
@@ -101,7 +108,8 @@ export default {
                 guardian_aid_total: '',
                 guardian_salary: ''
             },
-            listStudent:[]
+            listStudent:[],
+            card:'',
         }
     },
     created(){
@@ -111,6 +119,25 @@ export default {
       })
     },
     methods:{
+        consultCard(event){
+            let self = this;
+            axios.get("https://api.hacienda.go.cr/fe/ae?identificacion=" + self.StudentRelative.guardian_card)
+            .then(response => {
+
+                self.StudentRelative.guardian_name = response.data.nombre;
+            }).catch(function (error) {
+                var self = this;
+                Swal("!Ooop", error.response.data,message, "error");
+            })
+        },
+         StudentCard(){
+                axios.get('/lista-studentcard/' + this.card).then(response=>{
+                    response.data.forEach(student => {
+                        console.log(student.name)
+                        this.StudentRelative.student_id = student.id
+                    });
+                })
+            },
           send() {
             if(this.StudentRelative.student_id === ''){
                 Swal.fire({
@@ -186,8 +213,8 @@ export default {
             });
         }
 
-    }   
-    
+    }
+
 
 }
 </script>

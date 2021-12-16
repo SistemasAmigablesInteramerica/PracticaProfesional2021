@@ -1,5 +1,5 @@
 <template>
-      
+
 <section class="contact-us" id="contact">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="row" >
@@ -26,10 +26,16 @@
                             <input class="form-control" type="text" v-model="attendancehistory.check_out" placeholder="Salida">
                           </fieldset>
                         </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                          <fieldset>
+                            <label>Cedula:</label>
+                            <input class="form-control" type="text" @change="StudentCard" v-model="card" placeholder="Salida">
+                          </fieldset>
+                        </div>
                           <div class="col-lg-6 col-md-6 col-sm-6">
                           <fieldset>
                             <label>Estudiante:</label>
-                            <select class="form-control" v-model="attendancehistory.student_id">
+                            <select class="form-control" @change="StudentName" v-model="attendancehistory.student_id">
                               <option selected disabled value="">Seleccione un estudiante</option>
                               <option v-for="student in listStudent" :value="student.id" :key="student.id">{{student.name}}</option>
                             </select>
@@ -44,10 +50,10 @@
                             </select>
                           </fieldset>
                           </div>
-                          <div class="col-lg-12 col-md-12 col-sm-12">
-                          <fieldset style="margin-left:50%;">
-                            <label>Asistió:</label>
-                            <input class="form-check" style="width: 2em; height: 2em; margin-top: .25em; vertical-align:top; border-radius:.25em ;" type="checkbox" v-model="attendancehistory.attended" placeholder="Atendio">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                          <fieldset>
+                            <label>Codigo:</label>
+                            <input class="form-control" type="text" @change="StudentCode" v-model="code" placeholder="Salida">
                           </fieldset>
                         </div>
                           <div class="col-lg-12 col-md-12 col-sm-12">
@@ -55,12 +61,12 @@
                               <button type="submit" id="form-submit" @click="send" class="btn btn-primary">Agregar</button>
                             </fieldset>
                        </div>
-                    </div>        
+                    </div>
               </div>
            </div>
         </div>
 </section>
- 
+
 </template>
 
 <script>
@@ -82,9 +88,13 @@
             listStudent: [],
             listSubjectTeacher: [],
             listTeacher: [],
+            listAttendancehistory: [],
+            card: '',
+            code: '',
           }
         },
         created(){
+            // llama las listas del select
           axios.get('/list-student').then(response=>{
             this.listStudent = response.data
           });
@@ -94,13 +104,81 @@
           axios.get('/list-teacher').then(response=>{
             this.listTeacher = response.data
           });
-        var Dates = new Date().toISOString().slice(0,10);
-        this.attendancehistory.date = Dates;
-        var Hour = new Date().toLocaleTimeString();
-        this.attendancehistory.check_in = Hour;
+          axios.get('/list-attendanceHistory').then(response=>{
+            this.listAttendancehistory = response.data
+          });
+        //   fin de llamar select
+
+        },
+
+        mounted() {
+
+            //  Ejecuta la funcion GetHour cada segundo
+            window.setInterval(() => {
+                this.GetHour();
+            }, 1000);
+
         },
 
         methods: {
+
+            // Consiguen la fecha y hora actual
+            GetHour()
+            {
+
+                var Dates = new Date().toISOString().slice(0,10);
+                this.attendancehistory.date = Dates;
+                var Hour = new Date().toLocaleTimeString();
+                this.attendancehistory.check_in = Hour;
+            },
+
+            // Estos codigos sirve para autocompletar los datos del estudiantes utilizando 3 metodos diferentes, un codigo, el nombre, o la cedula.
+            StudentCode(){
+                axios.get('/lista-studentcode/' + this.code).then(response=>{
+                    response.data.forEach(student=>{
+                        console.log(student.code)
+                        this.card = student.card
+                        this.attendancehistory.student_id = student.id
+                    });
+                })
+            },
+
+            StudentName(){
+                axios.get('/lista-studentid/' + this.attendancehistory.student_id).then(response=>{
+                    response.data.forEach(student=>{
+                        console.log(student.card)
+                        this.card = student.card
+                        this.code = student.code
+                    })
+                })
+            },
+
+            StudentCard(){
+                axios.get('/lista-studentcard/' + this.card).then(response=>{
+                    response.data.forEach(student => {
+                        console.log(student.name)
+                        this.attendancehistory.student_id = student.id
+                        this.code = student.code
+                    });
+                })
+            },
+            // Fin de los codigos esos
+
+            // Esta cosa no sirve, ayuda!!!!!
+            StudentFind(){
+                if(attendancehistory.name === listAttendancehistory.student.name && Dates === listAttendancehistory.attendancehistory.date){
+                    Swal.fire({
+                        title: 'Error',
+                        icon: 'error',
+                        text: 'El estudiante se encuentra en el comedor'
+                    }).then((result)=>{
+                        if (result.isConfirmed){
+                            this.attendancehistory.student_id = ''
+                        }
+                    })
+                }
+            },
+
           send(){
             axios.post('/store-attendancehistory', this.attendancehistory).then(response =>{
               this.attendancehistory.check_in = '',
@@ -110,7 +188,7 @@
               Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
-                    text: 'Se ha registrado con éxito.',  
+                    text: 'Se ha registrado con éxito.',
                 });
             }).catch(error => {
                     Swal.fire({
