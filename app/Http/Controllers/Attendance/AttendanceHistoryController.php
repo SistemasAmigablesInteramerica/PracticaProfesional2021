@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Attendance;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\AttendanceHistory;
 use Illuminate\Support\Facades\Gate;
@@ -35,7 +36,9 @@ class AttendanceHistoryController extends Controller
 
     public function check($id)
     {
-    return AttendanceHistory::where('id', $id)->get();
+        AttendanceHistory::find($id)->update(['check_out'=>Carbon::now()->toTimeString()]);
+
+        return AttendanceHistory::with('student','teacher')->get();
     }
 
     public function update(Request $request, $id)

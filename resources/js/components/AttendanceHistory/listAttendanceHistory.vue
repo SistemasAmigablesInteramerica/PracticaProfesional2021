@@ -20,7 +20,7 @@
       <label class="label label-primary p-1">{{attendancehistory.student.name}}</label>
       </th>
       <th>{{ attendancehistory.teacher.names }}</th>
-     <td><a class="btn btn-danger btn-se" @click="CheckOut(attendancehistory.id)"><span class="fa fa-sign-out"></span></a></td>
+     <td><a v-if="!attendancehistory.check_out" class="btn btn-danger btn-se" @click="CheckOut(attendancehistory.id)"><span class="fa fa-sign-out"></span></a></td>
     </tr>
   </tbody>
     </table>
@@ -52,27 +52,16 @@ export default {
       CheckOut(id)
       {
         axios.get('/check-attendancehistory/' + id).then(response=>{
-            response.data.forEach(attendance => {
-            var Hour = new Date().toLocaleTimeString()
-            attendance.check_out = Hour
-            console.log(attendance)
-            axios.put('/update-attendancehistory/' + id, Object.assign({}, attendance, {created_at: undefined}, {updated_at: undefined})).then(response=>{
-                this.attendancehistory.check_out = attendance.check_out
-                Swal.fire({
-                    icon: 'success',
-                    text: 'Prueba',
-                    title: 'Exito'
-                })
+          this.listAttendancehistory = response.data
             }).catch(error=>{
                 Swal.fire({
                     icon: 'error',
                     text: 'Prueba',
                     title: 'Error'
                 })
-            })
+
             });
 
-        })
       },
 
     }

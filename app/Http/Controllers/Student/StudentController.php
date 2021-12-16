@@ -6,6 +6,7 @@ use App\Entities\Config\Sysconf;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -25,14 +26,17 @@ class StudentController extends Controller
     }
 
     public function create()
-    {
-        return view('students/insert-studentsinfo');
+    { //where('user_id',Auth::user()->id)->
+        $student = Student::first();
+        return view('students/insert-studentsinfo',compact('student'));
     }
 
     public function store(Request $request)
     {
+        $data = $request->all() ;
+        $data['user_id']= Auth::user()->id;
         $student = new Student();
-        $student->fill($request->all());
+        $student->fill($data);
         $student->save();
         return $student;
     }

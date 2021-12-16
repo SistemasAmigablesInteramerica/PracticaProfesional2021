@@ -2311,9 +2311,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'listAttendancehistory',
@@ -2339,28 +2336,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get('/check-attendancehistory/' + id).then(function (response) {
-        response.data.forEach(function (attendance) {
-          var Hour = new Date().toLocaleTimeString();
-          attendance.check_out = Hour;
-          console.log(attendance);
-          axios.put('/update-attendancehistory/' + id, Object.assign({}, attendance, {
-            created_at: undefined
-          }, {
-            updated_at: undefined
-          })).then(function (response) {
-            _this2.attendancehistory.check_out = attendance.check_out;
-            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-              icon: 'success',
-              text: 'Prueba',
-              title: 'Exito'
-            });
-          })["catch"](function (error) {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-              icon: 'error',
-              text: 'Prueba',
-              title: 'Error'
-            });
-          });
+        _this2.listAttendancehistory = response.data;
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          text: 'Prueba',
+          title: 'Error'
         });
       });
     }
@@ -5137,6 +5118,7 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Swal: (sweetalert2__WEBPACK_IMPORTED_MODULE_0___default())
   },
+  props: ['student'],
   data: function data() {
     return {
       student: {
@@ -5166,6 +5148,11 @@ __webpack_require__.r(__webpack_exports__);
       itemsNameFile: '',
       formData: ''
     };
+  },
+  computed: {
+    dataStudent: function dataStudent() {
+      return JSON.parse(this.student);
+    }
   },
   methods: {
     sumTotalIncome: function sumTotalIncome() {
@@ -5681,6 +5668,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'editStudentrelative',
@@ -5725,6 +5718,16 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
+    StudentCard: function StudentCard() {
+      var _this2 = this;
+
+      axios.get('/lista-studentcard/' + this.card).then(function (response) {
+        response.data.forEach(function (student) {
+          console.log(student.name);
+          _this2.StudentRelative.student_id = student.id;
+        });
+      });
+    },
     send: function send() {
       if (this.StudentRelative.student_id === '') {
         sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
@@ -6986,6 +6989,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -49687,23 +49691,21 @@ var render = function () {
                 _vm._v(" "),
                 _c("th", [_vm._v(_vm._s(attendancehistory.teacher.names))]),
                 _vm._v(" "),
-                attendancehistory.attended === 1
-                  ? _c("th", [_vm._v("Atendio")])
-                  : _c("th", [_vm._v("No Atendio")]),
-                _vm._v(" "),
                 _c("td", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-danger btn-se",
-                      on: {
-                        click: function ($event) {
-                          return _vm.CheckOut(attendancehistory.id)
+                  !attendancehistory.check_out
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger btn-se",
+                          on: {
+                            click: function ($event) {
+                              return _vm.CheckOut(attendancehistory.id)
+                            },
+                          },
                         },
-                      },
-                    },
-                    [_c("span", { staticClass: "fa fa-sign-out" })]
-                  ),
+                        [_c("span", { staticClass: "fa fa-sign-out" })]
+                      )
+                    : _vm._e(),
                 ]),
               ])
             }
@@ -49730,8 +49732,6 @@ var staticRenderFns = [
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Estudiante")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Docente")]),
-        _vm._v(" "),
-        _c("th", { attrs: { scope: "col" } }, [_vm._v("Asistió")]),
         _vm._v(" "),
         _c("th", { attrs: { scope: "col" } }, [_vm._v("Acciónes")]),
       ]),
@@ -53865,6 +53865,9 @@ var render = function () {
               [
                 _c("div", { staticClass: "col-lg-12 col-md-12 col-sm-12" }, [
                   _c("div", { staticClass: "row" }, [
+                    _vm._v(
+                      " " + _vm._s(_vm.dataStudent) + "\n                  "
+                    ),
                     _vm._m(0),
                     _vm._v(" "),
                     _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
@@ -54574,7 +54577,6 @@ var render = function () {
                           staticClass: "form-control",
                           attrs: {
                             type: "number",
-                            id: "guardian_card",
                             placeholder: "Cedula del estudiante",
                             min: "1",
                           },
@@ -54651,7 +54653,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Cédula del familiar:")]),
                         _vm._v(" "),
@@ -54692,7 +54694,7 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre:")]),
                         _vm._v(" "),
@@ -55095,7 +55097,40 @@ var render = function () {
                   _c("div", { staticClass: "row" }, [
                     _vm._m(0),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
+                      _c("fieldset", [
+                        _c("label", [_vm._v("Cédula del estudiante:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.card,
+                              expression: "card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            type: "number",
+                            placeholder: "Cedula del estudiante",
+                            min: "1",
+                          },
+                          domProps: { value: _vm.card },
+                          on: {
+                            change: _vm.StudentCard,
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.card = $event.target.value
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Estudiante:")]),
                         _vm._v(" "),
@@ -55154,7 +55189,47 @@ var render = function () {
                       ]),
                     ]),
                     _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
+                      _c("fieldset", [
+                        _c("label", [_vm._v("Cédula del familiar:")]),
+                        _vm._v(" "),
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.StudentRelative.guardian_card,
+                              expression: "StudentRelative.guardian_card",
+                            },
+                          ],
+                          staticClass: "form-control",
+                          attrs: {
+                            name: "guardian_card",
+                            type: "number",
+                            id: "guardian_card",
+                            placeholder: "Cedula del familiar",
+                            min: "1",
+                          },
+                          domProps: {
+                            value: _vm.StudentRelative.guardian_card,
+                          },
+                          on: {
+                            input: function ($event) {
+                              if ($event.target.composing) {
+                                return
+                              }
+                              _vm.$set(
+                                _vm.StudentRelative,
+                                "guardian_card",
+                                $event.target.value
+                              )
+                            },
+                          },
+                        }),
+                      ]),
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-lg-6 col-md-6 col-sm-6" }, [
                       _c("fieldset", [
                         _c("label", [_vm._v("Nombre:")]),
                         _vm._v(" "),
@@ -55224,46 +55299,6 @@ var render = function () {
                               _vm.$set(
                                 _vm.StudentRelative,
                                 "guardian_profession",
-                                $event.target.value
-                              )
-                            },
-                          },
-                        }),
-                      ]),
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-4 col-md-4 col-sm-4" }, [
-                      _c("fieldset", [
-                        _c("label", [_vm._v("Cédula:")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.StudentRelative.guardian_card,
-                              expression: "StudentRelative.guardian_card",
-                            },
-                          ],
-                          staticClass: "form-control",
-                          attrs: {
-                            name: "guardian_card",
-                            type: "number",
-                            id: "guardian_card",
-                            placeholder: "Cedula del familiar",
-                            min: "1",
-                          },
-                          domProps: {
-                            value: _vm.StudentRelative.guardian_card,
-                          },
-                          on: {
-                            input: function ($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.StudentRelative,
-                                "guardian_card",
                                 $event.target.value
                               )
                             },
@@ -58308,21 +58343,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table table-light table-md" }, [
-    _c(
-      "div",
-      {
-        staticClass: "table-responsive-sm",
-        staticStyle: {
-          "min-height": "400px",
-          "border-radius": "20px",
-          width: "100%",
-          border: "10px solid white",
-          "background-color": "white",
-          "margin-top": "100px",
-        },
+  return _c(
+    "div",
+    {
+      staticStyle: {
+        "min-height": "400px",
+        "border-radius": "20px",
+        "max-width": "100%",
+        border: "10px solid white",
+        "background-color": "white",
+        "margin-top": "100px",
+        "overflow-x": "scroll",
+        overflow: "scroll",
       },
-      [
+    },
+    [
+      _c("table", { staticClass: "table table-light table-md" }, [
         _vm._m(0),
         _vm._v(" "),
         _c(
@@ -58371,9 +58407,9 @@ var render = function () {
           }),
           0
         ),
-      ]
-    ),
-  ])
+      ]),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
