@@ -130,6 +130,7 @@
                 this.attendancehistory.date = Dates;
                 var Hour = new Date().toLocaleTimeString();
                 this.attendancehistory.check_in = Hour;
+
             },
 
             // Estos codigos sirve para autocompletar los datos del estudiantes utilizando 3 metodos diferentes, un codigo, el nombre, o la cedula.

@@ -80,15 +80,4 @@ class StudentController extends Controller
         }
     }
 
-    public function uploadFile(Request $request)
-    {
-        if($request->hasFile('itemsFile'))
-        {
-            $file = $request->file('itemsFile');
-            $name = $file->getClientOriginalName();
-            $file->storeAs('constancias/', $name);
-            return response()->json('constancias/'. $name, 200);
-        }
-    }
-
 }

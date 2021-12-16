@@ -8,7 +8,6 @@
       <th scope="col">Salida</th>
       <th scope="col">Estudiante</th>
       <th scope="col">Docente</th>
-      <th scope="col">Asistió</th>
       <th scope="col">Acciónes</th>
     </tr>
   </thead>
@@ -21,8 +20,6 @@
       <label class="label label-primary p-1">{{attendancehistory.student.name}}</label>
       </th>
       <th>{{ attendancehistory.teacher.names }}</th>
-      <th v-if="attendancehistory.attended === 1">Atendio</th>
-      <th v-else>No Atendio</th>
      <td><a class="btn btn-danger btn-se" @click="CheckOut(attendancehistory.id)"><span class="fa fa-sign-out"></span></a></td>
     </tr>
   </tbody>
