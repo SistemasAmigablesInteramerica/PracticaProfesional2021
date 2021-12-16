@@ -2336,28 +2336,12 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.get('/check-attendancehistory/' + id).then(function (response) {
-        response.data.forEach(function (attendance) {
-          var Hour = new Date().toLocaleTimeString();
-          attendance.check_out = Hour;
-          console.log(attendance);
-          axios.put('/update-attendancehistory/' + id, Object.assign({}, attendance, {
-            created_at: undefined
-          }, {
-            updated_at: undefined
-          })).then(function (response) {
-            _this2.attendancehistory.check_out = attendance.check_out;
-            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-              icon: 'success',
-              text: 'Prueba',
-              title: 'Exito'
-            });
-          })["catch"](function (error) {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
-              icon: 'error',
-              text: 'Prueba',
-              title: 'Error'
-            });
-          });
+        _this2.listAttendancehistory = response.data;
+      })["catch"](function (error) {
+        sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+          icon: 'error',
+          text: 'Prueba',
+          title: 'Error'
         });
       });
     }
@@ -6999,6 +6983,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -49701,18 +49686,20 @@ var render = function () {
                 _c("th", [_vm._v(_vm._s(attendancehistory.teacher.names))]),
                 _vm._v(" "),
                 _c("td", [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "btn btn-danger btn-se",
-                      on: {
-                        click: function ($event) {
-                          return _vm.CheckOut(attendancehistory.id)
+                  !attendancehistory.check_out
+                    ? _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-danger btn-se",
+                          on: {
+                            click: function ($event) {
+                              return _vm.CheckOut(attendancehistory.id)
+                            },
+                          },
                         },
-                      },
-                    },
-                    [_c("span", { staticClass: "fa fa-sign-out" })]
-                  ),
+                        [_c("span", { staticClass: "fa fa-sign-out" })]
+                      )
+                    : _vm._e(),
                 ]),
               ])
             }
@@ -58347,21 +58334,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table table-light table-md" }, [
-    _c(
-      "div",
-      {
-        staticClass: "table-responsive-sm",
-        staticStyle: {
-          "min-height": "400px",
-          "border-radius": "20px",
-          width: "100%",
-          border: "10px solid white",
-          "background-color": "white",
-          "margin-top": "100px",
-        },
+  return _c(
+    "div",
+    {
+      staticStyle: {
+        "min-height": "400px",
+        "border-radius": "20px",
+        "max-width": "100%",
+        border: "10px solid white",
+        "background-color": "white",
+        "margin-top": "100px",
+        "overflow-x": "scroll",
+        overflow: "scroll",
       },
-      [
+    },
+    [
+      _c("table", { staticClass: "table table-light table-md" }, [
         _vm._m(0),
         _vm._v(" "),
         _c(
@@ -58410,9 +58398,9 @@ var render = function () {
           }),
           0
         ),
-      ]
-    ),
-  ])
+      ]),
+    ]
+  )
 }
 var staticRenderFns = [
   function () {
