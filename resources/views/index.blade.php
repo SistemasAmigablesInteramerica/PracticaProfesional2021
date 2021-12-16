@@ -11,11 +11,11 @@
         <div class="video-overlay header-text">
             <div class="container">
                 <div class="row">
-                    <div style="display: flex; justify-content: center; align-items: center; color: white">
+                    <div style="display: flex; justify-content: center; align-items: center; ">
                         @auth
                             {{-- Aqui se escribe el mensaje que sale en la pagina principal despues de iniciar sesión --}}
-                            <h6>Hola {{Auth::user()->name}}</h6>
-                            <h2>Bienvenido a FullPass</h2>
+                            <h6 class="text-white">Hola {{Auth::user()->name}}</h6>
+                            <h2 class="text-white">Bienvenido a FullPass</h2>
                         @endauth
                         {{-- Aqui inicia el form de iniciar sesión --}}
                         @guest
