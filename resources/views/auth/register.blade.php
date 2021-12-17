@@ -36,6 +36,20 @@
                         </div>
 
                         <div class="form-group row card_register__div">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Cédula') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="card" type="number" class="form-control @error('card') is-invalid @enderror" name="card" required autocomplete="card">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row card_register__div">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electrónico') }}</label>
 
                             <div class="col-md-6">

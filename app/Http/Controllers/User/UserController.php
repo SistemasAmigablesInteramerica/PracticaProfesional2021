@@ -18,7 +18,7 @@ class UserController extends Controller
 
      public function create()
      {
-     abort_if(Gate::denies('create_user'), '403', 'No tiene permiso para acceder a esta pagina');
+     abort_if(Gate::denies('create_roles'), '403', 'No tiene permiso para acceder a esta pagina');
        return view('roles/insert-rolesinfo');
      }
 
@@ -33,7 +33,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::where('id',$id)->update($request->all());
-        return $roles;
+        return $user;
     }
     public function list()
     {
