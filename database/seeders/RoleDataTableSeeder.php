@@ -16,5 +16,6 @@ class RoleDataTableSeeder extends Seeder
     {
         //
         Role::create(['name' => 'SuperAdministrador']);
+        Role::create(['name' => 'Estudiante']);
     }
 }
