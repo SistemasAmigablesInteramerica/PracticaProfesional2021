@@ -8,7 +8,7 @@
       <th scope="col">Apellido</th>
       <th scope="col">Cédula</th>
       <th scope="col">Fecha de nacimiento</th>
-      <th scope="col">Edad</th>
+      <!--<th scope="col">Edad</th>-->
       <th scope="col">Especialidad</th>
       <th scope="col">Correo eletornico</th>
       <th scope="col">Genero</th>
@@ -24,7 +24,7 @@
       <th>{{ teacher.last_names }}</th>
       <th>{{ teacher.identification }}</th>
       <th>{{ teacher.birthdate }}</th>
-      <th>{{ teacher.age }}</th>
+      <!--<th>{{ teacher.age }}</th>-->
       <th>{{ teacher.speciality }}</th>
       <th>{{ teacher.email }}</th>
       <th>{{ teacher.gender }}</th>

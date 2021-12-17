@@ -27,12 +27,12 @@
                       <input name="identification" v-model="teacher.identification" class="form-control" type="number"  placeholder="No.Cédula" pattern="" required="">
                     </fieldset>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                 <!-- <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                     <label for="Birthdate">Fecha de nacimiento:</label>
-                   <input name="birthdate" v-model="teacher.birthdate" class="form-control" type="date" placeholder="Fecha de Nacimiento" min="1995-01-01">  
+                   <input name="birthdate" v-model="teacher.birthdate" class="form-control" type="date" placeholder="Fecha de Nacimiento" min="1995-01-01">
                   </fieldset>
-                  </div>
+                  </div>-->
                   <div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                   <label for="Birthdate">Edad:</label>
@@ -48,7 +48,7 @@
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                         <label for="email">Correro electronico:</label>
-                         <input type="email" v-model="teacher.email" id="email" class="form-control" name="email" placeholder="ejemplo@gmail.com">  
+                         <input type="email" v-model="teacher.email" id="email" class="form-control" name="email" placeholder="ejemplo@gmail.com">
                     </fieldset>
                    </div>
                    <div class="col-lg-4 col-md-4 col-sm-4">
@@ -64,11 +64,11 @@
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                         <label for="contact_number">Número de telefono:</label>
-                         <input class="form-control" type="tel" v-model="teacher.contact_number" id="contact_number" name="contact_number" placeholder="7777-7777">  
+                         <input class="form-control" type="tel" v-model="teacher.contact_number" id="contact_number" name="contact_number" placeholder="7777-7777">
                     </fieldset>
                   </div>
                   <div class="col-lg-12 col-md-12 col-sm-12">
-                    <fieldset style="text-align:center; padding-top:70px;">  
+                    <fieldset style="text-align:center; padding-top:70px;">
                       <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Actualizar</button>
                     </fieldset>
                   </div>
@@ -102,8 +102,8 @@ export default {
                 contact_number: '',
 
             },
-            idTeacher: '' 
-        }   
+            idTeacher: ''
+        }
     },
     created(){
         const teachers = JSON.parse(this.data_teacher)

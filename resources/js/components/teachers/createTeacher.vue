@@ -33,17 +33,17 @@
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                     <label for="Birthdate">Fecha de nacimiento:</label>
-                   <input name="birthdate" v-model="teacher.birthdate" class="form-control" type="date" placeholder="Fecha de Nacimiento" min="1995-01-01">  
+                   <input name="birthdate" v-model="teacher.birthdate" class="form-control" type="date" placeholder="Fecha de Nacimiento" min="1995-01-01">
                   </fieldset>
                   <br>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-sm-4">
+                   <!--<div class="col-lg-4 col-md-4 col-sm-4">
                   <fieldset>
                   <label for="Birthdate">Edad:</label>
                       <input name="age" v-model="teacher.age" class="form-control" type="number" placeholder="Edad" required="">
                     </fieldset>
                     <br>
-                  </div>
+                  </div>-->
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                       <label for="Especialidad">Especialidad:</label>
@@ -54,7 +54,7 @@
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                         <label for="email">Correro electronico:</label>
-                         <input class="form-control" type="email" v-model="teacher.email" id="email" name="email" placeholder="ejemplo@gmail.com">  
+                         <input class="form-control" type="email" v-model="teacher.email" id="email" name="email" placeholder="ejemplo@gmail.com">
                     </fieldset>
                     <br>
                    </div>
@@ -72,12 +72,12 @@
                   <div class="col-lg-4 col-md-4 col-sm-4">
                     <fieldset>
                         <label for="contact_number">Número de telefono:</label>
-                         <input class="form-control" type="tel" v-model="teacher.contact_number" id="contact_number" name="contact_number" placeholder="77777777">  
+                         <input class="form-control" type="tel" v-model="teacher.contact_number" id="contact_number" name="contact_number" placeholder="77777777">
                     </fieldset>
                     <br>
                   </div>
                   <div class="col-lg-12">
-                    <fieldset style="text-align:center; padding-top:35px;">  
+                    <fieldset style="text-align:center; padding-top:35px;">
                       <button type="submit" @click="send" id="form-submit" class="btn btn-primary">Registrar</button>
                     </fieldset>
                     <br>
@@ -89,7 +89,7 @@
       </div>
     </div>
     </section>
-    
+
 </template>
 
 <script>
@@ -111,8 +111,8 @@ export default {
                 gender: '',
                 contact_number: '',
 
-            } 
-        }   
+            }
+        }
     },
     methods: {
         send(){
@@ -189,7 +189,7 @@ export default {
             return false
           }
 
-          
+
             axios.post('/store-teacher', this.teacher).then(response => {
               this.teacher.names = '',
               this.teacher.last_names = '',
@@ -200,7 +200,7 @@ export default {
               this.teacher.speciality = '',
               this.teacher.gender = '',
               this.teacher.contact_number = '',
-              
+
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos registrados',
